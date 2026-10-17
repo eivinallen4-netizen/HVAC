@@ -1,3 +1,4 @@
+import { ArtDefs } from "@/components/Art";
 import { Header } from "@/components/Header";
 import { RevealOnScroll } from "@/components/Reveal";
 import {
@@ -21,6 +22,7 @@ import {
 export default function Home() {
   return (
     <>
+      <ArtDefs />
       <Header />
       <main id="top">
         <Hero />

@@ -718,8 +718,8 @@ h5 {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 20px;
-  padding-top: 22px;
-  padding-bottom: 22px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 .trust-item {
   display: flex;
@@ -750,8 +750,8 @@ h5 {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding-top: 34px;
+  padding-bottom: 34px;
 }
 .emerg-ic {
   flex: none;
@@ -1616,6 +1616,566 @@ h5 {
   }
 }
 
+/* ════════════════════ Fire & ice art layer ════════════════════
+   Flames, frost, embers and heat shimmer drawn from the logo.
+   All decorative: sits behind content, never takes pointer events. */
+.art-sec {
+  overflow: hidden;
+  isolation: isolate;
+}
+.art-sec > .wrap {
+  position: relative;
+  z-index: 1;
+}
+.sec-art,
+.embers,
+.frost,
+.shimmer,
+.ribbons,
+.faq-emblem,
+.final-emblem,
+.foot-emblem,
+.emerg-flake {
+  position: absolute;
+  pointer-events: none;
+}
+.sec-art {
+  inset: 0;
+  z-index: 0;
+}
+.art-img {
+  position: absolute;
+  height: auto;
+}
+
+/* ─── Section ornament ─── */
+.fi-rule {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.sec-head.center .fi-rule {
+  justify-content: center;
+}
+.fi-line {
+  display: block;
+  width: 80px;
+  height: 2px;
+  border-radius: 2px;
+}
+.fi-line.warm {
+  background: linear-gradient(90deg, transparent, var(--amber) 60%, var(--red));
+}
+.fi-line.cool {
+  background: linear-gradient(90deg, var(--blue), var(--blue-hi) 40%, transparent);
+}
+.fi-rule .art-emblem {
+  filter: drop-shadow(0 0 10px rgba(251, 176, 64, 0.35)) drop-shadow(0 0 10px rgba(47, 169, 207, 0.35));
+  animation: emblem-breathe 5s ease-in-out infinite;
+}
+.fi-rule .art-flame {
+  animation: flicker 1.8s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+.fi-rule .art-snow {
+  animation: spin 18s linear infinite;
+}
+@keyframes emblem-breathe {
+  50% {
+    transform: scale(1.08) rotate(6deg);
+  }
+}
+@keyframes flicker {
+  0%,
+  100% {
+    transform: scale(1, 1) skewX(0);
+  }
+  30% {
+    transform: scale(0.94, 1.08) skewX(-3deg);
+  }
+  60% {
+    transform: scale(1.04, 0.95) skewX(2deg);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Embers (rise) & frost (fall) ─── */
+.embers,
+.frost {
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+.embers span {
+  position: absolute;
+  left: var(--x);
+  bottom: -12px;
+  width: var(--s);
+  height: var(--s);
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff3d1 0%, var(--amber) 40%, rgba(226, 55, 43, 0) 72%);
+  box-shadow: 0 0 8px 2px rgba(251, 140, 40, 0.55);
+  opacity: 0;
+  animation: ember-rise var(--d) linear var(--delay) infinite;
+}
+@keyframes ember-rise {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.95;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(var(--drift), -900px) scale(0.3);
+    opacity: 0;
+  }
+}
+.frost span {
+  position: absolute;
+  left: var(--x);
+  top: -30px;
+  opacity: 0;
+  animation: frost-fall var(--d) linear var(--delay) infinite;
+}
+.frost .art-snow {
+  display: block;
+  filter: drop-shadow(0 0 6px rgba(102, 212, 251, 0.6));
+}
+@keyframes frost-fall {
+  0% {
+    transform: translate(0, 0) rotate(0);
+    opacity: 0;
+  }
+  12% {
+    opacity: var(--o);
+  }
+  85% {
+    opacity: var(--o);
+  }
+  100% {
+    transform: translate(var(--drift), 900px) rotate(240deg);
+    opacity: 0;
+  }
+}
+
+/* ─── Heat shimmer & ribbons ─── */
+.shimmer path,
+.ribbons path {
+  fill: none;
+  stroke-linecap: round;
+}
+.shimmer path {
+  stroke-width: 1.6;
+  animation: shimmer-drift 6s ease-in-out infinite alternate;
+}
+.shimmer-warm path {
+  stroke: rgba(251, 176, 64, 0.22);
+}
+.shimmer-cool path {
+  stroke: rgba(102, 212, 251, 0.06);
+}
+.shimmer-white path {
+  stroke: rgba(255, 255, 255, 0.16);
+}
+@keyframes shimmer-drift {
+  from {
+    transform: translate(-30px, 6px);
+  }
+  to {
+    transform: translate(30px, -6px);
+  }
+}
+.ribbons {
+  left: 0;
+  width: 100%;
+  height: 300px;
+  z-index: 0;
+}
+.ribbons path {
+  stroke-width: 2;
+  stroke-dasharray: 14 22;
+  animation: ribbon-flow 9s linear infinite;
+}
+.ribbons path:nth-child(2) {
+  stroke-width: 1.2;
+  animation-duration: 13s;
+}
+.ribbons path:nth-child(3) {
+  stroke-width: 1;
+  stroke-dasharray: 4 18;
+  animation-duration: 7s;
+}
+.ribbons-cool path {
+  stroke: rgba(102, 212, 251, 0.22);
+}
+.ribbons-warm path {
+  stroke: rgba(251, 176, 64, 0.2);
+}
+@keyframes ribbon-flow {
+  to {
+    stroke-dashoffset: -360;
+  }
+}
+
+/* ─── Hero ─── */
+.hero-embers {
+  right: 50%;
+  z-index: -1;
+}
+.hero-frost {
+  left: 55%;
+  z-index: -1;
+}
+.hero-form {
+  position: relative;
+}
+.hero-form > :not(.hero-orb) {
+  position: relative;
+  z-index: 1;
+}
+.hero-orb {
+  position: absolute;
+  z-index: 0;
+  width: 820px;
+  aspect-ratio: 1;
+  top: 50%;
+  left: 52%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: orb-float 9s ease-in-out infinite;
+}
+.hero-orb img {
+  object-fit: contain;
+  filter: drop-shadow(0 0 60px rgba(251, 140, 40, 0.25)) drop-shadow(0 0 60px rgba(47, 169, 207, 0.25));
+}
+.hero-orb::before {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 50%, rgba(251, 140, 40, 0.3), transparent 60%),
+    radial-gradient(circle at 70% 50%, rgba(47, 169, 207, 0.3), transparent 60%);
+  filter: blur(40px);
+  z-index: -1;
+}
+@keyframes orb-float {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) rotate(0);
+  }
+  50% {
+    transform: translate(-50%, -53%) rotate(4deg);
+  }
+}
+
+/* ─── Emergency strip ─── */
+.emerg {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.emerg-row {
+  position: relative;
+  z-index: 1;
+}
+.emerg-shimmer {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+.emerg-flake {
+  right: 22%;
+  top: 50%;
+  margin-top: -110px;
+  opacity: 0.12;
+  z-index: 0;
+  animation: spin 40s linear infinite;
+}
+.emerg-ic svg {
+  animation: spin 12s linear infinite;
+}
+
+/* ─── Services ─── */
+.svc-flame {
+  width: 340px;
+  left: -90px;
+  bottom: -40px;
+  opacity: 0.32;
+  animation: flicker 3.2s ease-in-out infinite;
+  transform-origin: 50% 100%;
+}
+.svc-ice {
+  width: 380px;
+  right: -110px;
+  top: 40px;
+  opacity: 0.26;
+  animation: spin 90s linear infinite;
+}
+.card-embers {
+  z-index: 1;
+}
+.card-embers span {
+  animation-name: ember-rise-card;
+}
+@keyframes ember-rise-card {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--drift), -260px) scale(0.3);
+    opacity: 0;
+  }
+}
+.svc.hot {
+  box-shadow: var(--shadow), 0 0 0 1px rgba(251, 176, 64, 0.15), 0 20px 50px -20px rgba(226, 55, 43, 0.45);
+}
+.svc .ic-float {
+  z-index: 2;
+}
+
+/* ─── Difference ─── */
+.diff-air {
+  width: 900px;
+  right: -200px;
+  top: -60px;
+  opacity: 0.22;
+}
+.diff-ribbons {
+  bottom: 0;
+}
+
+/* ─── Why Wave ─── */
+.ic-box.tone-warm {
+  border-color: rgba(251, 176, 64, 0.35);
+  background: radial-gradient(circle at 50% 120%, rgba(226, 55, 43, 0.28), rgba(251, 176, 64, 0.06) 70%);
+  box-shadow: 0 0 22px -6px rgba(251, 140, 40, 0.5);
+}
+.ic-box.tone-cool {
+  color: var(--blue-hi);
+  border-color: rgba(102, 212, 251, 0.35);
+  background: radial-gradient(circle at 50% -20%, rgba(102, 212, 251, 0.25), rgba(47, 169, 207, 0.05) 70%);
+  box-shadow: 0 0 22px -6px rgba(102, 212, 251, 0.5);
+}
+.why-card {
+  overflow: hidden;
+}
+.why-glyph {
+  position: absolute;
+  right: -14px;
+  top: -14px;
+  opacity: 0.08;
+  transition: opacity 0.4s, transform 0.6s var(--ease);
+  pointer-events: none;
+}
+.why-card:hover .why-glyph {
+  opacity: 0.22;
+  transform: scale(1.12) rotate(-8deg);
+}
+
+/* ─── Process: warm → cool flow line ─── */
+.steps {
+  position: relative;
+}
+.steps-flow {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  top: 44px;
+  height: 2px;
+  z-index: 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--red), var(--amber) 30%, var(--blue) 70%, var(--blue-hi));
+  opacity: 0.55;
+  pointer-events: none;
+}
+.steps-flow i {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  animation: flow-dot 6s ease-in-out infinite;
+}
+@keyframes flow-dot {
+  0% {
+    left: 0;
+    box-shadow: 0 0 14px 4px rgba(251, 140, 40, 0.8);
+  }
+  100% {
+    left: calc(100% - 10px);
+    box-shadow: 0 0 14px 4px rgba(102, 212, 251, 0.8);
+  }
+}
+.step-card {
+  z-index: 1;
+}
+/* first <li> is the flow line, so step N is child N+1: red → amber → blend → cool */
+.steps .step-card:nth-child(2) .step-num {
+  color: #ff8a7f;
+  background: rgba(226, 55, 43, 0.16);
+  border-color: rgba(226, 55, 43, 0.5);
+}
+.steps .step-card:nth-child(3) .step-num {
+  color: var(--amber);
+  background: rgba(251, 176, 64, 0.14);
+  border-color: rgba(251, 176, 64, 0.45);
+}
+.steps .step-card:nth-child(4) .step-num {
+  color: #ffd9a8;
+  background: linear-gradient(135deg, rgba(251, 140, 40, 0.18), rgba(47, 169, 207, 0.18));
+  border-color: rgba(158, 192, 205, 0.4);
+}
+.proc-shimmer {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* ─── Reviews ─── */
+.sec-embers {
+  right: 60%;
+  opacity: 0.6;
+}
+
+/* ─── Estimate band ─── */
+.est-sun {
+  position: absolute;
+  z-index: -1;
+  right: -40px;
+  bottom: -60px;
+  width: 560px;
+  height: auto;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.est-shimmer {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* ─── Guides ─── */
+.guide-heat {
+  width: 900px;
+  left: -220px;
+  top: -80px;
+  opacity: 0.18;
+}
+.guide-ribbons {
+  top: 0;
+}
+
+/* ─── FAQ ─── */
+.faq-emblem {
+  left: -200px;
+  top: 50%;
+  margin-top: -260px;
+  opacity: 0.06;
+  z-index: 0;
+  animation: spin 120s linear infinite;
+}
+
+/* ─── Final CTA ─── */
+.final-embers {
+  right: 55%;
+}
+.final-frost {
+  left: 50%;
+}
+.final-emblem {
+  right: -220px;
+  bottom: -260px;
+  opacity: 0.08;
+  z-index: 0;
+  animation: spin 160s linear infinite reverse;
+}
+
+/* ─── Footer ─── */
+.footer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border-top: 0;
+}
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--red), var(--amber) 35%, var(--blue) 65%, var(--blue-hi));
+}
+.footer > .wrap {
+  position: relative;
+  z-index: 1;
+}
+.foot-emblem {
+  right: -110px;
+  top: -110px;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+@media (max-width: 1040px) {
+  .hero-orb {
+    width: 640px;
+  }
+  .steps-flow {
+    display: none;
+  }
+  .svc-flame,
+  .svc-ice {
+    opacity: 0.18;
+  }
+}
+@media (max-width: 760px) {
+  .hero-orb {
+    width: 460px;
+    top: 0;
+    opacity: 0.75;
+  }
+  .hero-embers {
+    right: 0;
+  }
+  .hero-frost,
+  .final-frost {
+    display: none;
+  }
+  .emerg-flake {
+    right: -60px;
+  }
+  .est-sun {
+    width: 360px;
+    opacity: 0.35;
+  }
+  .diff-air,
+  .guide-heat {
+    width: 560px;
+  }
+  .fi-line {
+    width: 34px;
+  }
+}
+
 /* ════════════════════ Responsive ════════════════════ */
 @media (max-width: 1180px) {
   .main-nav {
@@ -1705,7 +2265,8 @@ h5 {
     padding-bottom: 72px;
   }
   .wrap {
-    padding: 0 1.25rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
   .hdr {
     height: 66px;
@@ -1718,7 +2279,7 @@ h5 {
     padding: 14px 1.25rem;
   }
   .hero {
-    padding: 40px 0 56px;
+    padding: 64px 0 56px;
   }
   .hero-bg {
     object-position: 75% center;
@@ -1847,4 +2408,77 @@ h5 {
   gap: 2px;
   color: var(--amber);
   white-space: nowrap;
+}
+
+/* ════════════════════ Mobile spacing pass ════════════════════
+   Consistent breathing room on every section on phones. */
+@media (max-width: 760px) {
+  .wrap {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+  .mobile-nav a {
+    padding: 14px 1.5rem;
+  }
+  .hero {
+    padding: 56px 0 72px;
+  }
+  /* keep the fire/ice orb behind the copy, not over the ratings */
+  .hero-orb {
+    width: 420px;
+    top: 38%;
+    left: 60%;
+    opacity: 0.28;
+  }
+  .trust-row {
+    padding-top: 36px;
+    padding-bottom: 36px;
+    gap: 24px 16px;
+  }
+  .emerg-row {
+    padding-top: 44px;
+    padding-bottom: 44px;
+    gap: 22px;
+  }
+  .emerg-copy h3 {
+    margin-bottom: 8px;
+  }
+  .sec {
+    padding: 88px 0;
+  }
+  .sec-head {
+    margin-bottom: 40px;
+  }
+  .est {
+    padding: 80px 0;
+  }
+  .est-sun {
+    opacity: 0.22;
+  }
+  .diff-grid,
+  .team {
+    padding: 20px;
+    gap: 24px;
+  }
+  .footer {
+    padding-top: 72px;
+  }
+  .legal {
+    margin-top: 48px;
+    padding-bottom: 32px;
+  }
+}
+
+@media (max-width: 420px) {
+  .wrap {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .sec {
+    padding: 76px 0;
+  }
+  .diff-grid,
+  .team {
+    padding: 16px;
+  }
 }

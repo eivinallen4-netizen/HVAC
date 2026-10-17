@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { guides, pages, reviews, serviceAreas, services, site } from "@/lib/site";
+import { Embers, FireIceRule, Flame, Frost, HeatShimmer, Ribbons, Snowflake, SplitEmblem } from "./Art";
 import { BeforeAfter } from "./BeforeAfter";
 import { CallLink, EstimateButton, TextLink } from "./Cta";
 import { FaqList } from "./Faq";
@@ -12,6 +13,7 @@ const initials = (name: string) =>
 function SecHead({ kicker, title, lead, center = true }: { kicker: string; title: string; lead?: string; center?: boolean }) {
   return (
     <div className={`sec-head${center ? " center" : ""}`} data-reveal>
+      <FireIceRule />
       <span className="kicker">{kicker}</span>
       <h2>{title}</h2>
       {lead && <p className="lead">{lead}</p>}
@@ -25,6 +27,8 @@ export function Hero() {
     <section className="hero">
       <Image src="/images/hero-dusk.jpg" alt="" fill priority sizes="100vw" className="hero-bg" />
       <div className="hero-shade" aria-hidden="true" />
+      <Embers count={28} className="hero-embers" seed={3} />
+      <Frost count={16} className="hero-frost" seed={4} />
       <div className="wrap hero-grid">
         <div className="hero-copy">
           <span className="chip chip-warm">
@@ -63,7 +67,12 @@ export function Hero() {
           </ul>
         </div>
 
-        <HeroLeadForm />
+        <div className="hero-form">
+          <div className="hero-orb" aria-hidden="true">
+            <Image src="/images/art/fire-ice-orb.png" alt="" fill sizes="(max-width: 760px) 460px, 820px" priority />
+          </div>
+          <HeroLeadForm />
+        </div>
       </div>
     </section>
   );
@@ -101,6 +110,8 @@ export function TrustBar() {
 export function Emergency() {
   return (
     <section className="emerg">
+      <HeatShimmer tone="white" className="emerg-shimmer" />
+      <Snowflake size={220} className="emerg-flake" />
       <div className="wrap emerg-row" data-reveal>
         <span className="emerg-ic">
           <Icon name="snow" size={28} />
@@ -127,7 +138,11 @@ export function Emergency() {
 /* ═════════════════════════ SERVICES ═════════════════════════ */
 export function Services() {
   return (
-    <section className="sec" id="services">
+    <section className="sec art-sec" id="services">
+      <div className="sec-art" aria-hidden="true">
+        <Image src="/images/art/flame-cluster.png" alt="" width={420} height={630} className="art-img svc-flame" />
+        <Image src="/images/art/ice-crystal.png" alt="" width={460} height={460} className="art-img svc-ice" />
+      </div>
       <div className="wrap">
         <SecHead
           kicker="Precision climate care"
@@ -139,6 +154,7 @@ export function Services() {
             <article className={`card svc${s.hot ? " hot" : ""}`} key={s.title} data-reveal style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
               <div className="svc-img">
                 <Image src={s.img} alt={s.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1040px) 50vw, 400px" />
+                {s.hot ? <Embers count={10} className="card-embers" seed={i + 10} /> : null}
                 <span className="ic-box ic-float">
                   <Icon name={s.icon} size={22} />
                 </span>
@@ -171,7 +187,11 @@ export function Difference() {
     { t: "Honest findings, no upsell", d: "If it's a simple fix, we'll tell you. You see what we see before any work begins.", tag: "Clear options" },
   ];
   return (
-    <section className="sec sec-alt diff">
+    <section className="sec sec-alt diff art-sec">
+      <div className="sec-art" aria-hidden="true">
+        <Image src="/images/art/cool-airflow.png" alt="" width={1200} height={800} className="art-img diff-air" />
+      </div>
+      <Ribbons tone="cool" className="diff-ribbons" />
       <div className="wrap">
         <div className="diff-head" data-reveal>
           <div>
@@ -221,7 +241,8 @@ const why = [
 
 export function WhyWave() {
   return (
-    <section className="sec" id="why">
+    <section className="sec art-sec" id="why">
+      <Frost count={10} className="sec-frost" seed={7} />
       <div className="wrap">
         <SecHead
           kicker="The integrity standard"
@@ -231,9 +252,10 @@ export function WhyWave() {
         <div className="grid-3 why-grid">
           {why.map((w, i) => (
             <div className="card why-card" key={w.t} data-reveal style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
-              <span className="ic-box">
+              <span className={`ic-box ${i % 2 ? "tone-cool" : "tone-warm"}`}>
                 <Icon name={w.icon} size={22} />
               </span>
+              {i % 2 ? <Snowflake size={90} className="why-glyph" /> : <Flame size={70} className="why-glyph" />}
               <h4>{w.t}</h4>
               <p>{w.d}</p>
             </div>
@@ -279,10 +301,14 @@ export function Process() {
     { t: "Comfort restored", d: "The job is done right, cleaned up, and explained — so you know exactly what was fixed." },
   ];
   return (
-    <section className="sec sec-alt">
+    <section className="sec sec-alt art-sec">
+      <HeatShimmer tone="cool" className="proc-shimmer" />
       <div className="wrap">
         <SecHead kicker="Streamlined resolution" title="How We Restore Your Comfort" lead="Simple, transparent and stress-free from the moment you reach out." />
         <ol className="grid-4 steps">
+          <li className="steps-flow" aria-hidden="true">
+            <i />
+          </li>
           {steps.map((s, i) => (
             <li className="card step-card" key={s.t} data-reveal style={{ transitionDelay: `${i * 80}ms` }}>
               <span className="step-ghost" aria-hidden="true">0{i + 1}</span>
@@ -303,7 +329,8 @@ export function Process() {
 /* ═════════════════════════ REVIEWS ═════════════════════════ */
 export function Reviews() {
   return (
-    <section className="sec" id="reviews">
+    <section className="sec art-sec" id="reviews">
+      <Embers count={14} className="sec-embers" seed={9} />
       <div className="wrap">
         <div className="rev-head" data-reveal>
           <div>
@@ -355,6 +382,8 @@ export function EstimateBand() {
   return (
     <section className="est">
       <Image src="/images/van-strip.jpg" alt="" fill sizes="100vw" className="est-bg" />
+      <Image src="/images/art/desert-sun.png" alt="" width={720} height={480} className="est-sun" aria-hidden="true" />
+      <HeatShimmer tone="warm" className="est-shimmer" />
       <div className="wrap est-row" data-reveal>
         <div>
           <span className="chip chip-warm">Thinking about a new system?</span>
@@ -412,7 +441,11 @@ export function Areas() {
 /* ═════════════════════════ GUIDES ═════════════════════════ */
 export function Guides() {
   return (
-    <section className="sec sec-alt" id="guides">
+    <section className="sec sec-alt art-sec" id="guides">
+      <div className="sec-art" aria-hidden="true">
+        <Image src="/images/art/heat-waves.png" alt="" width={1200} height={800} className="art-img guide-heat" />
+      </div>
+      <Ribbons tone="warm" className="guide-ribbons" />
       <div className="wrap">
         <div className="rev-head" data-reveal>
           <div>
@@ -450,7 +483,8 @@ export function Guides() {
 /* ═════════════════════════ FAQ ═════════════════════════ */
 export function Faq() {
   return (
-    <section className="sec" id="faq">
+    <section className="sec art-sec" id="faq">
+      <SplitEmblem size={520} className="faq-emblem" />
       <div className="wrap faq-wrap">
         <SecHead kicker="Answers & clarity" title="Frequently Asked Questions" lead="Still unsure what you need? A quick call is free and we'll point you in the right direction." />
         <div data-reveal>
@@ -469,7 +503,10 @@ export function FinalCta() {
     { icon: "clock", label: "Hours", value: "Open 24/7 — nights, weekends & holidays", tone: "warm" },
   ] as const;
   return (
-    <section className="sec final" id="contact">
+    <section className="sec final art-sec" id="contact">
+      <Embers count={20} className="final-embers" seed={12} />
+      <Frost count={12} className="final-frost" seed={13} />
+      <SplitEmblem size={640} className="final-emblem" />
       <div className="wrap final-grid">
         <div data-reveal>
           <span className="kicker">Direct service desk</span>
@@ -510,6 +547,7 @@ export function FinalCta() {
 export function Footer() {
   return (
     <footer className="footer">
+      <SplitEmblem size={380} className="foot-emblem" />
       <div className="wrap foot-grid">
         <div className="foot-brand">
           <Image src="/images/logo-light.png" alt={site.name} width={190} height={57} className="foot-logo" />
