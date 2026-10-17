@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Work_Sans } from "next/font/google";
 import Script from "next/script";
 import { serviceAreas, site } from "@/lib/site";
 import "./globals.css";
@@ -8,7 +8,14 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
-  variable: "--font-sans",
+  variable: "--font-display",
+});
+
+const workSans = Work_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-body",
 });
 
 export const metadata: Metadata = {
@@ -20,13 +27,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Wave Heating & Cooling — Las Vegas AC & Heating",
     description: "24/7 AC & heating service from a family-owned, NATE-certified Las Vegas team. Free estimates on new systems.",
-    images: ["/images/hero.jpg"],
+    images: ["/images/hero-dusk.jpg"],
     type: "website",
   },
   alternates: { canonical: "/" },
 };
 
-export const viewport: Viewport = { themeColor: "#0b2a36" };
+export const viewport: Viewport = { themeColor: "#061820" };
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -51,7 +58,7 @@ const GTM = process.env.NEXT_PUBLIC_GTM_ID;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={montserrat.variable}>
+    <html lang="en" className={`${montserrat.variable} ${workSans.variable}`}>
       <body>
         {GTM && (
           <Script id="gtm" strategy="afterInteractive">

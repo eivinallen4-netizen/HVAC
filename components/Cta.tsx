@@ -55,3 +55,21 @@ export function CallLink({
     </a>
   );
 }
+
+/** Text-message link with tracking */
+export function TextLink({
+  children,
+  className,
+  location,
+}: {
+  children?: React.ReactNode;
+  className?: string;
+  location: string;
+}) {
+  return (
+    <a href={site.smsHref} className={className} onClick={() => track("sms_click", { location })}>
+      <Icon name="chat" size={20} />
+      {children ?? "Text Us"}
+    </a>
+  );
+}

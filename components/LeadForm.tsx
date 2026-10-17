@@ -125,28 +125,23 @@ export function HeroLeadForm() {
   }
 
   return (
-    <div className="form-card" id="estimate">
-      <span className="badge-free">
-        <Icon name="tag" size={14} /> Free Estimate
-      </span>
-
+    <div className="form-card form-hero" id="estimate">
       {status === "done" ? (
         <Success />
       ) : (
         <>
-          <ol className="stepper" aria-label="Form progress">
-            <li className="on">
-              <b>1</b> Your issue
-            </li>
-            <li className={step === 2 ? "on" : ""}>
-              <b>2</b> Contact info
-            </li>
-          </ol>
+          <div className="form-top">
+            <span className="kicker">Free estimate finder</span>
+            <span className="step-pill">Step {step} of 2</span>
+          </div>
+          <div className="progress" aria-hidden="true">
+            <i style={{ width: step === 1 ? "50%" : "100%" }} />
+          </div>
 
           {step === 1 ? (
             <div className="step" key="s1">
-              <h2 className="form-title">Get your free estimate in 60 seconds</h2>
-              <p className="form-hint">What&apos;s going on at your place?</p>
+              <h2 className="form-title">What&apos;s going on?</h2>
+              <p className="form-hint">Pick one — it takes about 60 seconds.</p>
               <div className="opts">
                 {issueOptions.map((o) => (
                   <button type="button" className="opt" key={o.value} onClick={() => pick(o.value)}>
@@ -258,15 +253,12 @@ export function ContactForm() {
 
   return (
     <div className="form-card">
-      <span className="badge-free">
-        <Icon name="tag" size={14} /> Free Estimate
-      </span>
       {status === "done" ? (
         <Success short />
       ) : (
         <form onSubmit={onSubmit} noValidate>
-          <h2 className="form-title">Request service</h2>
-          <p className="form-hint">We&apos;ll call you back to confirm a time.</p>
+          <h2 className="form-title">Book Service or an Estimate</h2>
+          <p className="form-hint">We&apos;ll call you back to confirm a time. Zero high-pressure sales.</p>
           <div className="fields">
             <Field label="Full name" name="c-name" error={errors.name}>
               <input id="c-name" name="name" autoComplete="name" placeholder="Jane Smith" />
