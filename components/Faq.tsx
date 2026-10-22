@@ -4,11 +4,11 @@ import { useState } from "react";
 import { faqs } from "@/lib/site";
 import { Icon } from "./Icon";
 
-export function FaqList() {
+export function FaqList({ items = faqs }: { items?: { q: string; a: string }[] }) {
   const [open, setOpen] = useState<number | null>(0);
   return (
     <div className="faq-list">
-      {faqs.map((f, i) => {
+      {items.map((f, i) => {
         const isOpen = open === i;
         return (
           <div className={`faq-item${isOpen ? " open" : ""}`} key={f.q}>

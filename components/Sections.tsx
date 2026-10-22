@@ -1,5 +1,9 @@
 import Image from "next/image";
-import { guides, pages, reviews, serviceAreas, services, site } from "@/lib/site";
+import Link from "next/link";
+import { areaHref } from "@/lib/content/areas";
+import { servicesIn } from "@/lib/content/services";
+import { tools } from "@/lib/tools";
+import { faqs as defaultFaqs, guides, pages, reviews, serviceAreas, services, site } from "@/lib/site";
 import { Embers, FireIceRule, Flame, Frost, HeatShimmer, Ribbons, Snowflake, SplitEmblem } from "./Art";
 import { BeforeAfter } from "./BeforeAfter";
 import { CallLink, EstimateButton, TextLink } from "./Cta";
@@ -10,7 +14,7 @@ import { ContactForm, HeroLeadForm } from "./LeadForm";
 const initials = (name: string) =>
   name.split(" ").map((p) => p[0]).join("").slice(0, 2).toUpperCase();
 
-function SecHead({ kicker, title, lead, center = true }: { kicker: string; title: string; lead?: string; center?: boolean }) {
+export function SecHead({ kicker, title, lead, center = true }: { kicker: string; title: string; lead?: string; center?: boolean }) {
   return (
     <div className={`sec-head${center ? " center" : ""}`} data-reveal>
       <FireIceRule />
@@ -167,9 +171,9 @@ export function Services() {
                 <EstimateButton pick={s.pick} className="svc-link" icon="arrow">
                   {s.cta}
                 </EstimateButton>
-                <a className="svc-more" href={s.href} target="_blank" rel="noopener">
+                <Link className="svc-more" href={s.href}>
                   Learn more
-                </a>
+                </Link>
               </div>
             </article>
           ))}
@@ -327,7 +331,7 @@ export function Process() {
 }
 
 /* ═════════════════════════ REVIEWS ═════════════════════════ */
-export function Reviews() {
+export function Reviews({ title = "What Las Vegas Homeowners Are Saying" }: { title?: string }) {
   return (
     <section className="sec art-sec" id="reviews">
       <Embers count={14} className="sec-embers" seed={9} />
@@ -335,7 +339,7 @@ export function Reviews() {
         <div className="rev-head" data-reveal>
           <div>
             <span className="kicker">Real local voices</span>
-            <h2>What Las Vegas Homeowners Are Saying</h2>
+            <h2>{title}</h2>
           </div>
           <div className="rev-score">
             {site.ratings.map((r) => (
@@ -405,21 +409,21 @@ export function EstimateBand() {
 }
 
 /* ═════════════════════════ SERVICE AREAS ═════════════════════════ */
-export function Areas() {
+export function Areas({ title = "Proudly Serving the Las Vegas Valley" }: { title?: string }) {
   return (
     <section className="sec areas-sec" id="areas">
       <Image src="/images/valley-night.jpg" alt="" fill sizes="100vw" className="areas-bg" />
       <div className="wrap">
         <SecHead
           kicker="Valley-wide coverage"
-          title="Proudly Serving the Las Vegas Valley"
+          title={title}
           lead="Not sure if you're in our area? Give us a call — if you're in the valley, we can help."
         />
         <div className="areas" data-reveal>
           {serviceAreas.map((a) => (
-            <span key={a}>
+            <Link key={a} href={areaHref(a)}>
               <Icon name="pin" size={15} /> {a}
-            </span>
+            </Link>
           ))}
         </div>
         <div className="hq" data-reveal>
@@ -452,13 +456,13 @@ export function Guides() {
             <span className="kicker">HVAC advice &amp; insights</span>
             <h2>Desert Heating &amp; Cooling Guides</h2>
           </div>
-          <a className="text-link" href={pages.blog} target="_blank" rel="noopener">
+          <Link className="text-link" href={pages.blog}>
             View all guides <Icon name="arrow" size={16} />
-          </a>
+          </Link>
         </div>
         <div className="grid-3">
           {guides.map((g, i) => (
-            <a className="card guide" key={g.href} href={g.href} target="_blank" rel="noopener" data-reveal style={{ transitionDelay: `${i * 70}ms` }}>
+            <Link className="card guide" key={g.href} href={g.href} data-reveal style={{ transitionDelay: `${i * 70}ms` }}>
               <div className="svc-img">
                 <Image src={g.img} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1040px) 50vw, 400px" />
                 <span className="guide-tag">{g.tag}</span>
@@ -472,7 +476,7 @@ export function Guides() {
                   Read guide <Icon name="arrow" size={16} />
                 </span>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
@@ -481,14 +485,24 @@ export function Guides() {
 }
 
 /* ═════════════════════════ FAQ ═════════════════════════ */
-export function Faq() {
+export function Faq({
+  items = defaultFaqs,
+  title = "Frequently Asked Questions",
+  alt = false,
+  id = "faq",
+}: {
+  items?: { q: string; a: string }[];
+  title?: string;
+  alt?: boolean;
+  id?: string;
+}) {
   return (
-    <section className="sec art-sec" id="faq">
+    <section className={`sec art-sec${alt ? " sec-alt" : ""}`} id={id}>
       <SplitEmblem size={520} className="faq-emblem" />
       <div className="wrap faq-wrap">
-        <SecHead kicker="Answers & clarity" title="Frequently Asked Questions" lead="Still unsure what you need? A quick call is free and we'll point you in the right direction." />
+        <SecHead kicker="Answers & clarity" title={title} lead="Still unsure what you need? A quick call is free and we'll point you in the right direction." />
         <div data-reveal>
-          <FaqList />
+          <FaqList items={items} />
         </div>
       </div>
     </section>
@@ -550,18 +564,46 @@ export function Footer() {
       <SplitEmblem size={380} className="foot-emblem" />
       <div className="wrap foot-grid">
         <div className="foot-brand">
-          <Image src="/images/logo-light.png" alt={site.name} width={190} height={57} className="foot-logo" />
+          <Link href="/" aria-label={`${site.name} home`}>
+            <Image src="/images/logo-light.png" alt={site.name} width={190} height={57} className="foot-logo" />
+          </Link>
           <p>{site.tagline}. Family-owned, NATE-certified, available 24/7.</p>
           <span className="chip">
             <Icon name="shield" size={14} /> NV License {site.license}
           </span>
         </div>
         <div>
-          <h5>Services</h5>
+          <h5>Cooling</h5>
           <ul>
-            {services.map((s) => (
-              <li key={s.title}>
-                <a href={s.href}>{s.title}</a>
+            {servicesIn("cooling").map((s) => (
+              <li key={s.slug}>
+                <Link href={`/${s.slug}/`}>{s.name}</Link>
+              </li>
+            ))}
+          </ul>
+          <h5 className="foot-h-gap">Heating</h5>
+          <ul>
+            {servicesIn("heating").map((s) => (
+              <li key={s.slug}>
+                <Link href={`/${s.slug}/`}>{s.name}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h5>Air &amp; More</h5>
+          <ul>
+            {servicesIn("air").map((s) => (
+              <li key={s.slug}>
+                <Link href={`/${s.slug}/`}>{s.name}</Link>
+              </li>
+            ))}
+          </ul>
+          <h5 className="foot-h-gap">Free Tools</h5>
+          <ul>
+            {tools.map((t) => (
+              <li key={t.slug}>
+                <Link href={`/tools/${t.slug}/`}>{t.name}</Link>
               </li>
             ))}
           </ul>
@@ -569,12 +611,16 @@ export function Footer() {
         <div>
           <h5>Company</h5>
           <ul>
-            <li><a href={pages.about}>About Us</a></li>
-            <li><a href={pages.referral}>Referral Program</a></li>
-            <li><a href={pages.blog}>HVAC Tips &amp; Guides</a></li>
-            <li><a href="#reviews">Reviews</a></li>
-            <li><a href="#areas">Service Areas</a></li>
-            <li><a href={pages.facebook} target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><Link href={pages.about}>About Us</Link></li>
+            <li><Link href={pages.team}>Our Team</Link></li>
+            <li><Link href={pages.reviews}>Reviews</Link></li>
+            <li><Link href={pages.specials}>Specials</Link></li>
+            <li><Link href={pages.financing}>Financing</Link></li>
+            <li><Link href={pages.referral}>Referral Program</Link></li>
+            <li><Link href={pages.areas}>Service Areas</Link></li>
+            <li><Link href={pages.blog}>HVAC Tips &amp; Guides</Link></li>
+            <li><Link href={pages.faq}>FAQ</Link></li>
+            <li><Link href={pages.contact}>Contact</Link></li>
           </ul>
         </div>
         <div>
@@ -587,6 +633,12 @@ export function Footer() {
               {site.address.city}, {site.address.state} {site.address.zip}
             </li>
             <li className="hq-live"><i className="dot" /> Open 24/7</li>
+            <li>
+              <a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer">Find us on Google</a>
+            </li>
+            <li>
+              <a href={pages.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -594,7 +646,11 @@ export function Footer() {
         <span>
           © {new Date().getFullYear()} {site.legalName} · Licensed, Bonded &amp; Insured {site.license}
         </span>
-        <a href="#">Privacy Policy</a>
+        <span className="legal-links">
+          <Link href={pages.privacy}>Privacy Policy</Link>
+          <Link href={pages.terms}>Terms of Service</Link>
+          <a href="/sitemap.xml">Sitemap</a>
+        </span>
       </div>
     </footer>
   );

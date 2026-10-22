@@ -1,11 +1,13 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 
-/** Adds a gentle fade-up to any element with [data-reveal] as it scrolls into view. */
+/** Adds a gentle fade-up to any element with [data-reveal] as it scrolls into view. Re-runs on client navigation. */
 export function RevealOnScroll() {
+  const pathname = usePathname();
   useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>("[data-reveal]");
+    const els = document.querySelectorAll<HTMLElement>("[data-reveal]:not(.in)");
     if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       els.forEach((el) => el.classList.add("in"));
       return;
@@ -24,6 +26,6 @@ export function RevealOnScroll() {
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, []);
+  }, [pathname]);
   return null;
 }

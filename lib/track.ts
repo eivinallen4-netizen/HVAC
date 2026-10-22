@@ -31,9 +31,18 @@ export function getAttribution(): Record<string, string> {
 
 export const PICK_EVENT = "wave:pick-service";
 
-/** Scroll to the hero form, optionally preselecting a service */
-export function openEstimate(service?: string) {
+/** URL of the contact page with an optional preselected service */
+export const estimateHref = (service?: string) =>
+  `/contact/${service ? `?service=${encodeURIComponent(service)}` : ""}#estimate`;
+
+/**
+ * Scroll to the page's estimate form (optionally preselecting a service).
+ * Returns false when the page has no form, so the caller can navigate to /contact/.
+ */
+export function openEstimate(service?: string): boolean {
   const card = document.getElementById("estimate");
-  card?.scrollIntoView({ behavior: "smooth", block: "center" });
+  if (!card) return false;
+  card.scrollIntoView({ behavior: "smooth", block: "center" });
   if (service) window.dispatchEvent(new CustomEvent(PICK_EVENT, { detail: service }));
+  return true;
 }

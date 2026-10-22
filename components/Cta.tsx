@@ -1,10 +1,10 @@
 "use client";
 
 import { site } from "@/lib/site";
-import { openEstimate, track } from "@/lib/track";
+import { estimateHref, openEstimate, track } from "@/lib/track";
 import { Icon } from "./Icon";
 
-/** Button/link that scrolls to the hero form (and can preselect a service) */
+/** Scrolls to the page's estimate form (preselecting a service), or links to /contact/ if there isn't one */
 export function EstimateButton({
   children,
   pick,
@@ -18,11 +18,10 @@ export function EstimateButton({
 }) {
   return (
     <a
-      href="#estimate"
+      href={estimateHref(pick)}
       className={className}
       onClick={(e) => {
-        e.preventDefault();
-        openEstimate(pick);
+        if (openEstimate(pick)) e.preventDefault();
       }}
     >
       {icon === "cal" && <Icon name="cal" size={20} />}

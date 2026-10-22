@@ -15,6 +15,12 @@ export const site = {
     zip: "89129",
   },
   tagline: "Las Vegas' Most Trusted Heating and Cooling Solutions",
+  geo: { lat: 36.2379451, lng: -115.280182 },
+  /** Google Business Profile listing */
+  googleMapsUrl:
+    "https://www.google.com/maps/place/Wave+Heating+%26+Cooling+LLC/@36.2379494,-115.2827569,17z/data=!4m6!3m5!1s0x80c8c120faee6b8d:0xc04b392b77dc6c59!8m2!3d36.2379451!4d-115.280182!16s%2Fg%2F11fph2r492",
+  /** Business hours for regular appointments; emergency service is 24/7 */
+  hours: "Open 24/7 — nights, weekends & holidays",
   googleReviewsUrl:
     "https://www.google.com/search?q=Wave+Heating+%26+Cooling+Las+Vegas+reviews",
   ratings: [
@@ -24,14 +30,25 @@ export const site = {
   ],
 };
 
-/** Existing pages on the client's main site — linked to, not rebuilt here */
-const page = (path: string) => `${site.url}/${path}/`;
+/** Internal routes (trailing slash matches next.config `trailingSlash: true`) */
+const page = (path: string) => `/${path}/`;
 
 export const pages = {
-  about: page("about-us-2"),
-  contact: page("contact-us-2"),
+  about: page("about-us"),
+  contact: page("contact"),
+  reviews: page("reviews"),
   referral: page("referral-program"),
+  financing: page("financing"),
+  specials: page("specials"),
+  faq: page("faq"),
+  team: page("our-team"),
+  services: page("services"),
+  areas: page("service-area-las-vegas"),
+  tools: page("tools"),
   blog: page("blog"),
+  privacy: page("privacy-policy"),
+  terms: page("terms"),
+  thankYou: page("thank-you"),
   facebook: "https://www.facebook.com/waveheatingandcooling",
 };
 
@@ -80,7 +97,7 @@ export const services: {
   icon: IconName;
   pick: string;
   cta: string;
-  /** Full service page on the main site */
+  /** Full service page */
   href: string;
   hot?: boolean;
 }[] = [
@@ -127,7 +144,7 @@ export const services: {
     img: "/images/svc-ductless.jpg",
     icon: "split",
     pick: "Ductless mini-split",
-    href: page("hvac-ductless-mini-split-systems"),
+    href: page("ductless-mini-split-systems-in-las-vegas"),
     cta: "Get a free estimate",
   },
   {
@@ -183,22 +200,22 @@ export const guides = [
   {
     title: "How to Choose the Right-Sized AC for Las Vegas Weather Extremes",
     text: "Too big or too small both cost you. What to look for before you replace your system.",
-    img: "/images/blog/right-sized-ac.jpg",
+    img: "/images/blog/how-to-choose-the-right-sized-ac.jpg",
     tag: "Buying a system",
-    href: `${site.url}/2025/07/15/how-to-choose-the-right-sized-ac/`,
+    href: "/blog/how-to-choose-the-right-sized-ac/",
   },
   {
     title: "Duct Leaks Steal Your Heat: Warmer Rooms and Lower Bills",
     text: "How leaky ducts waste the air you pay for, and the signs your home has them.",
-    img: "/images/blog/duct-leaks.png",
+    img: "/images/blog/duct-leaks-steal-your-heat.png",
     tag: "Ductwork",
-    href: `${site.url}/2025/10/24/duct-leaks-steal-your-heat/`,
+    href: "/blog/duct-leaks-steal-your-heat/",
   },
   {
     title: "Carbon Monoxide & Winter HVAC Safety: A Calm Homeowner's Guide",
     text: "What every Las Vegas homeowner should check before turning on the heat this winter.",
-    img: "/images/blog/carbon-monoxide.jpg",
+    img: "/images/blog/carbon-monoxide-winter-hvac-safety.png",
     tag: "Safety",
-    href: `${site.url}/2025/11/13/carbon-monoxide-winter-hvac-safety/`,
+    href: "/blog/carbon-monoxide-winter-hvac-safety/",
   },
 ];

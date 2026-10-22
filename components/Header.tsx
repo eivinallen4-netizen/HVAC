@@ -1,73 +1,49 @@
-"use client";
+import { servicesIn } from "@/lib/content/services";
+import { pages } from "@/lib/site";
+import { tools } from "@/lib/tools";
+import { HeaderClient, type NavMenu } from "./HeaderClient";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import { site } from "@/lib/site";
-import { CallLink } from "./Cta";
-import { Icon } from "./Icon";
+const svc = (c: "cooling" | "heating" | "air") => servicesIn(c).map((s) => ({ href: `/${s.slug}/`, label: s.name }));
 
-const links = [
-  { href: "#services", label: "Services" },
-  { href: "#why", label: "Why Wave" },
-  { href: "#reviews", label: "Reviews" },
-  { href: "#areas", label: "Service Areas" },
-  { href: "#guides", label: "Guides" },
-  { href: "#faq", label: "FAQ" },
+const menus: NavMenu[] = [
+  {
+    label: "Services",
+    href: pages.services,
+    groups: [
+      { title: "Cooling", href: "/cooling-services/", items: svc("cooling") },
+      { title: "Heating", href: "/heating-services/", items: svc("heating") },
+      { title: "Air & More", items: svc("air") },
+    ],
+  },
+  {
+    label: "Free Tools",
+    href: pages.tools,
+    groups: [{ title: "Homeowner tools", href: pages.tools, items: tools.map((t) => ({ href: `/tools/${t.slug}/`, label: t.name })) }],
+  },
+  { label: "Service Areas", href: pages.areas },
+  { label: "Reviews", href: pages.reviews },
+  { label: "Specials", href: pages.specials },
+  {
+    label: "About",
+    href: pages.about,
+    groups: [
+      {
+        title: "Company",
+        items: [
+          { href: pages.about, label: "About Wave" },
+          { href: pages.team, label: "Our Team" },
+          { href: pages.financing, label: "Financing" },
+          { href: pages.referral, label: "Referral Program" },
+          { href: pages.blog, label: "HVAC Tips & Guides" },
+          { href: pages.faq, label: "FAQ" },
+          { href: pages.contact, label: "Contact" },
+        ],
+      },
+    ],
+  },
 ];
 
+/** Server wrapper: builds the nav from content data so the content itself isn't shipped to the browser */
 export function Header() {
-  const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  return (
-    <header className={`site-header${scrolled ? " is-scrolled" : ""}${open ? " menu-open" : ""}`}>
-      <div className="wrap hdr">
-        <a className="logo" href="#top" aria-label={`${site.name} home`}>
-          <Image src="/images/logo-light.png" alt={site.name} width={190} height={57} priority />
-          <span className="logo-lic">NV Lic {site.license}</span>
-        </a>
-
-        <nav className="main-nav" aria-label="Main">
-          {links.map((l) => (
-            <a key={l.href} href={l.href}>
-              {l.label}
-            </a>
-          ))}
-        </nav>
-
-        <div className="hdr-cta">
-          <span className="status-pill hide-md">
-            <i className="dot" /> Available 24/7
-          </span>
-          <CallLink className="btn btn-red btn-hdr" location="header">
-            <span className="hide-xs">{site.phone}</span>
-          </CallLink>
-          <button
-            className="menu-btn"
-            aria-label={open ? "Close menu" : "Open menu"}
-            aria-expanded={open}
-            onClick={() => setOpen((o) => !o)}
-          >
-            <Icon name={open ? "close" : "menu"} />
-          </button>
-        </div>
-      </div>
-
-      <div className={`mobile-nav${open ? " open" : ""}`}>
-        {links.map((l) => (
-          <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
-            {l.label}
-            <Icon name="chev" size={18} />
-          </a>
-        ))}
-      </div>
-    </header>
-  );
+  return <HeaderClient menus={menus} />;
 }
