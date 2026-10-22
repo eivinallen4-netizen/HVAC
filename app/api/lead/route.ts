@@ -18,7 +18,7 @@ const FIELDS = [
 /* Best-effort per-IP rate limit (per serverless instance) */
 const hits = new Map<string, number[]>();
 const WINDOW = 10 * 60 * 1000;
-const MAX = 6;
+const MAX = 10;
 function limited(ip: string) {
   const now = Date.now();
   const list = (hits.get(ip) ?? []).filter((t) => now - t < WINDOW);

@@ -4,7 +4,7 @@ import { FinalCta, Reviews, TrustBar } from "@/components/Sections";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Free HVAC Calculators for Las Vegas Homeowners | Wave Heating & Cooling",
+  title: "Free HVAC Calculators for Las Vegas Homeowners | Wave",
   description:
     "Free tools for Las Vegas homeowners: AC repair-or-replace calculator, replacement cost estimator, AC symptom checker and summer bill savings calculator.",
   path: "/tools/",

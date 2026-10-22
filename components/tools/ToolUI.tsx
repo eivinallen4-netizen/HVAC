@@ -199,7 +199,7 @@ export function Gate({
         <Icon name="lock" size={18} />
         <div>
           <strong>Get your full results — free</strong>
-          <small>We&apos;ll also text you a copy and a Wave expert can answer questions. No spam, ever.</small>
+          <small>Takes 10 seconds. A Wave expert can answer any questions — no pressure, no spam.</small>
         </div>
       </div>
       <div className="fields">

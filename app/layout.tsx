@@ -27,11 +27,11 @@ const workSans = Work_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "Las Vegas AC & Heating Repair | Free Estimates | Wave Heating & Cooling",
+    default: "Las Vegas AC & Heating Repair | 24/7 | Wave Heating & Cooling",
     template: "%s | Wave Heating & Cooling",
   },
   description:
-    "Family-owned Las Vegas HVAC company. AC repair, heating repair, new system installs and maintenance by NATE-certified techs. 24/7 service. Free estimates — call (702) 881-4713.",
+    "Family-owned Las Vegas HVAC company. AC & heating repair, installs and tune-ups by NATE-certified techs. 24/7 service, free estimates. (702) 881-4713.",
   applicationName: site.name,
   icons: { icon: "/images/favicon.png", apple: "/images/favicon.png" },
   openGraph: { siteName: site.name, locale: "en_US", type: "website" },

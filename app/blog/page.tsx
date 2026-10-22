@@ -8,7 +8,7 @@ import { getAllPosts } from "@/lib/blog";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "HVAC Tips & Guides for Las Vegas Homeowners | Wave Heating & Cooling",
+  title: "HVAC Tips & Guides for Las Vegas Homes | Wave",
   description:
     "Practical heating and cooling advice for Las Vegas homes: AC sizing, duct leaks, carbon monoxide safety, air quality, maintenance and beating the desert heat.",
   path: "/blog/",

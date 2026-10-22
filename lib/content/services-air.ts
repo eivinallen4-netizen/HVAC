@@ -6,7 +6,7 @@ export const airServices: ServicePage[] = [
     slug: "ductless-mini-split-systems-in-las-vegas",
     category: "air",
     name: "Ductless Mini-Splits",
-    title: "Ductless Mini-Split Installation Las Vegas | Wave Heating & Cooling",
+    title: "Ductless Mini-Split Installation Las Vegas | Wave",
     description:
       "Ductless mini-split installation and repair in Las Vegas for garages, casitas, additions and hot rooms. Efficient heating & cooling. Call (702) 881-4713.",
     h1: "Ductless Mini-Split Systems in Las Vegas",
@@ -71,7 +71,7 @@ export const airServices: ServicePage[] = [
     slug: "hvac-ductwork-las-vegas",
     category: "air",
     name: "Ductwork Repair & Sealing",
-    title: "Ductwork Repair & Duct Sealing Las Vegas | Wave Heating & Cooling",
+    title: "Ductwork Repair & Duct Sealing Las Vegas | Wave",
     description:
       "Leaky, crushed or old ducts? Duct repair, sealing, replacement and inspections in Las Vegas for lower bills and even temps. Call (702) 881-4713.",
     h1: "Ductwork Repair, Sealing & Replacement in Las Vegas",
@@ -214,7 +214,7 @@ export const airServices: ServicePage[] = [
     slug: "hvac-maintenance-las-vegas",
     category: "air",
     name: "Wave Club Maintenance Plan",
-    title: "HVAC Maintenance Plan Las Vegas | Wave Club | Wave Heating & Cooling",
+    title: "HVAC Maintenance Plan Las Vegas | Wave Club",
     description:
       "Join Wave Club: 2 HVAC tune-ups a year, 15% off repairs, priority 24/7 service, no after-hours fees and extended warranty. From $150/yr. (702) 881-4713.",
     h1: "HVAC Maintenance in Las Vegas — Join Wave Club",

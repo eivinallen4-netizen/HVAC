@@ -14,7 +14,7 @@ const path = "/service-area-las-vegas/";
 export const metadata = buildMetadata({
   title: "HVAC Service Areas | Las Vegas Valley | Wave Heating & Cooling",
   description:
-    "Wave Heating & Cooling serves the entire Las Vegas valley: Las Vegas, Henderson, North Las Vegas, Summerlin, Centennial Hills and more. 24/7 AC & heating service.",
+    "Serving the entire Las Vegas valley: Las Vegas, Henderson, North Las Vegas, Summerlin, Centennial Hills and more. 24/7 AC & heating service.",
   path,
 });
 

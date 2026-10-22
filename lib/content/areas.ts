@@ -18,7 +18,10 @@ export type AreaPage = {
   faqs: Faq[];
 };
 
-const t = (name: string) => `HVAC & AC Repair ${name}, NV | Wave Heating & Cooling`;
+const t = (name: string) => {
+  const base = `HVAC & AC Repair ${name}, NV`;
+  return base.length > 38 ? `${base} | Wave` : `${base} | Wave Heating & Cooling`;
+};
 
 export const areaPages: AreaPage[] = [
   {

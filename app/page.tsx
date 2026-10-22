@@ -19,9 +19,9 @@ import { buildMetadata, faqLd } from "@/lib/seo";
 import { faqs } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: "Las Vegas AC & Heating Repair | Free Estimates | Wave Heating & Cooling",
+  title: "Las Vegas AC & Heating Repair | 24/7 | Wave Heating & Cooling",
   description:
-    "Family-owned Las Vegas HVAC company. AC repair, heating repair, new system installs and maintenance by NATE-certified techs. 24/7 service. Free estimates — call (702) 881-4713.",
+    "Family-owned Las Vegas HVAC company. AC & heating repair, installs and tune-ups by NATE-certified techs. 24/7 service, free estimates. (702) 881-4713.",
   path: "/",
 });
 

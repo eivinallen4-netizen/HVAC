@@ -5,7 +5,7 @@ import { FinalCta, Reviews, TrustBar, WhyWave } from "@/components/Sections";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Our Team | NATE-Certified HVAC Technicians | Wave Heating & Cooling",
+  title: "Our Team | NATE-Certified HVAC Techs | Wave Heating & Cooling",
   description:
     "Meet the family-owned team behind Wave Heating & Cooling: NATE-certified Las Vegas HVAC technicians who treat your home like their own.",
   path: "/our-team/",

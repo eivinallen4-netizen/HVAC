@@ -20,7 +20,7 @@ export const tools: ToolMeta[] = [
     slug: "repair-or-replace-calculator",
     name: "Repair or Replace Calculator",
     short: "Should you fix your AC or replace it? Get an honest recommendation in 60 seconds.",
-    title: "AC Repair or Replace Calculator | Las Vegas | Wave Heating & Cooling",
+    title: "AC Repair or Replace Calculator | Wave Heating & Cooling",
     description:
       "Should you repair or replace your AC? Answer 6 quick questions and get an honest recommendation based on age, repair cost, refrigerant and the $5,000 rule.",
     h1: "AC Repair or Replace Calculator",
@@ -82,7 +82,7 @@ export const tools: ToolMeta[] = [
     slug: "ac-symptom-checker",
     name: "AC Symptom Checker",
     short: "What's wrong with my AC? Find the likely cause, safe DIY checks and how urgent it is.",
-    title: "What's Wrong With My AC? Free AC Symptom Checker | Wave Heating & Cooling",
+    title: "What's Wrong With My AC? Free Symptom Checker | Wave",
     description:
       "AC blowing warm air, freezing up, leaking or making noise? Our free AC symptom checker shows the likely cause, safe DIY checks and how urgent it is.",
     h1: "What's Wrong With My AC? Free Symptom Checker",

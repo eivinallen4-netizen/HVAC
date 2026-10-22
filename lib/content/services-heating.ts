@@ -98,7 +98,7 @@ export const heatingServices: ServicePage[] = [
     slug: "hvac-heating-installation-in-las-vegas",
     category: "heating",
     name: "Heating Installation",
-    title: "Furnace & Heat Pump Installation Las Vegas | Wave Heating & Cooling",
+    title: "Furnace & Heat Pump Installation Las Vegas | Wave",
     description:
       "New furnace and heat pump installation in Las Vegas. Properly sized, efficient heating with free estimates and financing. Call (702) 881-4713.",
     h1: "Heating Installation in Las Vegas — Furnaces & Heat Pumps",
@@ -174,7 +174,7 @@ export const heatingServices: ServicePage[] = [
     slug: "hvac-heating-replacement-in-las-vegas",
     category: "heating",
     name: "Heating Replacement",
-    title: "Furnace Replacement Las Vegas | Free Estimate | Wave Heating & Cooling",
+    title: "Furnace Replacement Las Vegas | Free Estimate | Wave",
     description:
       "Time for a new furnace or heat pump? Honest advice, free estimates and efficient heating systems for Las Vegas homes. Financing available. (702) 881-4713.",
     h1: "Furnace & Heat Pump Replacement in Las Vegas",
@@ -246,7 +246,7 @@ export const heatingServices: ServicePage[] = [
     slug: "hvac-heating-maintenance-in-las-vegas",
     category: "heating",
     name: "Heating Maintenance",
-    title: "Furnace Tune-Up Las Vegas | Heating Maintenance | Wave Heating & Cooling",
+    title: "Furnace Tune-Up & Heating Maintenance Las Vegas | Wave",
     description:
       "Fall furnace and heat pump tune-ups in Las Vegas: safety checks, CO testing and efficiency cleaning by NATE-certified techs. Call (702) 881-4713.",
     h1: "Heating Maintenance & Furnace Tune-Ups in Las Vegas",
@@ -308,7 +308,7 @@ export const heatingServices: ServicePage[] = [
     slug: "heat-pump-services-las-vegas",
     category: "heating",
     name: "Heat Pump Services",
-    title: "Heat Pump Repair & Installation Las Vegas | Wave Heating & Cooling",
+    title: "Heat Pump Repair & Installation Las Vegas | Wave",
     description:
       "Heat pump repair, replacement and installation in Las Vegas. Efficient year-round heating and cooling from NATE-certified techs. Call (702) 881-4713.",
     h1: "Heat Pump Repair & Installation in Las Vegas",

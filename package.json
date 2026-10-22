@@ -2,11 +2,13 @@
   "name": "wave-heating-cooling",
   "version": "1.0.0",
   "private": true,
-  "description": "Lead-generation landing page for Wave Heating & Cooling (Las Vegas HVAC)",
+  "description": "Website for Wave Heating & Cooling (Las Vegas HVAC)",
   "scripts": {
     "dev": "node node_modules/next/dist/bin/next dev",
     "build": "node node_modules/next/dist/bin/next build",
-    "start": "node node_modules/next/dist/bin/next start"
+    "start": "node node_modules/next/dist/bin/next start",
+    "check": "node scripts/check-site.mjs",
+    "migrate-blog": "node scripts/migrate-blog.mjs"
   },
   "dependencies": {
     "gray-matter": "^4.0.3",

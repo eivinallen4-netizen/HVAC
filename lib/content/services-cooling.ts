@@ -192,7 +192,7 @@ export const coolingServices: ServicePage[] = [
     slug: "ac-installations-in-las-vegas",
     category: "cooling",
     name: "AC Installation",
-    title: "AC Installation Las Vegas | Free Estimates | Wave Heating & Cooling",
+    title: "AC Installation Las Vegas | Free Estimates | Wave",
     description:
       "New AC installation in Las Vegas, sized and installed right for desert heat. Free in-home estimates, high-efficiency options and financing. Call (702) 881-4713.",
     h1: "AC Installation in Las Vegas — Sized Right, Installed Right",

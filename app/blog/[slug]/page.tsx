@@ -26,7 +26,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!p) return {};
   return {
     ...buildMetadata({
-      title: `${p.title} | Wave Heating & Cooling`,
+      // Keep the brand suffix only when the whole title still fits in Google's ~60-char display
+      title: p.title.length <= 36 ? `${p.title} | Wave Heating & Cooling` : p.title.length <= 52 ? `${p.title} | Wave` : p.title,
       description: p.description,
       path: `/blog/${p.slug}/`,
       image: p.image,

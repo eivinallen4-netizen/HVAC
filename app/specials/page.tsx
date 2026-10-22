@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "HVAC Specials & Offers Las Vegas | Wave Heating & Cooling",
   description:
-    "Current HVAC specials from Wave Heating & Cooling: free estimates on new systems, Wave Club maintenance savings, 15% off repairs for members and referral rewards.",
+    "Current HVAC specials from Wave: free estimates on new systems, Wave Club maintenance savings, 15% off repairs for members and referral rewards.",
   path: "/specials/",
 });
 
