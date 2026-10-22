@@ -1,7 +1,7 @@
 import { CtaBand } from "@/components/page/Cards";
 import { PageHero } from "@/components/page/PageHero";
-import { FinalCta, Reviews, SecHead, TrustBar } from "@/components/Sections";
-import { GoogleG, Icon, Stars } from "@/components/Icon";
+import { FinalCta, RatingsRow, Reviews, SecHead, TrustBar } from "@/components/Sections";
+import { GoogleG, Stars } from "@/components/Icon";
 import { buildMetadata } from "@/lib/seo";
 import { site } from "@/lib/site";
 
@@ -22,16 +22,7 @@ export default function ReviewsPage() {
         intro="We earn our reputation one home at a time. Here's what Las Vegas homeowners say about working with Wave — and you can read every review on Google."
         form={false}
       >
-        <div className="ratings">
-          {site.ratings.map((r) => (
-            <div className="rating" key={r.platform}>
-              <b>
-                {r.score} <Icon name="star" size={14} filled />
-              </b>
-              <span>{r.platform}</span>
-            </div>
-          ))}
-        </div>
+        <RatingsRow />
       </PageHero>
       <TrustBar />
       <Reviews title="Recent Google Reviews" />

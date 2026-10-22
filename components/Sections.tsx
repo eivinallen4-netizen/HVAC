@@ -8,7 +8,7 @@ import { Embers, FireIceRule, Flame, Frost, HeatShimmer, Ribbons, Snowflake, Spl
 import { BeforeAfter } from "./BeforeAfter";
 import { CallLink, EstimateButton, TextLink } from "./Cta";
 import { FaqList } from "./Faq";
-import { GoogleG, Icon, Stars } from "./Icon";
+import { GoogleG, Icon, PlatformLogo, Stars } from "./Icon";
 import { ContactForm, HeroLeadForm } from "./LeadForm";
 
 const initials = (name: string) =>
@@ -47,22 +47,7 @@ export function Hero() {
             Available 24/7 — and every new-system estimate is free.
           </p>
 
-          <div className="ratings">
-            {site.ratings.map((r) => (
-              <div className="rating" key={r.platform}>
-                <b>
-                  {r.score} <Icon name="star" size={14} filled />
-                </b>
-                <span>{r.platform}</span>
-              </div>
-            ))}
-            <div className="rating">
-              <b>
-                <Image src="/images/nate.png" alt="" width={20} height={19} /> NATE
-              </b>
-              <span>Certified techs</span>
-            </div>
-          </div>
+          <RatingsRow nate />
 
           <ul className="hero-checks">
             <li><Icon name="check" size={18} /> Licensed, bonded &amp; insured</li>
@@ -78,34 +63,64 @@ export function Hero() {
           <HeroLeadForm />
         </div>
       </div>
+      <a className="hero-next" href="#urgent">
+        <span>Desert heat won&apos;t wait — neither do we</span>
+        <Icon name="chev" size={20} />
+      </a>
     </section>
+  );
+}
+
+/* ═════════════════════════ RATINGS ═════════════════════════ */
+export function RatingsRow({ nate = false }: { nate?: boolean }) {
+  return (
+    <ul className="ratings">
+      {site.ratings.map((r) => (
+        <li className="rating" key={r.platform}>
+          <PlatformLogo platform={r.platform} size={30} />
+          <div>
+            <b>
+              {r.score} <Stars size={13} />
+            </b>
+            <span>{r.platform}</span>
+          </div>
+        </li>
+      ))}
+      {nate && (
+        <li className="rating">
+          <Image src="/images/nate.png" alt="NATE" width={34} height={32} />
+          <div>
+            <b>Certified</b>
+            <span>NATE techs</span>
+          </div>
+        </li>
+      )}
+    </ul>
   );
 }
 
 /* ═════════════════════════ TRUST BAR ═════════════════════════ */
 export function TrustBar() {
   const items = [
-    { icon: "shield", t: `NV Lic ${site.license}`, s: "Licensed, bonded & insured" },
-    { icon: "home", t: "Family-Owned", s: "Local Las Vegas team" },
-    { icon: "clock", t: "True 24/7", s: "Nights, weekends & holidays" },
-    { icon: "tag", t: "Free Estimates", s: "On new systems" },
-    { icon: "award", t: "NATE-Certified", s: "Trained, tested & trusted" },
-  ] as const;
+    { v: "24/7", s: "Nights, weekends & holidays" },
+    { v: "Free", s: "Estimates on new systems" },
+    { v: "Local", s: "Family-owned Las Vegas team" },
+    { v: site.license, s: "NV licensed, bonded & insured" },
+  ];
   return (
     <section className="trust" aria-label="Credentials">
-      <div className="wrap trust-row">
+      <ul className="wrap trust-row">
         {items.map((i) => (
-          <div className="trust-item" key={i.t}>
-            <span className="ic-box">
-              <Icon name={i.icon} size={20} />
-            </span>
-            <div>
-              <strong>{i.t}</strong>
-              <span>{i.s}</span>
-            </div>
-          </div>
+          <li className="trust-item" key={i.s}>
+            <strong>{i.v}</strong>
+            <span>{i.s}</span>
+          </li>
         ))}
-      </div>
+        <li className="trust-item trust-nate">
+          <Image src="/images/nate.png" alt="NATE" width={46} height={43} />
+          <span>NATE-certified technicians</span>
+        </li>
+      </ul>
     </section>
   );
 }
@@ -113,7 +128,7 @@ export function TrustBar() {
 /* ═════════════════════════ EMERGENCY ═════════════════════════ */
 export function Emergency() {
   return (
-    <section className="emerg">
+    <section className="emerg" id="urgent">
       <HeatShimmer tone="white" className="emerg-shimmer" />
       <Snowflake size={220} className="emerg-flake" />
       <div className="wrap emerg-row" data-reveal>

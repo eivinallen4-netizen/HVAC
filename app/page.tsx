@@ -12,7 +12,6 @@ import {
   Process,
   Reviews,
   Services,
-  TrustBar,
   WhyWave,
 } from "@/components/Sections";
 import { buildMetadata, faqLd } from "@/lib/seo";
@@ -29,7 +28,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <TrustBar />
       <Emergency />
       <Services />
       <Difference />
