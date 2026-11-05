@@ -16,7 +16,7 @@ const menus: NavMenu[] = [
     ],
   },
   {
-    label: "Free Tools",
+    label: "Tools",
     href: pages.tools,
     groups: [{ title: "Homeowner tools", href: pages.tools, items: tools.map((t) => ({ href: `/tools/${t.slug}/`, label: t.name })) }],
   },

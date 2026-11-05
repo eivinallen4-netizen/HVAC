@@ -4,7 +4,7 @@ import { CtaBand } from "@/components/page/Cards";
 import { Faq, FinalCta, TrustBar } from "@/components/Sections";
 import { servicePages } from "@/lib/content/services";
 import { buildMetadata, faqLd } from "@/lib/seo";
-import { faqs } from "@/lib/site";
+import { faqs, replacementFaqs } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "HVAC FAQ | Las Vegas Heating & Cooling Questions | Wave",
@@ -18,7 +18,7 @@ const pick = (slug: string) => servicePages.find((s) => s.slug === slug)?.faqs ?
 const groups = [
   { title: "General Questions", items: faqs },
   { title: "AC Repair & Emergencies", items: [...pick("hvac-repairs-in-las-vegas"), ...pick("emergency-ac-repair-las-vegas").slice(0, 2)] },
-  { title: "New Systems & Replacement", items: [...pick("ac-replacement-in-las-vegas"), ...pick("ac-installations-in-las-vegas").slice(0, 2)] },
+  { title: "New Systems & Replacement", items: [...replacementFaqs, ...pick("ac-replacement-in-las-vegas"), ...pick("ac-installations-in-las-vegas").slice(0, 2)] },
   { title: "Heating", items: [...pick("hvac-heating-repair-in-las-vegas"), ...pick("heat-pump-services-las-vegas").slice(0, 1)] },
   { title: "Maintenance & Wave Club", items: [...pick("hvac-maintenance-las-vegas"), ...pick("ac-maintenance-in-las-vegas").slice(0, 2)] },
 ];

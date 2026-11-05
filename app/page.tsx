@@ -1,26 +1,35 @@
 import { JsonLd } from "@/components/JsonLd";
 import { ToolCards } from "@/components/page/Cards";
 import {
+  BeReady,
+  CompareQuotes,
+  FullReplacement,
+  HomeProtection,
+  RepairOrReplace,
+  ReplacementDay,
+} from "@/components/Replacement";
+import {
   Areas,
-  Difference,
   Emergency,
   EstimateBand,
   Faq,
   FinalCta,
   Guides,
   Hero,
-  Process,
   Reviews,
   Services,
   WhyWave,
 } from "@/components/Sections";
 import { buildMetadata, faqLd } from "@/lib/seo";
-import { faqs } from "@/lib/site";
+import { faqs, replacementFaqs } from "@/lib/site";
+
+/** Replacement questions first, then the two general ones buyers still ask */
+const homeFaqs = [...replacementFaqs, ...faqs.filter((f) => /licensed|24\/7/i.test(f.q))];
 
 export const metadata = buildMetadata({
-  title: "Las Vegas AC & Heating Repair | 24/7 | Wave Heating & Cooling",
+  title: "HVAC Replacement Las Vegas | Permitted & Inspected | Wave",
   description:
-    "Family-owned Las Vegas HVAC company. AC & heating repair, installs and tune-ups by NATE-certified techs. 24/7 service, book online. (702) 881-4713.",
+    "Full AC and furnace replacement in Las Vegas. Permits pulled, full safety inspection, your home protected and cleaned. Schedule your in-home assessment.",
   path: "/",
 });
 
@@ -28,19 +37,30 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Emergency />
-      <Services />
-      <Difference />
-      <WhyWave />
-      <Process />
-      <Reviews />
+      <RepairOrReplace />
+      <HomeProtection />
+      <ReplacementDay />
+      <FullReplacement />
+      <Reviews title="What Las Vegas Homeowners Say About Wave" />
       <EstimateBand />
+      <CompareQuotes />
+      <Services
+        kicker="Not ready to replace?"
+        title="Repairs, Tune-Ups & Everything Else"
+        lead="If your system still has life in it, we'll keep it running. Same team, same standards, 24/7."
+      />
+      <Emergency />
+      <WhyWave />
       <ToolCards alt={false} />
       <Areas />
       <Guides />
-      <Faq />
-      <FinalCta />
-      <JsonLd data={faqLd(faqs)} />
+      <Faq items={homeFaqs} title="HVAC Replacement Questions, Answered" />
+      <BeReady />
+      <FinalCta
+        title="Schedule Your Replacement Assessment"
+        lead="Pick a time online and we'll call to go over your system and set up a visit to see your home. Need a repair instead? We're here 24/7."
+      />
+      <JsonLd data={faqLd(homeFaqs)} />
     </>
   );
 }

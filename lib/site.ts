@@ -75,7 +75,7 @@ export type IconName =
   | "duct" | "leaf" | "shield" | "award" | "clock" | "home" | "tag" | "sparkle"
   | "chat" | "cal" | "search" | "pin" | "check" | "tick" | "arrow" | "chev"
   | "plus" | "lock" | "power" | "question" | "star" | "bolt" | "menu" | "close"
-  | "sun" | "drag" | "moon";
+  | "sun" | "drag" | "moon" | "boot" | "ladder" | "sheet" | "broom" | "permit";
 
 /** Options shown in step 1 of the hero form */
 export const issueOptions: {
@@ -115,12 +115,12 @@ export const services: {
   },
   {
     title: "AC Installation & Replacement",
-    text: "Properly sized, energy-efficient systems installed clean and on schedule — with a no-pressure estimate.",
+    text: "Full matched systems, sized to your home, permitted and safety-inspected, with your home protected and cleaned up after.",
     img: "/images/svc-ac-install.jpg",
     icon: "unitPlus",
     pick: "New system / replacement estimate",
-    href: page("ac-installations-in-las-vegas"),
-    cta: "Get an estimate",
+    href: page("ac-replacement-in-las-vegas"),
+    cta: "Schedule an assessment",
   },
   {
     title: "Heating Repair & Installation",
@@ -195,6 +195,42 @@ export const faqs = [
   {
     q: "What areas do you serve?",
     a: `The whole Las Vegas valley, including ${serviceAreas.slice(0, 9).join(", ")} and more.`,
+  },
+];
+
+/** Homepage FAQs: what replacement buyers ask before they call (also shown on /faq/) */
+export const replacementFaqs = [
+  {
+    q: "Do you pull permits?",
+    a: "Yes, on every replacement. The county inspects the install, not just us, and we handle all the paperwork.",
+  },
+  {
+    q: "Do you replace the whole system or just one unit?",
+    a: "We replace the full system, indoor and outdoor, so every part is matched and works together. Mixing old and new parts can wear the system out faster and cause warranty problems.",
+  },
+  {
+    q: "Can you give me a price over the phone?",
+    a: "We size every system to your home, so we come out to measure first: square footage, windows, insulation and sun exposure. That's how you get a number that's actually right. For a rough idea before we visit, try our AC Replacement Cost Estimator.",
+  },
+  {
+    q: "Will you make a mess in my house?",
+    a: "No. We wear booties, put padding down before any ladder touches the floor, cover walls, closets and beds in plastic, and sweep and vacuum when we're done. Your home looks the way we found it, or better.",
+  },
+  {
+    q: "How long does a replacement take?",
+    a: "Most replacements take about a full day. We'll tell you what to expect for your home when we come out for the assessment.",
+  },
+  {
+    q: "What safety checks do you do?",
+    a: "Before we call any job done we check electrical connections and breaker sizing, furnace gas lines and venting (including a carbon monoxide check), refrigerant pressures and the drain line.",
+  },
+  {
+    q: "How do I know if I should repair or replace?",
+    a: "If your system is over 12 years old, needs repairs every summer, or your bills keep climbing, replacement usually makes more sense. Older R-22 systems also get more expensive to recharge every year. We'll show you the numbers and you decide. If a repair makes more sense, we'll tell you.",
+  },
+  {
+    q: "What should I have ready when I call?",
+    a: "Four things: your system's age (it's on the sticker on the outside unit), what's going wrong, your home's rough square footage, and your timeline. With those, the call takes about 10 minutes.",
   },
 ];
 

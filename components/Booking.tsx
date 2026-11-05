@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { site } from "@/lib/site";
 import { track } from "@/lib/track";
 import { Icon } from "./Icon";
@@ -19,15 +19,53 @@ export function BookingEmbed({
   service?: string;
   onClose?: () => void;
 }) {
+  const wrap = useRef<HTMLDivElement>(null);
   const ref = useRef<HTMLIFrameElement>(null);
+  // HCP focuses its first field on "hcp:open", and the browser then scrolls the page to the iframe.
+  // So we only load it once the visitor scrolls near, and only open it once it's actually on screen.
+  const [near, setNear] = useState(false);
+  const visible = useRef(false);
+  const ready = useRef(false);
+
+  const open = useCallback(() => {
+    if (ready.current && visible.current) ref.current?.contentWindow?.postMessage("hcp:open", "*");
+  }, []);
+
+  useEffect(() => {
+    const el = wrap.current;
+    if (!el) return;
+    const nearObs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setNear(true);
+          nearObs.disconnect();
+        }
+      },
+      { rootMargin: "600px 0px" },
+    );
+    const visObs = new IntersectionObserver(
+      ([e]) => {
+        const was = visible.current;
+        visible.current = e.isIntersecting;
+        if (!was && visible.current) open();
+      },
+      { threshold: 0.3 },
+    );
+    nearObs.observe(el);
+    visObs.observe(el);
+    return () => {
+      nearObs.disconnect();
+      visObs.disconnect();
+    };
+  }, [open]);
 
   useEffect(() => {
     const frame = ref.current;
     if (!frame) return;
-    const open = () => frame.contentWindow?.postMessage("hcp:open", "*");
     const onMessage = (e: MessageEvent) => {
       if (e.source !== frame.contentWindow) return;
       if (e.data === "hcp:iframe-loaded") {
+        ready.current = true;
         open();
         track("booking_view", { location, service });
       } else if (e.data === "hcp:close") {
@@ -39,19 +77,26 @@ export function BookingEmbed({
     };
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
-  }, [location, service, onClose]);
+  }, [near, open, location, service, onClose]);
 
   return (
     <div className="booking">
-      <div className="booking-frame">
-        <iframe
-          ref={ref}
-          src={site.bookingUrl}
-          title={`Book with ${site.name}`}
-          allow="geolocation; payment"
-          // fallback in case the ready message fired before our listener attached
-          onLoad={() => setTimeout(() => ref.current?.contentWindow?.postMessage("hcp:open", "*"), 600)}
-        />
+      <div className="booking-frame" ref={wrap}>
+        {near && (
+          <iframe
+            ref={ref}
+            src={site.bookingUrl}
+            title={`Book with ${site.name}`}
+            allow="geolocation; payment"
+            // fallback in case the ready message fired before our listener attached
+            onLoad={() =>
+              setTimeout(() => {
+                ready.current = true;
+                open();
+              }, 600)
+            }
+          />
+        )}
       </div>
       <a
         className="booking-open"

@@ -37,22 +37,22 @@ export function Hero() {
       <div className="wrap hero-grid">
         <div className="hero-copy">
           <span className="chip chip-warm">
-            <Icon name="sun" size={15} /> 24/7 service across the Las Vegas valley
+            <Icon name="unitPlus" size={15} /> AC &amp; furnace replacement across the Las Vegas valley
           </span>
           <h1>
-            Las Vegas&apos; Most Trusted <span className="cool">Heating</span> &amp; <span className="cool">Cooling</span>{" "}
-            Solutions
+            Full HVAC Replacement in Las Vegas, <span className="cool">Done Right</span>
           </h1>
           <p className="hero-sub">
-            AC and heating repair, new system installs and tune-ups from a family-owned team with NATE-certified techs.
-            Available 24/7 — and you can book online in about a minute.
+            Permitted, safety-inspected, and your home protected from the front door to the final vacuum. A family-owned
+            Las Vegas team with NATE-certified techs, and still here 24/7 when you need a repair.
           </p>
 
           <RatingsRow nate />
 
           <ul className="hero-checks">
-            <li><Icon name="check" size={18} /> Licensed, bonded &amp; insured</li>
-            <li><Icon name="check" size={18} /> Upfront, written pricing</li>
+            <li><Icon name="check" size={18} /> Permits pulled on every job</li>
+            <li><Icon name="check" size={18} /> Full safety inspection</li>
+            <li><Icon name="check" size={18} /> We leave it cleaner than we found it</li>
             <li><Icon name="check" size={18} /> NV License {site.license}</li>
           </ul>
         </div>
@@ -64,8 +64,8 @@ export function Hero() {
           <HeroLeadForm />
         </div>
       </div>
-      <a className="hero-next" href="#urgent">
-        <span>Desert heat won&apos;t wait — neither do we</span>
+      <a className="hero-next" href="#install-day">
+        <span>See what replacement day looks like</span>
         <Icon name="chev" size={20} />
       </a>
     </section>
@@ -156,7 +156,15 @@ export function Emergency() {
 }
 
 /* ═════════════════════════ SERVICES ═════════════════════════ */
-export function Services() {
+export function Services({
+  kicker = "Precision climate care",
+  title = "Built for Desert Performance",
+  lead = "Cooling, heating and indoor air — one local team for all of it, built for the Mojave desert.",
+}: {
+  kicker?: string;
+  title?: string;
+  lead?: string;
+} = {}) {
   return (
     <section className="sec art-sec" id="services">
       <div className="sec-art" aria-hidden="true">
@@ -164,11 +172,7 @@ export function Services() {
         <Image src="/images/art/ice-crystal.png" alt="" width={460} height={460} className="art-img svc-ice" />
       </div>
       <div className="wrap">
-        <SecHead
-          kicker="Precision climate care"
-          title="Built for Desert Performance"
-          lead="Cooling, heating and indoor air — one local team for all of it, built for the Mojave desert."
-        />
+        <SecHead kicker={kicker} title={title} lead={lead} />
         <div className="grid-3">
           {services.map((s, i) => (
             <article className={`card svc${s.hot ? " hot" : ""}`} key={s.title} data-reveal style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
@@ -253,10 +257,10 @@ export function Difference() {
 const why = [
   { icon: "home", t: "Family-owned & local", d: "We live here, and we treat your home like our own." },
   { icon: "award", t: "NATE-certified techs", d: "Most of our team is NATE-certified — pros who know HVAC inside and out." },
-  { icon: "tag", t: "Honest, competitive pricing", d: "If it's a simple fix, we'll tell you. No upselling." },
+  { icon: "tag", t: "Honest advice", d: "If it's a simple fix, we'll tell you. If it's time to replace, we'll show you why." },
   { icon: "clock", t: "Here 24/7", d: "Heat waves don't wait for business hours — neither do we." },
   { icon: "shield", t: "Licensed, bonded & insured", d: `Nevada license ${site.license} for total peace of mind.` },
-  { icon: "sparkle", t: "Clean, professional work", d: "On time, respectful, and we leave your home spotless." },
+  { icon: "sparkle", t: "Your home protected", d: "Booties at the door, padding under ladders, plastic on walls and beds, and a full clean-up." },
 ] as const;
 
 export function WhyWave() {
@@ -406,16 +410,16 @@ export function EstimateBand() {
       <HeatShimmer tone="warm" className="est-shimmer" />
       <div className="wrap est-row" data-reveal>
         <div>
-          <span className="chip chip-warm">Thinking about a new system?</span>
-          <h2>In-Home Estimates on New AC &amp; Heating Systems</h2>
+          <span className="chip chip-warm">System over 12 years old?</span>
+          <h2>Let&apos;s Talk Replacement</h2>
           <p>
-            Old, loud, or costing you a fortune to run? We&apos;ll size the right system for your home and give you a
-            clear, no-pressure quote.
+            Book an in-home replacement assessment. We&apos;ll measure your home, check the ductwork and electrical, and give
+            you clear written options. Done right the first time, permitted and inspected.
           </p>
         </div>
         <div className="est-acts">
           <EstimateButton pick="New system / replacement estimate" icon="arrow">
-            Book an Estimate
+            Schedule My Assessment
           </EstimateButton>
           <CallLink className="btn btn-ghost" location="estimate-band" />
         </div>
@@ -516,7 +520,7 @@ export function Faq({
     <section className={`sec art-sec${alt ? " sec-alt" : ""}`} id={id}>
       <SplitEmblem size={520} className="faq-emblem" />
       <div className="wrap faq-wrap">
-        <SecHead kicker="Answers & clarity" title={title} lead="Still unsure what you need? A quick call is free and we'll point you in the right direction." />
+        <SecHead kicker="Answers & clarity" title={title} lead="Still unsure what you need? Give us a call and we'll point you in the right direction." />
         <div data-reveal>
           <FaqList items={items} />
         </div>
@@ -526,7 +530,13 @@ export function Faq({
 }
 
 /* ═════════════════════════ FINAL CTA ═════════════════════════ */
-export function FinalCta() {
+export function FinalCta({
+  title = "Book Your Service Today",
+  lead = "Pick a time online and we'll confirm your appointment. Or call — we're available 24/7.",
+}: {
+  title?: string;
+  lead?: string;
+} = {}) {
   const lines = [
     { icon: "phone", label: "Call or text 24/7", value: <CallLink location="final" icon={false} className="cl-phone" />, tone: "red" },
     { icon: "pin", label: "Headquarters", value: `${site.address.street}, ${site.address.city}, ${site.address.state} ${site.address.zip}`, tone: "blue" },
@@ -540,8 +550,8 @@ export function FinalCta() {
       <div className="wrap final-grid">
         <div data-reveal>
           <span className="kicker">Direct service desk</span>
-          <h2>Book Your Service Today</h2>
-          <p className="lead">Pick a time online and we&apos;ll confirm your appointment. Or call — we&apos;re available 24/7.</p>
+          <h2>{title}</h2>
+          <p className="lead">{lead}</p>
           <div className="contact-lines">
             {lines.map((l) => (
               <div className="cl" key={l.label}>
@@ -615,7 +625,7 @@ export function Footer() {
               </li>
             ))}
           </ul>
-          <h5 className="foot-h-gap">Free Tools</h5>
+          <h5 className="foot-h-gap">Homeowner Tools</h5>
           <ul>
             {tools.map((t) => (
               <li key={t.slug}>

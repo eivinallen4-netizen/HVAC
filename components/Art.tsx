@@ -80,13 +80,39 @@ export function SplitEmblem({ size = 120, className = "", style }: Glyph) {
   );
 }
 
+/* ─── Logo emblem — the house-roof mark cut from the Wave logo.
+   Dark theme gets a light-roof copy so the roof doesn't vanish on navy. ─── */
+export function LogoEmblem({ size = 40, className = "", style }: Glyph) {
+  const variants = [
+    { src: "/images/art/logo-emblem-dark.png", theme: "logo-on-dark" },
+    { src: "/images/art/logo-emblem.png", theme: "logo-on-light" },
+  ];
+  return (
+    <>
+      {variants.map((v) => (
+        <Image
+          key={v.theme}
+          src={v.src}
+          alt=""
+          aria-hidden="true"
+          width={size}
+          height={size}
+          sizes={`${size}px`}
+          className={`art-emblem art-logo-emblem ${v.theme} ${className}`}
+          style={style}
+        />
+      ))}
+    </>
+  );
+}
+
 /* ─── Ornamental divider: flame · line · emblem · line · snowflake ─── */
 export function FireIceRule({ className = "" }: { className?: string }) {
   return (
     <div className={`fi-rule ${className}`} aria-hidden="true">
       <Flame size={20} />
       <i className="fi-line warm" />
-      <SplitEmblem size={40} />
+      <LogoEmblem size={40} />
       <i className="fi-line cool" />
       <Snowflake size={22} />
     </div>

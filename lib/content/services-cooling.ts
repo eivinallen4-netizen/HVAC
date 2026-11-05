@@ -203,7 +203,7 @@ export const coolingServices: ServicePage[] = [
     img: "/images/svc-ac-install.jpg",
     icon: "unitPlus",
     pick: "New system / replacement estimate",
-    highlights: ["In-home estimates", "Load calculation on every job", "High-efficiency options", "Financing available (OAC)"],
+    highlights: ["Load calculation on every job", "Permits pulled", "Full safety inspection", "Home protected & cleaned up"],
     sections: [
       {
         h2: "New AC Installation vs. AC Replacement",
@@ -230,11 +230,14 @@ export const coolingServices: ServicePage[] = [
         list: [
           "In-home consultation and load calculation",
           "Clear written options — standard, high-efficiency and premium — with no pressure",
+          "Permit pulled for the job",
+          "Home protection: booties at the door, floor padding under ladders, plastic over walls, closets and beds",
           "Ductwork inspection, and sealing or modification where needed",
           "Removal and disposal of your old equipment",
           "Professional installation to manufacturer specs, including line set, pad, electrical and drain",
+          "Full safety inspection: electrical, refrigerant pressures, drain line, and gas venting with a CO check on furnaces",
           "Refrigerant charge verified, airflow measured and thermostat programmed",
-          "Walk-through of your new system, warranty registration and a maintenance plan option",
+          "Swept and vacuumed, then a walk-through of your new system, warranty registration and a maintenance plan option",
         ],
       },
       {
@@ -281,15 +284,15 @@ export const coolingServices: ServicePage[] = [
     title: "AC Replacement Las Vegas | Book Online | Wave Heating & Cooling",
     description:
       "Is it time to replace your AC? Honest advice, in-home estimates and high-efficiency systems built for Las Vegas heat. Financing available. (702) 881-4713.",
-    h1: "AC Replacement in Las Vegas — Honest Advice, Better Efficiency",
+    h1: "AC Replacement in Las Vegas — Permitted, Inspected, Done Right",
     kicker: "Upgrade your system",
     intro:
-      "If your air conditioner is more than 10–15 years old, keeps breaking down or is driving your power bill through the roof, a replacement may save you money in the long run. Wave Heating & Cooling gives you honest, no-pressure advice — and if replacement is the right call, we'll size and install a system built for Las Vegas summers.",
+      "If your air conditioner is more than 12 years old, keeps breaking down or is driving your power bill through the roof, it may be time. Wave Heating & Cooling gives you honest, no-pressure advice. If replacement is the right call, we replace the whole matched system, pull the permit, run a full safety inspection, and protect your home from the front door to the final vacuum.",
     summary: "Old, loud or costing a fortune to run? Get a right-sized, high-efficiency replacement with an estimate.",
     img: "/images/svc-ac-install.jpg",
     icon: "unitPlus",
     pick: "New system / replacement estimate",
-    highlights: ["No-pressure estimates", "Honest repair-vs-replace advice", "Old system removed & recycled", "Financing available (OAC)"],
+    highlights: ["Permits on every job", "Full matched system", "Safety inspection before we leave", "Home protected & cleaned up"],
     signs: {
       title: "Signs It's Time to Replace Your AC",
       items: [
@@ -306,7 +309,7 @@ export const coolingServices: ServicePage[] = [
         h2: "Repair or Replace? Here's How We Help You Decide",
         body: [
           "We look at your system's age, the cost of the current repair, your repair history, refrigerant type, efficiency and how long you plan to stay in the home. A popular rule of thumb is the **$5,000 rule**: multiply the system's age by the repair cost. If the result is over $5,000, replacement is usually the better investment.",
-          "Run your own numbers with our free [Repair or Replace Calculator](/tools/repair-or-replace-calculator/) — it takes about a minute.",
+          "Run your own numbers with our [Repair or Replace Calculator](/tools/repair-or-replace-calculator/). It takes about a minute.",
         ],
       },
       {
@@ -323,18 +326,29 @@ export const coolingServices: ServicePage[] = [
         h2: "Best Time to Replace Your AC",
         body: [
           "**Spring and fall are ideal.** You'll get more scheduling flexibility and avoid the risk of an emergency replacement during a heat wave, when demand is at its highest.",
-          "If your system is struggling now, don't wait for it to fail in July. Get an estimate so you know your options — there's no obligation. You can also get a ballpark price first with our [AC Replacement Cost Estimator](/tools/ac-replacement-cost-estimator/).",
+          "If your system is struggling now, don't wait for it to fail in July. Book an in-home replacement assessment so you know your options — there's no obligation. You can also get a ballpark price first with our [AC Replacement Cost Estimator](/tools/ac-replacement-cost-estimator/).",
         ],
       },
       {
         h2: "What's Included in a Wave Replacement",
         list: [
           "Load calculation to size the new system correctly",
+          "Full matched indoor and outdoor system, not just the outside unit",
+          "Permit pulled on every replacement, so the county inspects the install too",
+          "Booties at the door, floor padding under ladders, and plastic over walls, closets and beds",
           "Ductwork inspection and recommendations",
           "Removal and responsible disposal of old equipment and refrigerant",
           "New pad, line set and electrical work as needed",
-          "Startup testing: refrigerant charge, airflow, temperature split and safety controls",
+          "Safety inspection: electrical and breaker sizing, refrigerant pressures, drain line, and gas venting with a CO check on furnaces",
           "Thermostat setup, warranty registration and a full walk-through",
+          "Swept and vacuumed when we're done",
+        ],
+      },
+      {
+        h2: "Comparing AC Replacement Quotes in Las Vegas",
+        body: [
+          "Quotes can vary a lot, and the lowest number often leaves things out. Before you compare, ask each company: **Is a permit included? Is it a full matched system or just the outside unit? Is a safety inspection included? Do they protect your home and clean up after?**",
+          "Every one of those is standard with Wave. Labor done right takes a full day, not two hours.",
         ],
       },
     ],
@@ -349,7 +363,11 @@ export const coolingServices: ServicePage[] = [
       },
       {
         q: "What does an AC replacement cost?",
-        a: "Pricing depends on home size, equipment type, efficiency and installation requirements. Our free online estimator gives a ballpark range, and an in-home estimate gives you exact, written pricing.",
+        a: "Pricing depends on home size, equipment type, efficiency (SEER2) and whether ductwork, electrical or the pad need work. Our online estimator gives a ballpark range, and an in-home assessment gives you exact, written pricing.",
+      },
+      {
+        q: "Do you pull permits on AC replacements?",
+        a: "Yes, on every replacement. The county inspects the install, not just us, and we handle the paperwork. Unpermitted work can come up when you sell your home or file an insurance claim.",
       },
       {
         q: "Is financing available?",

@@ -209,11 +209,14 @@ export const heatingServices: ServicePage[] = [
         h2: "What's Included",
         list: [
           "Load calculation and equipment recommendations",
+          "Permit pulled on every replacement, so the county inspects the install too",
+          "Booties, floor padding and plastic over walls, closets and beds to protect your home",
           "Removal and disposal of old equipment",
           "Venting, gas line and electrical updates as needed",
           "Combustion analysis and carbon monoxide testing on gas systems",
           "Thermostat setup and system walk-through",
           "Manufacturer warranty registration",
+          "Swept and vacuumed when we're done",
         ],
       },
       {

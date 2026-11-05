@@ -60,9 +60,9 @@ export function ServiceCards({
 /** Lead-magnet tool cards */
 export function ToolCards({
   slugs,
-  kicker = "Free homeowner tools",
+  kicker = "Homeowner tools",
   title = "Get Answers in 60 Seconds",
-  lead = "Free calculators built for Las Vegas homes — no sales call required to use them.",
+  lead = "Quick calculators built for Las Vegas homes. Run your numbers before you call us.",
   alt = true,
 }: {
   slugs?: ToolSlug[];
@@ -91,7 +91,7 @@ export function ToolCards({
               <h3>{t.name}</h3>
               <p>{t.short}</p>
               <span className="svc-link">
-                Start free · {t.time} <Icon name="arrow" size={16} />
+                Start · {t.time} <Icon name="arrow" size={16} />
               </span>
             </Link>
           ))}
