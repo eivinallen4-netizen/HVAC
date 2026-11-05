@@ -1,12 +1,11 @@
 "use client";
 
-import Link from "next/link";
 import { useState } from "react";
 import type { IconName } from "@/lib/site";
 import { track } from "@/lib/track";
 import { CallLink } from "../Cta";
 import { Icon } from "../Icon";
-import { Consent, Field, Honeypot, PhoneInput, readForm, sendLead, ZipInput } from "../LeadForm";
+import { BookNowLink } from "../Booking";
 
 export type Choice<T extends string | number> = { value: T; label: string; sub?: string; icon?: IconName };
 
@@ -159,80 +158,41 @@ export function NumberStep({
   );
 }
 
-/**
- * Lead gate: shows a teaser above, then collects name/phone/ZIP to unlock the full result.
- * The submission (with the result summary) goes to /api/lead → Housecall Pro.
- */
+/** Results reveal: no contact details collected — one tap shows the full result */
 export function Gate({
-  tool,
   slug,
-  summary,
-  service,
-  cta = "Unlock My Full Results",
+  cta = "Show My Full Results",
   onUnlock,
 }: {
-  tool: string;
+  tool?: string;
   slug: string;
-  summary: string;
-  service: string;
+  summary?: string;
+  service?: string;
   cta?: string;
   onUnlock: () => void;
 }) {
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [phone, setPhone] = useState("");
-  const [sending, setSending] = useState(false);
-
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const data = readForm(e.currentTarget, setErrors);
-    if (!data || data.company_website) return;
-    delete data.company_website;
-    setSending(true);
-    await sendLead({ ...data, service, form: `tool:${slug}`, tool, tool_result: summary });
-    track("generate_lead", { form_id: `tool:${slug}`, service });
-    onUnlock();
-  }
-
   return (
-    <form className="gate" onSubmit={onSubmit} noValidate>
-      <div className="gate-head">
-        <Icon name="lock" size={18} />
-        <div>
-          <strong>Get your full results — free</strong>
-          <small>Takes 10 seconds. A Wave expert can answer any questions — no pressure, no spam.</small>
-        </div>
-      </div>
-      <div className="fields">
-        <Field label="Full name" name={`${slug}-name`} error={errors.name}>
-          <input id={`${slug}-name`} name="name" autoComplete="name" placeholder="Jane Smith" />
-        </Field>
-        <Field label="Phone" name={`${slug}-phone`} error={errors.phone}>
-          <PhoneInput id={`${slug}-phone`} value={phone} onChange={setPhone} />
-        </Field>
-        <Field label="ZIP code" name={`${slug}-zip`} error={errors.zip}>
-          <ZipInput id={`${slug}-zip`} />
-        </Field>
-        <Field label="Email" name={`${slug}-email`} optional error={errors.email}>
-          <input id={`${slug}-email`} name="email" type="email" autoComplete="email" placeholder="you@email.com" />
-        </Field>
-      </div>
-      <Honeypot />
-      <button type="submit" className="btn btn-red btn-block btn-lg" disabled={sending}>
-        {sending ? "Unlocking…" : cta}
+    <div className="gate">
+      <button
+        type="button"
+        className="btn btn-red btn-block btn-lg"
+        onClick={() => {
+          track("tool_result", { tool: slug });
+          onUnlock();
+        }}
+      >
+        {cta}
         <Icon name="arrow" size={20} />
       </button>
-      <Consent />
-    </form>
+    </div>
   );
 }
 
-/** Next-step block shown after unlocking */
-export function ResultCtas({ service, primary = "Book a Free Estimate" }: { service: string; primary?: string }) {
+/** Next-step block shown with the results */
+export function ResultCtas({ primary = "Book Now" }: { service?: string; primary?: string }) {
   return (
     <div className="result-ctas">
-      <Link href={`/contact/?service=${encodeURIComponent(service)}#estimate`} className="btn btn-red">
-        <Icon name="cal" size={20} /> {primary}
-      </Link>
+      <BookNowLink location="tool-result">{primary}</BookNowLink>
       <CallLink className="btn btn-ghost" location="tool-result" />
     </div>
   );

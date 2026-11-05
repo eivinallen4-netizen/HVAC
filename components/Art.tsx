@@ -1,6 +1,7 @@
 // Decorative fire & ice art drawn from the Wave logo (flame half / snowflake half).
 // Everything here is aria-hidden and purely ornamental — pure SVG + CSS animation, no client JS.
 
+import Image from "next/image";
 import type { CSSProperties } from "react";
 
 /* Deterministic pseudo-random so server and client render the same particles. */
@@ -27,21 +28,6 @@ export function ArtDefs() {
           <stop offset="0" stopColor="#ffffff" />
           <stop offset="1" stopColor="#66d4fb" />
         </linearGradient>
-        <linearGradient id="em-warm" x1="0" y1="1" x2="0" y2="0">
-          <stop offset="0" stopColor="#e2372b" />
-          <stop offset="1" stopColor="#fbb040" />
-        </linearGradient>
-        <linearGradient id="em-cool" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stopColor="#66d4fb" />
-          <stop offset="1" stopColor="#1d7fa0" />
-        </linearGradient>
-        {/* user-space clips, in SplitEmblem's 120×120 viewBox */}
-        <clipPath id="em-left">
-          <rect x="0" y="0" width="60" height="120" />
-        </clipPath>
-        <clipPath id="em-right">
-          <rect x="60" y="0" width="60" height="120" />
-        </clipPath>
       </defs>
     </svg>
   );
@@ -78,26 +64,19 @@ export function Snowflake({ size = 64, className = "", style }: Glyph) {
   );
 }
 
-/* ─── Split emblem — the logo disc: flame left, snowflake right ─── */
+/* ─── Logo ball — the real Wave logo disc (flame left, snowflake right) ─── */
 export function SplitEmblem({ size = 120, className = "", style }: Glyph) {
-  const arm = "M60 60V26M60 36l-7-6M60 36l7-6M60 46l-6-5M60 46l6-5";
   return (
-    <svg className={`art-emblem ${className}`} style={style} width={size} height={size} viewBox="0 0 120 120" aria-hidden="true">
-      <circle cx="60" cy="60" r="56" fill="url(#em-warm)" clipPath="url(#em-left)" />
-      <circle cx="60" cy="60" r="56" fill="url(#em-cool)" clipPath="url(#em-right)" />
-      <path
-        clipPath="url(#em-left)"
-        fill="#e2372b"
-        d="M60 104c-16 0-25-10-25-23 0-15 11-22 14-37 7 5 10 12 10 20 4-3 6-9 5-16 9 7 17 18 17 31 0 15-8 25-21 25Z"
-      />
-      <path clipPath="url(#em-left)" fill="#ffe3a8" opacity="0.9" d="M60 104c-7 0-12-5-12-11 0-7 5-10 7-16 6 3 11 8 11 15 0 7-2 12-6 12Z" />
-      <g clipPath="url(#em-right)" fill="none" stroke="#fff" strokeWidth="3.4" strokeLinecap="round">
-        {[0, 60, 120, 180, 240, 300].map((r) => (
-          <path key={r} d={arm} transform={`rotate(${r} 60 60)`} />
-        ))}
-      </g>
-      <circle cx="60" cy="60" r="56" fill="none" stroke="rgba(255,255,255,0.18)" strokeWidth="2" />
-    </svg>
+    <Image
+      src="/images/art/logo-ball.png"
+      alt=""
+      aria-hidden="true"
+      width={size}
+      height={size}
+      sizes={`${size}px`}
+      className={`art-emblem ${className}`}
+      style={style}
+    />
   );
 }
 

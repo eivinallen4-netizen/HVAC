@@ -8,6 +8,7 @@ import { RevealOnScroll } from "@/components/Reveal";
 import { Footer, StickyBar } from "@/components/Sections";
 import { localBusinessLd } from "@/lib/seo";
 import { site } from "@/lib/site";
+import { themeInitScript } from "@/lib/theme";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -31,7 +32,7 @@ export const metadata: Metadata = {
     template: "%s | Wave Heating & Cooling",
   },
   description:
-    "Family-owned Las Vegas HVAC company. AC & heating repair, installs and tune-ups by NATE-certified techs. 24/7 service, free estimates. (702) 881-4713.",
+    "Family-owned Las Vegas HVAC company. AC & heating repair, installs and tune-ups by a NATE-certified team. 24/7 service, book online. (702) 881-4713.",
   applicationName: site.name,
   icons: { icon: "/images/favicon.png", apple: "/images/favicon.png" },
   openGraph: { siteName: site.name, locale: "en_US", type: "website" },
@@ -41,13 +42,21 @@ export const metadata: Metadata = {
     : undefined,
 };
 
-export const viewport: Viewport = { themeColor: "#061820" };
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#061820" },
+    { media: "(prefers-color-scheme: light)", color: "#f4f8fa" },
+  ],
+};
 
 const GTM = process.env.NEXT_PUBLIC_GTM_ID;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${workSans.variable}`}>
+    <html lang="en" className={`${montserrat.variable} ${workSans.variable}`} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body>
         {GTM && (
           <>

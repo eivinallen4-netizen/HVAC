@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 /** Conversion page — noindex. Point Google Ads / GA4 "lead" conversions at this URL (or the generate_lead event). */
 export const metadata = buildMetadata({
   title: "Thank You | Wave Heating & Cooling",
-  description: "Thanks for contacting Wave Heating & Cooling. We'll call you shortly.",
+  description: "Thanks for contacting Wave Heating & Cooling. Your booking is in.",
   path: "/thank-you/",
   noindex: true,
 });
@@ -35,7 +35,7 @@ export default function ThankYouPage() {
                 <Icon name="cal" size={18} /> We&apos;ll confirm your appointment window.
               </li>
               <li>
-                <Icon name="wrench" size={18} /> Your NATE-certified tech arrives, diagnoses and explains your options.
+                <Icon name="wrench" size={18} /> Your Wave tech arrives, diagnoses and explains your options.
               </li>
             </ol>
             <CallLink className="btn btn-red btn-block" location="thank-you">

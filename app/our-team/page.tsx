@@ -31,7 +31,7 @@ export default function TeamPage() {
         section={{
           h2: "What You Can Expect From Every Wave Technician",
           cards: [
-            { t: "NATE-certified", d: "Industry-certified training on heating, cooling and air quality systems." },
+            { t: "NATE-certified", d: "Most of our techs hold NATE certification in heating, cooling and air quality systems." },
             { t: "Licensed, bonded & insured", d: "Nevada license #0086052 — full peace of mind every time we're in your home." },
             { t: "Clear communication", d: "You'll see what we see and get your options and pricing before work begins." },
             { t: "Clean, careful work", d: "On time, respectful of your home, and we leave the work area spotless." },

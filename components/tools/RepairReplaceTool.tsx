@@ -146,7 +146,7 @@ export function RepairReplaceTool() {
               </p>
               <ResultCtas
                 service={result.verdict === "repair" ? "AC not cooling" : "New system / replacement estimate"}
-                primary={result.verdict === "repair" ? "Book a Repair" : "Get a Free Replacement Estimate"}
+                primary={result.verdict === "repair" ? "Book a Repair" : "Book a Replacement Estimate"}
               />
               <button type="button" className="tool-back" onClick={() => setStep(1)}>
                 Start over

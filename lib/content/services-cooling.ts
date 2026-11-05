@@ -192,18 +192,18 @@ export const coolingServices: ServicePage[] = [
     slug: "ac-installations-in-las-vegas",
     category: "cooling",
     name: "AC Installation",
-    title: "AC Installation Las Vegas | Free Estimates | Wave",
+    title: "AC Installation Las Vegas | Book Online | Wave",
     description:
-      "New AC installation in Las Vegas, sized and installed right for desert heat. Free in-home estimates, high-efficiency options and financing. Call (702) 881-4713.",
+      "New AC installation in Las Vegas, sized and installed right for desert heat. In-home estimates, high-efficiency options and financing. Call (702) 881-4713.",
     h1: "AC Installation in Las Vegas — Sized Right, Installed Right",
     kicker: "New air conditioning systems",
     intro:
       "A new air conditioner is only as good as its installation. Wave Heating & Cooling designs and installs central air, heat pump and ductless systems for Las Vegas homes — properly sized for desert heat, installed clean and on schedule, and backed by a team that will still be here to service it.",
-    summary: "Properly sized, energy-efficient systems installed clean and on schedule — with a free, no-pressure estimate.",
+    summary: "Properly sized, energy-efficient systems installed clean and on schedule — with a no-pressure estimate.",
     img: "/images/svc-ac-install.jpg",
     icon: "unitPlus",
     pick: "New system / replacement estimate",
-    highlights: ["Free in-home estimates", "Load calculation on every job", "High-efficiency options", "Financing available (OAC)"],
+    highlights: ["In-home estimates", "Load calculation on every job", "High-efficiency options", "Financing available (OAC)"],
     sections: [
       {
         h2: "New AC Installation vs. AC Replacement",
@@ -228,7 +228,7 @@ export const coolingServices: ServicePage[] = [
       {
         h2: "Our Installation Process",
         list: [
-          "Free in-home consultation and load calculation",
+          "In-home consultation and load calculation",
           "Clear written options — standard, high-efficiency and premium — with no pressure",
           "Ductwork inspection, and sealing or modification where needed",
           "Removal and disposal of your old equipment",
@@ -254,7 +254,7 @@ export const coolingServices: ServicePage[] = [
     faqs: [
       {
         q: "How much does a new AC cost in Las Vegas?",
-        a: "It depends on the size of your home, system type, efficiency rating and how much ductwork or electrical work is needed. We give free, written in-home estimates, and our online cost estimator can give you a ballpark range first.",
+        a: "It depends on the size of your home, system type, efficiency rating and how much ductwork or electrical work is needed. We give clear, written in-home estimates, and our online cost estimator can give you a ballpark range first.",
       },
       {
         q: "How long does an AC installation take?",
@@ -262,7 +262,7 @@ export const coolingServices: ServicePage[] = [
       },
       {
         q: "What size AC do I need?",
-        a: "The right size depends on far more than square footage — insulation, windows, sun exposure, ceiling height and number of stories all matter. We perform a load calculation during your free estimate to size the system correctly.",
+        a: "The right size depends on far more than square footage — insulation, windows, sun exposure, ceiling height and number of stories all matter. We perform a load calculation during your in-home estimate to size the system correctly.",
       },
       {
         q: "Do you offer financing?",
@@ -278,18 +278,18 @@ export const coolingServices: ServicePage[] = [
     slug: "ac-replacement-in-las-vegas",
     category: "cooling",
     name: "AC Replacement",
-    title: "AC Replacement Las Vegas | Free Estimate | Wave Heating & Cooling",
+    title: "AC Replacement Las Vegas | Book Online | Wave Heating & Cooling",
     description:
-      "Is it time to replace your AC? Honest advice, free in-home estimates and high-efficiency systems built for Las Vegas heat. Financing available. (702) 881-4713.",
+      "Is it time to replace your AC? Honest advice, in-home estimates and high-efficiency systems built for Las Vegas heat. Financing available. (702) 881-4713.",
     h1: "AC Replacement in Las Vegas — Honest Advice, Better Efficiency",
     kicker: "Upgrade your system",
     intro:
       "If your air conditioner is more than 10–15 years old, keeps breaking down or is driving your power bill through the roof, a replacement may save you money in the long run. Wave Heating & Cooling gives you honest, no-pressure advice — and if replacement is the right call, we'll size and install a system built for Las Vegas summers.",
-    summary: "Old, loud or costing a fortune to run? Get a right-sized, high-efficiency replacement with a free estimate.",
+    summary: "Old, loud or costing a fortune to run? Get a right-sized, high-efficiency replacement with an estimate.",
     img: "/images/svc-ac-install.jpg",
     icon: "unitPlus",
     pick: "New system / replacement estimate",
-    highlights: ["Free, no-pressure estimates", "Honest repair-vs-replace advice", "Old system removed & recycled", "Financing available (OAC)"],
+    highlights: ["No-pressure estimates", "Honest repair-vs-replace advice", "Old system removed & recycled", "Financing available (OAC)"],
     signs: {
       title: "Signs It's Time to Replace Your AC",
       items: [
@@ -323,7 +323,7 @@ export const coolingServices: ServicePage[] = [
         h2: "Best Time to Replace Your AC",
         body: [
           "**Spring and fall are ideal.** You'll get more scheduling flexibility and avoid the risk of an emergency replacement during a heat wave, when demand is at its highest.",
-          "If your system is struggling now, don't wait for it to fail in July. Get a free estimate so you know your options — there's no obligation. You can also get a ballpark price first with our [AC Replacement Cost Estimator](/tools/ac-replacement-cost-estimator/).",
+          "If your system is struggling now, don't wait for it to fail in July. Get an estimate so you know your options — there's no obligation. You can also get a ballpark price first with our [AC Replacement Cost Estimator](/tools/ac-replacement-cost-estimator/).",
         ],
       },
       {

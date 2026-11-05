@@ -4,9 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { pages, site } from "@/lib/site";
+import { site } from "@/lib/site";
+import { BookNowLink } from "./Booking";
 import { CallLink } from "./Cta";
 import { Icon } from "./Icon";
+import { ThemeToggle } from "./ThemeToggle";
 
 export type NavItem = { href: string; label: string };
 export type NavMenu = { label: string; href: string; groups?: { title: string; href?: string; items: NavItem[] }[] };
@@ -41,7 +43,8 @@ export function HeaderClient({ menus }: { menus: NavMenu[] }) {
     <header className={`site-header${scrolled ? " is-scrolled" : ""}${open ? " menu-open" : ""}`}>
       <div className="wrap hdr">
         <Link className="logo" href="/" aria-label={`${site.name} home`}>
-          <Image src="/images/logo-light.png" alt={site.name} width={190} height={57} priority />
+          <Image src="/images/logo-light.png" alt={site.name} width={190} height={57} priority className="logo-on-dark" />
+          <Image src="/images/logo-dark.png" alt="" width={190} height={57} priority className="logo-on-light" />
           <span className="logo-lic">NV Lic {site.license}</span>
         </Link>
 
@@ -93,12 +96,13 @@ export function HeaderClient({ menus }: { menus: NavMenu[] }) {
         </nav>
 
         <div className="hdr-cta">
-          <span className="status-pill hide-md">
-            <i className="dot" /> Available 24/7
-          </span>
+          <BookNowLink className="btn btn-ghost btn-hdr btn-book" location="header">
+            Book<span className="hide-xs">&nbsp;Now</span>
+          </BookNowLink>
           <CallLink className="btn btn-red btn-hdr" location="header">
             <span className="hide-xs">{site.phone}</span>
           </CallLink>
+          <ThemeToggle />
           <button
             className="menu-btn"
             aria-label={open ? "Close menu" : "Open menu"}
@@ -139,9 +143,9 @@ export function HeaderClient({ menus }: { menus: NavMenu[] }) {
             </Link>
           )
         )}
-        <Link href={pages.contact} className="btn btn-red btn-block m-cta">
-          Get a Free Estimate
-        </Link>
+        <BookNowLink className="btn btn-red btn-block m-cta" location="mobile-nav">
+          Book Now
+        </BookNowLink>
       </div>
     </header>
   );

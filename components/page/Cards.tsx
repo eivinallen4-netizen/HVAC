@@ -124,9 +124,9 @@ export function SignsGrid({ title, items }: { title: string; items: { t: string;
 /** Compact conversion band used between content sections */
 export function CtaBand({
   title = "Ready for Honest, Fast Service?",
-  text = "Tell us what's going on and a Wave team member will call you back to confirm a time. Available 24/7.",
+  text = "Book online in about a minute — pick a time that works for you. Or call us 24/7.",
   pick,
-  cta = "Get My Free Estimate",
+  cta = "Book Now",
 }: {
   title?: string;
   text?: string;

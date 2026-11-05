@@ -30,7 +30,7 @@ export const areaPages: AreaPage[] = [
     full: "North Las Vegas, NV",
     title: t("North Las Vegas"),
     description:
-      "AC repair, heating and HVAC installation in North Las Vegas, NV. Family-owned, NATE-certified and available 24/7. Free estimates. Call (702) 881-4713.",
+      "AC repair, heating and HVAC installation in North Las Vegas, NV. Family-owned, NATE-certified and available 24/7. Book online or call (702) 881-4713.",
     h1: "AC Repair & HVAC Services in North Las Vegas, NV",
     intro:
       "From established neighborhoods near Craig Road to newer master-planned communities like Aliante, Valley Vista and Tule Springs, North Las Vegas homeowners count on Wave Heating & Cooling for fast AC repair, reliable heating and honest advice on new systems.",
@@ -48,7 +48,7 @@ export const areaPages: AreaPage[] = [
       },
       {
         q: "My North Las Vegas home still has its original AC. Should I replace it?",
-        a: "If it's 15+ years old, uses R-22 refrigerant or needs a costly repair, replacement is often the better value. Try our Repair or Replace Calculator, or ask for a free estimate.",
+        a: "If it's 15+ years old, uses R-22 refrigerant or needs a costly repair, replacement is often the better value. Try our Repair or Replace Calculator, or ask for an estimate.",
       },
     ],
   },
@@ -58,7 +58,7 @@ export const areaPages: AreaPage[] = [
     full: "Henderson, NV",
     title: t("Henderson"),
     description:
-      "Henderson, NV AC repair, heating, ductwork and new HVAC systems. Family-owned, NATE-certified, 24/7 service. Free estimates — call (702) 881-4713.",
+      "Henderson, NV AC repair, heating, ductwork and new HVAC systems. Family-owned, NATE-certified, 24/7 service. Book online or call (702) 881-4713.",
     h1: "AC Repair & HVAC Services in Henderson, NV",
     intro:
       "Wave Heating & Cooling serves homeowners all across Henderson — from long-established Green Valley streets to hillside homes in Anthem and Seven Hills and newer builds in Inspirada and Cadence — with 24/7 AC repair, heating service and expert installations.",
@@ -282,7 +282,7 @@ export const areaPages: AreaPage[] = [
     full: "Spring Valley, NV",
     title: t("Spring Valley"),
     description:
-      "AC repair, heating and HVAC installation in Spring Valley, NV. Homes, townhomes and rentals. 24/7 service and free estimates. (702) 881-4713.",
+      "AC repair, heating and HVAC installation in Spring Valley, NV. Homes, townhomes and rentals. 24/7 service, book online. (702) 881-4713.",
     h1: "AC Repair & HVAC Services in Spring Valley, NV",
     intro:
       "Spring Valley stretches across the southwest-central valley with a mix of single-family homes, townhomes and rental properties. Wave Heating & Cooling provides fast AC repair, heating service and replacements for homeowners, landlords and property managers throughout the area.",

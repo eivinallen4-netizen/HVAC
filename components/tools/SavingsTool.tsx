@@ -125,7 +125,7 @@ export function SavingsTool() {
               </p>
               <ResultCtas
                 service={r.upgradePremium > r.tuneUp * 2 ? "New system / replacement estimate" : "Maintenance / tune-up"}
-                primary={r.upgradePremium > r.tuneUp * 2 ? "Get a Free Upgrade Estimate" : "Book a Tune-Up"}
+                primary={r.upgradePremium > r.tuneUp * 2 ? "Book an Upgrade Estimate" : "Book a Tune-Up"}
               />
               <button type="button" className="tool-back" onClick={() => setStep(1)}>
                 Start over

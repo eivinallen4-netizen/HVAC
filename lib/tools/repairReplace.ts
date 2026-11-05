@@ -92,7 +92,7 @@ export function scoreRepairReplace(i: RRInput): RRResult {
     },
     borderline: {
       headline: "It's a close call",
-      nextStep: "Get a repair quote and a free replacement estimate side by side so you can compare real numbers.",
+      nextStep: "Get a repair quote and a replacement estimate side by side so you can compare real numbers.",
     },
     replace: {
       headline: "Replacement is likely the better value",

@@ -8,6 +8,9 @@ export const site = {
   phoneHref: "tel:+17028814713",
   smsHref: "sms:+17028814713",
   license: "#0086052",
+  /** Housecall Pro online booking — every "book" CTA and form on the site goes here */
+  bookingUrl:
+    "https://book.housecallpro.com/book/Wave-Heating--Cooling-LLC/e66436b677af472c937279994c3ba3e4?v2=true",
   address: {
     street: "4225 Plumeria Mist St",
     city: "Las Vegas",
@@ -72,7 +75,7 @@ export type IconName =
   | "duct" | "leaf" | "shield" | "award" | "clock" | "home" | "tag" | "sparkle"
   | "chat" | "cal" | "search" | "pin" | "check" | "tick" | "arrow" | "chev"
   | "plus" | "lock" | "power" | "question" | "star" | "bolt" | "menu" | "close"
-  | "sun" | "drag";
+  | "sun" | "drag" | "moon";
 
 /** Options shown in step 1 of the hero form */
 export const issueOptions: {
@@ -85,7 +88,7 @@ export const issueOptions: {
   { value: "AC not cooling", title: "AC isn't cooling", sub: "Running, but blowing warm air", icon: "snow" },
   { value: "Heat not working", title: "Heat isn't working", sub: "No heat, or not warming up", icon: "flame", hot: true },
   { value: "System won't turn on / no airflow", title: "Won't turn on / no airflow", sub: "Nothing coming out of the vents", icon: "power" },
-  { value: "New system / replacement estimate", title: "I need a new system", sub: "Free replacement or install estimate", icon: "unitPlus" },
+  { value: "New system / replacement estimate", title: "I need a new system", sub: "Replacement or new install", icon: "unitPlus" },
   { value: "Maintenance / tune-up", title: "Tune-up or maintenance", sub: "Get ahead of the summer heat", icon: "gauge" },
   { value: "Not sure / other", title: "Something else / not sure", sub: "Ducts, mini-split, air quality, other", icon: "question" },
 ];
@@ -108,16 +111,16 @@ export const services: {
     icon: "wrench",
     pick: "AC not cooling",
     href: page("hvac-repairs-in-las-vegas"),
-    cta: "Get a free estimate",
+    cta: "Get an estimate",
   },
   {
     title: "AC Installation & Replacement",
-    text: "Properly sized, energy-efficient systems installed clean and on schedule — with a free, no-pressure estimate.",
+    text: "Properly sized, energy-efficient systems installed clean and on schedule — with a no-pressure estimate.",
     img: "/images/svc-ac-install.jpg",
     icon: "unitPlus",
     pick: "New system / replacement estimate",
     href: page("ac-installations-in-las-vegas"),
-    cta: "Get a free estimate",
+    cta: "Get an estimate",
   },
   {
     title: "Heating Repair & Installation",
@@ -126,7 +129,7 @@ export const services: {
     icon: "flame",
     pick: "Heat not working",
     href: page("heating-services"),
-    cta: "Get a free estimate",
+    cta: "Get an estimate",
     hot: true,
   },
   {
@@ -145,7 +148,7 @@ export const services: {
     icon: "split",
     pick: "Ductless mini-split",
     href: page("ductless-mini-split-systems-in-las-vegas"),
-    cta: "Get a free estimate",
+    cta: "Get an estimate",
   },
   {
     title: "Ductwork & Indoor Air Quality",
@@ -154,7 +157,7 @@ export const services: {
     icon: "duct",
     pick: "Ductwork / indoor air quality",
     href: page("indoor-air-quality-las-vegas"),
-    cta: "Get a free estimate",
+    cta: "Get an estimate",
   },
 ];
 
@@ -170,8 +173,8 @@ export const reviews = [
 
 export const faqs = [
   {
-    q: "Do you offer free estimates?",
-    a: "Yes. Estimates for new AC and heating system installs and replacements are free with no obligation. Fill out the form above or give us a call to set one up.",
+    q: "How do I book service or an estimate?",
+    a: "Book online in about a minute — pick what's going on and choose a time that works for you. Or call us 24/7 and we'll set it up.",
   },
   {
     q: "Do you offer 24/7 emergency service?",
@@ -179,7 +182,7 @@ export const faqs = [
   },
   {
     q: "Are you licensed and insured?",
-    a: `Absolutely. Wave Heating & Cooling is licensed, bonded and insured in Nevada (license ${site.license}), and our technicians are NATE-certified.`,
+    a: `Absolutely. Wave Heating & Cooling is licensed, bonded and insured in Nevada (license ${site.license}), and most of our technicians are NATE-certified.`,
   },
   {
     q: "Should I repair or replace my AC?",

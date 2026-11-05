@@ -90,7 +90,7 @@ export default function ServiceAreaHub() {
             </p>
             <p>
               Need help now? Our <Link href="/emergency-ac-repair-las-vegas/">24/7 emergency AC repair</Link> team answers day and
-              night. Planning ahead? Get a <Link href="/ac-replacement-in-las-vegas/">free replacement estimate</Link> or join{" "}
+              night. Planning ahead? Get a <Link href="/ac-replacement-in-las-vegas/">replacement estimate</Link> or join{" "}
               <Link href="/hvac-maintenance-las-vegas/">Wave Club</Link> for two tune-ups a year.
             </p>
           </div>

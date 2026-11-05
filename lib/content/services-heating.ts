@@ -100,16 +100,16 @@ export const heatingServices: ServicePage[] = [
     name: "Heating Installation",
     title: "Furnace & Heat Pump Installation Las Vegas | Wave",
     description:
-      "New furnace and heat pump installation in Las Vegas. Properly sized, efficient heating with free estimates and financing. Call (702) 881-4713.",
+      "New furnace and heat pump installation in Las Vegas. Properly sized, efficient heating with upfront pricing and financing. Call (702) 881-4713.",
     h1: "Heating Installation in Las Vegas — Furnaces & Heat Pumps",
     kicker: "New heating systems",
     intro:
-      "Whether you're building, adding on or upgrading, Wave Heating & Cooling installs gas furnaces, heat pumps and ductless heating systems sized correctly for Las Vegas homes. You'll get a free estimate, clear options and a clean, professional installation.",
-    summary: "Gas furnaces, heat pumps and ductless heating — sized and installed correctly with a free estimate.",
+      "Whether you're building, adding on or upgrading, Wave Heating & Cooling installs gas furnaces, heat pumps and ductless heating systems sized correctly for Las Vegas homes. You'll get an estimate, clear options and a clean, professional installation.",
+    summary: "Gas furnaces, heat pumps and ductless heating — sized and installed correctly with an estimate.",
     img: "/images/svc-heating.jpg",
     icon: "flame",
     pick: "New system / replacement estimate",
-    highlights: ["Free in-home estimates", "Gas furnaces & heat pumps", "Load-calculated sizing", "Financing available (OAC)"],
+    highlights: ["In-home estimates", "Gas furnaces & heat pumps", "Load-calculated sizing", "Financing available (OAC)"],
     sections: [
       {
         h2: "Which Heating System Is Right for Your Home?",
@@ -135,7 +135,7 @@ export const heatingServices: ServicePage[] = [
       {
         h2: "Our Heating Installation Process",
         list: [
-          "Free in-home consultation and load calculation",
+          "In-home consultation and load calculation",
           "Written options at different efficiency levels and price points",
           "Ductwork, venting and gas line evaluation",
           "Professional installation to manufacturer specifications and local code",
@@ -174,18 +174,18 @@ export const heatingServices: ServicePage[] = [
     slug: "hvac-heating-replacement-in-las-vegas",
     category: "heating",
     name: "Heating Replacement",
-    title: "Furnace Replacement Las Vegas | Free Estimate | Wave",
+    title: "Furnace Replacement Las Vegas | Book Online | Wave",
     description:
-      "Time for a new furnace or heat pump? Honest advice, free estimates and efficient heating systems for Las Vegas homes. Financing available. (702) 881-4713.",
+      "Time for a new furnace or heat pump? Honest advice, upfront pricing and efficient heating systems for Las Vegas homes. Financing available. (702) 881-4713.",
     h1: "Furnace & Heat Pump Replacement in Las Vegas",
     kicker: "Upgrade your heating",
     intro:
       "An aging furnace or heat pump costs more to run, breaks down more often and — in the case of gas furnaces — can become a safety concern. Wave Heating & Cooling will tell you honestly whether a repair still makes sense, and if it's time to replace, we'll install a safe, efficient system sized for your home.",
-    summary: "Replace an aging, unsafe or inefficient furnace or heat pump with honest advice and a free estimate.",
+    summary: "Replace an aging, unsafe or inefficient furnace or heat pump with honest advice and an estimate.",
     img: "/images/svc-heating.jpg",
     icon: "flame",
     pick: "New system / replacement estimate",
-    highlights: ["Honest repair-vs-replace advice", "Free written estimates", "CO & combustion safety testing", "Financing available (OAC)"],
+    highlights: ["Honest repair-vs-replace advice", "Clear written estimates", "CO & combustion safety testing", "Financing available (OAC)"],
     signs: {
       title: "Signs Your Heating System Should Be Replaced",
       items: [
@@ -319,7 +319,7 @@ export const heatingServices: ServicePage[] = [
     img: "/images/svc-heating.jpg",
     icon: "unit",
     pick: "Heat not working",
-    highlights: ["Repair, replace & install", "All major brands", "High-efficiency inverter options", "Free replacement estimates"],
+    highlights: ["Repair, replace & install", "All major brands", "High-efficiency inverter options", "Replacement estimates"],
     signs: {
       title: "Common Heat Pump Problems",
       items: [
@@ -359,7 +359,7 @@ export const heatingServices: ServicePage[] = [
       },
       {
         q: "Is a heat pump cheaper to run than a gas furnace?",
-        a: "In mild climates like Las Vegas, a modern heat pump is often very competitive with gas, and it also replaces your air conditioner. We can compare the options for your home during a free estimate.",
+        a: "In mild climates like Las Vegas, a modern heat pump is often very competitive with gas, and it also replaces your air conditioner. We can compare the options for your home during an estimate.",
       },
     ],
     related: ["hvac-heating-repair-in-las-vegas", "hvac-heating-installation-in-las-vegas", "ductless-mini-split-systems-in-las-vegas"],

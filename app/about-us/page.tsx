@@ -39,7 +39,7 @@ export default function AboutPage() {
             </p>
             <p>
               As a family-owned business, we don&apos;t carry corporate overhead or franchise fees — so we can offer competitive,
-              honest pricing while paying for the best-trained technicians in the valley. Our team is NATE-certified, our employee
+              honest pricing while paying for the best-trained technicians in the valley. Most of our techs are NATE-certified, our employee
               turnover is low, and many of our customers have been with us since day one.
             </p>
             <p>

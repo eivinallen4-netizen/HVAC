@@ -7,13 +7,6 @@ export type Offer = { title: string; value: string; text: string; fine: string; 
 /** CONFIRM: current specials. These reflect offers already published on Wave's old site — update as promos change. */
 export const offers: Offer[] = [
   {
-    title: "Free Estimates on New Systems",
-    value: "FREE",
-    text: "Free, no-obligation in-home estimates on new AC, heat pump and furnace installations and replacements.",
-    fine: "Residential replacement and new installation estimates only.",
-    icon: "unitPlus",
-  },
-  {
     title: "Wave Club Maintenance Plan",
     value: "$150/yr",
     text: "Two tune-ups a year, priority service, 15% off repairs and upgrades, no after-hours fees and extended warranty coverage.",

@@ -18,6 +18,14 @@
   --red-hi: #f04539;
   --green: #34d399;
 
+  --ground-rgb: 6, 24, 32;
+  --surface-rgb: 11, 42, 54;
+  --raised-rgb: 19, 63, 82;
+  --deep: #041219;
+  --err: #ff8a80;
+  --peach: #ffd9a8;
+  --orb-blend: screen;
+
   --text: #f0f7fa;
   --text-2: #9ec0cd;
   --text-3: #5c8394;
@@ -34,6 +42,71 @@
 
   --display: var(--font-display, Montserrat), system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   --body: var(--font-body, "Work Sans"), system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+}
+
+/* ─── Light mode: follows the phone/OS unless the visitor picks one (data-theme on <html>) ─── */
+:root {
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+  --ground: #f3f7f9;
+  --surface: #ffffff;
+  --surface-2: #eaf2f6;
+  --raised: #dde9ef;
+  --recess: #e8f0f4;
+  --ground-rgb: 243, 247, 249;
+  --surface-rgb: 255, 255, 255;
+  --raised-rgb: 221, 233, 239;
+  --deep: #e4eef3;
+  --err: #c62a1f;
+  --peach: #b45f0b;
+  --orb-blend: normal;
+
+  --blue: #1a8db3;
+  --blue-hi: #13789a;
+  --amber: #c97a0a;
+  --green: #0f9f6e;
+
+  --text: #0b2a36;
+  --text-2: #3a5966;
+  --text-3: #6a8794;
+
+  --line: rgba(15, 57, 70, 0.12);
+  --line-2: rgba(15, 57, 70, 0.18);
+  --line-3: rgba(15, 57, 70, 0.3);
+  --shadow: 0 14px 30px -10px rgba(15, 57, 70, 0.2), 0 0 0 1px rgba(15, 57, 70, 0.05);
+  color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --ground: #f3f7f9;
+  --surface: #ffffff;
+  --surface-2: #eaf2f6;
+  --raised: #dde9ef;
+  --recess: #e8f0f4;
+  --ground-rgb: 243, 247, 249;
+  --surface-rgb: 255, 255, 255;
+  --raised-rgb: 221, 233, 239;
+  --deep: #e4eef3;
+  --err: #c62a1f;
+  --peach: #b45f0b;
+  --orb-blend: normal;
+
+  --blue: #1a8db3;
+  --blue-hi: #13789a;
+  --amber: #c97a0a;
+  --green: #0f9f6e;
+
+  --text: #0b2a36;
+  --text-2: #3a5966;
+  --text-3: #6a8794;
+
+  --line: rgba(15, 57, 70, 0.12);
+  --line-2: rgba(15, 57, 70, 0.18);
+  --line-3: rgba(15, 57, 70, 0.3);
+  --shadow: 0 14px 30px -10px rgba(15, 57, 70, 0.2), 0 0 0 1px rgba(15, 57, 70, 0.05);
+  color-scheme: light;
 }
 
 *,
@@ -123,7 +196,7 @@ h5 {
   padding: 6px 12px;
   border-radius: 999px;
   border: 1px solid var(--line-2);
-  background: rgba(11, 42, 54, 0.6);
+  background: rgba(var(--surface-rgb), 0.6);
   font-family: var(--display);
   font-size: 0.68rem;
   font-weight: 700;
@@ -261,7 +334,7 @@ h5 {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(6, 24, 32, 0.72);
+  background: rgba(var(--ground-rgb), 0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--line);
@@ -269,7 +342,7 @@ h5 {
 }
 .site-header.is-scrolled,
 .site-header.menu-open {
-  background: rgba(6, 24, 32, 0.95);
+  background: rgba(var(--ground-rgb), 0.95);
 }
 .hdr {
   display: flex;
@@ -400,7 +473,7 @@ h5 {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(6, 24, 32, 0.96) 0%, rgba(6, 24, 32, 0.82) 45%, rgba(6, 24, 32, 0.45) 100%),
+  background: linear-gradient(90deg, rgba(var(--ground-rgb), 0.96) 0%, rgba(var(--ground-rgb), 0.82) 45%, rgba(var(--ground-rgb), 0.45) 100%),
     linear-gradient(0deg, var(--ground) 0%, transparent 30%);
 }
 .hero-grid {
@@ -485,7 +558,7 @@ h5 {
   position: relative;
   padding: 28px;
   border-radius: var(--r-lg);
-  background: rgba(11, 42, 54, 0.82);
+  background: rgba(var(--surface-rgb), 0.82);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--line);
@@ -549,13 +622,13 @@ h5 {
   padding: 12px;
   text-align: left;
   border-radius: var(--r);
-  background: rgba(19, 63, 82, 0.6);
+  background: rgba(var(--raised-rgb), 0.6);
   border: 1px solid rgba(47, 169, 207, 0.2);
   transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
 }
 .opt:hover {
   border-color: var(--blue);
-  background: rgba(19, 63, 82, 0.9);
+  background: rgba(var(--raised-rgb), 0.9);
   box-shadow: inset 0 0 0 1px var(--blue), 0 0 18px rgba(47, 169, 207, 0.15);
 }
 .oi {
@@ -690,7 +763,7 @@ h5 {
 }
 .f-err {
   font-size: 0.75rem;
-  color: #ff8a80;
+  color: var(--err);
 }
 .hp {
   position: absolute;
@@ -964,14 +1037,14 @@ h5 {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgba(11, 42, 54, 0.9) 0%, transparent 55%);
+  background: linear-gradient(0deg, rgba(var(--surface-rgb), 0.9) 0%, transparent 55%);
 }
 .ic-float {
   position: absolute;
   left: 20px;
   bottom: 14px;
   z-index: 1;
-  background: rgba(6, 24, 32, 0.85);
+  background: rgba(var(--ground-rgb), 0.85);
   backdrop-filter: blur(8px);
 }
 .svc-body {
@@ -1021,7 +1094,7 @@ h5 {
   z-index: 1;
   padding: 4px 9px;
   border-radius: var(--r);
-  background: rgba(6, 24, 32, 0.85);
+  background: rgba(var(--ground-rgb), 0.85);
   border: 1px solid var(--line-2);
   font-family: var(--display);
   font-size: 0.66rem;
@@ -1074,7 +1147,7 @@ h5 {
   gap: 6px;
   padding: 5px 10px;
   border-radius: var(--r);
-  background: rgba(6, 24, 32, 0.85);
+  background: rgba(var(--ground-rgb), 0.85);
   font-family: var(--display);
   font-size: 0.66rem;
   font-weight: 700;
@@ -1385,7 +1458,7 @@ h5 {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(90deg, rgba(6, 24, 32, 0.97) 30%, rgba(11, 42, 54, 0.8));
+  background: linear-gradient(90deg, rgba(var(--ground-rgb), 0.97) 30%, rgba(var(--surface-rgb), 0.8));
 }
 .est-row {
   display: flex;
@@ -1421,7 +1494,7 @@ h5 {
   position: absolute;
   inset: 0;
   z-index: -1;
-  background: linear-gradient(180deg, var(--ground) 0%, rgba(6, 24, 32, 0.7) 50%, var(--ground) 100%);
+  background: linear-gradient(180deg, var(--ground) 0%, rgba(var(--ground-rgb), 0.7) 50%, var(--ground) 100%);
 }
 .areas {
   display: grid;
@@ -1435,7 +1508,7 @@ h5 {
   gap: 8px;
   padding: 12px 14px;
   border-radius: var(--r);
-  background: rgba(11, 42, 54, 0.75);
+  background: rgba(var(--surface-rgb), 0.75);
   backdrop-filter: blur(6px);
   border: 1px solid var(--line-2);
   font-family: var(--display);
@@ -1456,7 +1529,7 @@ h5 {
   margin-top: 16px;
   padding: 16px 20px;
   border-radius: var(--r);
-  background: rgba(11, 42, 54, 0.85);
+  background: rgba(var(--surface-rgb), 0.85);
   border: 1px solid var(--line-2);
   font-size: 0.9rem;
 }
@@ -1599,7 +1672,7 @@ h5 {
 /* ─── Footer ─── */
 .footer {
   padding: 72px 0 0;
-  background: #041219;
+  background: var(--deep);
   border-top: 1px solid var(--line);
   font-size: 0.9rem;
 }
@@ -1917,7 +1990,7 @@ h5 {
 .hero-orb {
   position: absolute;
   z-index: 0;
-  width: 820px;
+  width: 600px;
   aspect-ratio: 1;
   top: 50%;
   left: 52%;
@@ -2099,7 +2172,7 @@ h5 {
 }
 /* first <li> is the flow line, so step N is child N+1: red → amber → blend → cool */
 .steps .step-card:nth-child(2) .step-num {
-  color: #ff8a7f;
+  color: var(--err);
   background: rgba(226, 55, 43, 0.16);
   border-color: rgba(226, 55, 43, 0.5);
 }
@@ -2109,7 +2182,7 @@ h5 {
   border-color: rgba(251, 176, 64, 0.45);
 }
 .steps .step-card:nth-child(4) .step-num {
-  color: #ffd9a8;
+  color: var(--peach);
   background: linear-gradient(135deg, rgba(251, 140, 40, 0.18), rgba(47, 169, 207, 0.18));
   border-color: rgba(158, 192, 205, 0.4);
 }
@@ -2209,7 +2282,7 @@ h5 {
 
 @media (max-width: 1040px) {
   .hero-orb {
-    width: 640px;
+    width: 520px;
   }
   .steps-flow {
     display: none;
@@ -2221,9 +2294,9 @@ h5 {
 }
 @media (max-width: 760px) {
   .hero-orb {
-    width: 460px;
+    width: 380px;
     top: 0;
-    opacity: 0.75;
+    opacity: 0.6;
   }
   .hero-embers {
     right: 0;
@@ -2365,7 +2438,7 @@ h5 {
     object-position: 75% center;
   }
   .hero-shade {
-    background: linear-gradient(180deg, rgba(6, 24, 32, 0.8) 0%, rgba(6, 24, 32, 0.92) 60%, var(--ground) 100%);
+    background: linear-gradient(180deg, rgba(var(--ground-rgb), 0.8) 0%, rgba(var(--ground-rgb), 0.92) 60%, var(--ground) 100%);
   }
   .hero-sub {
     font-size: 1rem;
@@ -2460,7 +2533,7 @@ h5 {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 8px;
     padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
-    background: rgba(6, 24, 32, 0.95);
+    background: rgba(var(--ground-rgb), 0.95);
     backdrop-filter: blur(14px);
     border-top: 1px solid var(--line);
   }
@@ -2625,7 +2698,7 @@ h5 {
   padding: 20px 22px;
   min-width: 240px;
   border-radius: var(--r-lg);
-  background: rgba(11, 42, 54, 0.98);
+  background: rgba(var(--surface-rgb), 0.98);
   backdrop-filter: blur(16px);
   border: 1px solid var(--line-2);
   box-shadow: var(--shadow);
@@ -3908,5 +3981,120 @@ h5 {
   }
   .area-cards {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Theme toggle + logo swap ─── */
+.theme-btn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r);
+  color: var(--text);
+  transition: border-color 0.2s, color 0.2s;
+}
+.theme-btn:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+.logo-on-light {
+  display: none;
+}
+:root[data-theme="light"] .logo-on-dark {
+  display: none;
+}
+:root[data-theme="light"] .logo-on-light {
+  display: block;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) .logo-on-dark {
+    display: none;
+  }
+  :root:not([data-theme="dark"]) .logo-on-light {
+    display: block;
+  }
+}
+.btn-book {
+  white-space: nowrap;
+}
+@media (max-width: 560px) {
+  .hdr {
+    gap: 10px;
+  }
+  .hdr-cta {
+    gap: 8px;
+  }
+  .logo img {
+    width: 118px;
+  }
+  .btn-hdr {
+    padding: 0.7rem 0.75rem;
+  }
+  .btn-book svg {
+    display: none;
+  }
+  .theme-btn,
+  .menu-btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (max-width: 420px) {
+  .hdr.wrap {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .hdr,
+  .hdr-cta {
+    gap: 6px;
+  }
+  .logo img {
+    width: 100px;
+  }
+  .logo-lic {
+    font-size: 0.5rem;
+  }
+}
+
+/* ─── Housecall Pro booking embed ─── */
+.booking {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+.booking-frame {
+  position: relative;
+  height: 680px;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: #fafafa;
+  border: 1px solid var(--line-2);
+}
+.booking-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.booking-open {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--text-3);
+}
+.booking-open:hover {
+  color: var(--blue);
+}
+.form-card.is-booking .chosen {
+  margin-bottom: 0;
+}
+@media (max-width: 560px) {
+  .booking-frame {
+    height: 620px;
   }
 }

@@ -153,6 +153,7 @@ const paths: Record<IconName, React.ReactNode> = {
     </>
   ),
   drag: <path d="M9 6 3 12l6 6M15 6l6 6-6 6" />,
+  moon: <path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z" />,
 };
 
 export function Icon({

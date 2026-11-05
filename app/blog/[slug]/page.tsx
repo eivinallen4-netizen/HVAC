@@ -86,7 +86,7 @@ export default async function PostPage({ params }: Props) {
               <p>Wave&apos;s NATE-certified techs are available 24/7 across the Las Vegas valley.</p>
               <CallLink className="btn btn-red btn-block" location="blog-side" />
               <Link href="/contact/" className="btn btn-ghost btn-block">
-                Get a Free Estimate
+                Book Now
               </Link>
             </div>
             {tool && (

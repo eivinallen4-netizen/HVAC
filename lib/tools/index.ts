@@ -30,7 +30,7 @@ export const tools: ToolMeta[] = [
     time: "60 seconds",
     about: [
       "The calculator starts with the industry's **$5,000 rule**: multiply your system's age by the repair cost. Above $5,000, replacement usually wins. Then it adjusts for the things that matter most in Las Vegas — system age in desert heat, recent repair history, R-22 refrigerant, rising bills, comfort problems and how long you plan to stay.",
-      "It's a starting point, not a sales pitch. If the answer is \"repair,\" that's what we'll recommend. If you'd like a second opinion, our technicians can give you a repair quote and a free replacement estimate side by side.",
+      "It's a starting point, not a sales pitch. If the answer is \"repair,\" that's what we'll recommend. If you'd like a second opinion, our technicians can give you a repair quote and a replacement estimate side by side.",
     ],
     faqs: [
       {
@@ -61,12 +61,12 @@ export const tools: ToolMeta[] = [
     time: "90 seconds",
     about: [
       "The biggest factors in what a new system costs are **size** (tons of cooling), **system type**, **efficiency level** and **how much ductwork or electrical work** is needed. Las Vegas homes typically need more cooling capacity per square foot than homes in milder climates.",
-      "This estimator uses a sizing rule of thumb to get you in the right range quickly. Your actual price depends on a proper load calculation, the specific equipment, access and any code upgrades — which is why every Wave estimate is free, in-home and in writing.",
+      "This estimator uses a sizing rule of thumb to get you in the right range quickly. Your actual price depends on a proper load calculation, the specific equipment, access and any code upgrades — which is why every Wave estimate is done in-home and in writing.",
     ],
     faqs: [
       {
         q: "How much does it cost to replace an AC in Las Vegas?",
-        a: "It varies widely with home size, system type and efficiency. A smaller home with a standard-efficiency split system costs far less than a large two-story home with a variable-speed heat pump. Use the estimator for a ballpark, then get a free written estimate.",
+        a: "It varies widely with home size, system type and efficiency. A smaller home with a standard-efficiency split system costs far less than a large two-story home with a variable-speed heat pump. Use the estimator for a ballpark, then book a written in-home estimate.",
       },
       {
         q: "What size AC do I need for my house?",

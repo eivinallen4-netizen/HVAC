@@ -123,9 +123,9 @@ export function CostEstimatorTool() {
               </ul>
               <p className="table-note">
                 *Example only: {FINANCING.months} months at {FINANCING.apr}% APR, with approved credit. This is a ballpark range, not a
-                quote — your exact price comes from a free in-home estimate.
+                quote — your exact price comes from an in-home estimate.
               </p>
-              <ResultCtas service="New system / replacement estimate" primary="Get My Exact Price — Free" />
+              <ResultCtas service="New system / replacement estimate" primary="Book an In-Home Estimate" />
               <button type="button" className="tool-back" onClick={() => setStep(1)}>
                 Start over
               </button>

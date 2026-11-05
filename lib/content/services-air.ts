@@ -17,7 +17,7 @@ export const airServices: ServicePage[] = [
     img: "/images/svc-ductless.jpg",
     icon: "split",
     pick: "Ductless mini-split",
-    highlights: ["Heating & cooling in one", "No ductwork needed", "Single & multi-zone systems", "Free estimates"],
+    highlights: ["Heating & cooling in one", "No ductwork needed", "Single & multi-zone systems", "Upfront pricing"],
     sections: [
       {
         h2: "Where Mini-Splits Work Best",
@@ -158,7 +158,7 @@ export const airServices: ServicePage[] = [
     img: "/images/svc-ducts.jpg",
     icon: "leaf",
     pick: "Ductwork / indoor air quality",
-    highlights: ["Whole-home filtration", "Air purifiers & UV lights", "Ventilation & zoning", "Free air quality consultation"],
+    highlights: ["Whole-home filtration", "Air purifiers & UV lights", "Ventilation & zoning", "Air quality consultation"],
     signs: {
       title: "Signs Your Home Needs Better Air Quality",
       items: [

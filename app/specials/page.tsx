@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "HVAC Specials & Offers Las Vegas | Wave Heating & Cooling",
   description:
-    "Current HVAC specials from Wave: free estimates on new systems, Wave Club maintenance savings, 15% off repairs for members and referral rewards.",
+    "Current HVAC specials from Wave: Wave Club maintenance savings, 15% off repairs for members and referral rewards.",
   path: "/specials/",
 });
 
@@ -20,7 +20,7 @@ export default function SpecialsPage() {
         crumbs={[{ name: "Specials", path: "/specials/" }]}
         kicker="Current offers"
         h1="HVAC Specials & Savings"
-        intro="Ways to save on heating and cooling in Las Vegas — from free estimates on new systems to member pricing on every repair."
+        intro="Ways to save on heating and cooling in Las Vegas — from Wave Club maintenance to member pricing on every repair."
         form={false}
       />
       <TrustBar />

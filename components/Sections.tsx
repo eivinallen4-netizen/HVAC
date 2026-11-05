@@ -6,6 +6,7 @@ import { tools } from "@/lib/tools";
 import { faqs as defaultFaqs, guides, pages, reviews, serviceAreas, services, site } from "@/lib/site";
 import { Embers, FireIceRule, Flame, Frost, HeatShimmer, Ribbons, Snowflake, SplitEmblem } from "./Art";
 import { BeforeAfter } from "./BeforeAfter";
+import { BookNowLink } from "./Booking";
 import { CallLink, EstimateButton, TextLink } from "./Cta";
 import { FaqList } from "./Faq";
 import { GoogleG, Icon, PlatformLogo, Stars } from "./Icon";
@@ -43,22 +44,22 @@ export function Hero() {
             Solutions
           </h1>
           <p className="hero-sub">
-            AC and heating repair, new system installs and tune-ups from a family-owned team of NATE-certified techs.
-            Available 24/7 — and every new-system estimate is free.
+            AC and heating repair, new system installs and tune-ups from a family-owned team with NATE-certified techs.
+            Available 24/7 — and you can book online in about a minute.
           </p>
 
           <RatingsRow nate />
 
           <ul className="hero-checks">
             <li><Icon name="check" size={18} /> Licensed, bonded &amp; insured</li>
-            <li><Icon name="check" size={18} /> Free estimates on new systems</li>
+            <li><Icon name="check" size={18} /> Upfront, written pricing</li>
             <li><Icon name="check" size={18} /> NV License {site.license}</li>
           </ul>
         </div>
 
         <div className="hero-form">
           <div className="hero-orb" aria-hidden="true">
-            <Image src="/images/art/fire-ice-orb.png" alt="" fill sizes="(max-width: 760px) 460px, 820px" priority />
+            <Image src="/images/art/logo-ball.png" alt="" fill sizes="(max-width: 760px) 380px, 600px" priority />
           </div>
           <HeroLeadForm />
         </div>
@@ -103,7 +104,7 @@ export function RatingsRow({ nate = false }: { nate?: boolean }) {
 export function TrustBar() {
   const items = [
     { v: "24/7", s: "Nights, weekends & holidays" },
-    { v: "Free", s: "Estimates on new systems" },
+    { v: "Upfront", s: "Written pricing before work starts" },
     { v: "Local", s: "Family-owned Las Vegas team" },
     { v: site.license, s: "NV licensed, bonded & insured" },
   ];
@@ -139,7 +140,7 @@ export function Emergency() {
           <h3>
             AC out in the desert heat? We answer 24/7. <span className="tag-urgent">Urgent service</span>
           </h3>
-          <p>Call or text now and a NATE-certified tech will get your home cool again.</p>
+          <p>Call or text now and a Wave tech will get your home cool again.</p>
         </div>
         <div className="emerg-acts">
           <CallLink className="btn btn-white" location="emergency">
@@ -251,7 +252,7 @@ export function Difference() {
 /* ═════════════════════════ WHY WAVE ═════════════════════════ */
 const why = [
   { icon: "home", t: "Family-owned & local", d: "We live here, and we treat your home like our own." },
-  { icon: "award", t: "NATE-certified techs", d: "Industry-certified pros who know HVAC inside and out." },
+  { icon: "award", t: "NATE-certified techs", d: "Most of our team is NATE-certified — pros who know HVAC inside and out." },
   { icon: "tag", t: "Honest, competitive pricing", d: "If it's a simple fix, we'll tell you. No upselling." },
   { icon: "clock", t: "Here 24/7", d: "Heat waves don't wait for business hours — neither do we." },
   { icon: "shield", t: "Licensed, bonded & insured", d: `Nevada license ${site.license} for total peace of mind.` },
@@ -288,7 +289,7 @@ export function WhyWave() {
             </span>
             <h3>Trained for Nevada&apos;s Harshest Conditions</h3>
             <p>
-              Every Wave technician is NATE-certified and works on homes built for triple-digit summers and cold desert
+              Most Wave technicians are NATE-certified, and every one works on homes built for triple-digit summers and cold desert
               nights. Family-owned means the owners stand behind every job.
             </p>
             <ul className="inline-checks">
@@ -338,7 +339,7 @@ export function Process() {
           ))}
         </ol>
         <div className="center-cta" data-reveal>
-          <EstimateButton>Start My Free Estimate</EstimateButton>
+          <EstimateButton>Book Now</EstimateButton>
         </div>
       </div>
     </section>
@@ -406,7 +407,7 @@ export function EstimateBand() {
       <div className="wrap est-row" data-reveal>
         <div>
           <span className="chip chip-warm">Thinking about a new system?</span>
-          <h2>Free In-Home Estimates on New AC &amp; Heating Systems</h2>
+          <h2>In-Home Estimates on New AC &amp; Heating Systems</h2>
           <p>
             Old, loud, or costing you a fortune to run? We&apos;ll size the right system for your home and give you a
             clear, no-pressure quote.
@@ -414,7 +415,7 @@ export function EstimateBand() {
         </div>
         <div className="est-acts">
           <EstimateButton pick="New system / replacement estimate" icon="arrow">
-            Schedule Free Estimate
+            Book an Estimate
           </EstimateButton>
           <CallLink className="btn btn-ghost" location="estimate-band" />
         </div>
@@ -539,8 +540,8 @@ export function FinalCta() {
       <div className="wrap final-grid">
         <div data-reveal>
           <span className="kicker">Direct service desk</span>
-          <h2>Get Your Free Estimate Today</h2>
-          <p className="lead">Tell us what you need and we&apos;ll get back to you fast. Or call — we&apos;re available 24/7.</p>
+          <h2>Book Your Service Today</h2>
+          <p className="lead">Pick a time online and we&apos;ll confirm your appointment. Or call — we&apos;re available 24/7.</p>
           <div className="contact-lines">
             {lines.map((l) => (
               <div className="cl" key={l.label}>
@@ -681,9 +682,9 @@ export function StickyBar() {
       <TextLink className="btn btn-blue" location="sticky-mobile">
         Text Us
       </TextLink>
-      <EstimateButton className="btn btn-ghost" icon={null}>
-        Estimate
-      </EstimateButton>
+      <BookNowLink className="btn btn-ghost" location="sticky-mobile" icon={false}>
+        Book Now
+      </BookNowLink>
     </div>
   );
 }

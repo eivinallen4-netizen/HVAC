@@ -43,7 +43,7 @@ export const hubPages: HubPage[] = [
       },
       {
         q: "Are you licensed and insured?",
-        a: "Yes. Wave Heating & Cooling is licensed, bonded and insured in Nevada (license #0086052), and our technicians are NATE-certified.",
+        a: "Yes. Wave Heating & Cooling is licensed, bonded and insured in Nevada (license #0086052), and most of our technicians are NATE-certified.",
       },
     ],
   },

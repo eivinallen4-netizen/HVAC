@@ -10,14 +10,14 @@ import { buildMetadata, faqLd } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "HVAC Financing Las Vegas | New AC & Furnace Financing | Wave",
   description:
-    "Financing available on new AC, heat pump and furnace systems in Las Vegas with approved credit. Get a free estimate and see your monthly payment options.",
+    "Financing available on new AC, heat pump and furnace systems in Las Vegas with approved credit. Get an estimate and see your monthly payment options.",
   path: "/financing/",
 });
 
 const faqs = [
   {
     q: "Do you offer financing on new HVAC systems?",
-    a: "Yes. Financing is available with approved credit on new system installations and replacements. Ask during your free estimate and we'll walk you through the options.",
+    a: "Yes. Financing is available with approved credit on new system installations and replacements. Ask during your estimate and we'll walk you through the options.",
   },
   {
     q: "Will applying affect my credit?",
@@ -37,15 +37,15 @@ export default function FinancingPage() {
         kicker="Flexible payment options"
         h1="HVAC Financing in Las Vegas"
         intro="A broken AC in July shouldn't have to wait for payday. Financing is available with approved credit on new air conditioners, heat pumps and furnaces, so you can get comfortable now and pay over time."
-        highlights={["Financing with approved credit", "Free in-home estimates", "Clear, written pricing"]}
-        formTitle="Get a free estimate"
+        highlights={["Financing with approved credit", "In-home estimates", "Clear, written pricing"]}
+        formTitle="Get an estimate"
       />
       <TrustBar />
       <ContentSection
         section={{
           h2: "How Financing Works",
           list: [
-            "Book a free, no-obligation in-home estimate",
+            "Book a no-obligation in-home estimate",
             "Choose the system and efficiency level that fits your home and budget",
             "Ask about financing — we'll explain current terms and help you apply",
             "Once approved, we schedule your installation — often within days",
