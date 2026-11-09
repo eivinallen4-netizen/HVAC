@@ -21,6 +21,7 @@ export const airServices: ServicePage[] = [
     sections: [
       {
         h2: "Where Mini-Splits Work Best",
+        kind: "options",
         cards: [
           { t: "Garages & workshops", d: "Make a Las Vegas garage usable year-round — gyms, workshops, home offices." },
           { t: "Casitas & guest suites", d: "Independent comfort for guests or family, without touching the main system." },
@@ -97,6 +98,7 @@ export const airServices: ServicePage[] = [
     sections: [
       {
         h2: "Our Ductwork Services",
+        kind: "services",
         cards: [
           { t: "Duct repair", d: "Reconnect, repair and re-support damaged, disconnected or crushed runs." },
           { t: "Duct sealing", d: "Seal leaks at joints, boots and plenums with mastic and approved materials." },
@@ -171,6 +173,7 @@ export const airServices: ServicePage[] = [
     sections: [
       {
         h2: "Our Indoor Air Quality Services",
+        kind: "services",
         cards: [
           { t: "Air filtration", d: "High-efficiency media filters that capture dust, pollen and mold spores — critical in a desert climate." },
           { t: "Air purification", d: "Systems that capture and neutralize bacteria, viruses, smoke and odors throughout the whole home." },
@@ -189,6 +192,7 @@ export const airServices: ServicePage[] = [
       },
       {
         h2: "Best For Homes With",
+        kind: "fit",
         list: ["Pets", "Allergy or asthma sufferers", "Frequent cooking odors", "Concerns about airborne germs", "Lots of dust", "Smokers or wildfire smoke sensitivity"],
       },
     ],
@@ -229,6 +233,7 @@ export const airServices: ServicePage[] = [
     sections: [
       {
         h2: "Wave Club Member Benefits",
+        kind: "club",
         list: [
           "2 maintenance visits per year: before summer (Mar–Apr) and before winter (Oct–Nov)",
           "Priority service and 24/7 availability and scheduling",
@@ -250,6 +255,7 @@ export const airServices: ServicePage[] = [
       },
       {
         h2: "What We Do at Each Visit",
+        kind: "options",
         cards: [
           {
             t: "Cooling (spring)",
@@ -281,6 +287,7 @@ export const airServices: ServicePage[] = [
       },
       {
         h2: "Plan Details",
+        kind: "fine",
         body: [
           "Benefits apply when members complete their seasonal check-ups. It's the member's responsibility to contact us to schedule each visit. Seasonal check-ups are performed during regular business hours (8:00 a.m.–5:00 p.m., Monday–Friday), preferably in March–April and October–November.",
           "*Refrigerant, line sets and ductwork are not covered under the warranty extension unless they were part of the repair scope. If two consecutive check-up appointments are cancelled by the customer on the appointment date, additional fees may apply. Offers may be modified at any time.",

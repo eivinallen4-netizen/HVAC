@@ -72,6 +72,8 @@ export const coolingServices: ServicePage[] = [
       },
       {
         h2: "Peak Season vs. Off Season",
+        kind: "season",
+        season: [{ m: [5, 6, 7], label: "Summer (peak season)", tone: "warm" }, { m: [2, 3, 4, 8, 9, 10], label: "Spring and fall (off season)", tone: "cool" }],
         body: [
           "**Summer (peak season):** your AC is working its hardest and repair demand is highest. If something sounds or feels off, call early — small problems turn into compressor failures fast in 110° heat.",
           "**Spring and fall (off season):** the best time for tune-ups, small repairs and replacement planning. You'll get more scheduling flexibility and avoid a mid-July breakdown.",
@@ -120,7 +122,7 @@ export const coolingServices: ServicePage[] = [
     img: "/images/svc-ac-repair.jpg",
     icon: "clock",
     pick: "AC not cooling",
-    highlights: ["Answered 24/7/365", "Fast dispatch across the valley", "Trucks stocked for common failures", "Wave Club: no after-hours surcharge"],
+    highlights: ["Answered 24/7/365", "Fast dispatch across the valley", "Trucks stocked for common failures", "No after-hours surcharge"],
     emergency: true,
     signs: {
       title: "When to Call for Emergency AC Service",
@@ -136,6 +138,7 @@ export const coolingServices: ServicePage[] = [
     sections: [
       {
         h2: "What to Do While You Wait",
+        kind: "wait",
         list: [
           "Check the thermostat is set to COOL and a few degrees below room temperature, with fresh batteries.",
           "Check the breakers for both the indoor unit and the outdoor condenser.",
@@ -152,11 +155,12 @@ export const coolingServices: ServicePage[] = [
         h2: "Why Emergency AC Failures Spike in Las Vegas",
         body: [
           "Most emergency calls come during the first long stretch of 105°+ days, when systems that limped through spring finally fail. Weak capacitors, worn contactors, dirty condenser coils and low refrigerant all show up under peak load.",
-          "Heat waves also mean high demand. Homeowners on our [Wave Club maintenance plan](/hvac-maintenance-las-vegas/) get priority scheduling and no extra charge for after-hours, weekend or holiday service — one of the best reasons to join before summer.",
+          "Heat waves also mean high demand. Homeowners on our [Wave Club maintenance plan](/hvac-maintenance-las-vegas/) get priority scheduling — one of the best reasons to join before summer.",
         ],
       },
       {
         h2: "How Our Emergency Service Works",
+        kind: "steps",
         cards: [
           { t: "1. You call or text", d: `A real person answers 24/7. Tell us what's happening and we'll get a tech headed your way.` },
           { t: "2. Fast diagnosis", d: "Your technician finds the root cause — electrical, refrigerant, airflow or controls." },
@@ -172,7 +176,7 @@ export const coolingServices: ServicePage[] = [
       },
       {
         q: "Is emergency AC service more expensive?",
-        a: "After-hours service can carry an additional charge, which we'll tell you up front. Wave Club maintenance members pay no extra for after-hours, weekend or holiday service.",
+        a: "No. There's no extra charge for after-hours, weekend or holiday service. Repair visits start with an $89 diagnostic fee, and your technician gives you the exact price before any work begins.",
       },
       {
         q: "My outdoor unit is humming but the fan isn't spinning. What should I do?",
@@ -207,6 +211,7 @@ export const coolingServices: ServicePage[] = [
     sections: [
       {
         h2: "New AC Installation vs. AC Replacement",
+        kind: "options",
         cards: [
           {
             t: "New installation",
@@ -220,6 +225,7 @@ export const coolingServices: ServicePage[] = [
       },
       {
         h2: "Why Proper Sizing Matters So Much in the Desert",
+        kind: "sizing",
         body: [
           "An oversized air conditioner cools the house quickly, shuts off, and starts again a few minutes later. That short cycling wears out the compressor, leaves rooms clammy and uneven, and wastes power. An undersized system runs nonstop on a 112° afternoon and still can't keep up.",
           "We don't size by square footage alone. Your estimate is based on a load calculation that considers insulation, window area and direction, ceiling height, roof type, number of stories and how your family actually uses the home. Read more in our guide on [choosing the right-sized AC for Las Vegas](/blog/how-to-choose-the-right-sized-ac/).",
@@ -227,6 +233,7 @@ export const coolingServices: ServicePage[] = [
       },
       {
         h2: "Our Installation Process",
+        kind: "steps",
         list: [
           "In-home consultation and load calculation",
           "Clear written options — standard, high-efficiency and premium — with no pressure",
@@ -287,7 +294,7 @@ export const coolingServices: ServicePage[] = [
     h1: "AC Replacement in Las Vegas — Permitted, Inspected, Done Right",
     kicker: "Upgrade your system",
     intro:
-      "If your air conditioner is more than 12 years old, keeps breaking down or is driving your power bill through the roof, it may be time. Wave Heating & Cooling gives you honest, no-pressure advice. If replacement is the right call, we replace the whole matched system, pull the permit, run a full safety inspection, and protect your home from the front door to the final vacuum.",
+      "If your air conditioner is more than 12 years old, keeps breaking down or is driving your power bill through the roof, it may be time. Wave Heating & Cooling diagnoses first and gives you honest, no-pressure advice, and if a repair is enough, we'll tell you. If replacement is the right call, we replace the whole matched system, pull the permit, run a full safety inspection, and protect your home from the front door to the final vacuum.",
     summary: "Old, loud or costing a fortune to run? Get a right-sized, high-efficiency replacement with an estimate.",
     img: "/images/svc-ac-install.jpg",
     icon: "unitPlus",
@@ -313,7 +320,19 @@ export const coolingServices: ServicePage[] = [
         ],
       },
       {
+        h2: "Straight Answers Before You Buy",
+        cards: [
+          { t: "We diagnose before we sell", d: "Our techs find what's actually wrong first. If a repair will get you more good years, we'll tell you and fix it." },
+          { t: "Family-owned, not a franchise", d: "A local Las Vegas team with no corporate or franchise fees built into your price. The owners stand behind every install." },
+          { t: "One written price, everything listed", d: "After we see your home, you get an exact written price that spells out the equipment, permit, labor, inspection and haul-away." },
+          { t: "Bring us your other quote", d: "Already have a number from someone else? We'll go through it with you line by line so you know what you're comparing." },
+          { t: "See the monthly payment too", d: "Financing is available with approved credit. Ask, and we'll show you the monthly payment next to the total." },
+          { t: "Still here after the install", d: "The same local team that installs your system answers the phone 24/7 if you ever need a repair." },
+        ],
+      },
+      {
         h2: "Benefits of a New Air Conditioner",
+        kind: "services",
         cards: [
           { t: "Lower energy bills", d: "Modern high-SEER2 systems use significantly less electricity than units from 10–15 years ago." },
           { t: "Better comfort", d: "More consistent temperatures, better airflow and quieter operation — especially with variable-speed equipment." },
@@ -324,6 +343,8 @@ export const coolingServices: ServicePage[] = [
       },
       {
         h2: "Best Time to Replace Your AC",
+        kind: "season",
+        season: [{ m: [2, 3, 4, 8, 9, 10], label: "Spring and fall are ideal", tone: "cool" }, { m: [6], label: "When demand is at its highest", tone: "warm" }],
         body: [
           "**Spring and fall are ideal.** You'll get more scheduling flexibility and avoid the risk of an emergency replacement during a heat wave, when demand is at its highest.",
           "If your system is struggling now, don't wait for it to fail in July. Book an in-home replacement assessment so you know your options — there's no obligation. You can also get a ballpark price first with our [AC Replacement Cost Estimator](/tools/ac-replacement-cost-estimator/).",
@@ -331,6 +352,7 @@ export const coolingServices: ServicePage[] = [
       },
       {
         h2: "What's Included in a Wave Replacement",
+        kind: "included",
         list: [
           "Load calculation to size the new system correctly",
           "Full matched indoor and outdoor system, not just the outside unit",
@@ -349,6 +371,8 @@ export const coolingServices: ServicePage[] = [
         body: [
           "Quotes can vary a lot, and the lowest number often leaves things out. Before you compare, ask each company: **Is a permit included? Is it a full matched system or just the outside unit? Is a safety inspection included? Do they protect your home and clean up after?**",
           "Every one of those is standard with Wave. Labor done right takes a full day, not two hours.",
+          "**Read online that a new AC unit only costs a few thousand dollars?** That's the equipment alone. An installed price also covers the matched indoor unit, line set, pad, electrical, permit, a full day of labor, the safety inspection and haul-away. Ask any company to break it out for you.",
+          "Already have a quote? Bring it to your assessment and we'll go through it with you line by line, including what's included, what's missing and what your home actually needs.",
         ],
       },
     ],
@@ -363,7 +387,15 @@ export const coolingServices: ServicePage[] = [
       },
       {
         q: "What does an AC replacement cost?",
-        a: "Pricing depends on home size, equipment type, efficiency (SEER2) and whether ductwork, electrical or the pad need work. Our online estimator gives a ballpark range, and an in-home assessment gives you exact, written pricing.",
+        a: "Pricing depends on home size, equipment type, efficiency (SEER2) and whether ductwork, electrical or the pad need work. The equipment is only part of it: an installed price also covers the line set, electrical, permit, labor, safety inspection and haul-away. Our online estimator gives a ballpark range, and an in-home assessment gives you an exact written price with everything listed.",
+      },
+      {
+        q: "Will you try to sell me a new system I don't need?",
+        a: "No. We diagnose first and show you what we find. If a repair will get you more good years, we'll tell you and fix it. If replacement makes more sense, we'll show you the numbers, and the decision is always yours.",
+      },
+      {
+        q: "Can you look at a quote I already have?",
+        a: "Yes. Bring it to your assessment and we'll go through it with you line by line: what's included, what's missing, and how it compares with what your home actually needs.",
       },
       {
         q: "Do you pull permits on AC replacements?",
@@ -371,7 +403,7 @@ export const coolingServices: ServicePage[] = [
       },
       {
         q: "Is financing available?",
-        a: "Yes, financing is available with approved credit.",
+        a: "Yes, financing is available with approved credit. Ask us for the monthly payment along with the total, and we'll show you both side by side.",
       },
     ],
     related: ["ac-installations-in-las-vegas", "hvac-repairs-in-las-vegas", "hvac-heating-replacement-in-las-vegas"],
@@ -398,6 +430,7 @@ export const coolingServices: ServicePage[] = [
     sections: [
       {
         h2: "What's Included in an AC Tune-Up",
+        kind: "included",
         list: [
           "Inspect and clean the condenser coil (desert dust is the #1 efficiency killer)",
           "Check refrigerant pressures and temperatures",
@@ -412,6 +445,8 @@ export const coolingServices: ServicePage[] = [
       },
       {
         h2: "Why Maintenance Matters More in Las Vegas",
+        kind: "season",
+        season: [{ m: [2, 3], label: "March or April", tone: "cool" }],
         body: [
           "A Las Vegas air conditioner can run for six months straight at outdoor temperatures that would push equipment in most other cities to the limit. Dust and debris coat the outdoor coil, capacitors weaken in the heat, and small refrigerant leaks get worse under load.",
           "A tune-up in **March or April** — before the first 100° day — is the single best way to avoid a breakdown in July. Our before-and-after photos show what a proper coil cleaning does for a system's ability to breathe.",
@@ -419,6 +454,7 @@ export const coolingServices: ServicePage[] = [
       },
       {
         h2: "Join Wave Club and Save All Year",
+        kind: "club",
         body: [
           "Our maintenance membership covers two visits a year — AC before summer and heating before winter — plus member pricing and perks. See the full list of benefits on our [HVAC maintenance plan](/hvac-maintenance-las-vegas/) page.",
         ],

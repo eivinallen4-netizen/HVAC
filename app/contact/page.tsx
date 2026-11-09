@@ -16,7 +16,7 @@ export const metadata = buildMetadata({
 const faqs = [
   { q: "How quickly can I get an appointment?", a: "Book online to see open times — often the same or next day. For no-cooling or no-heat emergencies, call us directly — we answer 24/7." },
   { q: "Can I text you instead of calling?", a: `Yes — text ${site.phone} any time and a team member will respond.` },
-  { q: "Do you charge for estimates?", a: "We'll go over pricing before any work starts. Repair visits include a diagnostic fee, which is waived for Wave Club members when the repair is done at the time of service." },
+  { q: "Do you charge for estimates?", a: "We'll go over pricing before any work starts. Repair visits have an $89 diagnostic fee. On weekdays (Mon–Fri, 7am–6pm), if you approve the repair during the visit, the $89 is included in the repair price." },
 ];
 
 export default function ContactPage() {
@@ -33,51 +33,59 @@ export default function ContactPage() {
       <TrustBar />
       <section className="sec">
         <div className="wrap">
-          <SecHead kicker="Reach us directly" title="Call, Text or Visit" />
-          <div className="contact-cards">
-            <div className="card contact-card" data-reveal>
-              <span className="ic-box tone-red">
-                <Icon name="phone" size={22} />
-              </span>
-              <h3>Call 24/7</h3>
-              <CallLink className="cl-phone" location="contact-page" icon={false} />
-              <p>Nights, weekends &amp; holidays</p>
+          <SecHead variant="split" kicker="Reach us directly" title="Call, Text or Visit" />
+          <div className="switchboard">
+            <ul className="sb-lines">
+              <li className="sb-line tone-red" data-reveal>
+                <span className="ic-box tone-red">
+                  <Icon name="phone" size={22} />
+                </span>
+                <div>
+                  <h3>Call 24/7</h3>
+                  <p>Nights, weekends &amp; holidays</p>
+                </div>
+                <CallLink className="cl-phone" location="contact-page" icon={false} />
+              </li>
+              <li className="sb-line tone-cool" data-reveal>
+                <span className="ic-box tone-cool">
+                  <Icon name="chat" size={22} />
+                </span>
+                <div>
+                  <h3>Text Us</h3>
+                  <p>Send a photo of your unit or issue</p>
+                </div>
+                <TextLink className="cl-phone" location="contact-page">
+                  {site.phone}
+                </TextLink>
+              </li>
+              <li className="sb-line tone-warm" data-reveal>
+                <span className="ic-box tone-warm">
+                  <Icon name="pin" size={22} />
+                </span>
+                <div>
+                  <h3>Headquarters</h3>
+                  <p>NV License {site.license}</p>
+                </div>
+                <a className="sb-addr" href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer">
+                  {site.address.street}
+                  <br />
+                  {site.address.city}, {site.address.state} {site.address.zip}
+                </a>
+              </li>
+            </ul>
+            <div className="map-frame sb-map" data-reveal>
+              <iframe
+                title="Map to Wave Heating & Cooling"
+                src={`https://www.google.com/maps?q=${encodeURIComponent(`${site.name} ${site.address.street} ${site.address.city} ${site.address.state}`)}&output=embed`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
-            <div className="card contact-card" data-reveal>
-              <span className="ic-box tone-cool">
-                <Icon name="chat" size={22} />
-              </span>
-              <h3>Text Us</h3>
-              <TextLink className="cl-phone" location="contact-page">
-                {site.phone}
-              </TextLink>
-              <p>Send a photo of your unit or issue</p>
-            </div>
-            <div className="card contact-card" data-reveal>
-              <span className="ic-box tone-warm">
-                <Icon name="pin" size={22} />
-              </span>
-              <h3>Headquarters</h3>
-              <a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer">
-                {site.address.street}
-                <br />
-                {site.address.city}, {site.address.state} {site.address.zip}
-              </a>
-              <p>NV License {site.license}</p>
-            </div>
-          </div>
-          <div className="map-embed card wide" data-reveal>
-            <iframe
-              title="Map to Wave Heating & Cooling"
-              src={`https://www.google.com/maps?q=${encodeURIComponent(`${site.name} ${site.address.street} ${site.address.city} ${site.address.state}`)}&output=embed`}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
           </div>
         </div>
       </section>
-      <Reviews />
-      <Faq items={faqs} title="Contact FAQs" alt />
+      <Reviews variant="ticker" alt />
+      <Faq items={faqs} title="Contact FAQs" variant="stack" />
       <JsonLd data={faqLd(faqs)} />
     </>
   );

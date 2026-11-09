@@ -13,9 +13,9 @@ const updated = "October 21, 2026";
 export default function PrivacyPage() {
   return (
     <>
-      <PageHero crumbs={[{ name: "Privacy Policy", path: "/privacy-policy/" }]} kicker="Legal" h1="Privacy Policy" form={false} intro={`Last updated ${updated}`} />
+      <PageHero crumbs={[{ name: "Privacy Policy", path: "/privacy-policy/" }]} kicker="Legal" h1="Privacy Policy" form={false} variant="compact" intro={`Last updated ${updated}`} />
       <section className="sec">
-        <div className="wrap prose-wrap legal-prose">
+        <div className="wrap prose-wrap legal-prose legal-num">
           <p>
             {site.legalName} (&quot;Wave,&quot; &quot;we,&quot; &quot;us&quot;) respects your privacy. This policy explains what
             information we collect through {site.url.replace("https://", "")} (the &quot;Site&quot;), how we use it and the

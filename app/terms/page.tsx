@@ -12,9 +12,9 @@ export const metadata = buildMetadata({
 export default function TermsPage() {
   return (
     <>
-      <PageHero crumbs={[{ name: "Terms of Service", path: "/terms/" }]} kicker="Legal" h1="Terms of Service" form={false} intro="Last updated October 21, 2026" />
+      <PageHero crumbs={[{ name: "Terms of Service", path: "/terms/" }]} kicker="Legal" h1="Terms of Service" form={false} variant="compact" intro="Last updated October 21, 2026" />
       <section className="sec">
-        <div className="wrap prose-wrap legal-prose">
+        <div className="wrap prose-wrap legal-prose legal-num">
           <p>
             By using the {site.name} website (the &quot;Site&quot;), you agree to these terms. If you don&apos;t agree, please
             don&apos;t use the Site.

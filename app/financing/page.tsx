@@ -44,6 +44,7 @@ export default function FinancingPage() {
       <ContentSection
         section={{
           h2: "How Financing Works",
+          kind: "steps",
           list: [
             "Book a no-obligation in-home estimate",
             "Choose the system and efficiency level that fits your home and budget",
@@ -51,7 +52,7 @@ export default function FinancingPage() {
             "Once approved, we schedule your installation — often within days",
           ],
           body: [
-            "Want a ballpark first? Our [AC Replacement Cost Estimator](/tools/ac-replacement-cost-estimator/) shows an estimated price range and an example monthly payment in about 90 seconds.",
+            "Want a ballpark first? Our [AC Replacement Cost Estimator](/tools/ac-replacement-cost-estimator/) shows an estimated installed price range in about 90 seconds.",
           ],
         }}
       />
@@ -59,14 +60,15 @@ export default function FinancingPage() {
         alt
         section={{
           h2: "Payment Options",
+          kind: "fit",
           list: paymentMethods,
         }}
       />
-      <ToolCards slugs={["ac-replacement-cost-estimator", "energy-savings-calculator"]} alt={false} />
-      <Reviews />
-      <Faq items={faqs} title="Financing FAQs" alt />
-      <section className="sec">
-        <div className="wrap prose-wrap">
+      <ToolCards slugs={["ac-replacement-cost-estimator", "energy-savings-calculator"]} alt={false} variant="rows" />
+      <Reviews variant="ticker" alt />
+      <Faq items={faqs} title="Financing FAQs" variant="stack" />
+      <section className="fine-strip">
+        <div className="wrap">
           <p className="table-note">
             Financing subject to credit approval. Terms vary by lender and program. See your estimate for details. Questions?{" "}
             <Link href="/contact/">Contact us</Link>.

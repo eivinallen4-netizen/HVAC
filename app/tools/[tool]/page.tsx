@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
 import { ToolCards } from "@/components/page/Cards";
 import { Breadcrumbs } from "@/components/page/Breadcrumbs";
-import { Rich } from "@/components/page/Rich";
+import { ContentSection } from "@/components/page/ContentSection";
 import { Faq, FinalCta, Reviews, TrustBar } from "@/components/Sections";
 import { CostEstimatorTool } from "@/components/tools/CostEstimatorTool";
 import { RepairReplaceTool } from "@/components/tools/RepairReplaceTool";
@@ -73,24 +73,15 @@ export default async function ToolPage({ params }: Props) {
         </div>
       </section>
       <TrustBar />
-      <section className="sec content-sec">
-        <div className="wrap prose-wrap" data-reveal>
-          <h2>How the {t.name} Works</h2>
-          {t.about.map((p, i) => (
-            <p key={i}>
-              <Rich text={p} />
-            </p>
-          ))}
-        </div>
-      </section>
-      <Faq items={t.faqs} title={`${t.name} FAQs`} alt />
+      <ContentSection section={{ h2: `How the ${t.name} Works`, body: t.about }} />
+      <Faq items={t.faqs} title={`${t.name} FAQs`} alt variant="stack" />
       <ToolCards
         slugs={tools.filter((x) => x.slug !== t.slug).map((x) => x.slug)}
         kicker="More free tools"
         title="Try Another Calculator"
         alt={false}
       />
-      <Reviews />
+      <Reviews variant="ticker" alt />
       <FinalCta />
       <JsonLd data={[webAppLd({ name: t.name, description: t.description, path }), faqLd(t.faqs)]} />
     </>

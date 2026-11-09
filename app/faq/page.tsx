@@ -1,7 +1,10 @@
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/page/PageHero";
 import { CtaBand } from "@/components/page/Cards";
-import { Faq, FinalCta, TrustBar } from "@/components/Sections";
+import { FinalCta, TrustBar } from "@/components/Sections";
+import { CallLink } from "@/components/Cta";
+import { FaqList } from "@/components/Faq";
+import { Icon } from "@/components/Icon";
 import { servicePages } from "@/lib/content/services";
 import { buildMetadata, faqLd } from "@/lib/seo";
 import { faqs, replacementFaqs } from "@/lib/site";
@@ -34,11 +37,42 @@ export default function FaqPage() {
         h1="Frequently Asked Questions"
         intro="Straight answers to the questions Las Vegas homeowners ask us most. Don't see yours? Call or text — we're happy to help, no strings attached."
         form={false}
+        variant="compact"
       />
       <TrustBar />
-      {groups.map((g, i) => (
-        <Faq key={g.title} id={`faq-${i + 1}`} items={g.items} title={g.title} alt={i % 2 === 1} />
-      ))}
+      <section className="sec faq-book">
+        <div className="wrap faq-book-grid">
+          <aside className="faq-index">
+            <span className="kicker">Answers &amp; clarity</span>
+            <nav aria-label="FAQ topics">
+              <ol>
+                {groups.map((g, i) => (
+                  <li key={g.title}>
+                    <a href={`#faq-${i + 1}`}>
+                      <span aria-hidden="true">{String(i + 1).padStart(2, "0")}</span> {g.title}
+                      <small>{g.items.length}</small>
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+            <div className="faq-call">
+              <p>Still unsure what you need? Give us a call and we&apos;ll point you in the right direction.</p>
+              <CallLink className="btn btn-red" location="faq-page" />
+            </div>
+          </aside>
+          <div className="faq-chapters">
+            {groups.map((g, i) => (
+              <section className="faq-chapter" id={`faq-${i + 1}`} key={g.title} aria-labelledby={`faq-${i + 1}-h`}>
+                <h2 id={`faq-${i + 1}-h`}>
+                  <Icon name="question" size={22} /> {g.title}
+                </h2>
+                <FaqList items={g.items} />
+              </section>
+            ))}
+          </div>
+        </div>
+      </section>
       <CtaBand title="Still Have Questions?" />
       <FinalCta />
       <JsonLd data={faqLd(unique)} />

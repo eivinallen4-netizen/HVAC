@@ -70,7 +70,7 @@ export default async function PostPage({ params }: Props) {
           <div className="post-body prose-wrap" dangerouslySetInnerHTML={{ __html: p.html }} />
           <aside className="post-side">
             {p.toc.length > 2 && (
-              <nav className="card toc" aria-label="In this article">
+              <nav className="toc rail-toc" aria-label="In this article">
                 <small>In this article</small>
                 <ol>
                   {p.toc.map((h) => (
@@ -81,7 +81,7 @@ export default async function PostPage({ params }: Props) {
                 </ol>
               </nav>
             )}
-            <div className="card side-cta">
+            <div className="side-cta rail-cta">
               <strong>Need help now?</strong>
               <p>Wave&apos;s NATE-certified techs are available 24/7 across the Las Vegas valley.</p>
               <CallLink className="btn btn-red btn-block" location="blog-side" />
@@ -90,7 +90,7 @@ export default async function PostPage({ params }: Props) {
               </Link>
             </div>
             {tool && (
-              <Link href={`/tools/${tool.slug}/`} className="card side-tool">
+              <Link href={`/tools/${tool.slug}/`} className="side-tool rail-tool">
                 <Icon name={tool.icon} size={22} />
                 <strong>{tool.name}</strong>
                 <span>{tool.short}</span>
@@ -120,14 +120,14 @@ export default async function PostPage({ params }: Props) {
                 All guides <Icon name="arrow" size={16} />
               </Link>
             </div>
-            <div className="grid-3">
-              {related.map((r) => (
-                <Link href={`/blog/${r.slug}/`} className="card guide" key={r.slug}>
-                  <div className="svc-img">
-                    <Image src={r.image} alt="" fill sizes="(max-width: 640px) 100vw, 400px" />
-                    <span className="guide-tag">{r.category}</span>
+            <div className="rel-rows">
+              {related.map((r, i) => (
+                <Link href={`/blog/${r.slug}/`} className="mag-item rel-row" key={r.slug} data-reveal style={{ transitionDelay: `${i * 60}ms` }}>
+                  <div className="mag-thumb">
+                    <Image src={r.image} alt="" fill sizes="(max-width: 760px) 100vw, 220px" />
                   </div>
-                  <div className="svc-body">
+                  <div>
+                    <span className="mag-tag">{r.category}</span>
                     <h3>{r.title}</h3>
                     <p>{r.description}</p>
                   </div>
@@ -138,7 +138,7 @@ export default async function PostPage({ params }: Props) {
         </section>
       )}
 
-      {promo && <ToolCards slugs={[promo.tool as ToolSlug]} title="Try Our Free Tool" lead="" />}
+      {promo && <ToolCards slugs={[promo.tool as ToolSlug]} title="Try Our Free Tool" lead="" variant="rows" />}
       <FinalCta />
       <JsonLd data={blogPostingLd({ title: p.title, description: p.description, path, image: p.image, date: p.date, modified: p.modified })} />
     </>

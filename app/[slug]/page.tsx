@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { CtaBand, ServiceCards, SignsGrid, ToolCards } from "@/components/page/Cards";
 import { ContentSection } from "@/components/page/ContentSection";
 import { PageHero } from "@/components/page/PageHero";
+import { ServiceTabs } from "@/components/page/ServiceTabs";
 import { Areas, Emergency, Faq, FinalCta, Process, Reviews, TrustBar } from "@/components/Sections";
 import { categoryLabels, getHub, getService, hubPages, servicePages, servicesIn } from "@/lib/content/services";
 import { buildMetadata, faqLd, serviceLd } from "@/lib/seo";
@@ -60,13 +61,13 @@ function ServiceTemplate({ slug }: { slug: string }) {
       {s.sections.map((sec, i) => (
         <ContentSection key={sec.h2} section={sec} alt={s.signs ? i % 2 === 1 : i % 2 === 0} />
       ))}
-      <CtaBand pick={s.pick} title={`Need ${s.name} in Las Vegas?`} />
-      {s.tools && <ToolCards slugs={s.tools} alt={false} />}
-      <Reviews />
-      <Process />
-      <ServiceCards items={related} />
-      <Faq items={s.faqs} title={`${s.name} FAQs`} alt />
-      <Areas title={`${s.name} Across the Las Vegas Valley`} />
+      <CtaBand pick={s.pick} title={`Need ${s.name} in Las Vegas?`} tone={s.category === "heating" ? "warm" : "cool"} />
+      {s.tools && <ToolCards slugs={s.tools} alt={false} variant="rows" />}
+      <Reviews variant="ticker" alt />
+      <Process variant="route" alt={false} />
+      <ServiceCards items={related} variant="list" alt />
+      <Faq items={s.faqs} title={`${s.name} FAQs`} variant="stack" />
+      <Areas title={`${s.name} Across the Las Vegas Valley`} variant="strip" />
       <FinalCta />
       <JsonLd data={[serviceLd({ name: s.name, description: s.description, path }), faqLd(s.faqs)]} />
     </>
@@ -76,24 +77,35 @@ function ServiceTemplate({ slug }: { slug: string }) {
 function HubTemplate({ slug }: { slug: string }) {
   const h = getHub(slug)!;
   const path = `/${h.slug}/`;
+  const groupIcon = { cooling: "snow", heating: "flame", air: "leaf" } as const;
   const groups = h.category
-    ? [{ title: `${categoryLabels[h.category].name} Services`, items: servicesIn(h.category) }]
-    : (["cooling", "heating", "air"] as const).map((c) => ({ title: `${categoryLabels[c].name} Services`, items: servicesIn(c) }));
+    ? [{ title: `${categoryLabels[h.category].name} Services`, icon: groupIcon[h.category], items: servicesIn(h.category) }]
+    : (["cooling", "heating", "air"] as const).map((c) => ({ title: `${categoryLabels[c].name} Services`, icon: groupIcon[c], items: servicesIn(c) }));
 
   return (
     <>
       <PageHero crumbs={[{ name: h.name, path }]} kicker={h.kicker} h1={h.h1} intro={h.intro} img={h.img} />
       <TrustBar />
-      {groups.map((g, i) => (
-        <ServiceCards key={g.title} items={g.items} kicker="What we do" title={g.title} alt={i % 2 === 1} />
-      ))}
+      {groups.length > 1 ? (
+        <ServiceTabs
+          kicker={h.name}
+          title="What we do"
+          groups={groups.map((g) => ({
+            title: g.title,
+            icon: g.icon,
+            items: g.items.map(({ slug, name, summary, img, icon }) => ({ slug, name, summary, img, icon })),
+          }))}
+        />
+      ) : (
+        <ServiceCards items={groups[0].items} kicker="What we do" title={groups[0].title} variant="mag" />
+      )}
       {h.sections.map((sec, i) => (
-        <ContentSection key={sec.h2} section={sec} alt={(groups.length + i) % 2 === 1} />
+        <ContentSection key={sec.h2} section={sec} alt={i % 2 === 0} />
       ))}
-      <ToolCards />
-      <Reviews />
-      <Faq items={h.faqs} title={`${h.name} FAQs`} alt />
-      <Areas />
+      <ToolCards variant="rows" alt={false} />
+      <Reviews variant="ticker" alt />
+      <Faq items={h.faqs} title={`${h.name} FAQs`} variant="stack" />
+      <Areas variant="strip" />
       <FinalCta />
       <JsonLd data={faqLd(h.faqs)} />
     </>

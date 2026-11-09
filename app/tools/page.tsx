@@ -20,10 +20,11 @@ export default function ToolsHub() {
         intro="Get straight answers before you call anyone. Figure out what's wrong with your AC, whether to repair or replace it, what a new system costs and how much you could save — in about a minute each."
         highlights={["No obligation", "Built for desert homes", "Honest, no-pressure advice"]}
         form={false}
+        variant="compact"
       />
       <TrustBar />
-      <ToolCards kicker="Pick a tool" title="What Would You Like to Know?" alt={false} />
-      <Reviews />
+      <ToolCards kicker="Pick a tool" title="What Would You Like to Know?" alt={false} variant="rows" />
+      <Reviews variant="ticker" alt />
       <FinalCta />
     </>
   );

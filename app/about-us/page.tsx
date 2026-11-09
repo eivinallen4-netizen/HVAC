@@ -26,12 +26,13 @@ export default function AboutPage() {
         highlights={["Family owned & operated", `NV License ${site.license}`, "Licensed, bonded & insured"]}
         form={false}
         img="/images/crew.jpg"
+        variant="split"
       />
       <TrustBar />
 
-      <section className="sec content-sec">
-        <div className="wrap area-grid">
-          <div className="prose-wrap" data-reveal>
+      <section className="sec content-sec story-sec">
+        <div className="wrap story">
+          <div className="story-copy" data-reveal>
             <h2>Our Story</h2>
             <p>
               Wave Heating &amp; Cooling was built on a simple idea: Las Vegas homeowners deserve an HVAC company that tells them the
@@ -49,26 +50,29 @@ export default function AboutPage() {
               desert doesn&apos;t keep business hours, we offer 24-hour emergency service.
             </p>
             <h3>Payment options</h3>
-            <ul className="inline-checks">
+            <ul className="pay-badges">
               {paymentMethods.map((m) => (
                 <li key={m}>
-                  <Icon name="check" size={16} /> {m}
+                  <Icon name={/financ/i.test(m) ? "cal" : "check"} size={15} /> {m}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="about-img card" data-reveal>
-            <Image src="/images/family.jpg" alt="The family behind Wave Heating & Cooling" fill sizes="(max-width: 900px) 100vw, 480px" />
-          </div>
+          <figure className="story-print" data-reveal>
+            <span className="print-tape" aria-hidden="true" />
+            <div className="print-img">
+              <Image src="/images/family.jpg" alt="The family behind Wave Heating & Cooling" fill sizes="(max-width: 900px) 100vw, 440px" />
+            </div>
+          </figure>
         </div>
       </section>
 
-      <WhyWave />
-      <Process />
-      <CtaBand title="Experience the Wave Difference" />
-      <Reviews />
-      <ToolCards />
-      <Areas />
+      <WhyWave variant="ledger" />
+      <Process variant="route" />
+      <CtaBand title="Experience the Wave Difference" tone="cool" />
+      <Reviews variant="ticker" />
+      <ToolCards variant="rows" />
+      <Areas variant="strip" />
       <FinalCta />
     </>
   );

@@ -23,29 +23,20 @@ npm run check               # with the server running: crawl sitemap + verify al
 
 ## How leads flow into Housecall Pro
 
-Every form posts to `/api/lead` (`app/api/lead/route.ts`), which:
+No form on the site collects a name, phone or email. Every "book" step either embeds the Housecall Pro
+booking page (`BookingEmbed` in `components/Booking.tsx`) or links to it (`BookNowLink`), so the visitor enters
+their details in HCP and the job lands there directly. `site.bookingUrl` in `lib/site.ts` sets the booking page.
 
-1. Validates (name, 10-digit phone, 5-digit ZIP), drops honeypot bots and rate-limits per IP.
-2. Looks up an existing HCP customer by phone (`GET /customers?q=`) to avoid duplicates.
-3. Creates the lead (`POST /leads`) — with a new customer if needed — tagged `Website` + the form name.
-   The note includes service, best time, message, tool results, offer/referral details, UTM/gclid and the page.
-4. Sends the same payload to `LEAD_WEBHOOK_URL` if set.
-
-Forms and their `form` tag in HCP:
-
-| Form | Tag |
+| Where | How it books |
 |---|---|
-| Hero 2-step estimate form (every service/city page) | `hero` |
-| Contact form (footer of most pages) | `contact` |
-| Specials claim | `specials` |
-| Referral (lead is the *friend*; referrer in note) | `referral` |
-| Repair or Replace Calculator | `tool:repair-or-replace` |
-| AC Replacement Cost Estimator | `tool:cost-estimator` |
-| AC Symptom Checker | `tool:symptom-checker` |
-| Summer Bill Savings Calculator | `tool:savings-calculator` |
+| Hero estimate (every service/city page) | Answers questions → sees estimate → HCP embed under the result |
+| Contact card | HCP embed |
+| Specials / Referral | Button to the HCP booking page (mention the offer / referrer in the notes) |
+| Tools (repair-or-replace, cost estimator, symptom checker, savings) | Results → "Book Now" to HCP |
 
-**Conversion tracking:** hero/contact/specials/referral forms redirect to `/thank-you/` (noindex), and every
-form fires a `generate_lead` dataLayer event (with `form_id`). Other events: `lead_step`, `tool_step`, `phone_click`, `sms_click`.
+`app/api/lead/route.ts` (HCP Public API lead creation) is still in the codebase but no form posts to it now.
+
+**Tracking:** `booking_view`, `book_click`, `lead_step`, `tool_step`, `estimate_result`, `phone_click`, `sms_click` dataLayer events.
 
 ## Where to edit content
 

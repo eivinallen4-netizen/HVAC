@@ -74,7 +74,7 @@ export type IconName =
   | "phone" | "snow" | "flame" | "wrench" | "unit" | "unitPlus" | "gauge" | "split"
   | "duct" | "leaf" | "shield" | "award" | "clock" | "home" | "tag" | "sparkle"
   | "chat" | "cal" | "search" | "pin" | "check" | "tick" | "arrow" | "chev"
-  | "plus" | "lock" | "power" | "question" | "star" | "bolt" | "menu" | "close"
+  | "plus" | "lock" | "power" | "question" | "star" | "bolt" | "drop" | "menu" | "close"
   | "sun" | "drag" | "moon" | "boot" | "ladder" | "sheet" | "broom" | "permit";
 
 /** Options shown in step 1 of the hero form */
@@ -201,6 +201,18 @@ export const faqs = [
 /** Homepage FAQs: what replacement buyers ask before they call (also shown on /faq/) */
 export const replacementFaqs = [
   {
+    q: "Will you try to sell me a new system I don't need?",
+    a: "No. We diagnose first and show you what we find. If a repair will get you more good years, we'll tell you and fix it. If replacement makes more sense, we'll show you the numbers, and the decision is always yours.",
+  },
+  {
+    q: "I already have a quote. Can you look at it?",
+    a: "Yes. Bring it to your assessment and we'll go through it with you line by line: what's included, what's missing, and how it compares with what your home actually needs.",
+  },
+  {
+    q: "Why do AC replacement quotes in Las Vegas vary so much?",
+    a: "Because they don't always include the same things. The equipment is only part of the price. A full installed price also covers the matched indoor unit, line set, pad, electrical, permit, a full day of labor, the safety inspection and haul-away. Some quotes leave pieces out, so always ask for everything in writing.",
+  },
+  {
     q: "Do you pull permits?",
     a: "Yes, on every replacement. The county inspects the install, not just us, and we handle all the paperwork.",
   },
@@ -231,6 +243,10 @@ export const replacementFaqs = [
   {
     q: "What should I have ready when I call?",
     a: "Four things: your system's age (it's on the sticker on the outside unit), what's going wrong, your home's rough square footage, and your timeline. With those, the call takes about 10 minutes.",
+  },
+  {
+    q: "Can I pay monthly?",
+    a: "Yes. Financing is available with approved credit. Ask us for the monthly payment along with the total, and we'll show you both side by side.",
   },
 ];
 

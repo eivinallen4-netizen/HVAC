@@ -1,3 +1,4 @@
+import { Illo } from "@/components/page/Objects";
 import { PageHero } from "@/components/page/PageHero";
 import { FinalCta, Reviews, SecHead, TrustBar } from "@/components/Sections";
 import { ReferralForm } from "@/components/SpecialForms";
@@ -21,38 +22,42 @@ export default function ReferralPage() {
         h1={referral.headline}
         intro="Most of our business comes from happy customers telling their friends and neighbors. When you refer someone to Wave, we say thank you with a reward."
         form={false}
+        variant="compact"
       />
       <TrustBar />
-      <section className="sec">
-        <div className="wrap offers-layout">
-          <div>
-            <SecHead kicker="How it works" title="Refer, We Take Care of Them, You Get Rewarded" center={false} />
-            <ol className="ref-steps">
+      <section className="sec relay-sec">
+        <div className="wrap">
+          <SecHead kicker="How it works" title="Refer, We Take Care of Them, You Get Rewarded" />
+          <div className="relay" data-reveal>
+            <Illo name="referral-relay" w={1500} h={500} className="relay-illo" sizes="(max-width: 1040px) 100vw, 920px" />
+            <ol className="relay-points">
               {referral.points.map((p, i) => (
-                <li className="card" key={p.t} data-reveal>
-                  <span className="step-num">{i + 1}</span>
-                  <div>
-                    <h3>{p.t}</h3>
-                    <p>{p.d}</p>
-                  </div>
+                <li key={p.t} data-reveal style={{ transitionDelay: `${i * 90}ms` }}>
+                  <span className="relay-n" aria-hidden="true">
+                    {i + 1}
+                  </span>
+                  <h3>{p.t}</h3>
+                  <p>{p.d}</p>
                 </li>
               ))}
             </ol>
-            <ul className="inline-checks">
+          </div>
+          <div className="relay-form">
+            <ul className="relay-checks" data-reveal>
               <li>
-                <Icon name="check" size={16} /> No limit on referrals
+                <Icon name="check" size={18} /> No limit on referrals
               </li>
               <li>
-                <Icon name="check" size={16} /> Rewards after completed service
+                <Icon name="check" size={18} /> Rewards after completed service
               </li>
             </ul>
-          </div>
-          <div className="offers-form">
-            <ReferralForm />
+            <div className="offers-form">
+              <ReferralForm />
+            </div>
           </div>
         </div>
       </section>
-      <Reviews />
+      <Reviews variant="ticker" alt />
       <FinalCta />
     </>
   );

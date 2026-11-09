@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/JsonLd";
@@ -47,8 +48,8 @@ export default async function AreaPage({ params }: Props) {
       <TrustBar />
 
       <section className="sec content-sec">
-        <div className="wrap area-grid">
-          <div className="prose-wrap" data-reveal>
+        <div className="wrap loc-grid">
+          <div className="cs-col loc-copy" data-reveal>
             <h2>Heating &amp; Cooling Built Around {a.name} Homes</h2>
             {a.local.map((p, i) => (
               <p key={i}>{p}</p>
@@ -61,17 +62,25 @@ export default async function AreaPage({ params }: Props) {
               technician, honest recommendations and fair, local pricing from a family-owned company.
             </p>
           </div>
-          <aside className="card area-facts" data-reveal>
+          <aside className="loc-ticket" data-reveal>
+            <Image src="/images/illo/valley-contour.png" alt="" fill sizes="420px" className="loc-contour" />
             <h3>
-              <Icon name="pin" size={18} /> {a.full}
+              <span className="loc-pin" aria-hidden="true">
+                <Icon name="pin" size={20} />
+              </span>
+              {a.full}
             </h3>
             <div>
               <small>ZIP codes we serve</small>
-              <p className="zips">{a.zips.join(" · ")}</p>
+              <ul className="zip-chips">
+                {a.zips.map((z) => (
+                  <li key={z}>{z}</li>
+                ))}
+              </ul>
             </div>
             <div>
               <small>Neighborhoods</small>
-              <ul>
+              <ul className="loc-hoods">
                 {a.neighborhoods.map((n) => (
                   <li key={n}>
                     <Icon name="check" size={15} /> {n}
@@ -79,7 +88,7 @@ export default async function AreaPage({ params }: Props) {
                 ))}
               </ul>
             </div>
-            <div>
+            <div className="loc-call">
               <small>Call or text 24/7</small>
               <a className="area-phone" href={site.phoneHref}>
                 {site.phone}
@@ -89,17 +98,17 @@ export default async function AreaPage({ params }: Props) {
         </div>
       </section>
 
-      <ServiceCards items={popular} kicker={`Popular in ${a.name}`} title={`Most-Requested Services in ${a.name}`} alt />
-      <CtaBand title={`Fast HVAC Service in ${a.name}`} />
-      <Reviews title={`Why ${a.name} Homeowners Choose Wave`} />
-      <Process />
-      <ToolCards />
-      <Faq items={a.faqs} title={`${a.name} HVAC FAQs`} />
+      <ServiceCards items={popular} kicker={`Popular in ${a.name}`} title={`Most-Requested Services in ${a.name}`} alt variant="list" />
+      <CtaBand title={`Fast HVAC Service in ${a.name}`} tone="cool" />
+      <Reviews title={`Why ${a.name} Homeowners Choose Wave`} variant="ticker" />
+      <Process variant="route" />
+      <ToolCards variant="rows" alt={false} />
+      <Faq items={a.faqs} title={`${a.name} HVAC FAQs`} variant="stack" alt />
 
-      <section className="sec sec-alt">
-        <div className="wrap">
-          <SecHead kicker="Nearby" title="Other Areas We Serve" />
-          <div className="areas" data-reveal>
+      <section className="sec near-sec">
+        <div className="wrap near">
+          <SecHead kicker="Nearby" title="Other Areas We Serve" variant="left" />
+          <div className="areas near-pins" data-reveal>
             <Link href="/service-area-las-vegas/">
               <Icon name="pin" size={15} /> Las Vegas
             </Link>

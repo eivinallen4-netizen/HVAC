@@ -16,16 +16,20 @@ export function ToolCard({
   label,
   onBack,
   children,
+  id,
+  className = "",
 }: {
   step: number;
   total: number;
   label: string;
   onBack?: () => void;
   children: React.ReactNode;
+  id?: string;
+  className?: string;
 }) {
   const pct = Math.min(100, Math.round((step / total) * 100));
   return (
-    <div className="form-card tool-ui">
+    <div className={`form-card tool-ui ${className}`.trim()} id={id}>
       <div className="form-top">
         <span className="kicker">{label}</span>
         <span className="step-pill">{step <= total ? `Step ${step} of ${total}` : "Your results"}</span>

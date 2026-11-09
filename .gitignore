@@ -12,3 +12,4 @@ npm-debug.log*
 # Local-only
 .claude/
 heating&hvac/
+.next-*/

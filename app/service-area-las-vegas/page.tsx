@@ -53,30 +53,38 @@ export default function ServiceAreaHub() {
       <section className="sec">
         <div className="wrap">
           <SecHead
+            variant="split"
             kicker="Find your area"
             title="Communities We Serve"
             lead="Select your area for local information, or call — if you're in the valley, we can help."
           />
-          <div className="area-cards">
-            <Link href={path} className="card area-card" aria-current="page">
-              <Icon name="pin" size={20} />
-              <strong>Las Vegas</strong>
-              <small>89101–89183</small>
-            </Link>
-            {areaPages.map((a, i) => (
-              <Link key={a.slug} href={`/service-areas/${a.slug}/`} className="card area-card" data-reveal style={{ transitionDelay: `${(i % 4) * 50}ms` }}>
-                <Icon name="pin" size={20} />
-                <strong>{a.name}</strong>
-                <small>{a.zips.slice(0, 4).join(" · ")}</small>
-              </Link>
-            ))}
-          </div>
+          <ul className="area-dir" data-reveal>
+            {[
+              { name: "Las Vegas", href: path, zips: "89101–89183", current: true },
+              ...areaPages.map((a) => ({ name: a.name, href: `/service-areas/${a.slug}/`, zips: a.zips.slice(0, 4).join(" · "), current: false })),
+            ]
+              .sort((x, y) => x.name.localeCompare(y.name))
+              .map((a) => (
+                <li key={a.name}>
+                  <Link href={a.href} aria-current={a.current ? "page" : undefined}>
+                    <span className="ad-letter" aria-hidden="true">
+                      {a.name[0]}
+                    </span>
+                    <span className="ad-name">
+                      <strong>{a.name}</strong>
+                      <small>{a.zips}</small>
+                    </span>
+                    <Icon name="arrow" size={16} />
+                  </Link>
+                </li>
+              ))}
+          </ul>
         </div>
       </section>
 
       <section className="sec sec-alt content-sec">
-        <div className="wrap area-grid">
-          <div className="prose-wrap" data-reveal>
+        <div className="wrap loc-grid">
+          <div className="cs-col" data-reveal>
             <h2>Las Vegas HVAC Experts — Built for the Desert</h2>
             <p>
               Las Vegas is one of the toughest places in the country to keep a home comfortable. Summer afternoons regularly top
@@ -94,7 +102,10 @@ export default function ServiceAreaHub() {
               <Link href="/hvac-maintenance-las-vegas/">Wave Club</Link> for two tune-ups a year.
             </p>
           </div>
-          <div className="map-embed card" data-reveal>
+          <div className="map-frame" data-reveal>
+            <span className="map-badge">
+              <Icon name="pin" size={14} /> {site.address.city}, {site.address.state}
+            </span>
             <iframe
               title="Wave Heating & Cooling location"
               src={`https://www.google.com/maps?q=${encodeURIComponent(`${site.name} ${site.address.street} ${site.address.city} ${site.address.state}`)}&output=embed`}
@@ -105,10 +116,10 @@ export default function ServiceAreaHub() {
         </div>
       </section>
 
-      <ServiceCards items={core} kicker="Popular services" title="What Las Vegas Homeowners Call Us For" />
-      <CtaBand />
-      <Reviews />
-      <Faq items={faqs} title="Service Area FAQs" alt />
+      <ServiceCards items={core} kicker="Popular services" title="What Las Vegas Homeowners Call Us For" variant="mag" />
+      <CtaBand tone="cool" />
+      <Reviews variant="ticker" alt />
+      <Faq items={faqs} title="Service Area FAQs" variant="stack" />
       <FinalCta />
       <JsonLd data={[faqLd(faqs), serviceLd({ name: "HVAC services in the Las Vegas valley", description: "AC repair, heating, installation and maintenance across the Las Vegas valley.", path })]} />
     </>

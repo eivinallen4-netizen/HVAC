@@ -144,6 +144,7 @@ const paths: Record<IconName, React.ReactNode> = {
   ),
   star: <path d="m12 2.8 2.8 5.8 6.3.9-4.6 4.4 1.1 6.3L12 17.2l-5.6 3 1.1-6.3-4.6-4.4 6.3-.9Z" />,
   bolt: <path d="M13 2.5 4.5 13.5H11l-1 8 8.5-11H12Z" />,
+  drop: <path d="M12 2.8c3.4 4.2 6.3 7.8 6.3 11.4a6.3 6.3 0 0 1-12.6 0C5.7 10.6 8.6 7 12 2.8Z" />,
   menu: <path d="M4 7h16M4 12h16M4 17h10" />,
   close: <path d="M6 6l12 12M18 6 6 18" />,
   sun: (

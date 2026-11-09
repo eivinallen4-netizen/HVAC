@@ -3,22 +3,54 @@ import Link from "next/link";
 import { areaHref } from "@/lib/content/areas";
 import { servicesIn } from "@/lib/content/services";
 import { tools } from "@/lib/tools";
-import { faqs as defaultFaqs, guides, pages, reviews, serviceAreas, services, site } from "@/lib/site";
-import { Embers, FireIceRule, Flame, Frost, HeatShimmer, Ribbons, Snowflake, SplitEmblem } from "./Art";
+import { faqs as defaultFaqs, guides, pages, reviews, serviceAreas, services, site, type IconName } from "@/lib/site";
+import { Embers, FireIceRule, Frost, HeatShimmer, Ribbons, Snowflake, SplitEmblem } from "./Art";
 import { BeforeAfter } from "./BeforeAfter";
 import { BookNowLink } from "./Booking";
 import { CallLink, EstimateButton, TextLink } from "./Cta";
 import { FaqList } from "./Faq";
 import { GoogleG, Icon, PlatformLogo, Stars } from "./Icon";
 import { ContactForm, HeroLeadForm } from "./LeadForm";
+import { Timeline } from "./Timeline";
 
 const initials = (name: string) =>
   name.split(" ").map((p) => p[0]).join("").slice(0, 2).toUpperCase();
 
-export function SecHead({ kicker, title, lead, center = true }: { kicker: string; title: string; lead?: string; center?: boolean }) {
+/**
+ * Section header.
+ * - `center` (default): ornament rule, centered stack
+ * - `split`: kicker + title on the left, lead on the right
+ * - `side`: left-aligned stack for a sticky side column
+ * - `left`: plain left-aligned stack (what `center={false}` gives)
+ */
+export function SecHead({
+  kicker,
+  title,
+  lead,
+  center = true,
+  variant,
+}: {
+  kicker: string;
+  title: string;
+  lead?: string;
+  center?: boolean;
+  variant?: "center" | "split" | "side" | "left";
+}) {
+  const v = variant ?? (center ? "center" : "left");
+  if (v === "split") {
+    return (
+      <div className="sec-head split" data-reveal>
+        <div>
+          <span className="kicker">{kicker}</span>
+          <h2>{title}</h2>
+        </div>
+        {lead && <p className="lead">{lead}</p>}
+      </div>
+    );
+  }
   return (
-    <div className={`sec-head${center ? " center" : ""}`} data-reveal>
-      <FireIceRule />
+    <div className={`sec-head ${v}`} data-reveal>
+      {v === "center" && <FireIceRule />}
       <span className="kicker">{kicker}</span>
       <h2>{title}</h2>
       {lead && <p className="lead">{lead}</p>}
@@ -27,6 +59,13 @@ export function SecHead({ kicker, title, lead, center = true }: { kicker: string
 }
 
 /* ═════════════════════════ HERO ═════════════════════════ */
+const stamps: { icon: IconName; t: string }[] = [
+  { icon: "permit", t: "Permits pulled on every job" },
+  { icon: "shield", t: "Full safety inspection" },
+  { icon: "broom", t: "We leave it cleaner than we found it" },
+  { icon: "award", t: `NV License ${site.license}` },
+];
+
 export function Hero() {
   return (
     <section className="hero">
@@ -49,11 +88,15 @@ export function Hero() {
 
           <RatingsRow nate />
 
-          <ul className="hero-checks">
-            <li><Icon name="check" size={18} /> Permits pulled on every job</li>
-            <li><Icon name="check" size={18} /> Full safety inspection</li>
-            <li><Icon name="check" size={18} /> We leave it cleaner than we found it</li>
-            <li><Icon name="check" size={18} /> NV License {site.license}</li>
+          <ul className="proof-stamps">
+            {stamps.map((s, i) => (
+              <li key={s.t} className={i % 2 ? "cool" : "warm"}>
+                <span className="stamp" aria-hidden="true">
+                  <Icon name={s.icon} size={24} />
+                </span>
+                <span>{s.t}</span>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -156,48 +199,42 @@ export function Emergency() {
 }
 
 /* ═════════════════════════ SERVICES ═════════════════════════ */
+/** Directory list: compact rows, two columns. Reads as secondary to the replacement story. */
 export function Services({
   kicker = "Precision climate care",
   title = "Built for Desert Performance",
   lead = "Cooling, heating and indoor air — one local team for all of it, built for the Mojave desert.",
+  alt = false,
 }: {
   kicker?: string;
   title?: string;
   lead?: string;
+  alt?: boolean;
 } = {}) {
   return (
-    <section className="sec art-sec" id="services">
-      <div className="sec-art" aria-hidden="true">
-        <Image src="/images/art/flame-cluster.png" alt="" width={420} height={630} className="art-img svc-flame" />
-        <Image src="/images/art/ice-crystal.png" alt="" width={460} height={460} className="art-img svc-ice" />
-      </div>
+    <section className={`sec${alt ? " sec-alt" : ""}`} id="services">
       <div className="wrap">
-        <SecHead kicker={kicker} title={title} lead={lead} />
-        <div className="grid-3">
+        <SecHead variant="split" kicker={kicker} title={title} lead={lead} />
+        <ul className="dir">
           {services.map((s, i) => (
-            <article className={`card svc${s.hot ? " hot" : ""}`} key={s.title} data-reveal style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
-              <div className="svc-img">
-                <Image src={s.img} alt={s.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1040px) 50vw, 400px" />
-                {s.hot ? <Embers count={10} className="card-embers" seed={i + 10} /> : null}
-                <span className="ic-box ic-float">
-                  <Icon name={s.icon} size={22} />
-                </span>
-              </div>
-              <div className="svc-body">
-                <h3>{s.title}</h3>
+            <li className={`dir-row${s.hot ? " hot" : ""}`} key={s.title} data-reveal style={{ transitionDelay: `${(i % 2) * 60}ms` }}>
+              <span className={`ic-box ${s.hot ? "tone-warm" : "tone-cool"}`}>
+                <Icon name={s.icon} size={20} />
+              </span>
+              <div className="dir-copy">
+                <h3>
+                  <Link className="dir-link" href={s.href}>
+                    {s.title}
+                  </Link>
+                </h3>
                 <p>{s.text}</p>
               </div>
-              <div className="svc-foot">
-                <EstimateButton pick={s.pick} className="svc-link" icon="arrow">
-                  {s.cta}
-                </EstimateButton>
-                <Link className="svc-more" href={s.href}>
-                  Learn more
-                </Link>
-              </div>
-            </article>
+              <EstimateButton pick={s.pick} className="dir-cta" icon="arrow">
+                {s.cta}
+              </EstimateButton>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   );
@@ -263,31 +300,38 @@ const why = [
   { icon: "sparkle", t: "Your home protected", d: "Booties at the door, padding under ladders, plastic on walls and beds, and a full clean-up." },
 ] as const;
 
-export function WhyWave() {
+/** Bento grid: crew photo leads, stat tiles for 24/7 and the license, small tiles for the rest */
+export function WhyWave({ variant = "bento" }: { variant?: "bento" | "ledger" } = {}) {
+  const [local, nate, honest, allDay, licensed, protect] = why;
+  const small = [local, nate, honest, protect];
+  if (variant === "ledger") return <WhyLedger />;
   return (
     <section className="sec art-sec" id="why">
-      <Frost count={10} className="sec-frost" seed={7} />
       <div className="wrap">
         <SecHead
+          variant="split"
           kicker="The integrity standard"
           title="Why Las Vegas Homeowners Choose Wave"
           lead="We're a family-owned local company. When you call Wave you get honest answers, skilled techs and the kind of service our neighbors keep recommending."
         />
-        <div className="grid-3 why-grid">
-          {why.map((w, i) => (
-            <div className="card why-card" key={w.t} data-reveal style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
-              <span className={`ic-box ${i % 2 ? "tone-cool" : "tone-warm"}`}>
-                <Icon name={w.icon} size={22} />
-              </span>
-              {i % 2 ? <Snowflake size={90} className="why-glyph" /> : <Flame size={70} className="why-glyph" />}
-              <h4>{w.t}</h4>
-              <p>{w.d}</p>
-            </div>
-          ))}
-        </div>
-
-        <div className="panel team" data-reveal>
-          <div className="team-copy">
+        <div className="bento">
+          <figure className="bt bt-crew" data-reveal>
+            <Image src="/images/crew.jpg" alt="The Wave Heating & Cooling team" fill sizes="(max-width: 1040px) 100vw, 600px" />
+          </figure>
+          <figure className="bt bt-fam" data-reveal>
+            <Image src="/images/family.jpg" alt="The family behind Wave Heating & Cooling" fill sizes="(max-width: 760px) 100vw, 300px" />
+          </figure>
+          <div className="bt bt-stat warm" data-reveal>
+            <b aria-hidden="true">24/7</b>
+            <h4>{allDay.t}</h4>
+            <p>{allDay.d}</p>
+          </div>
+          <div className="bt bt-stat cool" data-reveal>
+            <b aria-hidden="true">{site.license}</b>
+            <h4>{licensed.t}</h4>
+            <p>{licensed.d}</p>
+          </div>
+          <div className="bt bt-team" data-reveal>
             <span className="kicker">
               <Icon name="award" size={15} /> The people behind Wave
             </span>
@@ -302,13 +346,72 @@ export function WhyWave() {
               <li><Icon name="check" size={16} /> Fully Insured</li>
             </ul>
           </div>
-          <div className="team-imgs">
-            <div className="team-main">
-              <Image src="/images/crew.jpg" alt="The Wave Heating & Cooling team" fill sizes="(max-width: 900px) 100vw, 420px" />
+          {small.map((w, i) => (
+            <div className="bt bt-small" key={w.t} data-reveal style={{ transitionDelay: `${i * 60}ms` }}>
+              <span className={`ic-box ${i % 2 ? "tone-cool" : "tone-warm"}`}>
+                <Icon name={w.icon} size={20} />
+              </span>
+              <h4>{w.t}</h4>
+              <p>{w.d}</p>
             </div>
-            <div className="team-sub">
-              <Image src="/images/family.jpg" alt="The family behind Wave Heating & Cooling" fill sizes="200px" />
-            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/** Ledger: photos in a sticky column, the six reasons as numbered rows, then the team note */
+function WhyLedger() {
+  return (
+    <section className="sec why-ledger" id="why">
+      <div className="wrap ledger">
+        <div className="ledger-side">
+          <SecHead
+            variant="side"
+            kicker="The integrity standard"
+            title="Why Las Vegas Homeowners Choose Wave"
+            lead="We're a family-owned local company. When you call Wave you get honest answers, skilled techs and the kind of service our neighbors keep recommending."
+          />
+          <div className="ledger-photos" data-reveal>
+            <figure className="lp-crew">
+              <Image src="/images/crew.jpg" alt="The Wave Heating & Cooling team" fill sizes="(max-width: 1040px) 100vw, 480px" />
+            </figure>
+            <figure className="lp-fam">
+              <Image src="/images/family.jpg" alt="The family behind Wave Heating & Cooling" fill sizes="220px" />
+            </figure>
+          </div>
+        </div>
+        <div>
+          <ol className="num-rows ledger-rows">
+            {why.map((w, i) => (
+              <li key={w.t} data-reveal style={{ transitionDelay: `${(i % 3) * 60}ms` }}>
+                <span className="num-n" aria-hidden="true">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3>
+                    <Icon name={w.icon} size={18} /> {w.t}
+                  </h3>
+                  <p>{w.d}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <div className="ledger-team" data-reveal>
+            <span className="kicker">
+              <Icon name="award" size={15} /> The people behind Wave
+            </span>
+            <h3>Trained for Nevada&apos;s Harshest Conditions</h3>
+            <p>
+              Most Wave technicians are NATE-certified, and every one works on homes built for triple-digit summers and cold desert
+              nights. Family-owned means the owners stand behind every job.
+            </p>
+            <ul className="inline-checks">
+              <li><Icon name="check" size={16} /> NATE Certified</li>
+              <li><Icon name="check" size={16} /> Licensed &amp; Bonded</li>
+              <li><Icon name="check" size={16} /> Fully Insured</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -317,31 +420,49 @@ export function WhyWave() {
 }
 
 /* ═════════════════════════ PROCESS ═════════════════════════ */
-export function Process() {
+/** `line` (home): the connected stepper. `route` (inner pages): a slim band of numbered stops. */
+export function Process({ variant = "line", alt = true }: { variant?: "line" | "route"; alt?: boolean } = {}) {
   const steps = [
     { t: "Tell us what's going on", d: "Fill out the 60-second form or call us any time, day or night." },
     { t: "We confirm a time", d: "A Wave team member calls you back to schedule a visit that works for you." },
     { t: "Diagnosis & clear options", d: "Your tech finds the root cause and walks you through your options before any work begins." },
     { t: "Comfort restored", d: "The job is done right, cleaned up, and explained — so you know exactly what was fixed." },
   ];
+  if (variant === "route") {
+    return (
+      <section className={`sec route-sec${alt ? " sec-alt" : ""}`}>
+        <div className="wrap">
+          <div className="route-head" data-reveal>
+            <div>
+              <span className="kicker">Streamlined resolution</span>
+              <h2>How We Restore Your Comfort</h2>
+            </div>
+            <p>Simple, transparent and stress-free from the moment you reach out.</p>
+            <EstimateButton>Book Now</EstimateButton>
+          </div>
+          <ol className="route">
+            {steps.map((s, i) => (
+              <li key={s.t} data-reveal style={{ transitionDelay: `${i * 70}ms` }}>
+                <span className="route-stop" aria-hidden="true">
+                  {i + 1}
+                </span>
+                <h3>
+                  <span className="sr-only">{i + 1}. </span>
+                  {s.t}
+                </h3>
+                <p>{s.d}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+    );
+  }
   return (
-    <section className="sec sec-alt art-sec">
-      <HeatShimmer tone="cool" className="proc-shimmer" />
+    <section className={`sec proc-sec${alt ? " sec-alt" : ""}`}>
       <div className="wrap">
-        <SecHead kicker="Streamlined resolution" title="How We Restore Your Comfort" lead="Simple, transparent and stress-free from the moment you reach out." />
-        <ol className="grid-4 steps">
-          <li className="steps-flow" aria-hidden="true">
-            <i />
-          </li>
-          {steps.map((s, i) => (
-            <li className="card step-card" key={s.t} data-reveal style={{ transitionDelay: `${i * 80}ms` }}>
-              <span className="step-ghost" aria-hidden="true">0{i + 1}</span>
-              <span className="step-num">{i + 1}</span>
-              <h4>{s.t}</h4>
-              <p>{s.d}</p>
-            </li>
-          ))}
-        </ol>
+        <SecHead variant="split" kicker="Streamlined resolution" title="How We Restore Your Comfort" lead="Simple, transparent and stress-free from the moment you reach out." />
+        <Timeline steps={steps} />
         <div className="center-cta" data-reveal>
           <EstimateButton>Book Now</EstimateButton>
         </div>
@@ -351,32 +472,59 @@ export function Process() {
 }
 
 /* ═════════════════════════ REVIEWS ═════════════════════════ */
-export function Reviews({ title = "What Las Vegas Homeowners Are Saying" }: { title?: string }) {
+/** One featured quote with the big rating numbers, then a scroll-snap strip of the rest */
+export function Reviews({
+  title = "What Las Vegas Homeowners Are Saying",
+  alt = false,
+  variant = "feature",
+}: {
+  title?: string;
+  alt?: boolean;
+  /** feature (home): big quote + strip · ticker (inner pages): slim drifting band · wall (reviews page): masonry */
+  variant?: "feature" | "ticker" | "wall";
+}) {
+  const [lead, ...rest] = reviews;
+  if (variant === "ticker") return <ReviewTicker title={title} alt={alt} />;
+  if (variant === "wall") return <ReviewWall title={title} alt={alt} />;
   return (
-    <section className="sec art-sec" id="reviews">
-      <Embers count={14} className="sec-embers" seed={9} />
+    <section className={`sec rv-sec${alt ? " sec-alt" : ""}`} id="reviews">
       <div className="wrap">
-        <div className="rev-head" data-reveal>
-          <div>
+        <div className="rv-top">
+          <div className="rv-feature" data-reveal>
             <span className="kicker">Real local voices</span>
             <h2>{title}</h2>
+            <figure className="rv-quote">
+              <Stars size={18} />
+              <blockquote>&ldquo;{lead.text}&rdquo;</blockquote>
+              <figcaption>
+                <span className="av">{initials(lead.name)}</span>
+                <span>
+                  {lead.name}
+                  <small>
+                    <Icon name="check" size={13} /> Verified Google review
+                  </small>
+                </span>
+              </figcaption>
+            </figure>
           </div>
-          <div className="rev-score">
+          <ul className="rv-scores" data-reveal>
             {site.ratings.map((r) => (
-              <div key={r.platform}>
+              <li key={r.platform}>
                 <b>{r.score}</b>
-                <Stars size={13} />
-                <span>{r.platform}</span>
-              </div>
+                <Stars size={14} />
+                <span>
+                  <PlatformLogo platform={r.platform} size={18} /> {r.platform}
+                </span>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
-        <div className="grid-3">
-          {reviews.map((r, i) => (
-            <figure className="card rev" key={r.name} data-reveal style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
+        <div className="rv-strip" role="region" aria-label="More Google reviews" tabIndex={0} data-reveal>
+          {rest.map((r) => (
+            <figure className="rv-card" key={r.name}>
               <div className="rev-top">
-                <Stars size={15} />
-                <GoogleG size={18} />
+                <Stars size={14} />
+                <GoogleG size={16} />
               </div>
               <blockquote>&ldquo;{r.text}&rdquo;</blockquote>
               <figcaption>
@@ -391,7 +539,118 @@ export function Reviews({ title = "What Las Vegas Homeowners Are Saying" }: { ti
             </figure>
           ))}
         </div>
-        <div className="center-cta" data-reveal>
+        <div className="rv-foot" data-reveal>
+          <a className="btn btn-ghost" href={site.googleReviewsUrl} target="_blank" rel="noopener noreferrer">
+            <GoogleG size={18} /> Read all reviews on Google
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ReviewBubble({ r, hidden = false }: { r: (typeof reviews)[number]; hidden?: boolean }) {
+  return (
+    <li className="rv-bubble" aria-hidden={hidden || undefined}>
+      <blockquote>&ldquo;{r.text}&rdquo;</blockquote>
+      <span className="rv-who">
+        <span className="av">{initials(r.name)}</span>
+        <span>
+          {r.name}
+          <small>
+            <Icon name="check" size={13} /> Verified Google review
+          </small>
+        </span>
+      </span>
+    </li>
+  );
+}
+
+/** Inner pages: scores in a row, then every review drifting past as speech bubbles */
+function ReviewTicker({ title, alt }: { title: string; alt: boolean }) {
+  return (
+    <section className={`sec rv-tick-sec${alt ? " sec-alt" : ""}`} id="reviews">
+      <div className="wrap rv-tick-head" data-reveal>
+        <div>
+          <span className="kicker">Real local voices</span>
+          <h2>{title}</h2>
+        </div>
+        <ul className="rv-tick-scores">
+          {site.ratings.map((r) => (
+            <li key={r.platform}>
+              <b>{r.score}</b>
+              <span>
+                <Stars size={12} />
+                <span className="rv-plat">
+                  <PlatformLogo platform={r.platform} size={16} /> {r.platform}
+                </span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="rv-tick" role="region" aria-label="Google reviews" tabIndex={0}>
+        <ul className="rv-track">
+          {reviews.map((r) => (
+            <ReviewBubble key={r.name} r={r} />
+          ))}
+          {reviews.map((r) => (
+            <ReviewBubble key={`${r.name}-loop`} r={r} hidden />
+          ))}
+        </ul>
+      </div>
+      <div className="wrap rv-tick-foot">
+        <a className="text-link" href={site.googleReviewsUrl} target="_blank" rel="noopener noreferrer">
+          <GoogleG size={16} /> Read all reviews on Google <Icon name="arrow" size={14} />
+        </a>
+      </div>
+    </section>
+  );
+}
+
+/** Reviews page: big scores, then every review on a masonry wall */
+function ReviewWall({ title, alt }: { title: string; alt: boolean }) {
+  return (
+    <section className={`sec rv-wall-sec${alt ? " sec-alt" : ""}`} id="reviews">
+      <div className="wrap">
+        <div className="rv-wall-head" data-reveal>
+          <div>
+            <span className="kicker">Real local voices</span>
+            <h2>{title}</h2>
+          </div>
+          <ul className="rv-scores">
+            {site.ratings.map((r) => (
+              <li key={r.platform}>
+                <b>{r.score}</b>
+                <Stars size={14} />
+                <span>
+                  <PlatformLogo platform={r.platform} size={18} /> {r.platform}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="rv-wall">
+          {reviews.map((r, i) => (
+            <figure className={`rv-note${i % 3 === 0 ? " big" : ""}`} key={r.name} data-reveal style={{ transitionDelay: `${(i % 3) * 60}ms` }}>
+              <div className="rev-top">
+                <Stars size={14} />
+                <GoogleG size={16} />
+              </div>
+              <blockquote>&ldquo;{r.text}&rdquo;</blockquote>
+              <figcaption>
+                <span className="av">{initials(r.name)}</span>
+                <span>
+                  {r.name}
+                  <small>
+                    <Icon name="check" size={13} /> Verified Google review
+                  </small>
+                </span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <div className="rv-foot" data-reveal>
           <a className="btn btn-ghost" href={site.googleReviewsUrl} target="_blank" rel="noopener noreferrer">
             <GoogleG size={18} /> Read all reviews on Google
           </a>
@@ -402,26 +661,30 @@ export function Reviews({ title = "What Las Vegas Homeowners Are Saying" }: { ti
 }
 
 /* ═════════════════════════ ESTIMATE BAND ═════════════════════════ */
+/** Split band: copy on the left, the van photo behind a diagonal edge on the right */
 export function EstimateBand() {
   return (
     <section className="est">
-      <Image src="/images/van-strip.jpg" alt="" fill sizes="100vw" className="est-bg" />
-      <Image src="/images/art/desert-sun.png" alt="" width={720} height={480} className="est-sun" aria-hidden="true" />
-      <HeatShimmer tone="warm" className="est-shimmer" />
+      <div className="est-photo" aria-hidden="true">
+        <Image src="/images/van-strip.jpg" alt="" fill sizes="(max-width: 760px) 100vw, 50vw" className="est-bg" />
+        <span className="est-num">
+          12+<small>yrs</small>
+        </span>
+      </div>
       <div className="wrap est-row" data-reveal>
-        <div>
+        <div className="est-copy">
           <span className="chip chip-warm">System over 12 years old?</span>
           <h2>Let&apos;s Talk Replacement</h2>
           <p>
             Book an in-home replacement assessment. We&apos;ll measure your home, check the ductwork and electrical, and give
             you clear written options. Done right the first time, permitted and inspected.
           </p>
-        </div>
-        <div className="est-acts">
-          <EstimateButton pick="New system / replacement estimate" icon="arrow">
-            Schedule My Assessment
-          </EstimateButton>
-          <CallLink className="btn btn-ghost" location="estimate-band" />
+          <div className="est-acts">
+            <EstimateButton pick="New system / replacement estimate" icon="arrow">
+              Schedule My Assessment
+            </EstimateButton>
+            <CallLink className="btn btn-ghost" location="estimate-band" />
+          </div>
         </div>
       </div>
     </section>
@@ -429,33 +692,90 @@ export function EstimateBand() {
 }
 
 /* ═════════════════════════ SERVICE AREAS ═════════════════════════ */
-export function Areas({ title = "Proudly Serving the Las Vegas Valley" }: { title?: string }) {
-  return (
-    <section className="sec areas-sec" id="areas">
-      <Image src="/images/valley-night.jpg" alt="" fill sizes="100vw" className="areas-bg" />
-      <div className="wrap">
-        <SecHead
-          kicker="Valley-wide coverage"
-          title={title}
-          lead="Not sure if you're in our area? Give us a call — if you're in the valley, we can help."
-        />
-        <div className="areas" data-reveal>
-          {serviceAreas.map((a) => (
-            <Link key={a} href={areaHref(a)}>
-              <Icon name="pin" size={15} /> {a}
-            </Link>
-          ))}
+/** Coverage panel: illustrated valley with the HQ card, beside an A–Z city directory */
+export function Areas({
+  title = "Proudly Serving the Las Vegas Valley",
+  variant = "panel",
+}: {
+  title?: string;
+  /** panel (home): contour map + directory · strip (inner pages): one band of city links */
+  variant?: "panel" | "strip";
+}) {
+  const cities = [...serviceAreas].sort((a, b) => a.localeCompare(b));
+  if (variant === "strip") {
+    return (
+      <section className="sec cov-strip" id="areas">
+        <Image src="/images/illo/valley-contour.png" alt="" fill sizes="100vw" className="cov-strip-bg" />
+        <div className="wrap">
+          <div className="strip-head" data-reveal>
+            <div>
+              <span className="kicker">Valley-wide coverage</span>
+              <h2>{title}</h2>
+              <p>Not sure if you&apos;re in our area? Give us a call — if you&apos;re in the valley, we can help.</p>
+            </div>
+            <div className="strip-hq">
+              <Icon name="pin" size={20} />
+              <div>
+                <small>Headquarters:</small>
+                <b>
+                  {site.address.street}, {site.address.city}, {site.address.state} {site.address.zip}
+                </b>
+                <span className="hq-live">
+                  <i className="dot" /> Available 24/7
+                </span>
+              </div>
+            </div>
+          </div>
+          <ul className="strip-cities" data-reveal>
+            {cities.map((a) => (
+              <li key={a}>
+                <Link href={areaHref(a)}>
+                  <Icon name="pin" size={13} /> {a}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="hq" data-reveal>
-          <span>
-            <Icon name="pin" size={18} /> Headquarters:{" "}
+      </section>
+    );
+  }
+  return (
+    <section className="sec cov-sec" id="areas">
+      <div className="wrap cov">
+        <div className="cov-map" data-reveal>
+          <Image src="/images/illo/valley-contour.png" alt="" fill sizes="(max-width: 1040px) 100vw, 560px" className="cov-contour" />
+          <span className="cov-pin" aria-hidden="true">
+            <Icon name="pin" size={22} />
+          </span>
+          <div className="cov-hq">
+            <small>
+              <Icon name="pin" size={14} /> Headquarters:
+            </small>
             <b>
               {site.address.street}, {site.address.city}, {site.address.state} {site.address.zip}
             </b>
-          </span>
-          <span className="hq-live">
-            <i className="dot" /> Available 24/7
-          </span>
+            <span className="hq-live">
+              <i className="dot" /> Available 24/7
+            </span>
+          </div>
+        </div>
+        <div className="cov-list">
+          <SecHead
+            variant="left"
+            kicker="Valley-wide coverage"
+            title={title}
+            lead="Not sure if you're in our area? Give us a call — if you're in the valley, we can help."
+          />
+          <ul className="cov-dir" data-reveal>
+            {cities.map((a) => (
+              <li key={a}>
+                <Link href={areaHref(a)}>
+                  {a}
+                  <Icon name="arrow" size={14} />
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>
@@ -463,13 +783,11 @@ export function Areas({ title = "Proudly Serving the Las Vegas Valley" }: { titl
 }
 
 /* ═════════════════════════ GUIDES ═════════════════════════ */
+/** Magazine layout: one feature, two stacked side items */
 export function Guides() {
+  const [main, ...side] = guides;
   return (
-    <section className="sec sec-alt art-sec" id="guides">
-      <div className="sec-art" aria-hidden="true">
-        <Image src="/images/art/heat-waves.png" alt="" width={1200} height={800} className="art-img guide-heat" />
-      </div>
-      <Ribbons tone="warm" className="guide-ribbons" />
+    <section className="sec" id="guides">
       <div className="wrap">
         <div className="rev-head" data-reveal>
           <div>
@@ -480,24 +798,37 @@ export function Guides() {
             View all guides <Icon name="arrow" size={16} />
           </Link>
         </div>
-        <div className="grid-3">
-          {guides.map((g, i) => (
-            <Link className="card guide" key={g.href} href={g.href} data-reveal style={{ transitionDelay: `${i * 70}ms` }}>
-              <div className="svc-img">
-                <Image src={g.img} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1040px) 50vw, 400px" />
-                <span className="guide-tag">{g.tag}</span>
-              </div>
-              <div className="svc-body">
-                <h3>{g.title}</h3>
-                <p>{g.text}</p>
-              </div>
-              <div className="svc-foot">
-                <span className="svc-link">
-                  Read guide <Icon name="arrow" size={16} />
-                </span>
-              </div>
-            </Link>
-          ))}
+        <div className="mag">
+          <Link className="mag-main" href={main.href} data-reveal>
+            <div className="mag-img">
+              <Image src={main.img} alt="" fill sizes="(max-width: 1040px) 100vw, 700px" />
+            </div>
+            <div className="mag-body">
+              <span className="mag-tag">{main.tag}</span>
+              <h3>{main.title}</h3>
+              <p>{main.text}</p>
+              <span className="svc-link">
+                Read guide <Icon name="arrow" size={16} />
+              </span>
+            </div>
+          </Link>
+          <div className="mag-side">
+            {side.map((g, i) => (
+              <Link className="mag-item" key={g.href} href={g.href} data-reveal style={{ transitionDelay: `${(i + 1) * 80}ms` }}>
+                <div className="mag-thumb">
+                  <Image src={g.img} alt="" fill sizes="(max-width: 760px) 100vw, 220px" />
+                </div>
+                <div>
+                  <span className="mag-tag">{g.tag}</span>
+                  <h3>{g.title}</h3>
+                  <p>{g.text}</p>
+                  <span className="svc-link">
+                    Read guide <Icon name="arrow" size={16} />
+                  </span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -505,22 +836,49 @@ export function Guides() {
 }
 
 /* ═════════════════════════ FAQ ═════════════════════════ */
+/** Two columns: sticky heading + call card on the left, the accordion on the right */
 export function Faq({
   items = defaultFaqs,
   title = "Frequently Asked Questions",
   alt = false,
   id = "faq",
+  variant = "split",
 }: {
   items?: { q: string; a: string }[];
   title?: string;
   alt?: boolean;
   id?: string;
+  /** split (home): sticky aside + accordion · stack (inner pages): one centered column, call row at the end */
+  variant?: "split" | "stack";
 }) {
+  if (variant === "stack") {
+    return (
+      <section className={`sec faq-stack${alt ? " sec-alt" : ""}`} id={id}>
+        <div className="wrap faq-narrow">
+          <SecHead kicker="Answers & clarity" title={title} />
+          <div data-reveal>
+            <FaqList items={items} />
+          </div>
+          <div className="faq-call-row" data-reveal>
+            <Icon name="chat" size={22} />
+            <p>Still unsure what you need? Give us a call and we&apos;ll point you in the right direction.</p>
+            <CallLink className="btn btn-red" location={`faq-${id}`} />
+          </div>
+        </div>
+      </section>
+    );
+  }
   return (
     <section className={`sec art-sec${alt ? " sec-alt" : ""}`} id={id}>
       <SplitEmblem size={520} className="faq-emblem" />
-      <div className="wrap faq-wrap">
-        <SecHead kicker="Answers & clarity" title={title} lead="Still unsure what you need? Give us a call and we'll point you in the right direction." />
+      <div className="wrap faq2">
+        <div className="faq-aside">
+          <SecHead variant="side" kicker="Answers & clarity" title={title} />
+          <div className="faq-call" data-reveal>
+            <p>Still unsure what you need? Give us a call and we&apos;ll point you in the right direction.</p>
+            <CallLink className="btn btn-red" location={`faq-${id}`} />
+          </div>
+        </div>
         <div data-reveal>
           <FaqList items={items} />
         </div>
@@ -549,8 +907,10 @@ export function FinalCta({
       <SplitEmblem size={640} className="final-emblem" />
       <div className="wrap final-grid">
         <div data-reveal>
-          <span className="kicker">Direct service desk</span>
-          <h2>{title}</h2>
+          <span className="final-kicker">
+            <i className="dot" /> Direct service desk
+          </span>
+          <h2 className="final-title">{title}</h2>
           <p className="lead">{lead}</p>
           <div className="contact-lines">
             {lines.map((l) => (

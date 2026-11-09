@@ -50,18 +50,18 @@ export const tools: ToolMeta[] = [
   {
     slug: "ac-replacement-cost-estimator",
     name: "AC Replacement Cost Estimator",
-    short: "Get a ballpark installed price range and monthly payment for a new system.",
+    short: "Get a ballpark installed price range for a new system.",
     title: "AC Replacement Cost Estimator Las Vegas | Wave Heating & Cooling",
     description:
-      "How much does a new AC cost in Las Vegas? Get an instant installed price range and estimated monthly payment by home size, system type and efficiency.",
+      "How much does a new AC cost in Las Vegas? Get an installed price range from Wave's own pricing by system type, home size and where your equipment sits.",
     h1: "AC Replacement Cost Estimator for Las Vegas Homes",
     intro:
-      "Planning for a new air conditioner or heat pump? Tell us about your home and the kind of system you're considering, and get a ballpark installed price range — plus an estimated monthly payment with financing.",
+      "Planning for a new air conditioner or heat pump? Tell us about your home and your current system, and get a ballpark installed price range based on Wave's own pricing.",
     icon: "tag",
     time: "90 seconds",
     about: [
       "The biggest factors in what a new system costs are **size** (tons of cooling), **system type**, **efficiency level** and **how much ductwork or electrical work** is needed. Las Vegas homes typically need more cooling capacity per square foot than homes in milder climates.",
-      "This estimator uses a sizing rule of thumb to get you in the right range quickly. Your actual price depends on a proper load calculation, the specific equipment, access and any code upgrades — which is why every Wave estimate is done in-home and in writing.",
+      "This estimator uses Wave's installed pricing by system type and home size to get you in the right range quickly. Your actual price depends on a proper load calculation, the specific equipment, access and any code upgrades — which is why every Wave estimate is done in-home and in writing.",
     ],
     faqs: [
       {
@@ -74,7 +74,7 @@ export const tools: ToolMeta[] = [
       },
       {
         q: "Is financing available?",
-        a: "Yes, financing is available with approved credit. The monthly payment shown is an example only — your actual terms depend on the lender and your credit.",
+        a: "Yes, financing is available with approved credit. Ask us and we'll show you the monthly payment next to the total. Your actual terms depend on the lender and your credit.",
       },
     ],
   },

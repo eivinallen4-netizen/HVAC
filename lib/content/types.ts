@@ -11,7 +11,29 @@ export type Section = {
   list?: string[];
   cards?: { t: string; d: string }[];
   table?: { head: string[]; rows: string[][]; note?: string };
+  /**
+   * Presentation hint only: how the section is laid out. Never changes the words.
+   * steps → rail stepper · included → work-order sheet · options → choice columns ·
+   * services → spec sheet · fit → tag cloud · wait → index card · safety → hazard panel ·
+   * season → month strip · club → membership card · sizing → too big / right / too small · fine → terms box
+   */
+  kind?: SectionKind;
+  /** For kind "season": months (0 = Jan) the copy names, with the label shown in the legend */
+  season?: { m: number[]; label: string; tone?: "warm" | "cool" }[];
 };
+
+export type SectionKind =
+  | "steps"
+  | "included"
+  | "options"
+  | "services"
+  | "fit"
+  | "wait"
+  | "safety"
+  | "season"
+  | "club"
+  | "sizing"
+  | "fine";
 
 export type ToolSlug =
   | "repair-or-replace-calculator"

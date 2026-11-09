@@ -29,12 +29,13 @@ export default function BlogIndex() {
         intro="Straight-talking advice from Wave's technicians on keeping a Las Vegas home comfortable, efficient and safe — all year long."
         form={false}
         img="/images/valley-night.jpg"
+        variant="split"
       />
 
       <section className="sec">
         <div className="wrap">
           {lead && (
-            <Link href={`/blog/${lead.slug}/`} className="card post-lead" data-reveal>
+            <Link href={`/blog/${lead.slug}/`} className="post-lead post-feature" data-reveal>
               <div className="post-lead-img">
                 <Image src={lead.image} alt="" fill priority sizes="(max-width: 900px) 100vw, 640px" />
               </div>
@@ -51,31 +52,33 @@ export default function BlogIndex() {
               </div>
             </Link>
           )}
-          <div className="grid-3 post-grid">
+          <ul className="post-rows">
             {rest.map((p, i) => (
-              <Link href={`/blog/${p.slug}/`} className="card guide" key={p.slug} data-reveal style={{ transitionDelay: `${(i % 3) * 70}ms` }}>
-                <div className="svc-img">
-                  <Image src={p.image} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1040px) 50vw, 400px" />
-                  <span className="guide-tag">{p.category}</span>
-                </div>
-                <div className="svc-body">
-                  <h3>{p.title}</h3>
-                  <p>{p.description}</p>
-                </div>
-                <div className="svc-foot">
-                  <span className="post-meta">
-                    {fmtDate(p.date)} · {p.readMinutes} min
-                  </span>
-                  <span className="svc-link">
-                    Read <Icon name="arrow" size={16} />
-                  </span>
-                </div>
-              </Link>
+              <li key={p.slug} data-reveal style={{ transitionDelay: `${(i % 2) * 60}ms` }}>
+                <Link href={`/blog/${p.slug}/`} className="post-row">
+                  <div className="post-row-img">
+                    <Image src={p.image} alt="" fill sizes="(max-width: 640px) 30vw, 180px" />
+                  </div>
+                  <div className="post-row-body">
+                    <span className="guide-tag static">{p.category}</span>
+                    <h3>{p.title}</h3>
+                    <p>{p.description}</p>
+                    <span className="post-row-foot">
+                      <span className="post-meta">
+                        {fmtDate(p.date)} · {p.readMinutes} min
+                      </span>
+                      <span className="svc-link">
+                        Read <Icon name="arrow" size={16} />
+                      </span>
+                    </span>
+                  </div>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </section>
-      <ToolCards />
+      <ToolCards variant="rows" />
       <FinalCta />
     </>
   );

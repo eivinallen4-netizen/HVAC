@@ -33,6 +33,7 @@ export const heatingServices: ServicePage[] = [
     sections: [
       {
         h2: "Furnace and Heat Pump Repairs We Handle",
+        kind: "included",
         list: [
           "Igniter, flame sensor and pilot problems",
           "Gas valve and burner issues",
@@ -46,6 +47,7 @@ export const heatingServices: ServicePage[] = [
       },
       {
         h2: "Safety First: Carbon Monoxide",
+        kind: "safety",
         body: [
           "Every gas heating repair includes a safety check. A cracked heat exchanger or poor venting can let carbon monoxide into your home, and CO is colorless and odorless. We recommend a working CO detector on every level of your home and near sleeping areas.",
           "Learn more in our homeowner guide to [carbon monoxide and winter HVAC safety](/blog/carbon-monoxide-winter-hvac-safety/).",
@@ -65,6 +67,8 @@ export const heatingServices: ServicePage[] = [
       },
       {
         h2: "Best Practices for Las Vegas Heating Systems",
+        kind: "season",
+        season: [{ m: [9, 10], label: "Before winter (October–November)", tone: "warm" }, { m: [2, 3, 4, 8], label: "Off season", tone: "cool" }],
         body: [
           "**Before winter (October–November):** schedule a [heating tune-up](/hvac-heating-maintenance-in-las-vegas/), replace your filter and test the system before the first cold night.",
           "**Off season:** spring and early fall are the best time for non-urgent repairs and for sealing [leaky ductwork](/hvac-ductwork-las-vegas/) that steals heat before it reaches your rooms.",
@@ -113,6 +117,7 @@ export const heatingServices: ServicePage[] = [
     sections: [
       {
         h2: "Which Heating System Is Right for Your Home?",
+        kind: "options",
         cards: [
           {
             t: "Gas furnace",
@@ -134,6 +139,7 @@ export const heatingServices: ServicePage[] = [
       },
       {
         h2: "Our Heating Installation Process",
+        kind: "steps",
         list: [
           "In-home consultation and load calculation",
           "Written options at different efficiency levels and price points",
@@ -207,6 +213,7 @@ export const heatingServices: ServicePage[] = [
       },
       {
         h2: "What's Included",
+        kind: "included",
         list: [
           "Load calculation and equipment recommendations",
           "Permit pulled on every replacement, so the county inspects the install too",
@@ -221,6 +228,8 @@ export const heatingServices: ServicePage[] = [
       },
       {
         h2: "Plan Ahead, Save Money",
+        kind: "season",
+        season: [{ m: [2, 3, 4, 8], label: "Spring and early fall", tone: "cool" }],
         body: [
           "The best time to replace a heating system is before it fails. Spring and early fall offer the most scheduling flexibility, and you avoid making a rushed decision on a cold night. [Financing](/financing/) is available with approved credit.",
         ],
@@ -264,6 +273,7 @@ export const heatingServices: ServicePage[] = [
     sections: [
       {
         h2: "What's Included in a Heating Tune-Up",
+        kind: "included",
         list: [
           "Inspect and clean burners and flame sensor for safe, efficient operation",
           "Test for carbon monoxide",
@@ -277,6 +287,8 @@ export const heatingServices: ServicePage[] = [
       },
       {
         h2: "Why Fall Maintenance Matters",
+        kind: "season",
+        season: [{ m: [9, 10], label: "October or November", tone: "warm" }],
         body: [
           "After months of sitting unused, dust settles on burners and sensors, and small problems go unnoticed until the first cold snap — exactly when every HVAC company in town is busiest. A tune-up in **October or November** catches those problems early.",
           "Just as important is safety. Gas furnaces need to be checked for proper combustion and venting. Read our [carbon monoxide safety guide](/blog/carbon-monoxide-winter-hvac-safety/) for what every homeowner should know.",
@@ -284,6 +296,7 @@ export const heatingServices: ServicePage[] = [
       },
       {
         h2: "Save With Wave Club",
+        kind: "club",
         body: [
           "Wave Club members get both a spring AC tune-up and a fall heating tune-up every year, plus 15% off repairs, priority service and extended warranty coverage. [See all Wave Club benefits](/hvac-maintenance-las-vegas/).",
         ],
@@ -343,6 +356,7 @@ export const heatingServices: ServicePage[] = [
       },
       {
         h2: "Our Heat Pump Services",
+        kind: "services",
         cards: [
           { t: "Repair", d: "Reversing valves, defrost controls, capacitors, motors, refrigerant leaks and auxiliary heat." },
           { t: "Maintenance", d: "Two visits a year — before summer and before winter — since your heat pump works year-round." },

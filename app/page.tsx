@@ -7,6 +7,7 @@ import {
   HomeProtection,
   RepairOrReplace,
   ReplacementDay,
+  StraightAnswers,
 } from "@/components/Replacement";
 import {
   Areas,
@@ -37,24 +38,26 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <StraightAnswers />
       <RepairOrReplace />
       <HomeProtection />
       <ReplacementDay />
       <FullReplacement />
-      <Reviews title="What Las Vegas Homeowners Say About Wave" />
+      <Reviews title="What Las Vegas Homeowners Say About Wave" alt />
       <EstimateBand />
       <CompareQuotes />
       <Services
         kicker="Not ready to replace?"
         title="Repairs, Tune-Ups & Everything Else"
         lead="If your system still has life in it, we'll keep it running. Same team, same standards, 24/7."
+        alt
       />
       <Emergency />
       <WhyWave />
-      <ToolCards alt={false} />
+      <ToolCards />
       <Areas />
       <Guides />
-      <Faq items={homeFaqs} title="HVAC Replacement Questions, Answered" />
+      <Faq items={homeFaqs} title="HVAC Replacement Questions, Answered" alt />
       <BeReady />
       <FinalCta
         title="Schedule Your Replacement Assessment"

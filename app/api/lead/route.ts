@@ -10,10 +10,13 @@ import { createHousecallLead, housecallEnabled } from "@/lib/housecall";
  */
 const FIELDS = [
   "name", "phone", "zip", "email", "time", "service", "message", "form",
-  "tool", "tool_result", "referrer_name", "referrer_phone", "offer",
+  "tool", "tool_result", "answers", "estimate", "referrer_name", "referrer_phone", "offer",
   "utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content",
   "gclid", "fbclid", "msclkid", "landing_page", "referrer",
 ] as const;
+
+/** Estimate-form fields carry the full Q&A and the estimate shown, so they get more room */
+const LONG_FIELDS = new Set<string>(["answers", "estimate"]);
 
 /* Best-effort per-IP rate limit (per serverless instance) */
 const hits = new Map<string, number[]>();
@@ -37,6 +40,8 @@ function buildNote(lead: Record<string, string>) {
     lead.message && `Message: ${lead.message}`,
     lead.tool && `Tool: ${lead.tool}`,
     lead.tool_result && `Result: ${lead.tool_result}`,
+    lead.answers && `\nAnswers:\n${lead.answers}`,
+    lead.estimate && `\nEstimate shown to the customer:\n${lead.estimate}\n`,
     lead.referrer_name && `Referred by: ${lead.referrer_name}${lead.referrer_phone ? ` (${lead.referrer_phone})` : ""}`,
     lead.email && `Email: ${lead.email}`,
     `ZIP: ${lead.zip}`,
@@ -71,7 +76,7 @@ export async function POST(req: Request) {
   const lead: Record<string, string> = {};
   for (const k of FIELDS) {
     const v = body[k];
-    if (typeof v === "string" && v.trim()) lead[k] = v.trim().slice(0, 1500);
+    if (typeof v === "string" && v.trim()) lead[k] = v.trim().slice(0, LONG_FIELDS.has(k) ? 4000 : 1500);
   }
 
   const phone = (lead.phone || "").replace(/\D/g, "").replace(/^1(?=\d{10}$)/, "");

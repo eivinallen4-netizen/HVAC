@@ -43,6 +43,8 @@ const legacy: [string, string][] = [
 ];
 
 const nextConfig: NextConfig = {
+  // lets a second build or dev server run beside the main one without sharing .next
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   trailingSlash: true,
   poweredByHeader: false,
   images: { formats: ["image/avif", "image/webp"] },

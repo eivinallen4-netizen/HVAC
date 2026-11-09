@@ -8,6 +8,7 @@
     "build": "node node_modules/next/dist/bin/next build",
     "start": "node node_modules/next/dist/bin/next start",
     "check": "node scripts/check-site.mjs",
+    "check:estimate": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/check-estimate.mjs",
     "migrate-blog": "node scripts/migrate-blog.mjs"
   },
   "dependencies": {
