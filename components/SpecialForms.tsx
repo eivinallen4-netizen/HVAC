@@ -22,7 +22,7 @@ export function OfferForm({ offers }: { offers: string[] }) {
         Book &amp; Claim My Offer
       </BookNowLink>
       <p className="or-call">
-        Prefer to talk? <CallLink location="specials" icon={false} /> — answered 24/7
+        Prefer to talk? <CallLink location="specials" icon={false} />
       </p>
     </div>
   );
@@ -40,7 +40,7 @@ export function ReferralForm() {
         Open the Booking Page
       </BookNowLink>
       <p className="or-call">
-        Questions? <CallLink location="referral" icon={false} /> — answered 24/7
+        Questions? <CallLink location="referral" icon={false} />
       </p>
     </div>
   );

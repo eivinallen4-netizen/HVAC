@@ -21,11 +21,11 @@ export const hubPages: HubPage[] = [
     name: "All Services",
     title: "HVAC Services in Las Vegas | Wave Heating & Cooling",
     description:
-      "Complete HVAC services in Las Vegas: AC repair and installation, heating, heat pumps, ductless, ductwork, indoor air quality and maintenance plans. 24/7.",
+      "Complete HVAC services in Las Vegas: AC repair and installation, heating, heat pumps, ductless, ductwork, indoor air quality and maintenance plans. Same-day service.",
     h1: "Heating & Cooling Services in Las Vegas",
     kicker: "Everything HVAC",
     intro:
-      "From a 2 a.m. AC emergency to a whole-home system upgrade, Wave Heating & Cooling handles every part of your home's comfort. Family-owned, NATE-certified and available 24/7 across the Las Vegas valley.",
+      "From a same-day AC repair to a whole-home system upgrade, Wave Heating & Cooling handles every part of your home's comfort. Family-owned, NATE-certified with same-day service across most of the Las Vegas valley.",
     img: "/images/hero.jpg",
     sections: [
       {
@@ -53,7 +53,7 @@ export const hubPages: HubPage[] = [
     name: "Cooling Services",
     title: "AC Services Las Vegas | Repair, Install & Tune-Ups | Wave",
     description:
-      "Las Vegas air conditioning services: 24/7 AC repair, new installations, replacements and tune-ups from a family-owned, NATE-certified team.",
+      "Las Vegas air conditioning services: same-day AC repair, new installations, replacements and tune-ups from a family-owned, NATE-certified team.",
     h1: "Air Conditioning Services in Las Vegas",
     kicker: "Cooling services",
     intro:
@@ -85,7 +85,7 @@ export const hubPages: HubPage[] = [
     name: "Heating Services",
     title: "Heating Services Las Vegas | Furnace & Heat Pump | Wave",
     description:
-      "Las Vegas heating services: furnace and heat pump repair, installation, replacement and fall tune-ups with carbon monoxide safety checks. 24/7 service.",
+      "Las Vegas heating services: furnace and heat pump repair, installation, replacement and fall tune-ups with carbon monoxide safety checks. Same-day service.",
     h1: "Heating Services in Las Vegas",
     kicker: "Heating services",
     intro:

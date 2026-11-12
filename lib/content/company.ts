@@ -9,7 +9,7 @@ export const offers: Offer[] = [
   {
     title: "Wave Club Maintenance Plan",
     value: "$150/yr",
-    text: "Two tune-ups a year, priority service, 15% off repairs and upgrades, no after-hours fees and extended warranty coverage.",
+    text: "Two tune-ups a year, priority service, 15% off repairs and upgrades, and extended warranty coverage.",
     fine: "$150/yr first system, $140/yr each additional system. Cancel anytime. See plan details.",
     icon: "gauge",
   },

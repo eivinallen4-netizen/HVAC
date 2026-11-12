@@ -12,7 +12,7 @@ import { faqs, replacementFaqs } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "HVAC FAQ | Las Vegas Heating & Cooling Questions | Wave",
   description:
-    "Answers to common Las Vegas HVAC questions: estimates, 24/7 service, repair vs. replace, maintenance, AC sizing, heating safety and more.",
+    "Answers to common Las Vegas HVAC questions: estimates, same-day service, repair vs. replace, maintenance, AC sizing, heating safety and more.",
   path: "/faq/",
 });
 

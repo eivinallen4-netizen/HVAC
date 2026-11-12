@@ -15,52 +15,57 @@ export type RRVerdict = "repair" | "borderline" | "replace";
 export type RRResult = {
   verdict: RRVerdict;
   score: number;
-  rule5000: number;
   headline: string;
   reasons: string[];
   nextStep: string;
 };
 
+/**
+ * Wave's own rule (tech questionnaire, Nov 2026): no age × cost formula.
+ * Replacement comes up when the system is over 15 years old AND the repair is about $2,000 or more.
+ * Minor repairs are fine at any age; the number of past repairs matters less than what this one costs.
+ */
+const OLD_AGE = 15;
+const BIG_REPAIR = 2000;
+
 export function scoreRepairReplace(i: RRInput): RRResult {
-  const rule5000 = Math.round(i.age * i.repairCost);
   let score = 0;
   const reasons: string[] = [];
+  const old = i.age >= OLD_AGE;
+  const big = i.repairCost >= BIG_REPAIR;
 
-  if (rule5000 > 5000) {
-    score += 3;
-    reasons.push(`Age × repair cost = ${fmt(rule5000)}, over the $5,000 rule of thumb — the repair is a big investment in an aging system.`);
-  } else if (rule5000 >= 3500) {
+  if (old && big) {
+    score += 4;
+    reasons.push(`A ${fmt(i.repairCost)} repair on a ${i.age}-year-old system is past our $2,000 line. That's a big investment in a system near the end of its life.`);
+  } else if (big) {
     score += 1.5;
-    reasons.push(`Age × repair cost = ${fmt(rule5000)}, close to the $5,000 tipping point.`);
-  } else if (rule5000 < 2000) {
+    reasons.push(`${fmt(i.repairCost)} is a major repair, but on a system under ${OLD_AGE} years old it's often still worth doing.`);
+  } else if (i.repairCost < 1000) {
     score -= 2;
-    reasons.push(`Age × repair cost = ${fmt(rule5000)}, well under the $5,000 rule — this repair is reasonable for your system.`);
+    reasons.push(`A ${fmt(i.repairCost)} repair is a common, minor fix. Repairing makes sense at almost any age.`);
   } else {
-    reasons.push(`Age × repair cost = ${fmt(rule5000)}, under the $5,000 rule of thumb.`);
+    reasons.push(`${fmt(i.repairCost)} is under our $2,000 line for older systems.`);
   }
 
-  if (i.age >= 15) {
-    score += 2;
-    reasons.push(`At ${i.age} years, your system is at or past the typical 10–15 year lifespan for a Las Vegas AC.`);
-  } else if (i.age >= 12) {
-    score += 1;
-    reasons.push(`At ${i.age} years, your system is entering the final stretch of its expected life in desert heat.`);
-  } else if (i.age < 8) {
+  if (old) {
+    score += 1.5;
+    reasons.push(`At ${i.age} years, your system is past the typical 15-year lifespan for a Las Vegas AC. Plan for replacement if a major repair comes up.`);
+  } else if (i.age >= 11) {
+    score += 0.5;
+    reasons.push(`At ${i.age} years, your system is near the end of its lifespan. Good care can stretch it.`);
+  } else if (i.age < 10) {
     score -= 2;
     reasons.push(`At ${i.age} years, your system should have plenty of life left with good maintenance.`);
   }
 
   if (i.repairs2y >= 3) {
-    score += 2;
-    reasons.push("Three or more repairs in two years is a strong sign the system is wearing out.");
-  } else if (i.repairs2y === 2) {
     score += 1;
-    reasons.push("Two repairs in two years suggests reliability is starting to slip.");
+    reasons.push("Three or more repairs in two years can be a sign the system is wearing out.");
   }
 
   if (i.refrigerant === "r22") {
-    score += 2;
-    reasons.push("R-22 refrigerant has been phased out, so any refrigerant repair is expensive and supplies keep shrinking.");
+    score += 1.5;
+    reasons.push("R-22 systems can still be repaired, but refrigerant and parts get more expensive and harder to find every year.");
   }
 
   if (i.bills === "rising") {
@@ -96,11 +101,11 @@ export function scoreRepairReplace(i: RRInput): RRResult {
     },
     replace: {
       headline: "Replacement is likely the better value",
-      nextStep: "Get a free, no-pressure replacement estimate before putting more money into this system.",
+      nextStep: "Get a no-pressure replacement estimate before putting more money into this system.",
     },
   }[verdict];
 
-  return { verdict, score, rule5000, reasons, ...copy };
+  return { verdict, score, reasons, ...copy };
 }
 
 const fmt = (n: number) => `$${n.toLocaleString("en-US")}`;

@@ -14,7 +14,7 @@ const path = "/service-area-las-vegas/";
 export const metadata = buildMetadata({
   title: "HVAC Service Areas | Las Vegas Valley | Wave Heating & Cooling",
   description:
-    "Serving the entire Las Vegas valley: Las Vegas, Henderson, North Las Vegas, Summerlin, Centennial Hills and more. 24/7 AC & heating service.",
+    "Serving the entire Las Vegas valley: Las Vegas, Henderson, North Las Vegas, Summerlin, Centennial Hills and more. Same-day AC & heating service.",
   path,
 });
 
@@ -44,8 +44,8 @@ export default function ServiceAreaHub() {
         crumbs={[{ name: "Service Areas", path }]}
         kicker="Valley-wide coverage"
         h1="HVAC Service Across the Las Vegas Valley"
-        intro="From Centennial Hills to Inspirada, Wave Heating & Cooling provides 24/7 AC repair, heating service, new system installations and maintenance to homes throughout Southern Nevada."
-        highlights={["Las Vegas, Henderson & North Las Vegas", "Headquartered in northwest Las Vegas", "Available 24/7", "No extra trip charge across the valley"]}
+        intro="From Centennial Hills to Inspirada, Wave Heating & Cooling provides same-day AC repair, heating service, new system installations and maintenance to homes throughout Southern Nevada."
+        highlights={["Las Vegas, Henderson & North Las Vegas", "Headquartered in northwest Las Vegas", "Same-day service", "No extra trip charge across the valley"]}
         img="/images/valley-night.jpg"
       />
       <TrustBar />
@@ -97,8 +97,8 @@ export default function ServiceAreaHub() {
               how to fix hot upstairs rooms without replacing everything.
             </p>
             <p>
-              Need help now? Our <Link href="/emergency-ac-repair-las-vegas/">24/7 emergency AC repair</Link> team answers day and
-              night. Planning ahead? Get a <Link href="/ac-replacement-in-las-vegas/">replacement estimate</Link> or join{" "}
+              Need help now? Our <Link href="/emergency-ac-repair-las-vegas/">emergency AC repair</Link> team can usually get
+              a tech out the same day. Planning ahead? Get a <Link href="/ac-replacement-in-las-vegas/">replacement estimate</Link> or join{" "}
               <Link href="/hvac-maintenance-las-vegas/">Wave Club</Link> for two tune-ups a year.
             </p>
           </div>

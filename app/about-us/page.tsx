@@ -11,7 +11,7 @@ import { site } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "About Wave Heating & Cooling | Family-Owned Las Vegas HVAC",
   description:
-    "Wave Heating & Cooling is a family-owned and operated Las Vegas HVAC company with NATE-certified techs, honest pricing and 24/7 service. Meet the team.",
+    "Wave Heating & Cooling is a family-owned and operated Las Vegas HVAC company with NATE-certified techs, honest pricing and same-day service. Meet the team.",
   path: "/about-us/",
 });
 
@@ -21,7 +21,7 @@ export default function AboutPage() {
       <PageHero
         crumbs={[{ name: "About Us", path: "/about-us/" }]}
         kicker="Your trusted heating & AC company"
-        h1="Family-Owned. NATE-Certified. Here for Las Vegas 24/7."
+        h1="Family-Owned. NATE-Certified. Same-Day Service Across Las Vegas."
         intro="Wave Heating & Cooling is a family-owned and operated HVAC company serving homes across the Las Vegas valley. We treat you like family and your home like our own."
         highlights={["Family owned & operated", `NV License ${site.license}`, "Licensed, bonded & insured"]}
         form={false}
@@ -47,7 +47,7 @@ export default function AboutPage() {
               We provide heating and cooling services in Las Vegas, Henderson, North Las Vegas and the surrounding communities:{" "}
               <Link href="/hvac-repairs-in-las-vegas/">repairs</Link>, <Link href="/hvac-maintenance-las-vegas/">maintenance</Link>{" "}
               and <Link href="/ac-installations-in-las-vegas/">new system installations</Link> for any size home. And because the
-              desert doesn&apos;t keep business hours, we offer 24-hour emergency service.
+              desert heat doesn&apos;t wait, we offer same-day service in most of the valley.
             </p>
             <h3>Payment options</h3>
             <ul className="pay-badges">

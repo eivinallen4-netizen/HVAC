@@ -61,12 +61,7 @@ export function localBusinessLd() {
     geo: { "@type": "GeoCoordinates", latitude: site.geo.lat, longitude: site.geo.lng },
     hasMap: site.googleMapsUrl,
     areaServed: serviceAreas.map((name) => ({ "@type": "City", name: `${name}, NV` })),
-    openingHoursSpecification: {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-      opens: "00:00",
-      closes: "23:59",
-    },
+    // openingHoursSpecification: add once Wave confirms its hours. Wave is not open 24/7.
     paymentAccepted: "Cash, Credit Card, Financing",
     sameAs: ["https://www.facebook.com/waveheatingandcooling", site.googleMapsUrl],
   };

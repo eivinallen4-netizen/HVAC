@@ -1,23 +1,25 @@
 "use client";
 
 import { useState } from "react";
-import { questions, replacementText, resultText, type Option } from "@/lib/estimate/config";
-import { rangeText, replacementEstimate, type Answers } from "@/lib/estimate/logic";
+import { questions, resultText, type Option } from "@/lib/estimate/config";
+import { replacementEstimate, type Answers } from "@/lib/estimate/logic";
 import { track } from "@/lib/track";
+import { ReplaceBlock } from "../EstimateForm";
 import { Icon } from "../Icon";
 import { ChoiceStep, ResultCtas, ToolCard } from "./ToolUI";
 
 /**
  * AC Replacement Cost Estimator. Uses the same Wave prices as the hero estimate form
- * (lib/estimate/config.ts). While those slots are empty, it shows the "priced at your visit" message.
+ * (lib/estimate/config.ts), always for a complete system.
  */
-type StepKey = "system" | "size" | "location" | "zones" | "systems";
+type StepKey = "system" | "size" | "ducts" | "systems";
 
+const START: Answers = { help: "replace", scope: "complete" };
 const stepsFor = (a: Answers): StepKey[] =>
-  a.system === "minisplit" ? ["system", "zones", "systems"] : ["system", "size", "location", "systems"];
+  a.system === "minisplit" ? ["system", "systems"] : ["system", "size", "ducts", "systems"];
 
 export function CostEstimatorTool() {
-  const [a, setA] = useState<Answers>({ help: "replace", scope: "complete" });
+  const [a, setA] = useState<Answers>(START);
   const [history, setHistory] = useState<StepKey[]>([]);
 
   const steps = stepsFor(a);
@@ -58,17 +60,13 @@ export function CostEstimatorTool() {
 
       {r && (
         <div className="step result">
-          <div className="est-block">
-            <span className="est-label">{replacementText.heading}</span>
-            {r.range ? <strong className="est-range">{rangeText(r.range)}</strong> : <strong className="est-msg">{r.message}</strong>}
-            <p className="est-fine">{resultText.finePrint}</p>
-          </div>
+          <ReplaceBlock n={r} />
           <ResultCtas service="New system / replacement estimate" primary="Book a Visit" />
           <button
             type="button"
             className="tool-back"
             onClick={() => {
-              setA({ help: "replace", scope: "complete" });
+              setA(START);
               setHistory([]);
             }}
           >

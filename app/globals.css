@@ -5952,6 +5952,20 @@ h5 {
   font-size: 0.95rem;
   color: var(--text);
 }
+/* Five-figure replacement ranges ("$19,600–$31,800+") stay on one line */
+.est-range.is-long {
+  font-size: clamp(1.55rem, 6vw, 2.5rem);
+  white-space: nowrap;
+}
+.est-monthly {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.est-less .icon,
+.est-less svg {
+  vertical-align: -2px;
+}
 .est-causes .est-sublabel {
   margin-top: 0;
 }
@@ -8657,5 +8671,103 @@ h5 {
   }
   .gift-card {
     width: 150px;
+  }
+}
+
+/* ─── Repair prices, up front (homepage, under the hero) ─── */
+.rp-lines li {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+}
+.rp-lines b {
+  font-weight: 700;
+  white-space: nowrap;
+  color: #b4690a;
+}
+.rp-fee {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--display);
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text);
+}
+.rp-fee small {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-2);
+}
+.rp-list {
+  margin: 22px 0 26px;
+}
+.rp-list li {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+.rp-list svg {
+  flex: none;
+  margin-top: 3px;
+  color: var(--blue);
+}
+.rp-list b {
+  color: var(--text);
+}
+.rp-acts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Emergency strip: headings default to --text, which is dark on red in the light theme */
+.emerg-copy h3,
+.emerg .tag-urgent,
+.emerg .btn-ghost {
+  color: #fff;
+}
+
+/* Phone hero: one line of ratings and no stamp grid, so step 1 of the estimate shows without scrolling */
+@media (max-width: 760px) {
+  .hero {
+    padding-top: 28px;
+  }
+  .hero h1 {
+    font-size: 2.05rem;
+    margin: 14px 0 12px;
+  }
+  .hero-sub {
+    line-height: 1.55;
+  }
+  .hero .ratings {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    margin: 16px 0 0;
+  }
+  .hero .rating {
+    gap: 7px;
+  }
+  .hero .rating > svg,
+  .hero .rating > img {
+    width: 22px;
+    height: 22px;
+  }
+  .hero .rating b {
+    font-size: 1rem;
+  }
+  .hero .rating span,
+  .hero .rating-nate,
+  .hero .proof-stamps {
+    display: none;
+  }
+  .rp-acts .btn {
+    flex: 1 1 100%;
   }
 }

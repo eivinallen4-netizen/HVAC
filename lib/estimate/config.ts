@@ -30,16 +30,16 @@ export type Price =
 export type Option<V extends string = string> = { value: V; label: string; sub?: string; icon?: IconName };
 
 /* ─────────────────────────── Questions ─────────────────────────── */
-export type Help = "repair" | "replace" | "compare" | "unsure";
+export type Help = "repair" | "replace" | "compare";
+/** Q1 answer that skips the estimate and opens the booking calendar */
+export const MAINTENANCE = "maintenance";
 export type System = "split" | "package" | "heatpump" | "minisplit" | "unsure";
 export type Age = "lt5" | "5to10" | "11to15" | "gt15" | "unsure";
 export type Problem = "nocool" | "noheat" | "nostart" | "airflow" | "noise" | "water" | "other";
 export type Working = "yes" | "partial" | "no" | "unsure";
-export type History = "none" | "once" | "multiple" | "unsure";
-export type Size = "lt1200" | "1200to1800" | "1801to2400" | "2401to3200" | "gt3200" | "unsure";
-export type Location = "attic" | "closet" | "garage" | "roof" | "unsure";
+export type Size = "lt1400" | "1401to1800" | "1801to2300" | "gt2300" | "unsure";
 export type Scope = "complete" | "outdoor" | "indoor" | "unsure";
-export type Zones = "1" | "2" | "3" | "4plus" | "unsure";
+export type Ducts = "old" | "good" | "unsure";
 export type Systems = "1" | "2" | "3plus" | "unsure";
 
 export const questions = {
@@ -49,8 +49,8 @@ export const questions = {
       { value: "repair", label: "Repair", sub: "Something isn't working right", icon: "wrench" },
       { value: "replace", label: "Replace", sub: "I want a new system", icon: "unitPlus" },
       { value: "compare", label: "Compare", sub: "See repair and replacement side by side", icon: "gauge" },
-      { value: "unsure", label: "Not sure", sub: "Help me figure it out", icon: "question" },
-    ] as Option<Help>[],
+      { value: MAINTENANCE, label: "Maintenance", sub: "Tune-up and safety check", icon: "cal" },
+    ] as Option<Help | typeof MAINTENANCE>[],
   },
   system: {
     title: "What type of HVAC system do you have?",
@@ -94,35 +94,15 @@ export const questions = {
       { value: "unsure", label: "Not sure", icon: "question" },
     ] as Option<Working>[],
   },
-  history: {
-    title: "Has the system needed repairs recently?",
-    options: [
-      { value: "none", label: "No", icon: "check" },
-      { value: "once", label: "Once", icon: "wrench" },
-      { value: "multiple", label: "Multiple times", icon: "wrench" },
-      { value: "unsure", label: "Not sure", icon: "question" },
-    ] as Option<History>[],
-  },
   size: {
     title: "What is your home's approximate size?",
     options: [
-      { value: "lt1200", label: "Under 1,200 sq ft", icon: "home" },
-      { value: "1200to1800", label: "1,200–1,800 sq ft", icon: "home" },
-      { value: "1801to2400", label: "1,801–2,400 sq ft", icon: "home" },
-      { value: "2401to3200", label: "2,401–3,200 sq ft", icon: "home" },
-      { value: "gt3200", label: "Over 3,200 sq ft", icon: "home" },
+      { value: "lt1400", label: "Under 1,400 sq ft", icon: "home" },
+      { value: "1401to1800", label: "1,401–1,800 sq ft", icon: "home" },
+      { value: "1801to2300", label: "1,801–2,300 sq ft", icon: "home" },
+      { value: "gt2300", label: "Over 2,300 sq ft", icon: "home" },
       { value: "unsure", label: "Not sure", icon: "question" },
     ] as Option<Size>[],
-  },
-  location: {
-    title: "Where is the indoor equipment located?",
-    options: [
-      { value: "attic", label: "Attic", icon: "home" },
-      { value: "closet", label: "Closet", icon: "home" },
-      { value: "garage", label: "Garage", icon: "home" },
-      { value: "roof", label: "Roof package", icon: "sun" },
-      { value: "unsure", label: "Not sure", icon: "question" },
-    ] as Option<Location>[],
   },
   scope: {
     title: "What do you want replaced?",
@@ -133,16 +113,14 @@ export const questions = {
       { value: "unsure", label: "Not sure", icon: "question" },
     ] as Option<Scope>[],
   },
-  zones: {
-    title: "How many indoor units does your mini-split have?",
-    hint: "Count the units mounted on your walls.",
+  ducts: {
+    title: "How old is your ductwork?",
+    hint: "Ducts usually last about 20 years.",
     options: [
-      { value: "1", label: "1", icon: "split" },
-      { value: "2", label: "2", icon: "split" },
-      { value: "3", label: "3", icon: "split" },
-      { value: "4plus", label: "4 or more", icon: "split" },
+      { value: "old", label: "20+ years or damaged", sub: "Original ducts, torn or leaky runs", icon: "duct" },
+      { value: "good", label: "Newer or in good shape", icon: "check" },
       { value: "unsure", label: "Not sure", icon: "question" },
-    ] as Option<Zones>[],
+    ] as Option<Ducts>[],
   },
   systems: {
     title: "How many HVAC systems serve your home?",
@@ -200,7 +178,6 @@ export const priceList = {
   pressureSwitch: { label: "Pressure switch", price: { from: 298 } },
   gasValve: { label: "Gas valve", price: { from: 490 } },
   controlBoard: { label: "Control board", price: { from: 599 } },
-  reversingValve: { label: "Reversing valve", price: { from: 594 } },
   defrostBoard: { label: "Defrost board", price: { from: 390 } },
   ductRepair: { label: "Duct repair", price: { low: 299, high: 899 } },
   // Priced at the visit (no number on the site)
@@ -236,7 +213,7 @@ export const repairByProblem: Record<Problem, RepairRule> = {
     range: { low: 89, high: 520 },
     likely: ["Dirty filter", "Capacitor", "Ignition"],
     lessCommon: ["igniter", "gasValve", "controlBoard"],
-    heatPumpExtra: ["defrostBoard", "reversingValve"],
+    heatPumpExtra: ["defrostBoard"],
   },
   nostart: {
     range: { low: 297, high: 349 },
@@ -327,81 +304,94 @@ export const compareBox = {
   title: "Compare with replacement",
   text: "On an older system, once a repair reaches about $2,000, replacing usually makes more sense. A burned-out compressor or a refrigerant leak in a hard-to-reach spot usually means replace, not repair.",
   button: "Compare with replacement",
-  /** Shown on repair results when the age is one of these… */
-  alwaysForAges: ["gt15"] as Age[],
-  /** …or when the age AND repair history both match */
-  agesWithHistory: ["11to15"] as Age[],
-  history: ["multiple"] as History[],
+  /** Shown on repair results when the age is one of these. Wave goes by repair cost, not repair count. */
+  forAges: ["gt15"] as Age[],
 };
 
 /* ─────────────────────────── Replacement estimate ─────────────────────────── */
 /*
- * ALL REPLACEMENT SLOTS ARE EMPTY UNTIL WAVE SENDS PRICES.
- * While any slot an answer needs is null, the form shows `replacementText.visitMessage`.
+ * Prices from Wave's technician (questionnaire, Nov 2026). Complete system, base equipment,
+ * standard install. Location (attic, closet, garage, roof) is averaged in, so it isn't asked.
+ * Always included: permit, removal and disposal, pad if needed, thermostat, line set flush,
+ * disconnect and whip, drain line, float switch and drain pan, duct sealing at the new system.
  *
- * How it adds up once filled:
- *   Complete system: systemPrice[type][tons] + locationAdder[location]
- *   Mini-split:      miniSplit.singleZone + miniSplit.addedZone × (indoor units − 1)
- *   Outdoor/indoor only: partialPrice[part][tons] (+ locationAdder when the part is in locationAdderAppliesTo)
- *   Then 2 or 3+ systems: low × extraSystems[n].lowFactor, high × extraSystems[n].highFactor
+ * How it adds up:
+ *   Complete system: band price for the home size and system type
+ *     · size "Not sure" → treated as Under 1,400 sq ft
+ *     · system "Not sure" → lowest low and highest high across split, package and heat pump
+ *   Mini-split: single zone only; multi-zone is priced at the visit
+ *   Outdoor-only / indoor-only / "Not sure" scope: priced at the visit
+ *   Then × number of systems (each system is priced the same as the first)
  */
-export const TONS = ["2", "2.5", "3", "3.5", "4", "5"] as const;
-export type Tons = (typeof TONS)[number];
-type TonTable = Record<Tons, Range | null>;
-const emptyTons = (): TonTable => ({ "2": null, "2.5": null, "3": null, "3.5": null, "4": null, "5": null });
+export type Band = "small" | "large";
+type DuctedType = "split" | "package" | "heatpump";
+export const DUCTED: DuctedType[] = ["split", "package", "heatpump"];
 
 export const replacement = {
-  /** Home size answer → tons. Example: lt1200: "2" */
-  sizeMap: {
-    lt1200: null,
-    "1200to1800": null,
-    "1801to2400": null,
-    "2401to3200": null,
-    gt3200: null,
-  } as Record<Exclude<Size, "unsure">, Tons | null>,
+  /** Price bands: "small" = 3 tons or less, "large" = 3.5 to 5 tons */
+  bandPrice: {
+    small: { split: { low: 9800, high: 14500 }, package: { low: 10900, high: 14900 }, heatpump: { low: 10400, high: 14300 } },
+    large: { split: { low: 11600, high: 15900 }, package: { low: 13900, high: 17400 }, heatpump: { low: 12900, high: 16100 } },
+  } as Record<Band, Record<DuctedType, Range>>,
 
-  /** Installed price for a complete system. Example: split: { "3": { low: 0000, high: 0000 } } */
-  systemPrice: {
-    split: emptyTons(),
-    package: emptyTons(),
-    heatpump: emptyTons(),
-  } as Record<"split" | "package" | "heatpump", TonTable>,
+  /**
+   * Home size → which band(s) set the low and high end.
+   * 1,401–1,800 sq ft is usually 3, 3.5 or 4 tons, so it runs from the small low to the large high.
+   */
+  sizeBands: {
+    lt1400: { low: "small", high: "small" },
+    "1401to1800": { low: "small", high: "large" },
+    "1801to2300": { low: "large", high: "large" },
+    gt2300: { low: "large", high: "large" },
+  } as Record<Exclude<Size, "unsure">, { low: Band; high: Band }>,
+  /** What "Not sure" home size counts as */
+  unsureSize: "lt1400" as Exclude<Size, "unsure">,
 
-  /** Mini-split: first indoor unit, then each added unit */
-  miniSplit: {
-    singleZone: null as Range | null,
-    addedZone: null as Range | null,
-  },
+  /** Single-zone mini-split (one indoor unit) */
+  miniSplitSingleZone: { low: 4900, high: 7900 } as Range,
 
-  /** Added for where the indoor equipment is. { low: 0, high: 0 } is allowed for "no extra". */
-  locationAdder: {
-    attic: null,
-    closet: null,
-    garage: null,
-    roof: null,
-  } as Record<Exclude<Location, "unsure">, Range | null>,
-  /** Which jobs get the location adder */
-  locationAdderAppliesTo: ["complete", "indoor"] as Exclude<Scope, "unsure">[],
+  /** Multiplier on low and high for homes with more than one system */
+  systemsFactor: { "1": 1, "2": 2, "3plus": 3, unsure: 1 } as Record<Systems, number>,
 
-  /** Outdoor-only or indoor-only replacement, by size */
-  partialPrice: {
-    outdoor: emptyTons(),
-    indoor: emptyTons(),
-  } as Record<"outdoor" | "indoor", TonTable>,
-
-  /** Homes with more than one system. Example: two: { lowFactor: 2, highFactor: 2 } */
-  extraSystems: {
-    two: null as { lowFactor: number; highFactor: number } | null,
-    threePlus: null as { lowFactor: number; highFactor: number } | null,
-  },
+  /** Full duct replacement, per system. null = priced at the visit. Shown as a separate line, not added in. */
+  ductPrice: {
+    lt1400: { low: 7900, high: 9000 },
+    "1401to1800": { low: 8400, high: 10500 },
+    "1801to2300": { low: 8900, high: 12000 },
+    gt2300: null,
+  } as Record<Exclude<Size, "unsure">, Range | null>,
 };
 
 export const replacementText = {
   heading: "Replacement estimate",
   visitMessage:
     "Replacement pricing depends on your home and equipment. We'll measure and give you exact options at a visit.",
+  partialMessage: "We need to see your system to quote a partial replacement.",
   partialNote:
-    "Refrigerants have changed (R-22 → R-410A → R-32/R-454B), so older coils often can't be matched with new equipment. Many partial replacements end up as a full system. We'll confirm at your visit.",
+    "Refrigerants have changed (R-22 → R-410A → R-32/R-454B), so the new part has to match the refrigerant in the rest of your system. We'll confirm at your visit.",
+  miniSplitNote: "For a single-zone system (one indoor unit). Multi-zone systems are priced at your visit.",
+  bigHomeNote: "Homes over 2,300 sq ft usually need 2 or more systems.",
+  threePlusNote: "With 3 or more systems, we recommend a visit to confirm.",
+  perSystemNote: (n: number) => `Price for ${n} systems, each priced the same.`,
+  ductLine: (range: string) => `If your ducts need replacing: ${range} per system, discussed at your visit.`,
+  ductVisit: "If your ducts need replacing, we'll price it at your visit.",
+};
+
+/** "Not sure" this many times or more → no online price, book a visit instead */
+export const UNSURE_LIMIT = 2;
+export const unsureText = {
+  repair: "With a few “Not sure” answers, we'd rather see it than guess. Book a visit and we'll give you an exact price.",
+  replacement: "With a few “Not sure” answers, we'd rather measure than guess. We'll give you exact options at a visit.",
+};
+
+/* ─────────────────────────── Financing ─────────────────────────── */
+export const financing = {
+  /** Monthly payment per $10,000 financed, from Wave's lender terms */
+  per10k: 114,
+  /** Smallest job that can be financed */
+  minimum: 1500,
+  /** Monthly figure is figured on the HIGH end of the range */
+  line: (monthly: string) => `Or about ${monthly}/mo with approved credit`,
 };
 
 /* ─────────────────────────── ZIP check (Q8) ─────────────────────────── */
@@ -419,8 +409,8 @@ export const zips = {
 export const resultText = {
   kicker: "Instant estimate",
   title: "Your estimate",
-  finePrint:
-    "Estimate only, based on recent Wave Heating & Cooling jobs. Prices include parts and labor. No sales tax added. Final price confirmed by your technician before any work.",
+  finePrintRepair: `Estimated repair range based on typical Las Vegas jobs. $${DIAGNOSTIC} diagnostic fee, waived with repair performed. Actual pricing confirmed on-site before any work begins.`,
+  finePrintReplace: "This is an estimate. Your technician gives you an exact quote at your in-home visit.",
   startOver: "Start over",
 };
 

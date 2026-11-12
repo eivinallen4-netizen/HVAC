@@ -8,7 +8,7 @@ export const metadata = { title: "Page Not Found", robots: { index: false } };
 
 const popular = [
   { href: "/hvac-repairs-in-las-vegas/", label: "AC Repair" },
-  { href: "/emergency-ac-repair-las-vegas/", label: "24/7 Emergency AC Repair" },
+  { href: "/emergency-ac-repair-las-vegas/", label: "Emergency AC Repair" },
   { href: "/ac-replacement-in-las-vegas/", label: "AC Replacement" },
   { href: "/hvac-heating-repair-in-las-vegas/", label: "Heating Repair" },
   { href: "/hvac-maintenance-las-vegas/", label: "Wave Club Maintenance" },
@@ -35,7 +35,7 @@ export default function NotFound() {
               ))}
             </ul>
             <CallLink className="btn btn-red btn-block" location="404">
-              Call {site.phone} — 24/7
+              Call {site.phone}
             </CallLink>
           </div>
         </div>

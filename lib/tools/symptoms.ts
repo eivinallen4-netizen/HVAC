@@ -25,7 +25,7 @@ export type Symptom = {
 };
 
 const repair = { label: "AC repair in Las Vegas", href: "/hvac-repairs-in-las-vegas/" };
-const emergency = { label: "24/7 emergency AC repair", href: "/emergency-ac-repair-las-vegas/" };
+const emergency = { label: "Emergency AC repair", href: "/emergency-ac-repair-las-vegas/" };
 const filterTip = "Check your air filter — if it's gray and clogged, replace it.";
 const breakerTip = "Check the breakers for both the indoor unit and the outdoor condenser.";
 const thermostatTip = "Make sure the thermostat is on COOL, set below room temperature, with fresh batteries.";

@@ -278,7 +278,7 @@ export function SignsGrid({ title, items }: { title: string; items: { t: string;
 /** Compact conversion band used between content sections */
 export function CtaBand({
   title = "Ready for Honest, Fast Service?",
-  text = "Book online in about a minute — pick a time that works for you. Or call us 24/7.",
+  text = "Book online in about a minute — pick a time that works for you. Or call us.",
   pick,
   cta = "Book Now",
   tone = "warm",

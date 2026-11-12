@@ -43,7 +43,7 @@ export default async function AreaPage({ params }: Props) {
         kicker={`Serving ${a.full}`}
         h1={a.h1}
         intro={a.intro}
-        highlights={["Family-owned & local", "NATE-certified technicians", "Available 24/7", "Upfront, written pricing"]}
+        highlights={["Family-owned & local", "NATE-certified technicians", "Same-day service", "Upfront, written pricing"]}
       />
       <TrustBar />
 
@@ -89,7 +89,7 @@ export default async function AreaPage({ params }: Props) {
               </ul>
             </div>
             <div className="loc-call">
-              <small>Call or text 24/7</small>
+              <small>Call or text</small>
               <a className="area-phone" href={site.phoneHref}>
                 {site.phone}
               </a>

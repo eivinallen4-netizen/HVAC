@@ -5,6 +5,7 @@ import {
   booking as bookingText,
   compareBox,
   fees,
+  MAINTENANCE,
   questions,
   repairText,
   replacementText,
@@ -41,12 +42,13 @@ const CALENDAR_PICKS = ["Maintenance / tune-up", "Ductwork / indoor air quality"
 
 /** Site-wide service picks → starting answers */
 const PRESETS: Record<string, Answers> = {
+  Repair: { help: "repair" },
   "AC not cooling": { help: "repair", problem: "nocool" },
   "Heat not working": { help: "repair", problem: "noheat" },
   "System won't turn on / no airflow": { help: "repair" },
   "New system / replacement estimate": { help: "replace" },
   "Ductless mini-split": { system: "minisplit" },
-  "Not sure / other": { help: "unsure" },
+  "Not sure / other": { help: "repair" },
 };
 
 type Undo = { step: StepId; prev: string | undefined };
@@ -63,6 +65,11 @@ export function EstimateForm() {
   const isResult = step === null;
 
   const set = (s: StepId, value: string) => {
+    if (s === "help" && value === MAINTENANCE) {
+      track("lead_step", { step: 1, service: CALENDAR_PICKS[0] });
+      setCalendar(CALENDAR_PICKS[0]);
+      return;
+    }
     setUndo((u) => [...u, { step: s, prev: a[s] }]);
     setA((p) => ({ ...p, [s]: value }));
     setSeen((p) => ({ ...p, [s]: value }));
@@ -137,7 +144,7 @@ export function EstimateForm() {
         </div>
         <BookingEmbed location="hero" service={calendar} onClose={() => setCalendar(null)} />
         <p className="or-call">
-          Prefer to talk? <CallLink location="form" icon={false} /> — answered 24/7
+          Prefer to talk? <CallLink location="form" icon={false} />
         </p>
       </div>
     );
@@ -176,7 +183,7 @@ export function EstimateForm() {
       )}
       {!isResult && (
         <p className="or-call">
-          Prefer to talk? <CallLink location="form" icon={false} /> — answered 24/7
+          Prefer to talk? <CallLink location="form" icon={false} />
         </p>
       )}
     </ToolCard>
@@ -354,18 +361,34 @@ function RepairBlock({ r }: { r: RepairResult }) {
       <p className="est-confirm">
         <Icon name="check" size={15} /> {r.confirm}
       </p>
-      <p className="est-fine">{resultText.finePrint}</p>
+      <p className="est-fine">{resultText.finePrintRepair}</p>
     </section>
   );
 }
 
-function ReplaceBlock({ n }: { n: ReplacementResult }) {
+export function ReplaceBlock({ n }: { n: ReplacementResult }) {
   return (
     <section className="est-block">
       <span className="est-label">{replacementText.heading}</span>
-      {n.range ? <strong className="est-range">{rangeText(n.range)}</strong> : <strong className="est-msg">{n.message}</strong>}
-      {n.partialNote && <p className="est-less">{n.partialNote}</p>}
-      <p className="est-fine">{resultText.finePrint}</p>
+      {n.range ? (
+        <strong className={`est-range${rangeText(n.range, n.plus).length > 12 ? " is-long" : ""}`}>
+          {rangeText(n.range, n.plus)}
+        </strong>
+      ) : (
+        <strong className="est-msg">{n.message}</strong>
+      )}
+      {n.monthly && <p className="est-monthly">{n.monthly}</p>}
+      {n.notes.map((t) => (
+        <p className="est-less" key={t}>
+          {t}
+        </p>
+      ))}
+      {n.ductLine && (
+        <p className="est-less">
+          <Icon name="duct" size={15} /> {n.ductLine}
+        </p>
+      )}
+      <p className="est-fine">{resultText.finePrintReplace}</p>
     </section>
   );
 }

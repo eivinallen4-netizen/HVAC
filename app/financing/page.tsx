@@ -17,7 +17,7 @@ export const metadata = buildMetadata({
 const faqs = [
   {
     q: "Do you offer financing on new HVAC systems?",
-    a: "Yes. Financing is available with approved credit on new system installations and replacements. Ask during your estimate and we'll walk you through the options.",
+    a: "Yes. Financing is available with approved credit on jobs of $1,500 or more, including new system installations and replacements. Payments start around $114 a month for every $10,000 financed. Ask during your estimate and we'll walk you through the options.",
   },
   {
     q: "Will applying affect my credit?",
@@ -37,7 +37,7 @@ export default function FinancingPage() {
         kicker="Flexible payment options"
         h1="HVAC Financing in Las Vegas"
         intro="A broken AC in July shouldn't have to wait for payday. Financing is available with approved credit on new air conditioners, heat pumps and furnaces, so you can get comfortable now and pay over time."
-        highlights={["Financing with approved credit", "In-home estimates", "Clear, written pricing"]}
+        highlights={["From about $114/mo per $10,000", "Jobs from $1,500 (OAC)", "Clear, written pricing"]}
         formTitle="Get an estimate"
       />
       <TrustBar />
@@ -49,7 +49,7 @@ export default function FinancingPage() {
             "Book a no-obligation in-home estimate",
             "Choose the system and efficiency level that fits your home and budget",
             "Ask about financing — we'll explain current terms and help you apply",
-            "Once approved, we schedule your installation — often within days",
+            "Once approved, we schedule your installation — often as early as the same day",
           ],
           body: [
             "Want a ballpark first? Our [AC Replacement Cost Estimator](/tools/ac-replacement-cost-estimator/) shows an estimated installed price range in about 90 seconds.",

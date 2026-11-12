@@ -29,7 +29,7 @@ function Row({ s, i }: { s: Sign; i: number }) {
 
 /**
  * "Sound familiar?" self-check. Interactive mode: tap rows, flip the age switch,
- * watch the gauge; at 2+ checks (or 12+ years) the verdict slides in.
+ * watch the gauge; at 2+ checks (or the age switch) the verdict slides in.
  * List mode (inner pages): the same rows, read-only.
  */
 export function SignsCheck({
@@ -42,7 +42,7 @@ export function SignsCheck({
 }: {
   signs: Sign[];
   mode?: "interactive" | "list";
-  /** Label for the age switch, e.g. "System over 12 years old" */
+  /** Label for the age switch, e.g. "System over 15 years old" */
   ageLabel?: string;
   /** Small note shown beside the gauge */
   note?: React.ReactNode;
@@ -123,7 +123,7 @@ export function SignsCheck({
         </div>
         <p className="sc-count" aria-live="polite">
           <b>{count}</b> of {signs.length}
-          {old ? " + 12 yrs" : ""}
+          {old ? " + 15 yrs" : ""}
         </p>
         {note && <p className="sc-note">{note}</p>}
 

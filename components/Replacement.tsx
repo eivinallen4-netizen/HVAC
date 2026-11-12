@@ -79,8 +79,8 @@ export function StraightAnswers() {
           <p className="inline-note" data-reveal>
             <Icon name="tag" size={16} />
             <span>
-              Want to know the monthly payment, not just the total? <b>Just ask.</b> Financing is available with approved
-              credit, and we&apos;ll show you both numbers side by side.
+              Want to know the monthly payment, not just the total? Financing is available with approved credit, from
+              about <b>$114 a month per $10,000</b>, and we&apos;ll show you both numbers side by side.
             </span>
           </p>
         </div>
@@ -91,7 +91,7 @@ export function StraightAnswers() {
 
 /* ═════════════════════════ REPAIR OR REPLACE ═════════════════════════ */
 const signs: { icon: IconName; t: string; d: string }[] = [
-  { icon: "wrench", t: "Repairs every summer", d: "You're paying for a fix every year just to get through July." },
+  { icon: "wrench", t: "A big repair quote", d: "The repair runs about $2,000 or more, like a burned-out compressor." },
   { icon: "bolt", t: "Bills keep climbing", d: "Your power bill keeps going up while you use the system the same way." },
   { icon: "home", t: "Rooms that never cool", d: "The upstairs or the back bedrooms never catch up, no matter the setting." },
   { icon: "gauge", t: "Loud or short-cycling", d: "It rattles, hums, or turns on and off every few minutes." },
@@ -111,16 +111,16 @@ export function RepairOrReplace() {
         <div data-reveal>
           <SignsCheck
             signs={signs}
-            ageLabel="System over 12 years old"
+            ageLabel="System over 15 years old"
             note={
               <>
                 <Icon name="snow" size={16} /> Older systems often run on <b>R-22 refrigerant</b>, which isn&apos;t made
-                anymore. That&apos;s why every recharge costs more than the last.
+                anymore. Its refrigerant and parts get more expensive and harder to find every year.
               </>
             }
             verdict={
               <>
-                <h3>System over 12 years old, or checked two of these?</h3>
+                <h3>System over 15 years old, or checked two of these?</h3>
                 <p>
                   It&apos;s time to talk replacement. We&apos;ll show you the numbers and you decide, with no pressure. And if
                   a repair makes more sense, we&apos;ll tell you that too.
@@ -292,8 +292,8 @@ export function FullReplacement() {
             </div>
           </div>
           <p className="incl-note">
-            We measure square footage, windows, insulation and sun exposure first. That&apos;s why we come see your home
-            instead of quoting over the phone.
+            Your ductwork was built for a certain size of system, so we match it for proper airflow. Upgrading to a
+            two-stage or variable-speed system, or a remodeled home, can change that, and then we size it to the home.
           </p>
         </>
       ),

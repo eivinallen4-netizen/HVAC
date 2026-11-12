@@ -22,28 +22,28 @@ export const tools: ToolMeta[] = [
     short: "Should you fix your AC or replace it? Get an honest recommendation in 60 seconds.",
     title: "AC Repair or Replace Calculator | Wave Heating & Cooling",
     description:
-      "Should you repair or replace your AC? Answer 6 quick questions and get an honest recommendation based on age, repair cost, refrigerant and the $5,000 rule.",
+      "Should you repair or replace your AC? Answer 6 quick questions and get an honest recommendation based on age, repair cost and refrigerant, using the same rule our technicians use.",
     h1: "AC Repair or Replace Calculator",
     intro:
       "Facing a big repair bill on an older system? Answer six quick questions and we'll tell you whether repairing or replacing is likely the smarter move — using the same factors our technicians weigh in your home.",
     icon: "wrench",
     time: "60 seconds",
     about: [
-      "The calculator starts with the industry's **$5,000 rule**: multiply your system's age by the repair cost. Above $5,000, replacement usually wins. Then it adjusts for the things that matter most in Las Vegas — system age in desert heat, recent repair history, R-22 refrigerant, rising bills, comfort problems and how long you plan to stay.",
+      "The calculator starts with the rule our technicians use: **on a system over 15 years old, a repair of about $2,000 or more usually means it's time to replace.** Minor repairs make sense at almost any age. Then it adjusts for the things that matter most in Las Vegas — R-22 refrigerant, rising bills, comfort problems and how long you plan to stay.",
       "It's a starting point, not a sales pitch. If the answer is \"repair,\" that's what we'll recommend. If you'd like a second opinion, our technicians can give you a repair quote and a replacement estimate side by side.",
     ],
     faqs: [
       {
-        q: "What is the $5,000 rule for AC replacement?",
-        a: "Multiply the age of your system in years by the repair cost. If the result is more than $5,000, replacing the system is generally a better investment than repairing it. For example, a 14-year-old system with a $600 repair scores $8,400.",
+        q: "When should I replace instead of repair?",
+        a: "When your system is over 15 years old and the repair is about $2,000 or more. A burned-out compressor or a refrigerant leak in a spot we can't reach usually means replace too. Common repairs like a capacitor ($254–$349) or contactor ($339–$569) are worth doing at almost any age.",
       },
       {
         q: "How long do AC units last in Las Vegas?",
-        a: "Typically 10–15 years. Long, extremely hot summers are harder on equipment than milder climates, so regular maintenance makes a big difference.",
+        a: "About 15 years. Long, extremely hot summers are hard on equipment, so regular maintenance makes a big difference. Under 10 years, a well-maintained system usually has plenty of life left.",
       },
       {
         q: "Is it worth repairing an R-22 air conditioner?",
-        a: "Small electrical repairs can make sense, but refrigerant repairs on R-22 systems are expensive because R-22 has been phased out. If an R-22 system needs refrigerant or a major component, replacement is usually the better value.",
+        a: "Yes, we still repair R-22 systems, and small electrical repairs often make sense. But R-22 refrigerant and parts get more expensive and harder to find every year, so if an R-22 system needs refrigerant or a major component, replacement is usually the better value.",
       },
     ],
   },
@@ -53,7 +53,7 @@ export const tools: ToolMeta[] = [
     short: "Get a ballpark installed price range for a new system.",
     title: "AC Replacement Cost Estimator Las Vegas | Wave Heating & Cooling",
     description:
-      "How much does a new AC cost in Las Vegas? Get an installed price range from Wave's own pricing by system type, home size and where your equipment sits.",
+      "How much does a new AC cost in Las Vegas? Get an installed price range from Wave's own pricing by system type and home size.",
     h1: "AC Replacement Cost Estimator for Las Vegas Homes",
     intro:
       "Planning for a new air conditioner or heat pump? Tell us about your home and your current system, and get a ballpark installed price range based on Wave's own pricing.",
@@ -61,20 +61,20 @@ export const tools: ToolMeta[] = [
     time: "90 seconds",
     about: [
       "The biggest factors in what a new system costs are **size** (tons of cooling), **system type**, **efficiency level** and **how much ductwork or electrical work** is needed. Las Vegas homes typically need more cooling capacity per square foot than homes in milder climates.",
-      "This estimator uses Wave's installed pricing by system type and home size to get you in the right range quickly. Your actual price depends on a proper load calculation, the specific equipment, access and any code upgrades — which is why every Wave estimate is done in-home and in writing.",
+      "This estimator uses Wave's installed pricing by system type and home size to get you in the right range quickly. The price includes the permit, removal of the old system, a new thermostat, line set flush, electrical disconnect and drain safety parts. Your exact price depends on your existing system, access and any extra work, which is why every Wave quote is done in-home and in writing.",
     ],
     faqs: [
       {
         q: "How much does it cost to replace an AC in Las Vegas?",
-        a: "It varies widely with home size, system type and efficiency. A smaller home with a standard-efficiency split system costs far less than a large two-story home with a variable-speed heat pump. Use the estimator for a ballpark, then book a written in-home estimate.",
+        a: "With Wave, a complete split system for a home under 1,400 sq ft runs about $9,800–$14,500+, and a 3.5 to 5-ton system for a larger home about $11,600–$15,900+. Package units and heat pumps cost a little more. Use the estimator for your range, then book an in-home visit for an exact quote.",
       },
       {
         q: "What size AC do I need for my house?",
-        a: "In Las Vegas, a rough rule of thumb is about one ton of cooling per 400–600 square feet, but insulation, windows, sun exposure, ceiling height and stories all matter. We do a load calculation to size it correctly.",
+        a: "In Las Vegas, a rough rule of thumb is about one ton of cooling per 400 square feet. When we replace a system, we match the size your ductwork was built for so the air moves properly. Going to a two-stage or variable-speed system, or a remodeled home, can change that, and then we size it to the home.",
       },
       {
         q: "Is financing available?",
-        a: "Yes, financing is available with approved credit. Ask us and we'll show you the monthly payment next to the total. Your actual terms depend on the lender and your credit.",
+        a: "Yes, financing is available with approved credit on jobs of $1,500 or more, from about $114 a month for every $10,000 financed. We'll show you the monthly payment next to the total.",
       },
     ],
   },

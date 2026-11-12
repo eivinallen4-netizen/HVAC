@@ -220,7 +220,7 @@ export const airServices: ServicePage[] = [
     name: "Wave Club Maintenance Plan",
     title: "HVAC Maintenance Plan Las Vegas | Wave Club",
     description:
-      "Join Wave Club: 2 HVAC tune-ups a year, 15% off repairs, priority 24/7 service, no after-hours fees and extended warranty. From $150/yr. (702) 881-4713.",
+      "Join Wave Club: 2 HVAC tune-ups a year, 15% off repairs, priority same-day service and extended warranty. From $150/yr. (702) 881-4713.",
     h1: "HVAC Maintenance in Las Vegas — Join Wave Club",
     kicker: "Maintenance membership",
     intro:
@@ -236,11 +236,10 @@ export const airServices: ServicePage[] = [
         kind: "club",
         list: [
           "2 maintenance visits per year: before summer (Mar–Apr) and before winter (Oct–Nov)",
-          "Priority service and 24/7 availability and scheduling",
+          "Priority scheduling: first in line for same-day visits",
           "1-year parts and labor warranty extension while the plan is active*",
           "1-year workmanship warranty while the plan is active",
           "Diagnostic fee waived when the repair is done at the time of service",
-          "No additional charge for after-hours, weekend or holiday service",
           "15% off all repairs",
           "15% off upgrades like smart Wi-Fi thermostats, air quality products and humidifiers",
           "Help with manufacturer and energy-efficiency rebates on new system installations (when available)",
@@ -309,7 +308,7 @@ export const airServices: ServicePage[] = [
       },
       {
         q: "Do members pay extra for nights and weekends?",
-        a: "No. Members pay no additional charge for after-hours, weekend or holiday service.",
+        a: "No. Nobody does. Wave has no after-hours, weekend or holiday surcharge for any customer.",
       },
     ],
     related: ["ac-maintenance-in-las-vegas", "hvac-heating-maintenance-in-las-vegas", "indoor-air-quality-las-vegas"],

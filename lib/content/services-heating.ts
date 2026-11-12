@@ -8,16 +8,16 @@ export const heatingServices: ServicePage[] = [
     name: "Heating Repair",
     title: "Heating & Furnace Repair Las Vegas | Wave Heating & Cooling",
     description:
-      "Furnace and heat pump repair in Las Vegas. No heat, cold air, odd noises or a short-cycling heater — NATE-certified techs, 24/7. Call (702) 881-4713.",
-    h1: "Heating Repair in Las Vegas — Furnaces & Heat Pumps",
+      "Furnace and heat pump repair in Las Vegas. No heat, cold air, odd noises or a short-cycling heater — NATE-certified techs, same-day service. Call (702) 881-4713.",
+    h1: "Furnace & Heating Repair in Las Vegas — Gas, Electric & Heat Pumps",
     kicker: "Furnace & heat pump repair",
     intro:
-      "Las Vegas winters are mild by day, but desert nights regularly drop near freezing — and that's when a failed furnace or heat pump becomes a real problem. Wave Heating & Cooling repairs gas furnaces, electric furnaces and heat pumps of every brand, with NATE-certified technicians available 24/7.",
+      "Las Vegas winters are mild by day, but desert nights regularly drop near freezing — and that's when a failed furnace or heat pump becomes a real problem. Wave Heating & Cooling repairs gas furnaces, electric furnaces and heat pumps of every brand, with NATE-certified technicians out the same day in most of the valley.",
     summary: "Furnace and heat pump repair so cold desert nights stay comfortable.",
     img: "/images/svc-heating.jpg",
     icon: "flame",
     pick: "Heat not working",
-    highlights: ["Gas, electric & heat pump", "Carbon monoxide safety checks", "All brands repaired", "Available 24/7"],
+    highlights: ["Gas, electric & heat pump", "Carbon monoxide safety checks", "All brands repaired", "Same-day service"],
     signs: {
       title: "Signs Your Heating System Needs Repair",
       items: [
@@ -59,10 +59,10 @@ export const heatingServices: ServicePage[] = [
           head: ["", "Regularly maintained system", "Neglected system"],
           rows: [
             ["Typical lifespan", "15–20 years", "Often replaced in 8–12 years"],
-            ["Typical repair cost", "Minor repairs, often $150–$500", "More frequent, costlier repairs ($500–$2,500+)"],
+            ["Typical repair cost", "Small fixes: flame sensor $212, igniter $442", "Bigger parts: inducer motor or control board from $599"],
             ["Breakdown risk", "Low — issues caught early", "Higher — sudden failures on cold nights"],
           ],
-          note: "Ranges are typical and vary by system and part. You'll always get exact pricing before work begins.",
+          note: "Wave's prices include parts and labor, no sales tax. Repair visits start with an $89 diagnostic, waived when you approve the repair on a weekday visit. You'll always get exact pricing before work begins.",
         },
       },
       {
@@ -113,7 +113,7 @@ export const heatingServices: ServicePage[] = [
     img: "/images/svc-heating.jpg",
     icon: "flame",
     pick: "New system / replacement estimate",
-    highlights: ["In-home estimates", "Gas furnaces & heat pumps", "Load-calculated sizing", "Financing available (OAC)"],
+    highlights: ["In-home estimates", "Gas furnaces & heat pumps", "Sized to your home", "Financing available (OAC)"],
     sections: [
       {
         h2: "Which Heating System Is Right for Your Home?",
@@ -141,7 +141,7 @@ export const heatingServices: ServicePage[] = [
         h2: "Our Heating Installation Process",
         kind: "steps",
         list: [
-          "In-home consultation and load calculation",
+          "In-home consultation: we check your system, ductwork and electrical",
           "Written options at different efficiency levels and price points",
           "Ductwork, venting and gas line evaluation",
           "Professional installation to manufacturer specifications and local code",
@@ -215,7 +215,7 @@ export const heatingServices: ServicePage[] = [
         h2: "What's Included",
         kind: "included",
         list: [
-          "Load calculation and equipment recommendations",
+          "Sizing matched to your ductwork, and equipment recommendations",
           "Permit pulled on every replacement, so the county inspects the install too",
           "Booties, floor padding and plastic over walls, closets and beds to protect your home",
           "Removal and disposal of old equipment",
@@ -373,6 +373,10 @@ export const heatingServices: ServicePage[] = [
       {
         q: "Why is my heat pump blowing cold air in winter?",
         a: "If it lasts a few minutes, it's probably a normal defrost cycle. If it continues, it could be a stuck reversing valve, low refrigerant or a thermostat setting issue — call us for a diagnosis.",
+      },
+      {
+        q: "What's the difference between a heat pump and an AC?",
+        a: "In summer they work the same way: both move heat out of your home. A heat pump can also run in reverse in winter to bring heat in, so one outdoor unit handles cooling and heating. A standard AC only cools and is paired with a furnace for heat.",
       },
       {
         q: "Is a heat pump cheaper to run than a gas furnace?",

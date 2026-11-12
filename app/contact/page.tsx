@@ -9,13 +9,13 @@ import { site } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Contact Wave Heating & Cooling | Las Vegas HVAC | (702) 881-4713",
   description:
-    "Contact Wave Heating & Cooling for AC repair, heating, installs or an estimate. Call or text (702) 881-4713 — answered 24/7 — or request service online.",
+    "Contact Wave Heating & Cooling for AC repair, heating, installs or an estimate. Call or text (702) 881-4713 or book online. Same-day visits in most of the valley.",
   path: "/contact/",
 });
 
 const faqs = [
-  { q: "How quickly can I get an appointment?", a: "Book online to see open times — often the same or next day. For no-cooling or no-heat emergencies, call us directly — we answer 24/7." },
-  { q: "Can I text you instead of calling?", a: `Yes — text ${site.phone} any time and a team member will respond.` },
+  { q: "How quickly can I get an appointment?", a: "Book online to see open times — often the same or next day. For no-cooling or no-heat emergencies, call us directly and we'll work to get a tech out the same day." },
+  { q: "Can I text you instead of calling?", a: `Yes — text ${site.phone} and a team member will respond.` },
   { q: "Do you charge for estimates?", a: "We'll go over pricing before any work starts. Repair visits have an $89 diagnostic fee. On weekdays (Mon–Fri, 7am–6pm), if you approve the repair during the visit, the $89 is included in the repair price." },
 ];
 
@@ -24,10 +24,10 @@ export default function ContactPage() {
     <>
       <PageHero
         crumbs={[{ name: "Contact", path: "/contact/" }]}
-        kicker="We're here 24/7"
+        kicker="Same-day service"
         h1="Contact Wave Heating & Cooling"
-        intro="Book service or an estimate online in about a minute and pick a time that works — or call or text us any time, day or night."
-        highlights={["Answered 24/7", "Upfront, written pricing", "Call or text"]}
+        intro="Book service or an estimate online in about a minute and pick a time that works — or call or text us."
+        highlights={["Same-day service", "Upfront, written pricing", "Call or text"]}
         formTitle="How can we help?"
       />
       <TrustBar />
@@ -41,8 +41,8 @@ export default function ContactPage() {
                   <Icon name="phone" size={22} />
                 </span>
                 <div>
-                  <h3>Call 24/7</h3>
-                  <p>Nights, weekends &amp; holidays</p>
+                  <h3>Call or text</h3>
+                  <p>Same-day visits in most of the valley</p>
                 </div>
                 <CallLink className="cl-phone" location="contact-page" icon={false} />
               </li>

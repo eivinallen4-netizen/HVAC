@@ -25,30 +25,30 @@ Las Vegas is one of the hardest cities for air conditioning systems :
     – Low humidity amplifying coil wear and static buildup  
     – Extreme attic temperatures over 140°F  
   
-    These conditions force HVAC systems to run longer and harder than in milder climates, leading to faster part degradation, more frequent service calls, and reduced equipment lifespan. While a system might last longer in Oregon, 12–15 years is the average in Nevada.
+    These conditions force HVAC systems to run longer and harder than in milder climates, leading to faster part degradation, more frequent service calls, and reduced equipment lifespan. While a system might last longer in Oregon, about 15 years is the average in Nevada.
 
 ### 2\. Signs a Repair is Still Worth It
 
 Not every issue means your system is finished. Repairs make sense when:  
-    – Your unit is under 12 years old  
-    – The issue is isolated (e.g., motor run assist, contactor, refrigerant)  
+    – Your unit is under 15 years old  
+    – The issue is isolated (e.g., capacitor, contactor, fan motor)  
     – You’ve maintained the system regularly  
     – Energy bills haven’t spiked significantly  
     – There are no airflow imbalances or persistent comfort issues  
   
-    Common affordable repairs:  
-    – Capacitor: $200–$300  
-    – Contactor relay: $250–$400  
-    – Thermostat replacement: $200–$400  
-    – Outdoor fan motor: $500–$800  
+    Common repairs at Wave (parts and labor, no sales tax):  
+    – Capacitor: $254–$349  
+    – Contactor: $339–$569  
+    – Basic thermostat: $254–$349  
+    – Outdoor fan motor: $705–$829  
   
-    If your system runs well otherwise and repair costs are under 30% of the value of a new system, repairs may buy you several more years of service.
+    If your system runs well otherwise, a minor repair like these is worth doing at almost any age and can buy you several more years of service.
 
 ### 3\. Signs It’s Time to Replace
 
 However, a new system may be the smarter choice if:  
-    – Your AC is more than 12–15 years old  
-    – You’ve had 2+ major repairs in the last 24 months  
+    – Your AC is more than 15 years old and needs a repair of about $2,000 or more  
+    – The compressor has burned out, or there’s a refrigerant leak in a spot that can’t be reached  
     – Your energy bills are climbing  
     – Comfort problems persist even after servicing  
     – Your system uses R-22 refrigerant (phased out as of 2020)  

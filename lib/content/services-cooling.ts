@@ -6,18 +6,18 @@ export const coolingServices: ServicePage[] = [
     slug: "hvac-repairs-in-las-vegas",
     category: "cooling",
     name: "AC Repair",
-    title: "AC Repair Las Vegas | Same-Day & 24/7 | Wave Heating & Cooling",
+    title: "AC Repair & Service Las Vegas | Same-Day | Wave",
     description:
-      "Fast, honest AC repair in Las Vegas from NATE-certified techs. Warm air, noises, leaks or no power — we fix all brands, 24/7. Call (702) 881-4713.",
-    h1: "AC Repair in Las Vegas — Fast, Honest & Done Right the First Time",
+      "Fast, honest AC repair and service in Las Vegas from NATE-certified techs. Warm air, noises, leaks or no power: all brands, often same day. (702) 881-4713.",
+    h1: "AC Repair & Service in Las Vegas — Fast, Honest & Done Right the First Time",
     kicker: "Air conditioning repair",
     intro:
-      "When it's 110° outside, a broken AC isn't an inconvenience — it's an emergency. Wave Heating & Cooling diagnoses and repairs every make and model of central air conditioner and heat pump across the Las Vegas valley, with NATE-certified technicians available 24/7 and straight answers about what your system actually needs.",
+      "When it's 110° outside, a broken AC isn't an inconvenience — it's an emergency. Wave Heating & Cooling diagnoses and repairs every make and model of central air conditioner and heat pump across the Las Vegas valley, with NATE-certified technicians out the same day in most of the valley and straight answers about what your system actually needs.",
     summary: "Warm air, strange noises, or an AC that won't kick on? We find the real problem and fix it right the first time.",
     img: "/images/svc-ac-repair.jpg",
     icon: "wrench",
     pick: "AC not cooling",
-    highlights: ["NATE-certified technicians", "All brands repaired", "No corporate or franchise fees", "Available 24/7"],
+    highlights: ["NATE-certified technicians", "All brands repaired", "No corporate or franchise fees", "Same-day service"],
     signs: {
       title: "Common AC Problems We Fix Every Day",
       items: [
@@ -67,7 +67,7 @@ export const coolingServices: ServicePage[] = [
           { t: "Honest diagnosis", d: "You see what we see. No scare tactics, no pressure to replace a system that just needs a part." },
           { t: "Fair, local pricing", d: "No corporate overhead or franchise fees — just competitive pricing from a family-owned company." },
           { t: "Experienced, certified techs", d: "NATE-certified technicians and low employee turnover mean consistent, high-quality work." },
-          { t: "Here when it breaks", d: "Heat waves don't keep business hours. We answer 24/7, including nights, weekends and holidays." },
+          { t: "Here when it breaks", d: "Heat waves don't wait. In most of the valley we can get a tech out the same day." },
         ],
       },
       {
@@ -83,7 +83,7 @@ export const coolingServices: ServicePage[] = [
     faqs: [
       {
         q: "How fast can you get to me for an AC repair?",
-        a: "We answer calls 24/7 and prioritize no-cooling calls, especially for homes with seniors, infants or pets. In most of the Las Vegas valley we can get a technician out the same day, depending on demand during heat waves.",
+        a: "We prioritize no-cooling calls, especially for homes with seniors, infants or pets. In most of the Las Vegas valley we can get a technician out the same day, depending on demand during heat waves.",
       },
       {
         q: "Do you repair all AC brands?",
@@ -91,15 +91,27 @@ export const coolingServices: ServicePage[] = [
       },
       {
         q: "Is it worth repairing an older AC?",
-        a: "It depends on age, repair cost and how often it's breaking down. A common rule of thumb: multiply the system's age by the repair cost — if it's over about $5,000, replacement is usually the better value. Our free Repair or Replace Calculator walks you through it, and our techs will give you an honest opinion.",
+        a: "Usually, yes. Common repairs like a capacitor ($254–$349) or contactor ($339–$569) are worth doing at almost any age. On a system over 15 years old, once a repair reaches about $2,000, replacement is usually the better value. Our free Repair or Replace Calculator walks you through it, and our techs will give you an honest opinion.",
       },
       {
-        q: "Why is my AC running but not cooling?",
+        q: "Why is my AC running but blowing warm or hot air?",
         a: "The most common causes are a failed capacitor (the outdoor fan or compressor won't start), a dirty condenser coil, a clogged filter, a refrigerant leak or a frozen evaporator coil. Check your filter and breaker first, then call us — running a system that isn't cooling can damage the compressor.",
       },
       {
+        q: "Why is my AC leaking water?",
+        a: "Most indoor leaks come from a clogged condensate drain line or a full drain pan, which desert dust and algae make common here. A frozen evaporator coil that's thawing can also drip. Turn the system off to protect your ceiling and drywall, check that the filter isn't clogged, and call us to clear the drain and find the cause.",
+      },
+      {
+        q: "Why is my AC freezing up?",
+        a: "Ice on the indoor coil or the refrigerant lines usually means low airflow (a dirty filter, a blocked return or a failing blower) or low refrigerant from a leak. Switch the thermostat to 'fan only' or turn the system off so it can thaw — running it frozen can damage the compressor — then call for a diagnosis.",
+      },
+      {
+        q: "Why does my AC keep turning on and off?",
+        a: "That's called short cycling. Common causes are a dirty filter or coil, low refrigerant, a thermostat in the wrong spot or a failing electrical part — and sometimes a system that's too big for the house. It wastes power and wears out the compressor, so it's worth having checked before summer.",
+      },
+      {
         q: "Do Wave Club members get a discount on repairs?",
-        a: "Yes. Wave Club maintenance members get 15% off repairs, priority service, no extra charge for after-hours, weekend or holiday calls, and the diagnostic fee waived when the repair is done at the time of service.",
+        a: "Yes. Wave Club maintenance members get 15% off repairs and priority service. Everyone, member or not, pays no after-hours, weekend or holiday surcharge, and on weekdays the $89 diagnostic is waived when you approve the repair during the visit.",
       },
     ],
     related: ["emergency-ac-repair-las-vegas", "ac-maintenance-in-las-vegas", "ac-replacement-in-las-vegas"],
@@ -110,19 +122,19 @@ export const coolingServices: ServicePage[] = [
   {
     slug: "emergency-ac-repair-las-vegas",
     category: "cooling",
-    name: "24/7 Emergency AC Repair",
-    title: "24/7 Emergency AC Repair Las Vegas | Wave Heating & Cooling",
+    name: "Emergency AC Repair",
+    title: "Same-Day Emergency AC Repair Las Vegas | Wave Heating & Cooling",
     description:
-      "AC out in the Las Vegas heat? Wave answers 24/7 — nights, weekends and holidays. NATE-certified emergency AC repair across the valley. Call (702) 881-4713.",
-    h1: "24/7 Emergency AC Repair in Las Vegas",
+      "AC out in the Las Vegas heat? Same-day emergency AC repair in most of the valley, with no after-hours surcharge. NATE-certified techs. Call (702) 881-4713.",
+    h1: "Same-Day Emergency AC Repair in Las Vegas",
     kicker: "Emergency service",
     intro:
-      "An air conditioner that dies at 9 p.m. in July can turn a Las Vegas home dangerously hot within hours. Wave Heating & Cooling answers the phone 24 hours a day, 7 days a week — nights, weekends and holidays — with NATE-certified technicians who can diagnose and fix most failures on the spot.",
-    summary: "AC out at night, on a weekend or a holiday? A real person answers 24/7 and we dispatch fast.",
+      "An air conditioner that dies on a July afternoon can turn a Las Vegas home dangerously hot within hours. Wave Heating & Cooling puts no-cooling calls first and can get a NATE-certified technician out the same day in most of the valley, ready to diagnose and fix most failures on the spot.",
+    summary: "AC out in the heat? Call and we'll work to get a tech to you the same day.",
     img: "/images/svc-ac-repair.jpg",
     icon: "clock",
     pick: "AC not cooling",
-    highlights: ["Answered 24/7/365", "Fast dispatch across the valley", "Trucks stocked for common failures", "No after-hours surcharge"],
+    highlights: ["Same-day in most of the valley", "No-cooling calls go first", "Trucks stocked for common failures", "No after-hours surcharge"],
     emergency: true,
     signs: {
       title: "When to Call for Emergency AC Service",
@@ -162,7 +174,7 @@ export const coolingServices: ServicePage[] = [
         h2: "How Our Emergency Service Works",
         kind: "steps",
         cards: [
-          { t: "1. You call or text", d: `A real person answers 24/7. Tell us what's happening and we'll get a tech headed your way.` },
+          { t: "1. You call or text", d: `Tell us what's happening and we'll get a tech headed your way, same day in most of the valley.` },
           { t: "2. Fast diagnosis", d: "Your technician finds the root cause — electrical, refrigerant, airflow or controls." },
           { t: "3. Clear options", d: "You'll get the cost and your options before any work begins. No surprises." },
           { t: "4. Cool again", d: "Most common failures are fixed on the first visit with parts from our truck." },
@@ -171,8 +183,8 @@ export const coolingServices: ServicePage[] = [
     ],
     faqs: [
       {
-        q: "Do you really answer 24/7?",
-        a: "Yes. Call (702) 881-4713 any time — nights, weekends and holidays — and a person will answer and get a technician scheduled.",
+        q: "Can you come out the same day?",
+        a: "In most of the Las Vegas valley, yes, depending on demand during heat waves. Call (702) 881-4713 and we'll get a technician scheduled. We put no-cooling calls first, especially for homes with seniors, infants or pets.",
       },
       {
         q: "Is emergency AC service more expensive?",
@@ -228,14 +240,14 @@ export const coolingServices: ServicePage[] = [
         kind: "sizing",
         body: [
           "An oversized air conditioner cools the house quickly, shuts off, and starts again a few minutes later. That short cycling wears out the compressor, leaves rooms clammy and uneven, and wastes power. An undersized system runs nonstop on a 112° afternoon and still can't keep up.",
-          "We don't size by square footage alone. Your estimate is based on a load calculation that considers insulation, window area and direction, ceiling height, roof type, number of stories and how your family actually uses the home. Read more in our guide on [choosing the right-sized AC for Las Vegas](/blog/how-to-choose-the-right-sized-ac/).",
+          "When we replace a system, we match the size your ductwork was built for, so the air moves the way it should. In Las Vegas that's roughly one ton per 400 square feet. If you're moving to a two-stage or variable-speed system, or the home has been remodeled, the right size can change, and we size it to the home. Read more in our guide on [choosing the right-sized AC for Las Vegas](/blog/how-to-choose-the-right-sized-ac/).",
         ],
       },
       {
         h2: "Our Installation Process",
         kind: "steps",
         list: [
-          "In-home consultation and load calculation",
+          "In-home consultation: we check your system, ductwork and electrical",
           "Clear written options — standard, high-efficiency and premium — with no pressure",
           "Permit pulled for the job",
           "Home protection: booties at the door, floor padding under ladders, plastic over walls, closets and beds",
@@ -264,7 +276,7 @@ export const coolingServices: ServicePage[] = [
     faqs: [
       {
         q: "How much does a new AC cost in Las Vegas?",
-        a: "It depends on the size of your home, system type, efficiency rating and how much ductwork or electrical work is needed. We give clear, written in-home estimates, and our online cost estimator can give you a ballpark range first.",
+        a: "With Wave, a complete split system runs about $9,800–$14,500+ for a home under 1,400 sq ft and $11,600–$15,900+ for a 3.5 to 5-ton system. Package units and heat pumps cost a little more, and a single-zone mini-split starts around $4,900. The price includes the permit, haul-away, a new thermostat and line set flush. Our online cost estimator gives you your range, and we give an exact written price at your in-home visit.",
       },
       {
         q: "How long does an AC installation take?",
@@ -272,7 +284,7 @@ export const coolingServices: ServicePage[] = [
       },
       {
         q: "What size AC do I need?",
-        a: "The right size depends on far more than square footage — insulation, windows, sun exposure, ceiling height and number of stories all matter. We perform a load calculation during your in-home estimate to size the system correctly.",
+        a: "A rough Las Vegas rule is one ton of cooling per 400 square feet: about 3 tons under 1,400 sq ft, 3 to 4 tons up to 1,800, and 4 to 5 tons up to 2,300. Larger homes usually need two systems. On a replacement we match the size your ductwork was built for, and confirm it at your in-home visit.",
       },
       {
         q: "Do you offer financing?",
@@ -294,7 +306,7 @@ export const coolingServices: ServicePage[] = [
     h1: "AC Replacement in Las Vegas — Permitted, Inspected, Done Right",
     kicker: "Upgrade your system",
     intro:
-      "If your air conditioner is more than 12 years old, keeps breaking down or is driving your power bill through the roof, it may be time. Wave Heating & Cooling diagnoses first and gives you honest, no-pressure advice, and if a repair is enough, we'll tell you. If replacement is the right call, we replace the whole matched system, pull the permit, run a full safety inspection, and protect your home from the front door to the final vacuum.",
+      "If your air conditioner is more than 15 years old, needs a major repair or is driving your power bill through the roof, it may be time. Wave Heating & Cooling diagnoses first and gives you honest, no-pressure advice, and if a repair is enough, we'll tell you. If replacement is the right call, we replace the whole matched system, pull the permit, run a full safety inspection, and protect your home from the front door to the final vacuum.",
     summary: "Old, loud or costing a fortune to run? Get a right-sized, high-efficiency replacement with an estimate.",
     img: "/images/svc-ac-install.jpg",
     icon: "unitPlus",
@@ -303,9 +315,9 @@ export const coolingServices: ServicePage[] = [
     signs: {
       title: "Signs It's Time to Replace Your AC",
       items: [
-        { t: "It's 12–15+ years old", d: "Desert systems work harder than most. Past this age, major repairs rarely make financial sense." },
-        { t: "It uses R-22 refrigerant", d: "R-22 has been phased out, so recharging an older system is expensive and getting harder." },
-        { t: "Repairs keep adding up", d: "Two or more significant repairs in two years is a strong sign the system is near the end." },
+        { t: "It's over 15 years old", d: "Desert systems work harder than most. Past this age, a major repair rarely makes financial sense." },
+        { t: "It uses R-22 refrigerant", d: "R-22 has been phased out, so refrigerant and parts for an older system get more expensive and harder to find." },
+        { t: "A big repair quote", d: "On an older system, a repair of about $2,000 or more, like a burned-out compressor, usually means replace." },
         { t: "Your bills keep climbing", d: "Older, lower-SEER systems can use far more electricity than a modern high-efficiency unit." },
         { t: "Rooms won't stay cool", d: "If it can't keep up in July, it may be undersized, worn out or both." },
         { t: "It's noisy or short-cycles", d: "Loud compressors and constant on/off cycling point to wear and inefficiency." },
@@ -315,7 +327,7 @@ export const coolingServices: ServicePage[] = [
       {
         h2: "Repair or Replace? Here's How We Help You Decide",
         body: [
-          "We look at your system's age, the cost of the current repair, your repair history, refrigerant type, efficiency and how long you plan to stay in the home. A popular rule of thumb is the **$5,000 rule**: multiply the system's age by the repair cost. If the result is over $5,000, replacement is usually the better investment.",
+          "We look at your system's age, the cost of the current repair, refrigerant type, efficiency and how long you plan to stay in the home. Our rule is simple: **on a system over 15 years old, once a repair reaches about $2,000, replacing usually makes more sense.** A burned-out compressor or a refrigerant leak in a spot we can't reach usually means replace too. Minor repairs are worth doing at almost any age.",
           "Run your own numbers with our [Repair or Replace Calculator](/tools/repair-or-replace-calculator/). It takes about a minute.",
         ],
       },
@@ -327,7 +339,7 @@ export const coolingServices: ServicePage[] = [
           { t: "One written price, everything listed", d: "After we see your home, you get an exact written price that spells out the equipment, permit, labor, inspection and haul-away." },
           { t: "Bring us your other quote", d: "Already have a number from someone else? We'll go through it with you line by line so you know what you're comparing." },
           { t: "See the monthly payment too", d: "Financing is available with approved credit. Ask, and we'll show you the monthly payment next to the total." },
-          { t: "Still here after the install", d: "The same local team that installs your system answers the phone 24/7 if you ever need a repair." },
+          { t: "Still here after the install", d: "The same local team that installs your system is the one you call if you ever need a repair." },
         ],
       },
       {
@@ -354,7 +366,7 @@ export const coolingServices: ServicePage[] = [
         h2: "What's Included in a Wave Replacement",
         kind: "included",
         list: [
-          "Load calculation to size the new system correctly",
+          "Sized to match your ductwork and home",
           "Full matched indoor and outdoor system, not just the outside unit",
           "Permit pulled on every replacement, so the county inspects the install too",
           "Booties at the door, floor padding under ladders, and plastic over walls, closets and beds",
@@ -398,6 +410,10 @@ export const coolingServices: ServicePage[] = [
         a: "Yes. Bring it to your assessment and we'll go through it with you line by line: what's included, what's missing, and how it compares with what your home actually needs.",
       },
       {
+        q: "What is R-454B, and does my current AC need it?",
+        a: "R-454B is one of the lower-impact refrigerants that new central air conditioners and heat pumps use as R-410A is phased down. You don't need to replace a working R-410A system because of it: it can still be repaired and recharged. If you're replacing your system, the new one will be built for the newer refrigerant, and we'll explain what that means for your home.",
+      },
+      {
         q: "Do you pull permits on AC replacements?",
         a: "Yes, on every replacement. The county inspects the install, not just us, and we handle the paperwork. Unpermitted work can come up when you sell your home or file an insurance claim.",
       },
@@ -418,7 +434,7 @@ export const coolingServices: ServicePage[] = [
     title: "AC Tune-Up & Maintenance Las Vegas | Wave Heating & Cooling",
     description:
       "Las Vegas AC tune-ups that prevent summer breakdowns, cut energy bills and extend system life. NATE-certified techs. Join Wave Club. Call (702) 881-4713.",
-    h1: "AC Maintenance & Tune-Ups in Las Vegas",
+    h1: "AC Tune-Ups & Maintenance in Las Vegas",
     kicker: "Preventative maintenance",
     intro:
       "Most mid-summer breakdowns we see could have been caught weeks earlier. A professional AC tune-up from Wave Heating & Cooling cleans, tests and adjusts your system before the heat arrives — so it runs efficiently, costs less to operate and keeps going when you need it most.",
@@ -461,7 +477,7 @@ export const coolingServices: ServicePage[] = [
         cards: [
           { t: "2 tune-ups per year", d: "Spring AC check (Mar–Apr) and fall heating check (Oct–Nov)." },
           { t: "15% off repairs", d: "Plus 15% off upgrades like smart thermostats and air quality products." },
-          { t: "Priority service", d: "Members move to the front of the line — and pay no after-hours surcharge." },
+          { t: "Priority service", d: "Members move to the front of the line when the calls stack up." },
           { t: "Extended warranty", d: "1-year parts & labor and 1-year workmanship warranty while your plan is active." },
         ],
       },

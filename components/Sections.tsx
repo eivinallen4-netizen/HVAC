@@ -3,6 +3,7 @@ import Link from "next/link";
 import { areaHref } from "@/lib/content/areas";
 import { servicesIn } from "@/lib/content/services";
 import { tools } from "@/lib/tools";
+import { fees } from "@/lib/estimate/config";
 import { faqs as defaultFaqs, guides, pages, reviews, serviceAreas, services, site, type IconName } from "@/lib/site";
 import { Embers, FireIceRule, Frost, HeatShimmer, Ribbons, Snowflake, SplitEmblem } from "./Art";
 import { BeforeAfter } from "./BeforeAfter";
@@ -60,9 +61,9 @@ export function SecHead({
 
 /* ═════════════════════════ HERO ═════════════════════════ */
 const stamps: { icon: IconName; t: string }[] = [
-  { icon: "permit", t: "Permits pulled on every job" },
-  { icon: "shield", t: "Full safety inspection" },
-  { icon: "broom", t: "We leave it cleaner than we found it" },
+  { icon: "tag", t: `$${fees.diagnostic} diagnostic, waived with weekday repair` },
+  { icon: "clock", t: "No after-hours or weekend surcharge" },
+  { icon: "permit", t: "Permits pulled on every replacement" },
   { icon: "award", t: `NV License ${site.license}` },
 ];
 
@@ -76,14 +77,14 @@ export function Hero() {
       <div className="wrap hero-grid">
         <div className="hero-copy">
           <span className="chip chip-warm">
-            <Icon name="unitPlus" size={15} /> AC &amp; furnace replacement across the Las Vegas valley
+            <Icon name="wrench" size={15} /> AC &amp; heating repair across the Las Vegas valley
           </span>
           <h1>
-            Full HVAC Replacement in Las Vegas, <span className="cool">Done Right</span>
+            Las Vegas AC &amp; Heating Repair, <span className="cool">Priced Before We Start</span>
           </h1>
           <p className="hero-sub">
-            Permitted, safety-inspected, and your home protected from the front door to the final vacuum. A family-owned
-            Las Vegas team with NATE-certified techs, and still here 24/7 when you need a repair.
+            Same-day visits in most of the valley, with no after-hours surcharge. ${fees.diagnostic} diagnostic, waived
+            when you approve the repair on a weekday visit.
           </p>
 
           <RatingsRow nate />
@@ -107,8 +108,8 @@ export function Hero() {
           <HeroLeadForm />
         </div>
       </div>
-      <a className="hero-next" href="#install-day">
-        <span>See what replacement day looks like</span>
+      <a className="hero-next" href="#repair-prices">
+        <span>See repair prices</span>
         <Icon name="chev" size={20} />
       </a>
     </section>
@@ -131,7 +132,7 @@ export function RatingsRow({ nate = false }: { nate?: boolean }) {
         </li>
       ))}
       {nate && (
-        <li className="rating">
+        <li className="rating rating-nate">
           <Image src="/images/nate.png" alt="NATE" width={34} height={32} />
           <div>
             <b>Certified</b>
@@ -146,7 +147,7 @@ export function RatingsRow({ nate = false }: { nate?: boolean }) {
 /* ═════════════════════════ TRUST BAR ═════════════════════════ */
 export function TrustBar() {
   const items = [
-    { v: "24/7", s: "Nights, weekends & holidays" },
+    { v: "Same-day", s: "Visits in most of the valley" },
     { v: "Upfront", s: "Written pricing before work starts" },
     { v: "Local", s: "Family-owned Las Vegas team" },
     { v: site.license, s: "NV licensed, bonded & insured" },
@@ -181,7 +182,7 @@ export function Emergency() {
         </span>
         <div className="emerg-copy">
           <h3>
-            AC out in the desert heat? We answer 24/7. <span className="tag-urgent">Urgent service</span>
+            AC out in the desert heat? Same-day service in most of the valley. <span className="tag-urgent">Urgent service</span>
           </h3>
           <p>Call or text now and a Wave tech will get your home cool again.</p>
         </div>
@@ -199,7 +200,7 @@ export function Emergency() {
 }
 
 /* ═════════════════════════ SERVICES ═════════════════════════ */
-/** Directory list: compact rows, two columns. Reads as secondary to the replacement story. */
+/** Directory list: compact rows, two columns. On the homepage it's the first section: Wave leads with repair. */
 export function Services({
   kicker = "Precision climate care",
   title = "Built for Desert Performance",
@@ -295,12 +296,12 @@ const why = [
   { icon: "home", t: "Family-owned & local", d: "We live here, and we treat your home like our own." },
   { icon: "award", t: "NATE-certified techs", d: "Most of our team is NATE-certified — pros who know HVAC inside and out." },
   { icon: "tag", t: "Honest advice", d: "If it's a simple fix, we'll tell you. If it's time to replace, we'll show you why." },
-  { icon: "clock", t: "Here 24/7", d: "Heat waves don't wait for business hours — neither do we." },
+  { icon: "clock", t: "Here when it breaks", d: "Heat waves don't wait, so in most of the valley we get a tech out the same day." },
   { icon: "shield", t: "Licensed, bonded & insured", d: `Nevada license ${site.license} for total peace of mind.` },
   { icon: "sparkle", t: "Your home protected", d: "Booties at the door, padding under ladders, plastic on walls and beds, and a full clean-up." },
 ] as const;
 
-/** Bento grid: crew photo leads, stat tiles for 24/7 and the license, small tiles for the rest */
+/** Bento grid: crew photo leads, stat tiles for same-day service and the license, small tiles for the rest */
 export function WhyWave({ variant = "bento" }: { variant?: "bento" | "ledger" } = {}) {
   const [local, nate, honest, allDay, licensed, protect] = why;
   const small = [local, nate, honest, protect];
@@ -322,7 +323,7 @@ export function WhyWave({ variant = "bento" }: { variant?: "bento" | "ledger" } 
             <Image src="/images/family.jpg" alt="The family behind Wave Heating & Cooling" fill sizes="(max-width: 760px) 100vw, 300px" />
           </figure>
           <div className="bt bt-stat warm" data-reveal>
-            <b aria-hidden="true">24/7</b>
+            <b aria-hidden="true">Same day</b>
             <h4>{allDay.t}</h4>
             <p>{allDay.d}</p>
           </div>
@@ -423,7 +424,7 @@ function WhyLedger() {
 /** `line` (home): the connected stepper. `route` (inner pages): a slim band of numbered stops. */
 export function Process({ variant = "line", alt = true }: { variant?: "line" | "route"; alt?: boolean } = {}) {
   const steps = [
-    { t: "Tell us what's going on", d: "Fill out the 60-second form or call us any time, day or night." },
+    { t: "Tell us what's going on", d: "Fill out the 60-second form or give us a call." },
     { t: "We confirm a time", d: "A Wave team member calls you back to schedule a visit that works for you." },
     { t: "Diagnosis & clear options", d: "Your tech finds the root cause and walks you through your options before any work begins." },
     { t: "Comfort restored", d: "The job is done right, cleaned up, and explained — so you know exactly what was fixed." },
@@ -668,16 +669,16 @@ export function EstimateBand() {
       <div className="est-photo" aria-hidden="true">
         <Image src="/images/van-strip.jpg" alt="" fill sizes="(max-width: 760px) 100vw, 50vw" className="est-bg" />
         <span className="est-num">
-          12+<small>yrs</small>
+          15+<small>yrs</small>
         </span>
       </div>
       <div className="wrap est-row" data-reveal>
         <div className="est-copy">
-          <span className="chip chip-warm">System over 12 years old?</span>
+          <span className="chip chip-warm">System over 15 years old?</span>
           <h2>Let&apos;s Talk Replacement</h2>
           <p>
-            Book an in-home replacement assessment. We&apos;ll measure your home, check the ductwork and electrical, and give
-            you clear written options. Done right the first time, permitted and inspected.
+            Book an in-home replacement assessment. We&apos;ll check your system, ductwork and electrical, and give you a
+            clear written price. Complete systems start around $9,800. Done right the first time, permitted and inspected.
           </p>
           <div className="est-acts">
             <EstimateButton pick="New system / replacement estimate" icon="arrow">
@@ -721,7 +722,7 @@ export function Areas({
                   {site.address.street}, {site.address.city}, {site.address.state} {site.address.zip}
                 </b>
                 <span className="hq-live">
-                  <i className="dot" /> Available 24/7
+                  <i className="dot" /> Same-day service
                 </span>
               </div>
             </div>
@@ -755,7 +756,7 @@ export function Areas({
               {site.address.street}, {site.address.city}, {site.address.state} {site.address.zip}
             </b>
             <span className="hq-live">
-              <i className="dot" /> Available 24/7
+              <i className="dot" /> Same-day service
             </span>
           </div>
         </div>
@@ -890,15 +891,15 @@ export function Faq({
 /* ═════════════════════════ FINAL CTA ═════════════════════════ */
 export function FinalCta({
   title = "Book Your Service Today",
-  lead = "Pick a time online and we'll confirm your appointment. Or call — we're available 24/7.",
+  lead = "Pick a time online and we'll confirm your appointment. Or call — same-day visits in most of the valley.",
 }: {
   title?: string;
   lead?: string;
 } = {}) {
   const lines = [
-    { icon: "phone", label: "Call or text 24/7", value: <CallLink location="final" icon={false} className="cl-phone" />, tone: "red" },
+    { icon: "phone", label: "Call or text", value: <CallLink location="final" icon={false} className="cl-phone" />, tone: "red" },
     { icon: "pin", label: "Headquarters", value: `${site.address.street}, ${site.address.city}, ${site.address.state} ${site.address.zip}`, tone: "blue" },
-    { icon: "clock", label: "Hours", value: "Open 24/7 — nights, weekends & holidays", tone: "warm" },
+    { icon: "clock", label: "Hours", value: site.hours, tone: "warm" },
   ] as const;
   return (
     <section className="sec final art-sec" id="contact">
@@ -953,7 +954,7 @@ export function Footer() {
           <Link href="/" aria-label={`${site.name} home`}>
             <Image src="/images/logo-light.png" alt={site.name} width={190} height={57} className="foot-logo" />
           </Link>
-          <p>{site.tagline}. Family-owned, NATE-certified, available 24/7.</p>
+          <p>{site.tagline}. Family-owned, NATE-certified, same-day service.</p>
           <span className="chip">
             <Icon name="shield" size={14} /> NV License {site.license}
           </span>
@@ -1018,7 +1019,7 @@ export function Footer() {
               <br />
               {site.address.city}, {site.address.state} {site.address.zip}
             </li>
-            <li className="hq-live"><i className="dot" /> Open 24/7</li>
+            <li className="hq-live"><i className="dot" /> Same-day service</li>
             <li>
               <a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer">Find us on Google</a>
             </li>

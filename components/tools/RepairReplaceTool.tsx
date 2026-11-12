@@ -39,7 +39,7 @@ export function RepairReplaceTool() {
       {step === 2 && (
         <NumberStep
           title="How much is the repair you've been quoted?"
-          hint="Don't have a quote yet? Estimate — a refrigerant leak or compressor is usually $1,000+, a capacitor or contactor a few hundred."
+          hint="Don't have a quote yet? Estimate — a capacitor is $254–$349, a fan motor $705–$829, and a compressor $2,900–$4,500."
           label="Repair cost"
           prefix="$"
           min={50}
@@ -156,7 +156,7 @@ export function RepairReplaceTool() {
             <Gate
               tool="Repair or Replace Calculator"
               slug="repair-or-replace"
-              summary={`${result.verdict.toUpperCase()} (score ${result.score}). ${d.age}-yr system, $${d.repairCost} repair, ${d.repairs2y} repairs/2y, refrigerant ${d.refrigerant}, bills ${d.bills}, comfort ${d.comfort}, stay ${d.stay}. Age×cost = $${result.rule5000}.`}
+              summary={`${result.verdict.toUpperCase()} (score ${result.score}). ${d.age}-yr system, $${d.repairCost} repair, ${d.repairs2y} repairs/2y, refrigerant ${d.refrigerant}, bills ${d.bills}, comfort ${d.comfort}, stay ${d.stay}.`}
               service={result.verdict === "repair" ? "AC not cooling" : "New system / replacement estimate"}
               cta="Show Me Why"
               onUnlock={() => setUnlocked(true)}

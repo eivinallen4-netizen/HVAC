@@ -27,7 +27,7 @@ export function ContactForm({
       <p className="form-hint">{hint}</p>
       <BookingEmbed location="contact" />
       <p className="or-call">
-        Prefer to talk? <CallLink location="contact-form" icon={false} /> — answered 24/7
+        Prefer to talk? <CallLink location="contact-form" icon={false} />
       </p>
     </div>
   );

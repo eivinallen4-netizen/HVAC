@@ -83,7 +83,7 @@ export default async function PostPage({ params }: Props) {
             )}
             <div className="side-cta rail-cta">
               <strong>Need help now?</strong>
-              <p>Wave&apos;s NATE-certified techs are available 24/7 across the Las Vegas valley.</p>
+              <p>Wave&apos;s NATE-certified techs offer same-day service across most of the Las Vegas valley.</p>
               <CallLink className="btn btn-red btn-block" location="blog-side" />
               <Link href="/contact/" className="btn btn-ghost btn-block">
                 Book Now

@@ -22,8 +22,8 @@ export const site = {
   /** Google Business Profile listing */
   googleMapsUrl:
     "https://www.google.com/maps/place/Wave+Heating+%26+Cooling+LLC/@36.2379494,-115.2827569,17z/data=!4m6!3m5!1s0x80c8c120faee6b8d:0xc04b392b77dc6c59!8m2!3d36.2379451!4d-115.280182!16s%2Fg%2F11fph2r492",
-  /** Business hours for regular appointments; emergency service is 24/7 */
-  hours: "Open 24/7 — nights, weekends & holidays",
+  /** Business hours. Wave does NOT offer 24/7 service; it offers same-day visits in most of the valley. */
+  hours: "[Wave to confirm business hours]",
   googleReviewsUrl:
     "https://www.google.com/search?q=Wave+Heating+%26+Cooling+Las+Vegas+reviews",
   ratings: [
@@ -174,11 +174,15 @@ export const reviews = [
 export const faqs = [
   {
     q: "How do I book service or an estimate?",
-    a: "Book online in about a minute — pick what's going on and choose a time that works for you. Or call us 24/7 and we'll set it up.",
+    a: "Book online in about a minute — pick what's going on and choose a time that works for you. Or call us and we'll set it up.",
   },
   {
-    q: "Do you offer 24/7 emergency service?",
-    a: `Yes. AC failures in Las Vegas can't wait, so we're available 24/7 — including nights, weekends and holidays. Call ${site.phone}.`,
+    q: "Do you offer same-day service?",
+    a: `In most of the Las Vegas valley, yes, depending on demand during heat waves. We put no-cooling calls first, and there's no after-hours, weekend or holiday surcharge. Call ${site.phone}.`,
+  },
+  {
+    q: "How much is a repair visit?",
+    a: "Repair visits start with an $89 diagnostic. On weekdays (Mon–Fri, 7am–6pm), if you approve the repair during the visit, the $89 is waived. Nights, weekends and holidays cost the same as weekdays. Our vans carry the most common parts, so many repairs are done on the first visit, and you get the price before any work starts.",
   },
   {
     q: "Are you licensed and insured?",
@@ -186,7 +190,7 @@ export const faqs = [
   },
   {
     q: "Should I repair or replace my AC?",
-    a: "It depends on your system's age, the cost of the repair and how much you're spending to run it. If an older system needs frequent or costly repairs, replacement is often the better value. We'll give you honest advice either way — if it's a simple fix, we'll tell you.",
+    a: "Most of the time, repair. If your system is under 15 years old and the repair is a common one like a capacitor, contactor or fan motor, fixing it is the better value. On a system over 15 years old, once a repair reaches about $2,000, or the compressor has burned out, replacing usually makes more sense. We'll give you honest advice either way.",
   },
   {
     q: "How often should my HVAC system be serviced?",
@@ -218,11 +222,11 @@ export const replacementFaqs = [
   },
   {
     q: "Do you replace the whole system or just one unit?",
-    a: "We replace the full system, indoor and outdoor, so every part is matched and works together. Mixing old and new parts can wear the system out faster and cause warranty problems.",
+    a: "Usually the whole system, indoor and outdoor, so every part is matched. We can replace just one unit when the new part matches your system's refrigerant and the equipment is available. Refrigerants have changed (R-22, then R-410A, now R-32 and R-454B), so we check that at your visit before we quote it.",
   },
   {
     q: "Can you give me a price over the phone?",
-    a: "We size every system to your home, so we come out to measure first: square footage, windows, insulation and sun exposure. That's how you get a number that's actually right. For a rough idea before we visit, try our AC Replacement Cost Estimator.",
+    a: "Our estimate form gives you a range in about a minute, from $9,800 for a complete system in a smaller home. For an exact quote we come out and look: your ductwork was built for a certain size of system, so we match it, and we check access, electrical and refrigerant before we put a number in writing.",
   },
   {
     q: "Will you make a mess in my house?",
@@ -230,7 +234,7 @@ export const replacementFaqs = [
   },
   {
     q: "How long does a replacement take?",
-    a: "Most replacements take about a full day. We'll tell you what to expect for your home when we come out for the assessment.",
+    a: "Most replacements take about a full day, and we can often install as early as the same day you say yes. We'll tell you what to expect for your home when we come out for the assessment.",
   },
   {
     q: "What safety checks do you do?",
@@ -238,7 +242,7 @@ export const replacementFaqs = [
   },
   {
     q: "How do I know if I should repair or replace?",
-    a: "If your system is over 12 years old, needs repairs every summer, or your bills keep climbing, replacement usually makes more sense. Older R-22 systems also get more expensive to recharge every year. We'll show you the numbers and you decide. If a repair makes more sense, we'll tell you.",
+    a: "If your system is over 15 years old and needs a repair of about $2,000 or more, replacement usually makes more sense. A burned-out compressor or a refrigerant leak in a spot we can't reach usually means replace too. Older R-22 systems get more expensive to repair every year as parts and refrigerant get harder to find. We'll show you the numbers and you decide. If a repair makes more sense, we'll tell you.",
   },
   {
     q: "What should I have ready when I call?",
@@ -246,7 +250,7 @@ export const replacementFaqs = [
   },
   {
     q: "Can I pay monthly?",
-    a: "Yes. Financing is available with approved credit. Ask us for the monthly payment along with the total, and we'll show you both side by side.",
+    a: "Yes. Financing is available with approved credit on jobs of $1,500 or more, from about $114 a month for every $10,000 financed. We'll show you the monthly payment and the total side by side.",
   },
 ];
 

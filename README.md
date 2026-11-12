@@ -69,9 +69,9 @@ SEO built in: per-page title/description/canonical/Open Graph, JSON-LD (`HVACBus
 ## Launch checklist
 
 **Confirm with Wave before going live**
-- [ ] `lib/tools/pricing.ts` — **all cost-estimator prices and financing terms are placeholders**
+- [x] `lib/estimate/config.ts` — estimate form and cost estimator prices, from the tech questionnaire (Nov 2026). Update quarterly.
 - [ ] `lib/content/company.ts` — current specials and the referral reward amount
-- [ ] Ratings (Google 5.0, Facebook 5.0, Yelp 4.8), "24/7", "family-owned", Wave Club pricing ($150/$140)
+- [ ] Ratings (Google 5.0, Facebook 5.0, Yelp 4.8), business hours (Wave is not 24/7; same-day only), "family-owned", Wave Club pricing ($150/$140)
 - [ ] Service-page and city-page copy — read through once for accuracy
 - [ ] Privacy Policy & Terms — have someone review them
 

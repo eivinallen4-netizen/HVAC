@@ -6,7 +6,9 @@
 import {
   ageMessages,
   compareBox,
+  DUCTED,
   fees,
+  financing,
   priceList,
   questions,
   repairByProblem,
@@ -15,12 +17,13 @@ import {
   replacementText,
   resultText,
   safety,
+  UNSURE_LIMIT,
+  unsureText,
   urgency,
   zips,
   type Age,
+  type Ducts,
   type Help,
-  type History,
-  type Location,
   type Price,
   type PriceKey,
   type Problem,
@@ -29,15 +32,13 @@ import {
   type Size,
   type System,
   type Systems,
-  type Tons,
   type Working,
-  type Zones,
 } from "./config.ts";
 
 export type StepId =
   | "help" | "system" | "age"
-  | "problem" | "working" | "history"
-  | "size" | "location" | "scope" | "zones"
+  | "problem" | "working"
+  | "size" | "scope" | "ducts"
   | "systems" | "zip";
 
 export type Answers = Partial<{
@@ -46,27 +47,26 @@ export type Answers = Partial<{
   age: Age;
   problem: Problem;
   working: Working;
-  history: History;
   size: Size;
-  location: Location;
   scope: Scope;
-  zones: Zones;
+  ducts: Ducts;
   systems: Systems;
   zip: string;
 }>;
 
 /* ─────────────────────────── Routing ─────────────────────────── */
-export const wantsRepair = (a: Answers) => a.help === "repair" || a.help === "unsure" || a.help === "compare";
+export const wantsRepair = (a: Answers) => a.help === "repair" || a.help === "compare";
 export const wantsReplace = (a: Answers) => a.help === "replace" || a.help === "compare";
 
 /** Ordered steps for the current answers */
 export function route(a: Answers): StepId[] {
   const steps: StepId[] = ["help", "system", "age"];
-  // Before Q1 is answered, count the repair path so the progress bar starts at "1 of 8"
-  if (!a.help || wantsRepair(a)) steps.push("problem", "working", "history");
+  // Before Q1 is answered, count the repair path so the progress bar starts at "1 of 7"
+  if (!a.help || wantsRepair(a)) steps.push("problem", "working");
   if (wantsReplace(a)) {
-    steps.push("size", "location", "scope");
-    if (a.system === "minisplit") steps.push("zones");
+    // Mini-splits are ductless and priced by indoor unit, so skip home size and ducts
+    if (a.system === "minisplit") steps.push("scope");
+    else steps.push("size", "scope", "ducts");
   }
   steps.push("systems", "zip");
   return steps;
@@ -77,9 +77,15 @@ export function nextStep(a: Answers): StepId | null {
   return route(a).find((s) => !a[s]) ?? null;
 }
 
+/** How many of the questions asked were answered "Not sure" */
+export const unsureCount = (a: Answers) => route(a).filter((s) => a[s] === "unsure").length;
+const tooUnsure = (a: Answers) => unsureCount(a) >= UNSURE_LIMIT;
+
 /* ─────────────────────────── Formatting ─────────────────────────── */
 export const money = (n: number) => `$${Math.round(n).toLocaleString("en-US")}`;
-export const rangeText = (r: Range) => (r.low === r.high ? money(r.low) : `${money(r.low)}–${money(r.high)}`);
+/** "$254–$829", or "$9,800–$14,500+" when the high end is open */
+export const rangeText = (r: Range, plus = false) =>
+  (r.low === r.high ? money(r.low) : `${money(r.low)}–${money(r.high)}`) + (plus ? "+" : "");
 
 export function priceText(p: Price): string {
   if (p === "visit") return "priced at your visit";
@@ -94,6 +100,12 @@ export const itemText = (k: PriceKey) => `${priceList[k].label} (${priceText(pri
 /** A range we're allowed to show: real numbers, above $0, low ≤ high */
 export const validRange = (r: Range | null | undefined): r is Range =>
   !!r && Number.isFinite(r.low) && Number.isFinite(r.high) && r.low > 0 && r.high >= r.low;
+
+/** Monthly payment on the HIGH end of a range, or null below the financing minimum */
+export function monthlyFor(r: Range): number | null {
+  if (r.high < financing.minimum) return null;
+  return Math.ceil((r.high * financing.per10k) / 10000);
+}
 
 /* ─────────────────────────── Repair estimate ─────────────────────────── */
 export type RepairResult = {
@@ -120,6 +132,9 @@ export function repairEstimate(a: Answers): RepairResult | null {
     };
   }
   const rule = repairByProblem[a.problem];
+  if (tooUnsure(a)) {
+    return { range: null, message: unsureText.repair, likely: rule.likely, lessCommon: [], confirm: repairText.confirm };
+  }
   const extra = a.system === "heatpump" ? rule.heatPumpExtra ?? [] : [];
   return {
     range: validRange(rule.range) ? rule.range : null,
@@ -133,64 +148,64 @@ export function repairEstimate(a: Answers): RepairResult | null {
 /* ─────────────────────────── Replacement estimate ─────────────────────────── */
 export type ReplacementResult = {
   range: Range | null;
+  /** Show "+" after the high end */
+  plus: boolean;
   /** Shown instead of a range */
   message?: string;
-  /** Refrigerant note for outdoor-only / indoor-only */
-  partialNote?: string;
+  /** Small notes under the range or message */
+  notes: string[];
+  /** "Or about $182/mo with approved credit" */
+  monthly?: string;
+  /** Separate duct replacement line (not added to the total) */
+  ductLine?: string;
 };
 
-const add = (a: Range, b: Range): Range => ({ low: a.low + b.low, high: a.high + b.high });
-
-function systemsFactor(s: Systems | undefined) {
-  if (s === "1") return { lowFactor: 1, highFactor: 1 };
-  if (s === "2") return replacement.extraSystems.two;
-  if (s === "3plus") return replacement.extraSystems.threePlus;
-  return null; // not answered or "Not sure"
-}
-
-function rawReplacement(a: Answers): Range | null {
-  const { system, size, location, scope, zones } = a;
-  if (!system || system === "unsure" || !scope || scope === "unsure") return null;
-
-  let price: Range | null = null;
-  if (system === "minisplit") {
-    // Mini-splits are priced by indoor unit. Partial mini-split jobs are priced at the visit.
-    if (scope !== "complete" || !zones || zones === "unsure" || zones === "4plus") return null;
-    const first = replacement.miniSplit.singleZone;
-    const each = replacement.miniSplit.addedZone;
-    const extra = Number(zones) - 1;
-    if (!validRange(first)) return null;
-    if (extra > 0 && !(each && each.low >= 0 && each.high >= each.low)) return null;
-    price = extra > 0 ? { low: first.low + each!.low * extra, high: first.high + each!.high * extra } : first;
-  } else {
-    if (!size || size === "unsure") return null;
-    const tons: Tons | null = replacement.sizeMap[size];
-    if (!tons) return null;
-    price = scope === "complete" ? replacement.systemPrice[system][tons] : replacement.partialPrice[scope][tons];
-    if (!validRange(price)) return null;
-    if (replacement.locationAdderAppliesTo.includes(scope)) {
-      if (!location || location === "unsure") return null;
-      const adder = replacement.locationAdder[location];
-      if (!adder || adder.low < 0 || adder.high < adder.low) return null;
-      price = add(price, adder);
-    }
-  }
-
-  const f = systemsFactor(a.systems);
-  if (!f || !(f.lowFactor > 0) || !(f.highFactor > 0)) return null;
-  const total = { low: Math.round(price.low * f.lowFactor), high: Math.round(price.high * f.highFactor) };
-  return validRange(total) ? total : null;
+/** Complete-system price for one system, before the number of systems */
+function oneSystem(a: Answers): Range | null {
+  const { system } = a;
+  if (!system) return null;
+  if (system === "minisplit") return replacement.miniSplitSingleZone;
+  const size = !a.size || a.size === "unsure" ? replacement.unsureSize : a.size;
+  const bands = replacement.sizeBands[size];
+  const types = system === "unsure" ? DUCTED : [system];
+  const low = Math.min(...types.map((t) => replacement.bandPrice[bands.low][t].low));
+  const high = Math.max(...types.map((t) => replacement.bandPrice[bands.high][t].high));
+  return { low, high };
 }
 
 export function replacementEstimate(a: Answers): ReplacementResult | null {
   if (!wantsReplace(a)) return null;
-  const range = rawReplacement(a);
+  const notes: string[] = [];
   const partial = a.scope === "outdoor" || a.scope === "indoor";
-  return {
-    range,
-    message: range ? undefined : replacementText.visitMessage,
-    partialNote: partial ? replacementText.partialNote : undefined,
-  };
+
+  // Duct line: shown whenever the customer says the ducts are old or damaged
+  let ductLine: string | undefined;
+  if (a.ducts === "old" && a.system !== "minisplit") {
+    const size = !a.size || a.size === "unsure" ? replacement.unsureSize : a.size;
+    const d = replacement.ductPrice[size];
+    ductLine = validRange(d) ? replacementText.ductLine(rangeText(d)) : replacementText.ductVisit;
+  }
+
+  if (tooUnsure(a)) return { range: null, plus: false, message: unsureText.replacement, notes, ductLine };
+  if (partial) {
+    return { range: null, plus: false, message: replacementText.partialMessage, notes: [replacementText.partialNote], ductLine };
+  }
+  if (a.scope !== "complete") return { range: null, plus: false, message: replacementText.visitMessage, notes, ductLine };
+
+  const one = oneSystem(a);
+  const factor = replacement.systemsFactor[a.systems ?? "1"];
+  if (!validRange(one) || !(factor > 0)) {
+    return { range: null, plus: false, message: replacementText.visitMessage, notes, ductLine };
+  }
+  const range = { low: Math.round(one.low * factor), high: Math.round(one.high * factor) };
+
+  if (a.system === "minisplit") notes.push(replacementText.miniSplitNote);
+  if (a.size === "gt2300") notes.push(replacementText.bigHomeNote);
+  if (factor > 1) notes.push(replacementText.perSystemNote(factor));
+  if (a.systems === "3plus") notes.push(replacementText.threePlusNote);
+
+  const m = monthlyFor(range);
+  return { range, plus: true, notes, monthly: m ? financing.line(money(m)) : undefined, ductLine };
 }
 
 /* ─────────────────────────── Other result pieces ─────────────────────────── */
@@ -206,8 +221,7 @@ export function zipStatus(zip: string | undefined): ZipStatus {
 /** "Compare with replacement" box on repair-only results */
 export function showCompareBox(a: Answers): boolean {
   if (wantsReplace(a) || !wantsRepair(a) || !a.age) return false;
-  if (compareBox.alwaysForAges.includes(a.age)) return true;
-  return compareBox.agesWithHistory.includes(a.age) && !!a.history && compareBox.history.includes(a.history);
+  return compareBox.forAges.includes(a.age);
 }
 
 export const ageMessage = (a: Answers) => (a.age ? ageMessages[a.age] : null);
@@ -245,17 +259,20 @@ export function estimateText(a: Answers): string {
     lines.push(`${repairText.heading}: ${r.range ? rangeText(r.range) : [r.message, r.messageSub].filter(Boolean).join(" ")}`);
     if (r.likely.length) lines.push(`${repairText.likelyLabel}: ${r.likely.join(", ")}`);
     if (r.lessCommon.length) lines.push(`${repairText.lessCommonLabel}: ${r.lessCommon.join(", ")}`);
+    lines.push(resultText.finePrintRepair);
   }
   const n = replacementEstimate(a);
   if (n) {
-    lines.push(`${replacementText.heading}: ${n.range ? rangeText(n.range) : n.message}`);
-    if (n.partialNote) lines.push(n.partialNote);
+    lines.push(`${replacementText.heading}: ${n.range ? rangeText(n.range, n.plus) : n.message}`);
+    if (n.monthly) lines.push(n.monthly);
+    lines.push(...n.notes);
+    if (n.ductLine) lines.push(n.ductLine);
+    lines.push(resultText.finePrintReplace);
   }
   if (r) lines.push(`${fees.diagnosticTitle}. ${fees.diagnosticLines.join(" ")}`);
   if (showCompareBox(a)) lines.push(`Shown: ${compareBox.title}`);
   const z = zipStatus(a.zip);
   lines.push(`ZIP ${a.zip ?? "?"}: ${z === "in" ? "in service area" : "outside usual area (customer told to call)"}`);
-  lines.push(resultText.finePrint);
   return lines.join("\n");
 }
 
