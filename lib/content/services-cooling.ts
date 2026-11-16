@@ -12,7 +12,7 @@ export const coolingServices: ServicePage[] = [
     h1: "AC Repair & Service in Las Vegas — Fast, Honest & Done Right the First Time",
     kicker: "Air conditioning repair",
     intro:
-      "When it's 110° outside, a broken AC isn't an inconvenience — it's an emergency. Wave Heating & Cooling diagnoses and repairs every make and model of central air conditioner and heat pump across the Las Vegas valley, with experienced technicians (most of them NATE-certified) out the same day most of the time and straight answers about what your system actually needs.",
+      "When it's 110° outside, a broken AC isn't an inconvenience — it's an emergency. Wave Heating & Cooling diagnoses and repairs every make and model of central air conditioner and heat pump across the Las Vegas valley, with experienced technicians (including NATE-certified techs on staff) out the same day most of the time and straight answers about what your system actually needs.",
     summary: "Warm air, strange noises, or an AC that won't kick on? We find the real problem and fix it right the first time.",
     img: "/images/svc-ac-repair.jpg",
     icon: "wrench",
@@ -66,7 +66,7 @@ export const coolingServices: ServicePage[] = [
         cards: [
           { t: "Honest diagnosis", d: "You see what we see. No scare tactics, no pressure to replace a system that just needs a part." },
           { t: "Fair, local pricing", d: "No corporate overhead or franchise fees — just competitive pricing from a family-owned company." },
-          { t: "Experienced, certified techs", d: "NATE-certified techs on staff and low employee turnover mean consistent, high-quality work." },
+          { t: "Experienced techs", d: "NATE-certified techs on staff and low employee turnover mean consistent, high-quality work." },
           { t: "Here when it breaks", d: "Heat waves don't wait. Most of the time we can get a tech out the same day." },
         ],
       },

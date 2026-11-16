@@ -12,7 +12,7 @@ export const heatingServices: ServicePage[] = [
     h1: "Furnace & Heating Repair in Las Vegas — Gas, Electric & Heat Pumps",
     kicker: "Furnace & heat pump repair",
     intro:
-      "Las Vegas winters are mild by day, but desert nights regularly drop near freezing — and that's when a failed furnace or heat pump becomes a real problem. Wave Heating & Cooling repairs gas furnaces, electric furnaces and heat pumps of every brand, with experienced technicians (most of them NATE-certified) out the same day most of the time.",
+      "Las Vegas winters are mild by day, but desert nights regularly drop near freezing — and that's when a failed furnace or heat pump becomes a real problem. Wave Heating & Cooling repairs gas furnaces, electric furnaces and heat pumps of every brand, with experienced technicians (including NATE-certified techs on staff) out the same day most of the time.",
     summary: "Furnace and heat pump repair so cold desert nights stay comfortable.",
     img: "/images/svc-heating.jpg",
     icon: "flame",
@@ -330,7 +330,7 @@ export const heatingServices: ServicePage[] = [
     kicker: "Year-round comfort",
     intro:
       "A heat pump cools your home all summer and heats it all winter with a single outdoor unit — and in Las Vegas' mild winters, it does it very efficiently. Wave Heating & Cooling repairs, maintains and installs heat pumps of every major brand.",
-    summary: "One efficient system for heating and cooling — repaired, maintained and installed by certified techs.",
+    summary: "One efficient system for heating and cooling — repaired, maintained and installed by experienced techs.",
     img: "/images/svc-heating.jpg",
     icon: "unit",
     pick: "Heat not working",

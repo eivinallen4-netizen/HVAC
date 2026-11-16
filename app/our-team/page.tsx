@@ -9,7 +9,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Our Team | Las Vegas HVAC Technicians | Wave Heating & Cooling",
   description:
-    "Meet the family-owned team behind Wave Heating & Cooling: Las Vegas HVAC technicians, most of them NATE-certified, who treat your home like their own.",
+    "Meet the family-owned team behind Wave Heating & Cooling: Las Vegas HVAC technicians, with NATE-certified techs on staff, who treat your home like their own.",
   path: "/our-team/",
 });
 
@@ -23,7 +23,7 @@ export default function TeamPage() {
         ]}
         kicker="The people behind Wave"
         h1="Meet the Wave Team"
-        intro="Family-owned means the owners stand behind every job — and our technicians are trained, certified and committed to doing it right."
+        intro="Family-owned means the owners stand behind every job — and our technicians are trained and committed to doing it right."
         form={false}
         img="/images/crew.jpg"
         variant="split"
@@ -43,7 +43,7 @@ export default function TeamPage() {
           </div>
           <BadgeCard
             items={[
-              { t: "NATE-certified", d: "Most of our techs hold NATE certification in heating, cooling and air quality systems." },
+              { t: "Every brand, every system", d: "Furnaces, heat pumps and central AC of every make found in Las Vegas homes." },
               { t: "Licensed, bonded & insured", d: "Nevada license #0086052 — full peace of mind every time we're in your home." },
               { t: "Clear communication", d: "You'll see what we see and get your options and pricing before work begins." },
               { t: "Clean, careful work", d: "On time, respectful of your home, and we leave the work area spotless." },

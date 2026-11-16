@@ -282,7 +282,7 @@ export function Difference() {
 /* ═════════════════════════ WHY WAVE ═════════════════════════ */
 const why = [
   { icon: "home", t: "Family owned and operated", d: "We treat you like family and your home like ours." },
-  { icon: "award", t: "NATE-certified techs", d: "Most of our team is NATE-certified — pros who know HVAC inside and out." },
+  { icon: "award", t: "NATE-certified techs on staff", d: "Experienced pros who know HVAC inside and out, with NATE-certified techs on the team." },
   { icon: "tag", t: "Honest advice", d: "If it's a simple fix, we'll tell you. If it's time to replace, we'll show you why." },
   { icon: "clock", t: "Here when it breaks", d: "Heat waves don't wait, so most of the time we get a tech out the same day." },
   { icon: "shield", t: "Licensed, bonded & insured", d: `Nevada license ${site.license} for total peace of mind.` },
@@ -326,12 +326,12 @@ export function WhyWave({ variant = "bento" }: { variant?: "bento" | "ledger" } 
             </span>
             <h3>Trained for Nevada&apos;s harshest conditions</h3>
             <p>
-              Most Wave technicians are NATE-certified, and every one works on homes built for triple-digit summers and cold desert
+              Wave has NATE-certified techs on staff, and every technician works on homes built for triple-digit summers and cold desert
               nights. Our owner is still in the field on install days and service calls, making sure every job runs smoothly from
               start to finish.
             </p>
             <ul className="inline-checks">
-              <li><Icon name="check" size={16} /> NATE-Certified Techs</li>
+              <li><Icon name="check" size={16} /> NATE-Certified Techs on Staff</li>
               <li><Icon name="check" size={16} /> Licensed &amp; Bonded</li>
               <li><Icon name="check" size={16} /> Fully Insured</li>
             </ul>
@@ -394,12 +394,12 @@ function WhyLedger() {
             </span>
             <h3>Trained for Nevada&apos;s harshest conditions</h3>
             <p>
-              Most Wave technicians are NATE-certified, and every one works on homes built for triple-digit summers and cold desert
+              Wave has NATE-certified techs on staff, and every technician works on homes built for triple-digit summers and cold desert
               nights. Our owner is still in the field on install days and service calls, making sure every job runs smoothly from
               start to finish.
             </p>
             <ul className="inline-checks">
-              <li><Icon name="check" size={16} /> NATE-Certified Techs</li>
+              <li><Icon name="check" size={16} /> NATE-Certified Techs on Staff</li>
               <li><Icon name="check" size={16} /> Licensed &amp; Bonded</li>
               <li><Icon name="check" size={16} /> Fully Insured</li>
             </ul>

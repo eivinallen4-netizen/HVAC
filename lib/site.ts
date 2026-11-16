@@ -199,7 +199,7 @@ export const faqs = [
   },
   {
     q: "Are you licensed and insured?",
-    a: `Absolutely. Wave Heating & Cooling is licensed, bonded and insured in Nevada (license ${site.license}), and most of our technicians are NATE-certified.`,
+    a: `Absolutely. Wave Heating & Cooling is licensed, bonded and insured in Nevada (license ${site.license}), and we have NATE-certified techs on staff.`,
   },
   {
     q: "Should I repair or replace my AC?",
