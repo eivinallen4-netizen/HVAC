@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { estimateSavings, seerFromAge, type ESInput } from "@/lib/tools/energySavings";
+import { NoThanks } from "../Cta";
 import { Icon } from "../Icon";
 import { ChoiceStep, Gate, money, NumberStep, ResultCtas, ToolCard } from "./ToolUI";
 
@@ -123,13 +124,12 @@ export function SavingsTool() {
               <p className="table-note">
                 Estimates based on typical Las Vegas usage and NV Energy rates. Actual savings vary with your home, habits and rates.
               </p>
-              <ResultCtas
-                service={r.upgradePremium > r.tuneUp * 2 ? "New system / replacement estimate" : "Maintenance / tune-up"}
-                primary={r.upgradePremium > r.tuneUp * 2 ? "Book an Upgrade Estimate" : "Book a Tune-Up"}
+              <ResultCtas service={r.upgradePremium > r.tuneUp * 2 ? "New system / replacement estimate" : "Maintenance / tune-up"} />
+              <NoThanks
+                pick={r.upgradePremium > r.tuneUp * 2 ? "New system / replacement estimate" : "Maintenance / tune-up"}
+                location="savings-calculator"
+                onClick={() => setStep(1)}
               />
-              <button type="button" className="tool-back" onClick={() => setStep(1)}>
-                Start over
-              </button>
             </>
           ) : (
             <Gate

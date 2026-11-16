@@ -45,7 +45,7 @@ export function HeaderClient({ menus }: { menus: NavMenu[] }) {
         <Link className="logo" href="/" aria-label={`${site.name} home`}>
           <Image src="/images/logo-light.png" alt={site.name} width={190} height={57} priority className="logo-on-dark" />
           <Image src="/images/logo-dark.png" alt="" width={190} height={57} priority className="logo-on-light" />
-          <span className="logo-lic">NV Lic {site.license}</span>
+          <span className="logo-lic">NV license {site.license}</span>
         </Link>
 
         <nav className="main-nav" aria-label="Main">
@@ -97,7 +97,9 @@ export function HeaderClient({ menus }: { menus: NavMenu[] }) {
 
         <div className="hdr-cta">
           <BookNowLink className="btn btn-ghost btn-hdr btn-book" location="header">
-            Book<span className="hide-xs">&nbsp;Now</span>
+            <span>
+              Repair<span className="hide-xs"> my AC</span>
+            </span>
           </BookNowLink>
           <CallLink className="btn btn-red btn-hdr" location="header">
             <span className="hide-xs">{site.phone}</span>
@@ -143,9 +145,7 @@ export function HeaderClient({ menus }: { menus: NavMenu[] }) {
             </Link>
           )
         )}
-        <BookNowLink className="btn btn-red btn-block m-cta" location="mobile-nav">
-          Book Now
-        </BookNowLink>
+        <BookNowLink className="btn btn-red btn-block m-cta" location="mobile-nav" />
       </div>
     </header>
   );

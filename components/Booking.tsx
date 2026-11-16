@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { ctaFor } from "@/lib/ctas";
 import { site } from "@/lib/site";
 import { track } from "@/lib/track";
 import { Icon } from "./Icon";
@@ -113,13 +114,16 @@ export function BookingEmbed({
 
 /** Button/link that sends the visitor to the Housecall Pro booking page */
 export function BookNowLink({
-  children = "Book Now",
+  children,
+  pick,
   className = "btn btn-red",
   location,
   icon = true,
   newTab = false,
 }: {
   children?: React.ReactNode;
+  /** Service context for the default outcome label (see lib/ctas.ts) */
+  pick?: string;
   className?: string;
   location: string;
   icon?: boolean;
@@ -132,8 +136,8 @@ export function BookNowLink({
       {...(newTab ? { target: "_blank", rel: "noopener" } : {})}
       onClick={() => track("book_click", { location })}
     >
-      {icon && <Icon name="cal" size={20} />}
-      {children}
+      {icon && <Icon name="cal" size={18} />}
+      {children ?? ctaFor(pick).cta}
     </a>
   );
 }

@@ -8,11 +8,11 @@ export const heatingServices: ServicePage[] = [
     name: "Heating Repair",
     title: "Heating & Furnace Repair Las Vegas | Wave Heating & Cooling",
     description:
-      "Furnace and heat pump repair in Las Vegas. No heat, cold air, odd noises or a short-cycling heater — NATE-certified techs, same-day service. Call (702) 881-4713.",
+      "Furnace and heat pump repair in Las Vegas. No heat, cold air, odd noises or a short-cycling heater — NATE-certified techs on staff, same-day service. Call (702) 881-4713.",
     h1: "Furnace & Heating Repair in Las Vegas — Gas, Electric & Heat Pumps",
     kicker: "Furnace & heat pump repair",
     intro:
-      "Las Vegas winters are mild by day, but desert nights regularly drop near freezing — and that's when a failed furnace or heat pump becomes a real problem. Wave Heating & Cooling repairs gas furnaces, electric furnaces and heat pumps of every brand, with NATE-certified technicians out the same day in most of the valley.",
+      "Las Vegas winters are mild by day, but desert nights regularly drop near freezing — and that's when a failed furnace or heat pump becomes a real problem. Wave Heating & Cooling repairs gas furnaces, electric furnaces and heat pumps of every brand, with experienced technicians (most of them NATE-certified) out the same day most of the time.",
     summary: "Furnace and heat pump repair so cold desert nights stay comfortable.",
     img: "/images/svc-heating.jpg",
     icon: "flame",
@@ -217,7 +217,7 @@ export const heatingServices: ServicePage[] = [
         list: [
           "Sizing matched to your ductwork, and equipment recommendations",
           "Permit pulled on every replacement, so the county inspects the install too",
-          "Booties, floor padding and plastic over walls, closets and beds to protect your home",
+          "Booties, protective tarp from the entrance to the indoor unit and plastic over walls, closets and beds to protect your home",
           "Removal and disposal of old equipment",
           "Venting, gas line and electrical updates as needed",
           "Combustion analysis and carbon monoxide testing on gas systems",
@@ -260,7 +260,7 @@ export const heatingServices: ServicePage[] = [
     name: "Heating Maintenance",
     title: "Furnace Tune-Up & Heating Maintenance Las Vegas | Wave",
     description:
-      "Fall furnace and heat pump tune-ups in Las Vegas: safety checks, CO testing and efficiency cleaning by NATE-certified techs. Call (702) 881-4713.",
+      "Fall furnace and heat pump tune-ups in Las Vegas: safety checks, CO testing and efficiency cleaning by a team with NATE-certified techs. Call (702) 881-4713.",
     h1: "Heating Maintenance & Furnace Tune-Ups in Las Vegas",
     kicker: "Fall tune-ups",
     intro:
@@ -269,7 +269,7 @@ export const heatingServices: ServicePage[] = [
     img: "/images/svc-maintenance.jpg",
     icon: "gauge",
     pick: "Maintenance / tune-up",
-    highlights: ["Carbon monoxide testing", "Burner & heat exchanger inspection", "Heat pump defrost check", "Included in Wave Club"],
+    highlights: ["Carbon monoxide testing", "Burner & heat exchanger inspection", "Heat pump defrost check", "Written report of findings"],
     sections: [
       {
         h2: "What's Included in a Heating Tune-Up",
@@ -295,10 +295,9 @@ export const heatingServices: ServicePage[] = [
         ],
       },
       {
-        h2: "Save With Wave Club",
-        kind: "club",
+        h2: "Pair It With a Spring AC Tune-Up",
         body: [
-          "Wave Club members get both a spring AC tune-up and a fall heating tune-up every year, plus 15% off repairs, priority service and extended warranty coverage. [See all Wave Club benefits](/hvac-maintenance-las-vegas/).",
+          "A fall heating check and a spring [AC tune-up](/ac-maintenance-in-las-vegas/) cover your system for the whole year. See how the two visits fit together on our [HVAC maintenance](/hvac-maintenance-las-vegas/) page.",
         ],
       },
     ],
@@ -326,7 +325,7 @@ export const heatingServices: ServicePage[] = [
     name: "Heat Pump Services",
     title: "Heat Pump Repair & Installation Las Vegas | Wave",
     description:
-      "Heat pump repair, replacement and installation in Las Vegas. Efficient year-round heating and cooling from NATE-certified techs. Call (702) 881-4713.",
+      "Heat pump repair, replacement and installation in Las Vegas. Efficient year-round heating and cooling from a team with NATE-certified techs. Call (702) 881-4713.",
     h1: "Heat Pump Repair & Installation in Las Vegas",
     kicker: "Year-round comfort",
     intro:

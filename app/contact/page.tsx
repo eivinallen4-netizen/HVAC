@@ -1,6 +1,6 @@
 import { JsonLd } from "@/components/JsonLd";
 import { PageHero } from "@/components/page/PageHero";
-import { Faq, Reviews, SecHead, TrustBar } from "@/components/Sections";
+import { Faq, Reviews, SecHead, TrustBar, ValleyMap } from "@/components/Sections";
 import { CallLink, TextLink } from "@/components/Cta";
 import { Icon } from "@/components/Icon";
 import { buildMetadata, faqLd } from "@/lib/seo";
@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Contact Wave Heating & Cooling | Las Vegas HVAC | (702) 881-4713",
   description:
-    "Contact Wave Heating & Cooling for AC repair, heating, installs or an estimate. Call or text (702) 881-4713 or book online. Same-day visits in most of the valley.",
+    "Contact Wave Heating & Cooling for AC repair, heating, installs or an estimate. Call or text (702) 881-4713 or book online. Same-day visits most of the time.",
   path: "/contact/",
 });
 
@@ -42,7 +42,7 @@ export default function ContactPage() {
                 </span>
                 <div>
                   <h3>Call or text</h3>
-                  <p>Same-day visits in most of the valley</p>
+                  <p>Same-day visits most of the time</p>
                 </div>
                 <CallLink className="cl-phone" location="contact-page" icon={false} />
               </li>
@@ -51,7 +51,7 @@ export default function ContactPage() {
                   <Icon name="chat" size={22} />
                 </span>
                 <div>
-                  <h3>Text Us</h3>
+                  <h3>Text us</h3>
                   <p>Send a photo of your unit or issue</p>
                 </div>
                 <TextLink className="cl-phone" location="contact-page">
@@ -74,12 +74,7 @@ export default function ContactPage() {
               </li>
             </ul>
             <div className="map-frame sb-map" data-reveal>
-              <iframe
-                title="Map to Wave Heating & Cooling"
-                src={`https://www.google.com/maps?q=${encodeURIComponent(`${site.name} ${site.address.street} ${site.address.city} ${site.address.state}`)}&output=embed`}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+              <ValleyMap />
             </div>
           </div>
         </div>

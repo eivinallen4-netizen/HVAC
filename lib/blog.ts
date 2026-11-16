@@ -111,6 +111,6 @@ export const postPromo: Record<string, { tool: string; service: string; serviceN
   "Indoor Air Quality": { tool: "ac-symptom-checker", service: "/indoor-air-quality-las-vegas/", serviceName: "Indoor air quality" },
   "Smart Home & Efficiency": { tool: "energy-savings-calculator", service: "/indoor-air-quality-las-vegas/", serviceName: "Smart thermostats & zoning" },
   "Buying a System": { tool: "repair-or-replace-calculator", service: "/ac-replacement-in-las-vegas/", serviceName: "AC replacement" },
-  Maintenance: { tool: "energy-savings-calculator", service: "/hvac-maintenance-las-vegas/", serviceName: "Wave Club maintenance" },
+  Maintenance: { tool: "energy-savings-calculator", service: "/hvac-maintenance-las-vegas/", serviceName: "HVAC maintenance" },
   "Beating the Heat": { tool: "ac-symptom-checker", service: "/emergency-ac-repair-las-vegas/", serviceName: "emergency AC repair" },
 };

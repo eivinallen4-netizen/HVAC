@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { Breadcrumbs } from "@/components/page/Breadcrumbs";
 import { CtaBand, ToolCards } from "@/components/page/Cards";
 import { FinalCta } from "@/components/Sections";
+import { BookNowLink } from "@/components/Booking";
 import { CallLink } from "@/components/Cta";
 import { Icon } from "@/components/Icon";
 import { getAllPosts, getPost, postPromo, relatedPosts } from "@/lib/blog";
@@ -83,11 +84,9 @@ export default async function PostPage({ params }: Props) {
             )}
             <div className="side-cta rail-cta">
               <strong>Need help now?</strong>
-              <p>Wave&apos;s NATE-certified techs offer same-day service across most of the Las Vegas valley.</p>
+              <p>Wave offers same-day service most of the time, with NATE-certified techs on the team.</p>
               <CallLink className="btn btn-red btn-block" location="blog-side" />
-              <Link href="/contact/" className="btn btn-ghost btn-block">
-                Book Now
-              </Link>
+              <BookNowLink className="btn btn-ghost btn-block" location="blog-side" />
             </div>
             {tool && (
               <Link href={`/tools/${tool.slug}/`} className="side-tool rail-tool">

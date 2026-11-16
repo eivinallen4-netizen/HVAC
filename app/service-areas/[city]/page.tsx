@@ -43,7 +43,7 @@ export default async function AreaPage({ params }: Props) {
         kicker={`Serving ${a.full}`}
         h1={a.h1}
         intro={a.intro}
-        highlights={["Family-owned & local", "NATE-certified technicians", "Same-day service", "Upfront, written pricing"]}
+        highlights={["Family-owned & local", "NATE-certified techs on staff", "Same-day service", "Upfront, written pricing"]}
       />
       <TrustBar />
 
@@ -58,7 +58,7 @@ export default async function AreaPage({ params }: Props) {
               Whatever your home needs — <Link href="/hvac-repairs-in-las-vegas/">AC repair</Link>,{" "}
               <Link href="/hvac-heating-repair-in-las-vegas/">heating repair</Link>, a{" "}
               <Link href="/ac-replacement-in-las-vegas/">new system</Link> or a{" "}
-              <Link href="/hvac-maintenance-las-vegas/">maintenance plan</Link> — you&apos;ll get a NATE-certified
+              <Link href="/hvac-maintenance-las-vegas/">seasonal tune-up</Link> — you&apos;ll get an experienced
               technician, honest recommendations and fair, local pricing from a family-owned company.
             </p>
           </div>

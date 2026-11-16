@@ -4,7 +4,26 @@ import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
 import { Icon } from "./Icon";
 
-export function BeforeAfter({ before, after }: { before: string; after: string }) {
+export type BeforeAfterPair = {
+  before: string;
+  after: string;
+  /** Short label for the job, e.g. "Condenser tune-up" */
+  label: string;
+  beforeAlt: string;
+  afterAlt: string;
+};
+
+export function BeforeAfter({
+  before,
+  after,
+  beforeAlt = "Condenser before maintenance — debris built up",
+  afterAlt = "Condenser after a Wave tune-up — clean and clear",
+}: {
+  before: string;
+  after: string;
+  beforeAlt?: string;
+  afterAlt?: string;
+}) {
   const [pos, setPos] = useState(50);
   const box = useRef<HTMLDivElement>(null);
   const dragging = useRef(false);
@@ -28,9 +47,9 @@ export function BeforeAfter({ before, after }: { before: string; after: string }
       onPointerUp={() => (dragging.current = false)}
       onPointerCancel={() => (dragging.current = false)}
     >
-      <Image src={after} alt="Condenser after a Wave tune-up — clean and clear" fill sizes="(max-width: 900px) 100vw, 560px" />
+      <Image src={after} alt={afterAlt} fill sizes="(max-width: 900px) 100vw, 560px" />
       <div className="ba-before" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
-        <Image src={before} alt="Condenser before maintenance — debris built up" fill sizes="(max-width: 900px) 100vw, 560px" />
+        <Image src={before} alt={beforeAlt} fill sizes="(max-width: 900px) 100vw, 560px" />
       </div>
       <span className="ba-tag ba-tag-l">Before</span>
       <span className="ba-tag ba-tag-r">After</span>
@@ -48,6 +67,40 @@ export function BeforeAfter({ before, after }: { before: string; after: string }
         onChange={(e) => setPos(Number(e.target.value))}
         aria-label="Drag to compare before and after"
       />
+    </div>
+  );
+}
+
+/** Several before/after sliders: one shows at a time, with prev/next arrows and job tabs when there's more than one */
+export function BeforeAfterGallery({ pairs }: { pairs: BeforeAfterPair[] }) {
+  const [i, setI] = useState(0);
+  const n = pairs.length;
+  const cur = pairs[i];
+  if (!cur) return null;
+  const go = (d: number) => setI((v) => (v + d + n) % n);
+  return (
+    <div className="ba-gallery">
+      {/* key resets the handle to the middle for each job */}
+      <BeforeAfter key={cur.before} before={cur.before} after={cur.after} beforeAlt={cur.beforeAlt} afterAlt={cur.afterAlt} />
+      {n > 1 && (
+        <div className="ba-nav">
+          <button type="button" className="ba-arrow prev" onClick={() => go(-1)} aria-label="Previous job">
+            <Icon name="chev" size={18} />
+          </button>
+          <ul className="ba-tabs">
+            {pairs.map((p, j) => (
+              <li key={p.before}>
+                <button type="button" aria-pressed={j === i} onClick={() => setI(j)}>
+                  {p.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+          <button type="button" className="ba-arrow" onClick={() => go(1)} aria-label="Next job">
+            <Icon name="chev" size={18} />
+          </button>
+        </div>
+      )}
     </div>
   );
 }

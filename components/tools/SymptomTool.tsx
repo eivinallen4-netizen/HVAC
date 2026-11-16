@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { site } from "@/lib/site";
 import { symptoms, urgencyCopy, type Diagnosis } from "@/lib/tools/symptoms";
-import { CallLink } from "../Cta";
+import { CallLink, NoThanks } from "../Cta";
 import { Icon } from "../Icon";
 import { ChoiceStep, Gate, ResultCtas, ToolCard } from "./ToolUI";
 
@@ -58,7 +58,7 @@ export function SymptomTool() {
 
           {result.urgency === "emergency" && (
             <CallLink className="btn btn-red btn-block btn-lg" location="symptom-emergency">
-              Call Now — {site.phone}
+              Call now — {site.phone}
             </CallLink>
           )}
 
@@ -85,10 +85,8 @@ export function SymptomTool() {
               <p className="result-next">
                 Learn more: <Link href={result.link.href}>{result.link.label}</Link>
               </p>
-              <ResultCtas service={result.service} primary="Book a Technician" />
-              <button type="button" className="tool-back" onClick={reset}>
-                Check another symptom
-              </button>
+              <ResultCtas service={result.service} />
+              <NoThanks pick={result.service} location="symptom-checker" onClick={reset} />
             </>
           ) : (
             <Gate

@@ -21,11 +21,11 @@ export const hubPages: HubPage[] = [
     name: "All Services",
     title: "HVAC Services in Las Vegas | Wave Heating & Cooling",
     description:
-      "Complete HVAC services in Las Vegas: AC repair and installation, heating, heat pumps, ductless, ductwork, indoor air quality and maintenance plans. Same-day service.",
+      "Complete HVAC services in Las Vegas: AC repair and installation, heating, heat pumps, ductless, ductwork, indoor air quality and maintenance. Same-day service.",
     h1: "Heating & Cooling Services in Las Vegas",
     kicker: "Everything HVAC",
     intro:
-      "From a same-day AC repair to a whole-home system upgrade, Wave Heating & Cooling handles every part of your home's comfort. Family-owned, NATE-certified with same-day service across most of the Las Vegas valley.",
+      "From a same-day AC repair to a whole-home system upgrade, Wave Heating & Cooling handles every part of your home's comfort. Family-owned, with NATE-certified techs on staff and same-day service most of the time.",
     img: "/images/hero.jpg",
     sections: [
       {
@@ -53,7 +53,7 @@ export const hubPages: HubPage[] = [
     name: "Cooling Services",
     title: "AC Services Las Vegas | Repair, Install & Tune-Ups | Wave",
     description:
-      "Las Vegas air conditioning services: same-day AC repair, new installations, replacements and tune-ups from a family-owned, NATE-certified team.",
+      "Las Vegas air conditioning services: same-day AC repair, new installations, replacements and tune-ups from a family-owned team with NATE-certified techs.",
     h1: "Air Conditioning Services in Las Vegas",
     kicker: "Cooling services",
     intro:
@@ -71,7 +71,7 @@ export const hubPages: HubPage[] = [
     faqs: [
       {
         q: "How long do air conditioners last in Las Vegas?",
-        a: "Typically 10–15 years, depending on maintenance, installation quality and how hard the system works. Regular tune-ups are the biggest factor in a longer life.",
+        a: "Typically 10–15 years, depending on maintenance, installation quality and how hard the system works. Regular tune-ups are the biggest factor in a longer life. How long yours lasts depends heavily on maintenance, how hard it's used and changing the filters regularly.",
       },
       {
         q: "What temperature should I set my AC to in summer?",
@@ -89,7 +89,7 @@ export const hubPages: HubPage[] = [
     h1: "Heating Services in Las Vegas",
     kicker: "Heating services",
     intro:
-      "Desert winter nights can drop near freezing. Wave Heating & Cooling keeps your furnace or heat pump safe, efficient and ready — with repairs, installations, replacements and fall tune-ups from NATE-certified techs.",
+      "Desert winter nights can drop near freezing. Wave Heating & Cooling keeps your furnace or heat pump safe, efficient and ready — with repairs, installations, replacements and fall tune-ups from a team with NATE-certified techs.",
     img: "/images/svc-heating.jpg",
     sections: [
       {

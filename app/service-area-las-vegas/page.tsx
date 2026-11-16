@@ -2,7 +2,7 @@ import Link from "next/link";
 import { JsonLd } from "@/components/JsonLd";
 import { CtaBand, ServiceCards } from "@/components/page/Cards";
 import { PageHero } from "@/components/page/PageHero";
-import { Faq, FinalCta, Reviews, SecHead, TrustBar } from "@/components/Sections";
+import { Faq, FinalCta, Reviews, SecHead, TrustBar, ValleyMap } from "@/components/Sections";
 import { Icon } from "@/components/Icon";
 import { areaPages } from "@/lib/content/areas";
 import { getService } from "@/lib/content/services";
@@ -92,26 +92,21 @@ export default function ServiceAreaHub() {
               nights drop toward freezing, and the heating system that sat idle for eight months has to start on the first try.
             </p>
             <p>
-              Our NATE-certified technicians work on Las Vegas homes every day — from 1970s ranch homes near downtown to brand-new
+              Our technicians, most of them NATE-certified, work on Las Vegas homes every day — from 1970s ranch homes near downtown to brand-new
               two-story builds in the southwest. We know which parts fail first in the heat, how to size systems for 115° days and
               how to fix hot upstairs rooms without replacing everything.
             </p>
             <p>
               Need help now? Our <Link href="/emergency-ac-repair-las-vegas/">emergency AC repair</Link> team can usually get
-              a tech out the same day. Planning ahead? Get a <Link href="/ac-replacement-in-las-vegas/">replacement estimate</Link> or join{" "}
-              <Link href="/hvac-maintenance-las-vegas/">Wave Club</Link> for two tune-ups a year.
+              a tech out the same day. Planning ahead? Get a <Link href="/ac-replacement-in-las-vegas/">replacement estimate</Link> or book{" "}
+              <Link href="/hvac-maintenance-las-vegas/">HVAC maintenance</Link> — a tune-up in spring and another in fall.
             </p>
           </div>
           <div className="map-frame" data-reveal>
             <span className="map-badge">
               <Icon name="pin" size={14} /> {site.address.city}, {site.address.state}
             </span>
-            <iframe
-              title="Wave Heating & Cooling location"
-              src={`https://www.google.com/maps?q=${encodeURIComponent(`${site.name} ${site.address.street} ${site.address.city} ${site.address.state}`)}&output=embed`}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            <ValleyMap />
           </div>
         </div>
       </section>

@@ -11,7 +11,7 @@ const popular = [
   { href: "/emergency-ac-repair-las-vegas/", label: "Emergency AC Repair" },
   { href: "/ac-replacement-in-las-vegas/", label: "AC Replacement" },
   { href: "/hvac-heating-repair-in-las-vegas/", label: "Heating Repair" },
-  { href: "/hvac-maintenance-las-vegas/", label: "Wave Club Maintenance" },
+  { href: "/hvac-maintenance-las-vegas/", label: "HVAC Maintenance" },
   { href: "/blog/", label: "HVAC Tips & Guides" },
   { href: "/contact/", label: "Contact Us" },
 ];

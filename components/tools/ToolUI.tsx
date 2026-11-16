@@ -193,10 +193,12 @@ export function Gate({
 }
 
 /** Next-step block shown with the results */
-export function ResultCtas({ primary = "Book Now" }: { service?: string; primary?: string }) {
+export function ResultCtas({ service, primary }: { service?: string; primary?: string }) {
   return (
     <div className="result-ctas">
-      <BookNowLink location="tool-result">{primary}</BookNowLink>
+      <BookNowLink location="tool-result" pick={service}>
+        {primary}
+      </BookNowLink>
       <CallLink className="btn btn-ghost" location="tool-result" />
     </div>
   );

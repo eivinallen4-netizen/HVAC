@@ -7,9 +7,9 @@ import { Icon } from "@/components/Icon";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Our Team | NATE-Certified HVAC Techs | Wave Heating & Cooling",
+  title: "Our Team | Las Vegas HVAC Technicians | Wave Heating & Cooling",
   description:
-    "Meet the family-owned team behind Wave Heating & Cooling: NATE-certified Las Vegas HVAC technicians who treat your home like their own.",
+    "Meet the family-owned team behind Wave Heating & Cooling: Las Vegas HVAC technicians, most of them NATE-certified, who treat your home like their own.",
   path: "/our-team/",
 });
 

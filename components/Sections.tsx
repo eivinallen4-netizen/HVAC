@@ -3,15 +3,18 @@ import Link from "next/link";
 import { areaHref } from "@/lib/content/areas";
 import { servicesIn } from "@/lib/content/services";
 import { tools } from "@/lib/tools";
-import { fees } from "@/lib/estimate/config";
-import { faqs as defaultFaqs, guides, pages, reviews, serviceAreas, services, site, type IconName } from "@/lib/site";
-import { Embers, FireIceRule, Frost, HeatShimmer, Ribbons, Snowflake, SplitEmblem } from "./Art";
-import { BeforeAfter } from "./BeforeAfter";
+import { fees, financing } from "@/lib/estimate/config";
+import { beforeAfter, faqs as defaultFaqs, guides, pages, reviews, serviceAreas, services, site, type IconName } from "@/lib/site";
+import { SplitEmblem } from "./Art";
+import { BeforeAfterGallery } from "./BeforeAfter";
 import { BookNowLink } from "./Booking";
+import { ctaFor, ctas } from "@/lib/ctas";
 import { CallLink, EstimateButton, TextLink } from "./Cta";
 import { FaqList } from "./Faq";
+import { HoursPanel } from "./Hours";
 import { GoogleG, Icon, PlatformLogo, Stars } from "./Icon";
 import { ContactForm, HeroLeadForm } from "./LeadForm";
+import { StatsRow, type Stat } from "./Stats";
 import { Timeline } from "./Timeline";
 
 const initials = (name: string) =>
@@ -19,7 +22,7 @@ const initials = (name: string) =>
 
 /**
  * Section header.
- * - `center` (default): ornament rule, centered stack
+ * - `center` (default): centered stack
  * - `split`: kicker + title on the left, lead on the right
  * - `side`: left-aligned stack for a sticky side column
  * - `left`: plain left-aligned stack (what `center={false}` gives)
@@ -51,7 +54,6 @@ export function SecHead({
   }
   return (
     <div className={`sec-head ${v}`} data-reveal>
-      {v === "center" && <FireIceRule />}
       <span className="kicker">{kicker}</span>
       <h2>{title}</h2>
       {lead && <p className="lead">{lead}</p>}
@@ -61,8 +63,7 @@ export function SecHead({
 
 /* ═════════════════════════ HERO ═════════════════════════ */
 const stamps: { icon: IconName; t: string }[] = [
-  { icon: "tag", t: `$${fees.diagnostic} diagnostic, waived with weekday repair` },
-  { icon: "clock", t: "No after-hours or weekend surcharge" },
+  { icon: "home", t: "Family-owned, local team" },
   { icon: "permit", t: "Permits pulled on every replacement" },
   { icon: "award", t: `NV License ${site.license}` },
 ];
@@ -70,42 +71,37 @@ const stamps: { icon: IconName; t: string }[] = [
 export function Hero() {
   return (
     <section className="hero">
-      <Image src="/images/hero-dusk.jpg" alt="" fill priority sizes="100vw" className="hero-bg" />
+      <Image src="/images/van-strip.jpg" alt="" fill priority sizes="100vw" className="hero-bg" />
       <div className="hero-shade" aria-hidden="true" />
-      <Embers count={28} className="hero-embers" seed={3} />
-      <Frost count={16} className="hero-frost" seed={4} />
       <div className="wrap hero-grid">
         <div className="hero-copy">
-          <span className="chip chip-warm">
-            <Icon name="wrench" size={15} /> AC &amp; heating repair across the Las Vegas valley
-          </span>
-          <h1>
-            Las Vegas AC &amp; Heating Repair, <span className="cool">Priced Before We Start</span>
-          </h1>
+          <span className="kicker">Repair first. Replace only when it makes sense.</span>
+          <h1>Las Vegas AC &amp; heating repair, priced before we start</h1>
           <p className="hero-sub">
-            Same-day visits in most of the valley, with no after-hours surcharge. ${fees.diagnostic} diagnostic, waived
+            Same-day visits most of the time, with no after-hours or weekend surcharge. ${fees.diagnostic} diagnostic, waived
             when you approve the repair on a weekday visit.
           </p>
+        </div>
 
+        <div className="hero-form">
+          <HeroLeadForm />
+        </div>
+      </div>
+
+      {/* Proof rail: ratings on the left, guarantees on the right, one band across the hero */}
+      <div className="wrap">
+        <div className="hero-proof">
           <RatingsRow nate />
-
           <ul className="proof-stamps">
-            {stamps.map((s, i) => (
-              <li key={s.t} className={i % 2 ? "cool" : "warm"}>
+            {stamps.map((s) => (
+              <li key={s.t}>
                 <span className="stamp" aria-hidden="true">
-                  <Icon name={s.icon} size={24} />
+                  <Icon name={s.icon} size={18} />
                 </span>
                 <span>{s.t}</span>
               </li>
             ))}
           </ul>
-        </div>
-
-        <div className="hero-form">
-          <div className="hero-orb" aria-hidden="true">
-            <Image src="/images/art/logo-ball.png" alt="" fill sizes="(max-width: 760px) 380px, 600px" priority />
-          </div>
-          <HeroLeadForm />
         </div>
       </div>
       <a className="hero-next" href="#repair-prices">
@@ -121,14 +117,16 @@ export function RatingsRow({ nate = false }: { nate?: boolean }) {
   return (
     <ul className="ratings">
       {site.ratings.map((r) => (
-        <li className="rating" key={r.platform}>
-          <PlatformLogo platform={r.platform} size={30} />
-          <div>
-            <b>
-              {r.score} <Stars size={13} />
-            </b>
-            <span>{r.platform}</span>
-          </div>
+        <li key={r.platform}>
+          <a className="rating rating-link" href={r.href} target="_blank" rel="noopener noreferrer" aria-label={`${r.score} stars on ${r.platform}: read our ${r.platform} reviews`}>
+            <PlatformLogo platform={r.platform} size={30} />
+            <div>
+              <b>
+                {r.score} <Stars size={13} />
+              </b>
+              <span>{r.platform}</span>
+            </div>
+          </a>
         </li>
       ))}
       {nate && (
@@ -136,7 +134,7 @@ export function RatingsRow({ nate = false }: { nate?: boolean }) {
           <Image src="/images/nate.png" alt="NATE" width={34} height={32} />
           <div>
             <b>Certified</b>
-            <span>NATE techs</span>
+            <span>NATE techs on staff</span>
           </div>
         </li>
       )}
@@ -147,7 +145,7 @@ export function RatingsRow({ nate = false }: { nate?: boolean }) {
 /* ═════════════════════════ TRUST BAR ═════════════════════════ */
 export function TrustBar() {
   const items = [
-    { v: "Same-day", s: "Visits in most of the valley" },
+    { v: "Same-day", s: "Visits most of the time" },
     { v: "Upfront", s: "Written pricing before work starts" },
     { v: "Local", s: "Family-owned Las Vegas team" },
     { v: site.license, s: "NV licensed, bonded & insured" },
@@ -163,7 +161,7 @@ export function TrustBar() {
         ))}
         <li className="trust-item trust-nate">
           <Image src="/images/nate.png" alt="NATE" width={46} height={43} />
-          <span>NATE-certified technicians</span>
+          <span>NATE-certified techs on staff</span>
         </li>
       </ul>
     </section>
@@ -174,24 +172,22 @@ export function TrustBar() {
 export function Emergency() {
   return (
     <section className="emerg" id="urgent">
-      <HeatShimmer tone="white" className="emerg-shimmer" />
-      <Snowflake size={220} className="emerg-flake" />
       <div className="wrap emerg-row" data-reveal>
         <span className="emerg-ic">
           <Icon name="snow" size={28} />
         </span>
         <div className="emerg-copy">
           <h3>
-            AC out in the desert heat? Same-day service in most of the valley. <span className="tag-urgent">Urgent service</span>
+            AC out in the desert heat? Same-day service most of the time. <span className="tag-urgent">Urgent service</span>
           </h3>
-          <p>Call or text now and a Wave tech will get your home cool again.</p>
+          <p>Call {site.phone} or text now and a Wave tech will get your home cool again.</p>
         </div>
         <div className="emerg-acts">
           <CallLink className="btn btn-white" location="emergency">
-            Call {site.phone}
+            {ctas.repair.relief}
           </CallLink>
           <TextLink className="btn btn-ghost" location="emergency">
-            Text Us
+            Text us
           </TextLink>
         </div>
       </div>
@@ -230,9 +226,7 @@ export function Services({
                 </h3>
                 <p>{s.text}</p>
               </div>
-              <EstimateButton pick={s.pick} className="dir-cta" icon="arrow">
-                {s.cta}
-              </EstimateButton>
+              <EstimateButton pick={s.pick} className="dir-cta" icon="arrow" />
             </li>
           ))}
         </ul>
@@ -249,16 +243,12 @@ export function Difference() {
     { t: "Honest findings, no upsell", d: "If it's a simple fix, we'll tell you. You see what we see before any work begins.", tag: "Clear options" },
   ];
   return (
-    <section className="sec sec-alt diff art-sec">
-      <div className="sec-art" aria-hidden="true">
-        <Image src="/images/art/cool-airflow.png" alt="" width={1200} height={800} className="art-img diff-air" />
-      </div>
-      <Ribbons tone="cool" className="diff-ribbons" />
+    <section className="sec diff art-sec" id="before-after">
       <div className="wrap">
         <div className="diff-head" data-reveal>
           <div>
             <span className="kicker">The Wave difference</span>
-            <h2>A Tune-Up You Can Actually See</h2>
+            <h2>A tune-up you can actually see</h2>
           </div>
           <span className="chip">
             <Icon name="check" size={15} /> Real Wave job photos
@@ -266,7 +256,7 @@ export function Difference() {
         </div>
         <div className="panel diff-grid" data-reveal>
           <div>
-            <BeforeAfter before="/images/before.jpg" after="/images/after.jpg" />
+            <BeforeAfterGallery pairs={beforeAfter} />
             <p className="ba-caption">
               <Icon name="drag" size={14} /> Drag or tap across the image to compare
             </p>
@@ -281,9 +271,7 @@ export function Difference() {
                 <p>{s.d}</p>
               </div>
             ))}
-            <EstimateButton pick="Maintenance / tune-up" className="btn btn-red">
-              Book a Tune-Up
-            </EstimateButton>
+            <EstimateButton pick="Maintenance / tune-up" className="btn btn-red" />
           </div>
         </div>
       </div>
@@ -293,12 +281,12 @@ export function Difference() {
 
 /* ═════════════════════════ WHY WAVE ═════════════════════════ */
 const why = [
-  { icon: "home", t: "Family-owned & local", d: "We live here, and we treat your home like our own." },
+  { icon: "home", t: "Family owned and operated", d: "We treat you like family and your home like ours." },
   { icon: "award", t: "NATE-certified techs", d: "Most of our team is NATE-certified — pros who know HVAC inside and out." },
   { icon: "tag", t: "Honest advice", d: "If it's a simple fix, we'll tell you. If it's time to replace, we'll show you why." },
-  { icon: "clock", t: "Here when it breaks", d: "Heat waves don't wait, so in most of the valley we get a tech out the same day." },
+  { icon: "clock", t: "Here when it breaks", d: "Heat waves don't wait, so most of the time we get a tech out the same day." },
   { icon: "shield", t: "Licensed, bonded & insured", d: `Nevada license ${site.license} for total peace of mind.` },
-  { icon: "sparkle", t: "Your home protected", d: "Booties at the door, padding under ladders, plastic on walls and beds, and a full clean-up." },
+  { icon: "sparkle", t: "Your home protected", d: "Booties at the door, protective tarp from the entrance to the indoor unit, plastic on walls and beds, and a full clean-up." },
 ] as const;
 
 /** Bento grid: crew photo leads, stat tiles for same-day service and the license, small tiles for the rest */
@@ -312,8 +300,8 @@ export function WhyWave({ variant = "bento" }: { variant?: "bento" | "ledger" } 
         <SecHead
           variant="split"
           kicker="The integrity standard"
-          title="Why Las Vegas Homeowners Choose Wave"
-          lead="We're a family-owned local company. When you call Wave you get honest answers, skilled techs and the kind of service our neighbors keep recommending."
+          title="Why Las Vegas homeowners choose Wave"
+          lead="We're a family owned and operated company. When you call Wave you get honest answers, skilled techs and the kind of service our neighbors keep recommending."
         />
         <div className="bento">
           <figure className="bt bt-crew" data-reveal>
@@ -336,13 +324,14 @@ export function WhyWave({ variant = "bento" }: { variant?: "bento" | "ledger" } 
             <span className="kicker">
               <Icon name="award" size={15} /> The people behind Wave
             </span>
-            <h3>Trained for Nevada&apos;s Harshest Conditions</h3>
+            <h3>Trained for Nevada&apos;s harshest conditions</h3>
             <p>
               Most Wave technicians are NATE-certified, and every one works on homes built for triple-digit summers and cold desert
-              nights. Family-owned means the owners stand behind every job.
+              nights. Our owner is still in the field on install days and service calls, making sure every job runs smoothly from
+              start to finish.
             </p>
             <ul className="inline-checks">
-              <li><Icon name="check" size={16} /> NATE Certified</li>
+              <li><Icon name="check" size={16} /> NATE-Certified Techs</li>
               <li><Icon name="check" size={16} /> Licensed &amp; Bonded</li>
               <li><Icon name="check" size={16} /> Fully Insured</li>
             </ul>
@@ -371,8 +360,8 @@ function WhyLedger() {
           <SecHead
             variant="side"
             kicker="The integrity standard"
-            title="Why Las Vegas Homeowners Choose Wave"
-            lead="We're a family-owned local company. When you call Wave you get honest answers, skilled techs and the kind of service our neighbors keep recommending."
+            title="Why Las Vegas homeowners choose Wave"
+            lead="We're a family owned and operated company. When you call Wave you get honest answers, skilled techs and the kind of service our neighbors keep recommending."
           />
           <div className="ledger-photos" data-reveal>
             <figure className="lp-crew">
@@ -403,13 +392,14 @@ function WhyLedger() {
             <span className="kicker">
               <Icon name="award" size={15} /> The people behind Wave
             </span>
-            <h3>Trained for Nevada&apos;s Harshest Conditions</h3>
+            <h3>Trained for Nevada&apos;s harshest conditions</h3>
             <p>
               Most Wave technicians are NATE-certified, and every one works on homes built for triple-digit summers and cold desert
-              nights. Family-owned means the owners stand behind every job.
+              nights. Our owner is still in the field on install days and service calls, making sure every job runs smoothly from
+              start to finish.
             </p>
             <ul className="inline-checks">
-              <li><Icon name="check" size={16} /> NATE Certified</li>
+              <li><Icon name="check" size={16} /> NATE-Certified Techs</li>
               <li><Icon name="check" size={16} /> Licensed &amp; Bonded</li>
               <li><Icon name="check" size={16} /> Fully Insured</li>
             </ul>
@@ -422,7 +412,12 @@ function WhyLedger() {
 
 /* ═════════════════════════ PROCESS ═════════════════════════ */
 /** `line` (home): the connected stepper. `route` (inner pages): a slim band of numbered stops. */
-export function Process({ variant = "line", alt = true }: { variant?: "line" | "route"; alt?: boolean } = {}) {
+export function Process({
+  variant = "line",
+  alt = true,
+  pick,
+}: { variant?: "line" | "route"; alt?: boolean; /** Page's service, so the button names it */ pick?: string } = {}) {
+  const action = ctaFor(pick).action;
   const steps = [
     { t: "Tell us what's going on", d: "Fill out the 60-second form or give us a call." },
     { t: "We confirm a time", d: "A Wave team member calls you back to schedule a visit that works for you." },
@@ -435,11 +430,11 @@ export function Process({ variant = "line", alt = true }: { variant?: "line" | "
         <div className="wrap">
           <div className="route-head" data-reveal>
             <div>
-              <span className="kicker">Streamlined resolution</span>
-              <h2>How We Restore Your Comfort</h2>
+              <span className="kicker">How a visit works</span>
+              <h2>From your call to a working system</h2>
             </div>
-            <p>Simple, transparent and stress-free from the moment you reach out.</p>
-            <EstimateButton>Book Now</EstimateButton>
+            <p>A call or the 60-second form, a confirmed time, and your options and price before any work begins.</p>
+            <EstimateButton pick={pick}>{action}</EstimateButton>
           </div>
           <ol className="route">
             {steps.map((s, i) => (
@@ -462,10 +457,10 @@ export function Process({ variant = "line", alt = true }: { variant?: "line" | "
   return (
     <section className={`sec proc-sec${alt ? " sec-alt" : ""}`}>
       <div className="wrap">
-        <SecHead variant="split" kicker="Streamlined resolution" title="How We Restore Your Comfort" lead="Simple, transparent and stress-free from the moment you reach out." />
+        <SecHead variant="split" kicker="How a visit works" title="From your call to a working system" lead="A call or the 60-second form, a confirmed time, and your options and price before any work begins." />
         <Timeline steps={steps} />
         <div className="center-cta" data-reveal>
-          <EstimateButton>Book Now</EstimateButton>
+          <EstimateButton pick={pick}>{action}</EstimateButton>
         </div>
       </div>
     </section>
@@ -513,9 +508,9 @@ export function Reviews({
               <li key={r.platform}>
                 <b>{r.score}</b>
                 <Stars size={14} />
-                <span>
+                <a className="rv-plat-link" href={r.href} target="_blank" rel="noopener noreferrer">
                   <PlatformLogo platform={r.platform} size={18} /> {r.platform}
-                </span>
+                </a>
               </li>
             ))}
           </ul>
@@ -582,21 +577,18 @@ function ReviewTicker({ title, alt }: { title: string; alt: boolean }) {
               <b>{r.score}</b>
               <span>
                 <Stars size={12} />
-                <span className="rv-plat">
+                <a className="rv-plat rv-plat-link" href={r.href} target="_blank" rel="noopener noreferrer">
                   <PlatformLogo platform={r.platform} size={16} /> {r.platform}
-                </span>
+                </a>
               </span>
             </li>
           ))}
         </ul>
       </div>
-      <div className="rv-tick" role="region" aria-label="Google reviews" tabIndex={0}>
+      <div className="rv-tick" role="region" aria-label="Google reviews, scroll sideways for more" tabIndex={0}>
         <ul className="rv-track">
           {reviews.map((r) => (
             <ReviewBubble key={r.name} r={r} />
-          ))}
-          {reviews.map((r) => (
-            <ReviewBubble key={`${r.name}-loop`} r={r} hidden />
           ))}
         </ul>
       </div>
@@ -624,9 +616,9 @@ function ReviewWall({ title, alt }: { title: string; alt: boolean }) {
               <li key={r.platform}>
                 <b>{r.score}</b>
                 <Stars size={14} />
-                <span>
+                <a className="rv-plat-link" href={r.href} target="_blank" rel="noopener noreferrer">
                   <PlatformLogo platform={r.platform} size={18} /> {r.platform}
-                </span>
+                </a>
               </li>
             ))}
           </ul>
@@ -681,9 +673,7 @@ export function EstimateBand() {
             clear written price. Complete systems start around $9,800. Done right the first time, permitted and inspected.
           </p>
           <div className="est-acts">
-            <EstimateButton pick="New system / replacement estimate" icon="arrow">
-              Schedule My Assessment
-            </EstimateButton>
+            <EstimateButton pick="New system / replacement estimate" icon="arrow" />
             <CallLink className="btn btn-ghost" location="estimate-band" />
           </div>
         </div>
@@ -693,9 +683,18 @@ export function EstimateBand() {
 }
 
 /* ═════════════════════════ SERVICE AREAS ═════════════════════════ */
-/** Coverage panel: illustrated valley with the HQ card, beside an A–Z city directory */
+/** Center of Las Vegas (Las Vegas Blvd & Charleston), zoomed out far enough to show the whole valley */
+const VALLEY_CENTER = { lat: 36.1699, lng: -115.1398 };
+const valleyMapSrc = `https://maps.google.com/maps?q=${VALLEY_CENTER.lat},${VALLEY_CENTER.lng}&z=10&output=embed`;
+
+/** Google map of the Las Vegas valley (keyless embed, loads lazily) */
+export function ValleyMap({ title = "Map of the Las Vegas valley, the area Wave Heating & Cooling serves" }: { title?: string }) {
+  return <iframe className="gmap" src={valleyMapSrc} title={title} loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen />;
+}
+
+/** Coverage panel: Google map of the valley beside an A–Z city directory */
 export function Areas({
-  title = "Proudly Serving the Las Vegas Valley",
+  title = "Proudly serving the Las Vegas valley",
   variant = "panel",
 }: {
   title?: string;
@@ -713,18 +712,6 @@ export function Areas({
               <span className="kicker">Valley-wide coverage</span>
               <h2>{title}</h2>
               <p>Not sure if you&apos;re in our area? Give us a call — if you&apos;re in the valley, we can help.</p>
-            </div>
-            <div className="strip-hq">
-              <Icon name="pin" size={20} />
-              <div>
-                <small>Headquarters:</small>
-                <b>
-                  {site.address.street}, {site.address.city}, {site.address.state} {site.address.zip}
-                </b>
-                <span className="hq-live">
-                  <i className="dot" /> Same-day service
-                </span>
-              </div>
             </div>
           </div>
           <ul className="strip-cities" data-reveal>
@@ -744,21 +731,7 @@ export function Areas({
     <section className="sec cov-sec" id="areas">
       <div className="wrap cov">
         <div className="cov-map" data-reveal>
-          <Image src="/images/illo/valley-contour.png" alt="" fill sizes="(max-width: 1040px) 100vw, 560px" className="cov-contour" />
-          <span className="cov-pin" aria-hidden="true">
-            <Icon name="pin" size={22} />
-          </span>
-          <div className="cov-hq">
-            <small>
-              <Icon name="pin" size={14} /> Headquarters:
-            </small>
-            <b>
-              {site.address.street}, {site.address.city}, {site.address.state} {site.address.zip}
-            </b>
-            <span className="hq-live">
-              <i className="dot" /> Same-day service
-            </span>
-          </div>
+          <ValleyMap />
         </div>
         <div className="cov-list">
           <SecHead
@@ -793,7 +766,7 @@ export function Guides() {
         <div className="rev-head" data-reveal>
           <div>
             <span className="kicker">HVAC advice &amp; insights</span>
-            <h2>Desert Heating &amp; Cooling Guides</h2>
+            <h2>Desert heating &amp; cooling guides</h2>
           </div>
           <Link className="text-link" href={pages.blog}>
             View all guides <Icon name="arrow" size={16} />
@@ -871,7 +844,6 @@ export function Faq({
   }
   return (
     <section className={`sec art-sec${alt ? " sec-alt" : ""}`} id={id}>
-      <SplitEmblem size={520} className="faq-emblem" />
       <div className="wrap faq2">
         <div className="faq-aside">
           <SecHead variant="side" kicker="Answers & clarity" title={title} />
@@ -890,22 +862,18 @@ export function Faq({
 
 /* ═════════════════════════ FINAL CTA ═════════════════════════ */
 export function FinalCta({
-  title = "Book Your Service Today",
-  lead = "Pick a time online and we'll confirm your appointment. Or call — same-day visits in most of the valley.",
+  title = "Book your service today",
+  lead = "Pick a time online and we'll confirm your appointment. Or call — same-day visits most of the time.",
 }: {
   title?: string;
   lead?: string;
 } = {}) {
   const lines = [
     { icon: "phone", label: "Call or text", value: <CallLink location="final" icon={false} className="cl-phone" />, tone: "red" },
-    { icon: "pin", label: "Headquarters", value: `${site.address.street}, ${site.address.city}, ${site.address.state} ${site.address.zip}`, tone: "blue" },
     { icon: "clock", label: "Hours", value: site.hours, tone: "warm" },
   ] as const;
   return (
     <section className="sec final art-sec" id="contact">
-      <Embers count={20} className="final-embers" seed={12} />
-      <Frost count={12} className="final-frost" seed={13} />
-      <SplitEmblem size={640} className="final-emblem" />
       <div className="wrap final-grid">
         <div data-reveal>
           <span className="final-kicker">
@@ -938,6 +906,7 @@ export function FinalCta({
         </div>
         <div data-reveal>
           <ContactForm />
+          <HoursPanel />
         </div>
       </div>
     </section>
@@ -954,7 +923,7 @@ export function Footer() {
           <Link href="/" aria-label={`${site.name} home`}>
             <Image src="/images/logo-light.png" alt={site.name} width={190} height={57} className="foot-logo" />
           </Link>
-          <p>{site.tagline}. Family-owned, NATE-certified, same-day service.</p>
+          <p>{site.tagline}. Family-owned, NATE-certified techs on staff, same-day service.</p>
           <span className="chip">
             <Icon name="shield" size={14} /> NV License {site.license}
           </span>
@@ -1031,7 +1000,7 @@ export function Footer() {
       </div>
       <div className="wrap legal">
         <span>
-          © {new Date().getFullYear()} {site.legalName} · Licensed, Bonded &amp; Insured {site.license}
+          © {new Date().getFullYear()} {site.legalName} · Licensed, bonded &amp; insured {site.license}
         </span>
         <span className="legal-links">
           <Link href={pages.privacy}>Privacy Policy</Link>
@@ -1048,14 +1017,178 @@ export function StickyBar() {
   return (
     <div className="sticky" role="complementary" aria-label="Quick contact">
       <CallLink className="btn btn-red" location="sticky-mobile">
-        Call Now
+        Call now
       </CallLink>
       <TextLink className="btn btn-blue" location="sticky-mobile">
-        Text Us
+        Text us
       </TextLink>
-      <BookNowLink className="btn btn-ghost" location="sticky-mobile" icon={false}>
-        Book Now
-      </BookNowLink>
+      <BookNowLink className="btn btn-ghost" location="sticky-mobile" icon={false} />
     </div>
+  );
+}
+
+/* ═════════════════════════ TRUST SEALS ═════════════════════════ */
+/** Badge strip under the hero. Every seal is a claim Wave already makes elsewhere; optional ones show only once set in lib/site.ts. */
+export function TrustSeals() {
+  const google = site.ratings.find((r) => r.platform === "Google");
+  const seals: { key: string; mark: React.ReactNode; t: string; s: string; href?: string }[] = [
+    { key: "lic", mark: <Icon name="award" size={22} />, t: `NV License ${site.license}`, s: "Licensed, bonded & insured" },
+    {
+      key: "nate",
+      mark: <Image src="/images/nate.png" alt="" width={30} height={28} />,
+      t: "NATE-certified",
+      s: "Techs on staff",
+    },
+    ...(google
+      ? [
+          {
+            key: "google",
+            mark: <GoogleG size={24} />,
+            t: `${google.score} on Google`,
+            s: site.stats.reviewCount ? `${site.stats.reviewCount.toLocaleString()} reviews` : "Read our reviews",
+            href: google.href,
+          },
+        ]
+      : []),
+    ...(site.bbb ? [{ key: "bbb", mark: <Icon name="shield" size={22} />, t: `BBB ${site.bbb}`, s: "Accredited business" }] : []),
+    ...(site.stats.years
+      ? [{ key: "yrs", mark: <Icon name="home" size={22} />, t: `${site.stats.years}+ years`, s: "Serving Las Vegas" }]
+      : []),
+    { key: "price", mark: <Icon name="tag" size={22} />, t: "Upfront pricing", s: "Written before work starts" },
+    { key: "days", mark: <Icon name="clock" size={22} />, t: "Open 7 days", s: "6 AM – 11 PM" },
+  ];
+  return (
+    <section className="seals" aria-label="Credentials and ratings">
+      <ul className="wrap seals-row">
+        {seals.map((s) => {
+          const body = (
+            <>
+              <span className="seal-mark">{s.mark}</span>
+              <span className="seal-txt">
+                <b>{s.t}</b>
+                <small>{s.s}</small>
+              </span>
+            </>
+          );
+          return (
+            <li className="seal" key={s.key}>
+              {s.href ? (
+                <a href={s.href} target="_blank" rel="noopener noreferrer" className="seal-link">
+                  {body}
+                </a>
+              ) : (
+                body
+              )}
+            </li>
+          );
+        })}
+      </ul>
+    </section>
+  );
+}
+
+/* ═════════════════════════ STATS ═════════════════════════ */
+/** Figures row. Only true numbers: ones derived from site facts, plus optional stats once the client fills them in. */
+export function Stats() {
+  const google = site.ratings.find((r) => r.platform === "Google");
+  const { years, homesServed, reviewCount } = site.stats;
+  const stats: Stat[] = [
+    ...(years ? [{ value: years, suffix: "+", label: "Years in Las Vegas" }] : []),
+    ...(homesServed ? [{ value: homesServed, suffix: "+", label: "Homes served" }] : []),
+    ...(google ? [{ value: Number(google.score), decimals: 1, label: "Google rating" }] : []),
+    ...(reviewCount ? [{ value: reviewCount, label: "Google reviews" }] : []),
+    { value: serviceAreas.length, label: "Valley communities served" },
+    { value: site.openingHours.days.length, label: "Days a week, 6 AM – 11 PM" },
+  ].slice(0, 4);
+  if (stats.length < 3) return null;
+  return (
+    <section className="stats-sec" aria-label="Wave by the numbers">
+      <div className="wrap" data-reveal>
+        <StatsRow stats={stats} />
+      </div>
+    </section>
+  );
+}
+
+/* ═════════════════════════ PROGRAMS ═════════════════════════ */
+/** Three ways to make HVAC easier to own: referral rewards, a payment option, and a straight-answer tool. No discount wording. */
+export function Programs() {
+  const rr = tools.find((t) => t.slug === "repair-or-replace-calculator");
+  const cards = [
+    {
+      key: "ref",
+      tone: "cool",
+      icon: "star" as IconName,
+      kicker: "Referral program",
+      title: "Refer a friend",
+      figure: "No limit",
+      unit: " on referrals",
+      points: ["You and your friend both get rewarded", "Redeem at a service appointment", "Or get a gift card, mailed or delivered"],
+      cta: "How referrals work",
+      href: pages.referral,
+    },
+    {
+      key: "fin",
+      tone: "warm",
+      icon: "sheet" as IconName,
+      kicker: "Financing",
+      title: "Pay over time",
+      figure: `$${financing.per10k}`,
+      unit: "/mo per $10k",
+      points: [`Jobs from $${financing.minimum.toLocaleString()}`, "With approved credit", "Monthly figure shown with every estimate"],
+      cta: "How financing works",
+      href: pages.financing,
+    },
+    {
+      key: "rr",
+      tone: "cool",
+      icon: "wrench" as IconName,
+      kicker: "Repair first",
+      title: "Repair or replace?",
+      figure: "2 min",
+      unit: " check",
+      points: ["Based on age, repair cost and efficiency", "A straight answer, no sales call", "If a repair makes sense, we say so"],
+      cta: "Run the check",
+      href: rr ? `/tools/${rr.slug}/` : pages.tools,
+    },
+  ];
+  return (
+    <section className="sec sec-alt prog-sec">
+      <div className="wrap">
+        <SecHead
+          variant="split"
+          kicker="Easier to own"
+          title="Referrals, payments and straight answers"
+          lead="Get rewarded for sending a neighbor our way, spread out a big job, or find out if a repair still makes sense."
+        />
+        <div className="prog-grid">
+          {cards.map((c, i) => (
+            <article className={`prog tone-${c.tone}`} key={c.key} data-reveal style={{ transitionDelay: `${i * 80}ms` }}>
+              <div className="prog-top">
+                <span className={`ic-box tone-${c.tone}`}>
+                  <Icon name={c.icon} size={20} />
+                </span>
+                <span className="prog-kicker">{c.kicker}</span>
+              </div>
+              <h3>{c.title}</h3>
+              <p className="prog-fig">
+                <b>{c.figure}</b>
+                <span>{c.unit}</span>
+              </p>
+              <ul className="prog-points">
+                {c.points.map((p) => (
+                  <li key={p}>
+                    <Icon name="check" size={16} /> {p}
+                  </li>
+                ))}
+              </ul>
+              <Link href={c.href} className="prog-cta">
+                {c.cta} <Icon name="arrow" size={16} />
+              </Link>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

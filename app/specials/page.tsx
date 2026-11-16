@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { MemberCard } from "@/components/page/Objects";
 import { PageHero } from "@/components/page/PageHero";
 import { FinalCta, Reviews, SecHead, TrustBar } from "@/components/Sections";
 import { OfferForm } from "@/components/SpecialForms";
@@ -10,13 +9,12 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "HVAC Specials & Offers Las Vegas | Wave Heating & Cooling",
   description:
-    "Current HVAC specials from Wave: Wave Club maintenance savings, 15% off repairs for members and referral rewards.",
+    "Wave Heating & Cooling's referral program: unlimited referrals, with rewards for you and the friend you refer — redeem at your next service or as a gift card.",
   path: "/specials/",
 });
 
-/** Each offer gets its own object: membership card, perk tag or gift card */
+/** Each offer gets its own object: perk tag or gift card */
 function OfferArt({ o }: { o: Offer }) {
-  if (o.icon === "gauge") return <MemberCard className="mcard-sm" />;
   if (o.icon === "star")
     return (
       <span className="gift-card" aria-hidden="true">
@@ -39,7 +37,7 @@ export default function SpecialsPage() {
         crumbs={[{ name: "Specials", path: "/specials/" }]}
         kicker="Current offers"
         h1="HVAC Specials & Savings"
-        intro="Ways to save on heating and cooling in Las Vegas — from Wave Club maintenance to member pricing on every repair."
+        intro="No coupons or gimmicks — just honest pricing and a thank-you for every friend and neighbor you send our way."
         form={false}
         variant="compact"
       />
@@ -64,8 +62,7 @@ export default function SpecialsPage() {
               ))}
             </ul>
             <p className="table-note">
-              Offers can&apos;t be combined unless noted and may change at any time. See{" "}
-              <Link href="/hvac-maintenance-las-vegas/">Wave Club details</Link> and our{" "}
+              Offers may change at any time. See the full{" "}
               <Link href="/referral-program/">referral program</Link>.
             </p>
           </div>

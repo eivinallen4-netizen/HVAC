@@ -8,16 +8,16 @@ export const coolingServices: ServicePage[] = [
     name: "AC Repair",
     title: "AC Repair & Service Las Vegas | Same-Day | Wave",
     description:
-      "Fast, honest AC repair and service in Las Vegas from NATE-certified techs. Warm air, noises, leaks or no power: all brands, often same day. (702) 881-4713.",
+      "Fast, honest AC repair and service in Las Vegas from a team with NATE-certified techs. Warm air, noises, leaks or no power: all brands, often same day. (702) 881-4713.",
     h1: "AC Repair & Service in Las Vegas — Fast, Honest & Done Right the First Time",
     kicker: "Air conditioning repair",
     intro:
-      "When it's 110° outside, a broken AC isn't an inconvenience — it's an emergency. Wave Heating & Cooling diagnoses and repairs every make and model of central air conditioner and heat pump across the Las Vegas valley, with NATE-certified technicians out the same day in most of the valley and straight answers about what your system actually needs.",
+      "When it's 110° outside, a broken AC isn't an inconvenience — it's an emergency. Wave Heating & Cooling diagnoses and repairs every make and model of central air conditioner and heat pump across the Las Vegas valley, with experienced technicians (most of them NATE-certified) out the same day most of the time and straight answers about what your system actually needs.",
     summary: "Warm air, strange noises, or an AC that won't kick on? We find the real problem and fix it right the first time.",
     img: "/images/svc-ac-repair.jpg",
     icon: "wrench",
     pick: "AC not cooling",
-    highlights: ["NATE-certified technicians", "All brands repaired", "No corporate or franchise fees", "Same-day service"],
+    highlights: ["NATE-certified techs on staff", "All brands repaired", "No corporate or franchise fees", "Same-day service"],
     signs: {
       title: "Common AC Problems We Fix Every Day",
       items: [
@@ -66,8 +66,8 @@ export const coolingServices: ServicePage[] = [
         cards: [
           { t: "Honest diagnosis", d: "You see what we see. No scare tactics, no pressure to replace a system that just needs a part." },
           { t: "Fair, local pricing", d: "No corporate overhead or franchise fees — just competitive pricing from a family-owned company." },
-          { t: "Experienced, certified techs", d: "NATE-certified technicians and low employee turnover mean consistent, high-quality work." },
-          { t: "Here when it breaks", d: "Heat waves don't wait. In most of the valley we can get a tech out the same day." },
+          { t: "Experienced, certified techs", d: "NATE-certified techs on staff and low employee turnover mean consistent, high-quality work." },
+          { t: "Here when it breaks", d: "Heat waves don't wait. Most of the time we can get a tech out the same day." },
         ],
       },
       {
@@ -83,7 +83,7 @@ export const coolingServices: ServicePage[] = [
     faqs: [
       {
         q: "How fast can you get to me for an AC repair?",
-        a: "We prioritize no-cooling calls, especially for homes with seniors, infants or pets. In most of the Las Vegas valley we can get a technician out the same day, depending on demand during heat waves.",
+        a: "We prioritize no-cooling calls, especially for homes with seniors, infants or pets. Most of the time we can get a technician out the same day, depending on demand during heat waves.",
       },
       {
         q: "Do you repair all AC brands?",
@@ -110,8 +110,8 @@ export const coolingServices: ServicePage[] = [
         a: "That's called short cycling. Common causes are a dirty filter or coil, low refrigerant, a thermostat in the wrong spot or a failing electrical part — and sometimes a system that's too big for the house. It wastes power and wears out the compressor, so it's worth having checked before summer.",
       },
       {
-        q: "Do Wave Club members get a discount on repairs?",
-        a: "Yes. Wave Club maintenance members get 15% off repairs and priority service. Everyone, member or not, pays no after-hours, weekend or holiday surcharge, and on weekdays the $89 diagnostic is waived when you approve the repair during the visit.",
+        q: "Do you charge extra for nights, weekends or holidays?",
+        a: "No. There's no after-hours, weekend or holiday surcharge, and on weekdays the $89 diagnostic is waived when you approve the repair during the visit.",
       },
     ],
     related: ["emergency-ac-repair-las-vegas", "ac-maintenance-in-las-vegas", "ac-replacement-in-las-vegas"],
@@ -125,16 +125,16 @@ export const coolingServices: ServicePage[] = [
     name: "Emergency AC Repair",
     title: "Same-Day Emergency AC Repair Las Vegas | Wave Heating & Cooling",
     description:
-      "AC out in the Las Vegas heat? Same-day emergency AC repair in most of the valley, with no after-hours surcharge. NATE-certified techs. Call (702) 881-4713.",
+      "AC out in the Las Vegas heat? Same-day emergency AC repair most of the time, with no after-hours surcharge. NATE-certified techs on staff. Call (702) 881-4713.",
     h1: "Same-Day Emergency AC Repair in Las Vegas",
     kicker: "Emergency service",
     intro:
-      "An air conditioner that dies on a July afternoon can turn a Las Vegas home dangerously hot within hours. Wave Heating & Cooling puts no-cooling calls first and can get a NATE-certified technician out the same day in most of the valley, ready to diagnose and fix most failures on the spot.",
+      "An air conditioner that dies on a July afternoon can turn a Las Vegas home dangerously hot within hours. Wave Heating & Cooling puts no-cooling calls first and can get a technician out the same day most of the time, ready to diagnose and fix most failures on the spot.",
     summary: "AC out in the heat? Call and we'll work to get a tech to you the same day.",
     img: "/images/svc-ac-repair.jpg",
     icon: "clock",
     pick: "AC not cooling",
-    highlights: ["Same-day in most of the valley", "No-cooling calls go first", "Trucks stocked for common failures", "No after-hours surcharge"],
+    highlights: ["Same-day most of the time", "No-cooling calls go first", "Trucks stocked for common failures", "No after-hours surcharge"],
     emergency: true,
     signs: {
       title: "When to Call for Emergency AC Service",
@@ -167,14 +167,14 @@ export const coolingServices: ServicePage[] = [
         h2: "Why Emergency AC Failures Spike in Las Vegas",
         body: [
           "Most emergency calls come during the first long stretch of 105°+ days, when systems that limped through spring finally fail. Weak capacitors, worn contactors, dirty condenser coils and low refrigerant all show up under peak load.",
-          "Heat waves also mean high demand. Homeowners on our [Wave Club maintenance plan](/hvac-maintenance-las-vegas/) get priority scheduling — one of the best reasons to join before summer.",
+          "Heat waves also mean high demand. A spring [AC tune-up](/ac-maintenance-in-las-vegas/) catches weak parts before they fail — the best way to stay out of the summer rush.",
         ],
       },
       {
         h2: "How Our Emergency Service Works",
         kind: "steps",
         cards: [
-          { t: "1. You call or text", d: `Tell us what's happening and we'll get a tech headed your way, same day in most of the valley.` },
+          { t: "1. You call or text", d: `Tell us what's happening and we'll get a tech headed your way, same day most of the time.` },
           { t: "2. Fast diagnosis", d: "Your technician finds the root cause — electrical, refrigerant, airflow or controls." },
           { t: "3. Clear options", d: "You'll get the cost and your options before any work begins. No surprises." },
           { t: "4. Cool again", d: "Most common failures are fixed on the first visit with parts from our truck." },
@@ -184,7 +184,7 @@ export const coolingServices: ServicePage[] = [
     faqs: [
       {
         q: "Can you come out the same day?",
-        a: "In most of the Las Vegas valley, yes, depending on demand during heat waves. Call (702) 881-4713 and we'll get a technician scheduled. We put no-cooling calls first, especially for homes with seniors, infants or pets.",
+        a: "Most of the time, yes, depending on demand during heat waves. Call (702) 881-4713 and we'll get a technician scheduled. We put no-cooling calls first, especially for homes with seniors, infants or pets.",
       },
       {
         q: "Is emergency AC service more expensive?",
@@ -250,13 +250,13 @@ export const coolingServices: ServicePage[] = [
           "In-home consultation: we check your system, ductwork and electrical",
           "Clear written options — standard, high-efficiency and premium — with no pressure",
           "Permit pulled for the job",
-          "Home protection: booties at the door, floor padding under ladders, plastic over walls, closets and beds",
+          "Home protection: booties at the door, protective tarp from the entrance to the indoor unit, plastic over walls, closets and beds",
           "Ductwork inspection, and sealing or modification where needed",
           "Removal and disposal of your old equipment",
           "Professional installation to manufacturer specs, including line set, pad, electrical and drain",
           "Full safety inspection: electrical, refrigerant pressures, drain line, and gas venting with a CO check on furnaces",
           "Refrigerant charge verified, airflow measured and thermostat programmed",
-          "Swept and vacuumed, then a walk-through of your new system, warranty registration and a maintenance plan option",
+          "Swept and vacuumed, then a walk-through of your new system, warranty registration and tips for keeping it running",
         ],
       },
       {
@@ -369,7 +369,7 @@ export const coolingServices: ServicePage[] = [
           "Sized to match your ductwork and home",
           "Full matched indoor and outdoor system, not just the outside unit",
           "Permit pulled on every replacement, so the county inspects the install too",
-          "Booties at the door, floor padding under ladders, and plastic over walls, closets and beds",
+          "Booties at the door, protective tarp from the entrance to the indoor unit, and plastic over walls, closets and beds",
           "Ductwork inspection and recommendations",
           "Removal and responsible disposal of old equipment and refrigerant",
           "New pad, line set and electrical work as needed",
@@ -391,7 +391,7 @@ export const coolingServices: ServicePage[] = [
     faqs: [
       {
         q: "How long do air conditioners last in Las Vegas?",
-        a: "Most last roughly 10–15 years here, less if they've been poorly maintained. The extreme heat and long cooling season are harder on equipment than in milder climates. Regular maintenance is the biggest factor in getting more years out of a system.",
+        a: "Most last roughly 10–15 years here, less if they've been poorly maintained. The extreme heat and long cooling season are harder on equipment than in milder climates. Regular maintenance is the biggest factor in getting more years out of a system. How long yours lasts depends heavily on maintenance, how hard it's used and changing the filters regularly.",
       },
       {
         q: "Should I replace my furnace or air handler at the same time?",
@@ -433,7 +433,7 @@ export const coolingServices: ServicePage[] = [
     name: "AC Maintenance & Tune-Ups",
     title: "AC Tune-Up & Maintenance Las Vegas | Wave Heating & Cooling",
     description:
-      "Las Vegas AC tune-ups that prevent summer breakdowns, cut energy bills and extend system life. NATE-certified techs. Join Wave Club. Call (702) 881-4713.",
+      "Las Vegas AC tune-ups that prevent summer breakdowns, cut energy bills and extend system life. NATE-certified techs on staff. Call (702) 881-4713.",
     h1: "AC Tune-Ups & Maintenance in Las Vegas",
     kicker: "Preventative maintenance",
     intro:
@@ -442,7 +442,7 @@ export const coolingServices: ServicePage[] = [
     img: "/images/svc-maintenance.jpg",
     icon: "gauge",
     pick: "Maintenance / tune-up",
-    highlights: ["Multi-point inspection", "Coil cleaning for desert dust", "Electrical & refrigerant checks", "Wave Club member savings"],
+    highlights: ["Multi-point inspection", "Coil cleaning for desert dust", "Electrical & refrigerant checks", "Written report of findings"],
     sections: [
       {
         h2: "What's Included in an AC Tune-Up",
@@ -469,16 +469,9 @@ export const coolingServices: ServicePage[] = [
         ],
       },
       {
-        h2: "Join Wave Club and Save All Year",
-        kind: "club",
+        h2: "Pair It With a Fall Heating Tune-Up",
         body: [
-          "Our maintenance membership covers two visits a year — AC before summer and heating before winter — plus member pricing and perks. See the full list of benefits on our [HVAC maintenance plan](/hvac-maintenance-las-vegas/) page.",
-        ],
-        cards: [
-          { t: "2 tune-ups per year", d: "Spring AC check (Mar–Apr) and fall heating check (Oct–Nov)." },
-          { t: "15% off repairs", d: "Plus 15% off upgrades like smart thermostats and air quality products." },
-          { t: "Priority service", d: "Members move to the front of the line when the calls stack up." },
-          { t: "Extended warranty", d: "1-year parts & labor and 1-year workmanship warranty while your plan is active." },
+          "Las Vegas systems heat in winter too, so we recommend a second visit in fall for the heating side. See how the two fit together on our [HVAC maintenance](/hvac-maintenance-las-vegas/) page, or book a [heating tune-up](/hvac-heating-maintenance-in-las-vegas/) on its own.",
         ],
       },
     ],
@@ -494,10 +487,6 @@ export const coolingServices: ServicePage[] = [
       {
         q: "Will a tune-up lower my power bill?",
         a: "Usually, yes. Clean coils, a proper refrigerant charge and good airflow all help the system cool your home with less run time. Try our Energy Savings Calculator for an estimate.",
-      },
-      {
-        q: "What does Wave Club cost?",
-        a: "Wave Club is $150 per year for the first system and $140 for each additional system at the same property. You can cancel at any time.",
       },
     ],
     related: ["hvac-maintenance-las-vegas", "hvac-repairs-in-las-vegas", "hvac-heating-maintenance-in-las-vegas"],

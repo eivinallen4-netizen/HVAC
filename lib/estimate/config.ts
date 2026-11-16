@@ -44,11 +44,10 @@ export type Systems = "1" | "2" | "3plus" | "unsure";
 
 export const questions = {
   help: {
-    title: "What can we help you with?",
+    title: "How can we help?",
     options: [
       { value: "repair", label: "Repair", sub: "Something isn't working right", icon: "wrench" },
-      { value: "replace", label: "Replace", sub: "I want a new system", icon: "unitPlus" },
-      { value: "compare", label: "Compare", sub: "See repair and replacement side by side", icon: "gauge" },
+      { value: "replace", label: "Replace", sub: "I'm considering a new system", icon: "unitPlus" },
       { value: MAINTENANCE, label: "Maintenance", sub: "Tune-up and safety check", icon: "cal" },
     ] as Option<Help | typeof MAINTENANCE>[],
   },

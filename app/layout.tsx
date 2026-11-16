@@ -1,11 +1,14 @@
 import type { Metadata, Viewport } from "next";
-import { Montserrat, Work_Sans } from "next/font/google";
+import { TopBar } from "@/components/TopBar";
+import { IBM_Plex_Mono, Montserrat, Work_Sans } from "next/font/google";
 import Script from "next/script";
 import { ArtDefs } from "@/components/Art";
+import { ExitOffer } from "@/components/ExitOffer";
 import { Header } from "@/components/Header";
 import { JsonLd } from "@/components/JsonLd";
 import { RevealOnScroll } from "@/components/Reveal";
 import { Footer, StickyBar } from "@/components/Sections";
+import { servicePages } from "@/lib/content/services";
 import { localBusinessLd } from "@/lib/seo";
 import { site } from "@/lib/site";
 import { themeInitScript } from "@/lib/theme";
@@ -13,7 +16,7 @@ import "./globals.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600"],
   display: "swap",
   variable: "--font-display",
 });
@@ -25,6 +28,14 @@ const workSans = Work_Sans({
   variable: "--font-body",
 });
 
+/** Prices and service tickets only */
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-mono",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
@@ -32,7 +43,7 @@ export const metadata: Metadata = {
     template: "%s | Wave Heating & Cooling",
   },
   description:
-    "Family-owned Las Vegas HVAC company. AC & heating repair, installs and tune-ups by a NATE-certified team. Same-day service, book online. (702) 881-4713.",
+    "Family-owned Las Vegas HVAC company. AC & heating repair, installs and tune-ups by a team with NATE-certified techs. Same-day service, book online. (702) 881-4713.",
   applicationName: site.name,
   icons: { icon: "/images/favicon.png", apple: "/images/favicon.png" },
   openGraph: { siteName: site.name, locale: "en_US", type: "website" },
@@ -51,9 +62,12 @@ export const viewport: Viewport = {
 
 const GTM = process.env.NEXT_PUBLIC_GTM_ID;
 
+/** Service-page slug → estimate pick, so the exit popup speaks to the page it opens on */
+const exitPicks = Object.fromEntries(servicePages.map((s) => [s.slug, s.pick]));
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${workSans.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`${montserrat.variable} ${workSans.variable} ${plexMono.variable}`} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
@@ -79,10 +93,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           Skip to content
         </a>
         <ArtDefs />
+        <TopBar />
         <Header />
         <main id="main">{children}</main>
         <Footer />
         <StickyBar />
+        <ExitOffer picks={exitPicks} />
         <RevealOnScroll />
       </body>
     </html>

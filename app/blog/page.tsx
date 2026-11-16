@@ -25,7 +25,7 @@ export default function BlogIndex() {
       <PageHero
         crumbs={[{ name: "HVAC Tips & Guides", path: "/blog/" }]}
         kicker="HVAC advice & insights"
-        h1="Desert Heating & Cooling Guides"
+        h1="Desert heating & cooling guides"
         intro="Straight-talking advice from Wave's technicians on keeping a Las Vegas home comfortable, efficient and safe — all year long."
         form={false}
         img="/images/valley-night.jpg"

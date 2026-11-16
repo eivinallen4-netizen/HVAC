@@ -154,23 +154,6 @@ export function MonthStrip({ segs }: { segs: { m: number[]; label: string; tone?
   );
 }
 
-/** Decorative Wave Club membership card */
-export function MemberCard({ className = "" }: { className?: string }) {
-  return (
-    <div className={`mcard ${className}`} aria-hidden="true">
-      <SplitEmblem size={220} className="mcard-emb" />
-      <span className="mcard-chip" />
-      <span className="mcard-top">
-        <Icon name="shield" size={16} /> Member
-      </span>
-      <b className="mcard-name">Wave Club</b>
-      <span className="mcard-row">
-        <Icon name="snow" size={14} /> <Icon name="flame" size={14} />
-      </span>
-    </div>
-  );
-}
-
 /** Technician credential badge on a lanyard; each credential is a real line of copy */
 export function BadgeCard({ items }: { items: { t: string; d: string }[] }) {
   return (

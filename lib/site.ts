@@ -22,14 +22,34 @@ export const site = {
   /** Google Business Profile listing */
   googleMapsUrl:
     "https://www.google.com/maps/place/Wave+Heating+%26+Cooling+LLC/@36.2379494,-115.2827569,17z/data=!4m6!3m5!1s0x80c8c120faee6b8d:0xc04b392b77dc6c59!8m2!3d36.2379451!4d-115.280182!16s%2Fg%2F11fph2r492",
-  /** Business hours. Wave does NOT offer 24/7 service; it offers same-day visits in most of the valley. */
-  hours: "[Wave to confirm business hours]",
+  /** Business hours, matching the Google Business Profile (6 AM–11 PM, 7 days). Not 24/7. */
+  hours: "Open 7 days a week, 6 AM – 11 PM",
+  /** Same hours for LocalBusiness schema (24-hour clock) */
+  openingHours: { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "06:00", closes: "23:00" },
   googleReviewsUrl:
     "https://www.google.com/search?q=Wave+Heating+%26+Cooling+Las+Vegas+reviews",
+  /** Yelp listing. Search link until Wave sends the exact listing URL. */
+  yelpUrl: "https://www.yelp.com/search?find_desc=Wave+Heating+%26+Cooling&find_loc=Las+Vegas%2C+NV",
+  /** Each rating's logo and score link to that platform's reviews */
+  /**
+   * Optional proof points. Each one stays hidden on the site until it's filled in.
+   * TODO: client to confirm real numbers before setting any of these.
+   */
+  stats: {} as { years?: number; homesServed?: number; reviewCount?: number },
+  /** BBB rating, e.g. "A+". TODO: set only if Wave is BBB accredited. */
+  bbb: undefined as string | undefined,
   ratings: [
-    { platform: "Google", score: "5.0" },
-    { platform: "Facebook", score: "5.0" },
-    { platform: "Yelp", score: "4.8" },
+    {
+      platform: "Google",
+      score: "5.0",
+      href: "https://www.google.com/search?q=Wave+Heating+%26+Cooling+Las+Vegas+reviews",
+    },
+    { platform: "Facebook", score: "5.0", href: "https://www.facebook.com/waveheatingandcooling/reviews" },
+    {
+      platform: "Yelp",
+      score: "4.8",
+      href: "https://www.yelp.com/search?find_desc=Wave+Heating+%26+Cooling&find_loc=Las+Vegas%2C+NV",
+    },
   ],
 };
 
@@ -99,7 +119,6 @@ export const services: {
   img: string;
   icon: IconName;
   pick: string;
-  cta: string;
   /** Full service page */
   href: string;
   hot?: boolean;
@@ -111,7 +130,6 @@ export const services: {
     icon: "wrench",
     pick: "AC not cooling",
     href: page("hvac-repairs-in-las-vegas"),
-    cta: "Get an estimate",
   },
   {
     title: "AC Installation & Replacement",
@@ -120,7 +138,6 @@ export const services: {
     icon: "unitPlus",
     pick: "New system / replacement estimate",
     href: page("ac-replacement-in-las-vegas"),
-    cta: "Schedule an assessment",
   },
   {
     title: "Heating Repair & Installation",
@@ -129,7 +146,6 @@ export const services: {
     icon: "flame",
     pick: "Heat not working",
     href: page("heating-services"),
-    cta: "Get an estimate",
     hot: true,
   },
   {
@@ -139,7 +155,6 @@ export const services: {
     icon: "gauge",
     pick: "Maintenance / tune-up",
     href: page("hvac-maintenance-las-vegas"),
-    cta: "Book a tune-up",
   },
   {
     title: "Ductless Mini-Splits",
@@ -148,7 +163,6 @@ export const services: {
     icon: "split",
     pick: "Ductless mini-split",
     href: page("ductless-mini-split-systems-in-las-vegas"),
-    cta: "Get an estimate",
   },
   {
     title: "Ductwork & Indoor Air Quality",
@@ -157,7 +171,6 @@ export const services: {
     icon: "duct",
     pick: "Ductwork / indoor air quality",
     href: page("indoor-air-quality-las-vegas"),
-    cta: "Get an estimate",
   },
 ];
 
@@ -178,7 +191,7 @@ export const faqs = [
   },
   {
     q: "Do you offer same-day service?",
-    a: `In most of the Las Vegas valley, yes, depending on demand during heat waves. We put no-cooling calls first, and there's no after-hours, weekend or holiday surcharge. Call ${site.phone}.`,
+    a: `Most of the time, yes, depending on demand during heat waves. We put no-cooling calls first, and there's no after-hours, weekend or holiday surcharge. Call ${site.phone}.`,
   },
   {
     q: "How much is a repair visit?",
@@ -214,7 +227,7 @@ export const replacementFaqs = [
   },
   {
     q: "Why do AC replacement quotes in Las Vegas vary so much?",
-    a: "Because they don't always include the same things. The equipment is only part of the price. A full installed price also covers the matched indoor unit, line set, pad, electrical, permit, a full day of labor, the safety inspection and haul-away. Some quotes leave pieces out, so always ask for everything in writing.",
+    a: "Because they don't always include the same things. The equipment is only part of the price. A full installed price also covers the matched indoor unit, pad, electrical, permit, a full day of labor, the safety inspection and haul-away. Some quotes leave pieces out, so always ask for everything in writing.",
   },
   {
     q: "Do you pull permits?",
@@ -225,12 +238,16 @@ export const replacementFaqs = [
     a: "Usually the whole system, indoor and outdoor, so every part is matched. We can replace just one unit when the new part matches your system's refrigerant and the equipment is available. Refrigerants have changed (R-22, then R-410A, now R-32 and R-454B), so we check that at your visit before we quote it.",
   },
   {
+    q: "How does the warranty work?",
+    a: "Wave Heating & Cooling registers your new equipment with the manufacturer on your behalf, and we handle all the paperwork, so your warranty is in place without you filling out a single form.",
+  },
+  {
     q: "Can you give me a price over the phone?",
     a: "Our estimate form gives you a range in about a minute, from $9,800 for a complete system in a smaller home. For an exact quote we come out and look: your ductwork was built for a certain size of system, so we match it, and we check access, electrical and refrigerant before we put a number in writing.",
   },
   {
     q: "Will you make a mess in my house?",
-    a: "No. We wear booties, put padding down before any ladder touches the floor, cover walls, closets and beds in plastic, and sweep and vacuum when we're done. Your home looks the way we found it, or better.",
+    a: "No. We wear booties, lay protective tarp from your entrance all the way to the indoor unit, cover walls, closets and beds in plastic, and sweep and vacuum when we're done. Your home looks the way we found it, or better.",
   },
   {
     q: "How long does a replacement take?",
@@ -246,7 +263,7 @@ export const replacementFaqs = [
   },
   {
     q: "What should I have ready when I call?",
-    a: "Four things: your system's age (it's on the sticker on the outside unit), what's going wrong, your home's rough square footage, and your timeline. With those, the call takes about 10 minutes.",
+    a: "Four things: your system's approximate age (usually on the data plate on the unit), what's going wrong, your home's rough square footage, and your timeline. With those, the call takes about 10 minutes.",
   },
   {
     q: "Can I pay monthly?",
@@ -254,8 +271,29 @@ export const replacementFaqs = [
   },
 ];
 
+/**
+ * Real Wave job photos for the homepage before/after sliders. Add a pair here (same framing, before and after)
+ * and the homepage shows arrows and a tab for each job.
+ */
+export const beforeAfter = [
+  {
+    label: "Condenser tune-up",
+    before: "/images/before.jpg",
+    after: "/images/after.jpg",
+    beforeAlt: "Condenser before maintenance — debris built up",
+    afterAlt: "Condenser after a Wave tune-up — clean and clear",
+  },
+];
+
 /** Featured posts from the client's blog ("Best Practices") */
 export const guides = [
+  {
+    title: "Professional HVAC Maintenance in Las Vegas",
+    text: "How regular tune-ups keep your system efficient, comfortable and running longer in the desert heat.",
+    img: "/images/svc-maintenance.jpg",
+    tag: "Maintenance",
+    href: "/blog/hvac-maintenance-in-las-vegas-your-guide-to-comfort-efficiency-and-longevity/",
+  },
   {
     title: "How to Choose the Right-Sized AC for Las Vegas Weather Extremes",
     text: "Too big or too small both cost you. What to look for before you replace your system.",
@@ -269,12 +307,5 @@ export const guides = [
     img: "/images/blog/duct-leaks-steal-your-heat.png",
     tag: "Ductwork",
     href: "/blog/duct-leaks-steal-your-heat/",
-  },
-  {
-    title: "Carbon Monoxide & Winter HVAC Safety: A Calm Homeowner's Guide",
-    text: "What every Las Vegas homeowner should check before turning on the heat this winter.",
-    img: "/images/blog/carbon-monoxide-winter-hvac-safety.png",
-    tag: "Safety",
-    href: "/blog/carbon-monoxide-winter-hvac-safety/",
   },
 ];

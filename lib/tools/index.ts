@@ -39,7 +39,7 @@ export const tools: ToolMeta[] = [
       },
       {
         q: "How long do AC units last in Las Vegas?",
-        a: "About 15 years. Long, extremely hot summers are hard on equipment, so regular maintenance makes a big difference. Under 10 years, a well-maintained system usually has plenty of life left.",
+        a: "About 15 years. Long, extremely hot summers are hard on equipment, so regular maintenance makes a big difference. Under 10 years, a well-maintained system usually has plenty of life left. How long yours lasts depends heavily on maintenance, how hard it's used and changing the filters regularly.",
       },
       {
         q: "Is it worth repairing an R-22 air conditioner?",

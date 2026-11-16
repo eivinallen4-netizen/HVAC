@@ -1,7 +1,6 @@
 import Image from "next/image";
 import type { Crumb } from "@/lib/seo";
 import { site } from "@/lib/site";
-import { Embers, Frost } from "../Art";
 import { CallLink, TextLink } from "../Cta";
 import { Icon } from "../Icon";
 import { HeroLeadForm } from "../LeadForm";
@@ -49,13 +48,10 @@ export function PageHero({
             <Image src={img} alt="" fill priority sizes="(max-width: 860px) 100vw, 46vw" />
           </div>
         )}
-        <Frost count={6} className="hero-frost" seed={7} />
         <div className="wrap">
           <Breadcrumbs crumbs={crumbs} />
           <div className="phero-copy">
-            <span className={`chip${emergency ? " chip-warm" : ""}`}>
-              <Icon name={emergency ? "clock" : "sun"} size={15} /> {kicker}
-            </span>
+            <span className="kicker">{kicker}</span>
             <h1>{h1}</h1>
             {intro && <p className="hero-sub">{intro}</p>}
             {highlights && (
@@ -72,7 +68,7 @@ export function PageHero({
                 Call {site.phone}
               </CallLink>
               <TextLink className="btn btn-ghost" location="page-hero">
-                Text Us
+                Text us
               </TextLink>
             </div>
             {children}
@@ -85,15 +81,11 @@ export function PageHero({
     <section className={`phero${form ? "" : " phero-solo"}`}>
       <Image src={img} alt="" fill priority sizes="100vw" className="hero-bg" />
       <div className="hero-shade" aria-hidden="true" />
-      <Embers count={14} className="hero-embers" seed={5} />
-      <Frost count={8} className="hero-frost" seed={6} />
       <div className="wrap">
         <Breadcrumbs crumbs={crumbs} />
         <div className="phero-grid">
           <div className="phero-copy">
-            <span className={`chip${emergency ? " chip-warm" : ""}`}>
-              <Icon name={emergency ? "clock" : "sun"} size={15} /> {kicker}
-            </span>
+            <span className="kicker">{kicker}</span>
             <h1>{h1}</h1>
             {intro && <p className="hero-sub">{intro}</p>}
             {highlights && (
@@ -110,7 +102,7 @@ export function PageHero({
                 Call {site.phone}
               </CallLink>
               <TextLink className="btn btn-ghost" location="page-hero">
-                Text Us
+                Text us
               </TextLink>
             </div>
             {children}

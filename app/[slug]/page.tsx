@@ -64,7 +64,7 @@ function ServiceTemplate({ slug }: { slug: string }) {
       <CtaBand pick={s.pick} title={`Need ${s.name} in Las Vegas?`} tone={s.category === "heating" ? "warm" : "cool"} />
       {s.tools && <ToolCards slugs={s.tools} alt={false} variant="rows" />}
       <Reviews variant="ticker" alt />
-      <Process variant="route" alt={false} />
+      <Process variant="route" alt={false} pick={s.pick} />
       <ServiceCards items={related} variant="list" alt />
       <Faq items={s.faqs} title={`${s.name} FAQs`} variant="stack" />
       <Areas title={`${s.name} Across the Las Vegas Valley`} variant="strip" />

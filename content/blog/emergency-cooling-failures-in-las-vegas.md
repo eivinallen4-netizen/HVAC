@@ -96,7 +96,7 @@ Whether you’re a homeowner or landlord, here are actions to take before the ne
 – Replace filters regularly (every 1–2 months)  
 – Visually inspect outdoor condenser for obstructions  
 – Ask for a float switch test and line flush during tune-up  
-– Enroll in an annual HVAC plan with priority service  
+– Book a tune-up every spring and fall  
   
 If you’re not sure your system can handle the summer ahead, it’s better to find out in May than in July when every HVAC contractor in town is booked solid.Final Thoughts: Emergency Failures Are Avoidable
 

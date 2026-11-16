@@ -1,5 +1,6 @@
 "use client";
 
+import { ctaFor } from "@/lib/ctas";
 import { site } from "@/lib/site";
 import { estimateHref, openEstimate, track } from "@/lib/track";
 import { Icon } from "./Icon";
@@ -11,7 +12,7 @@ export function EstimateButton({
   className = "btn btn-red",
   icon = "cal",
 }: {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   pick?: string;
   className?: string;
   icon?: "cal" | "arrow" | null;
@@ -25,7 +26,7 @@ export function EstimateButton({
       }}
     >
       {icon === "cal" && <Icon name="cal" size={20} />}
-      {children}
+      {children ?? ctaFor(pick).cta}
       {icon === "arrow" && <Icon name="arrow" size={18} className="arr" />}
     </a>
   );
@@ -68,7 +69,33 @@ export function TextLink({
   return (
     <a href={site.smsHref} className={className} onClick={() => track("sms_click", { location })}>
       <Icon name="chat" size={20} />
-      {children ?? "Text Us"}
+      {children ?? "Text us"}
     </a>
+  );
+}
+
+/** Opt-out link under a main CTA. Names the outcome the visitor is turning down (lib/ctas.ts). */
+export function NoThanks({
+  pick,
+  location,
+  onClick,
+  className = "no-thanks",
+}: {
+  pick?: string;
+  location: string;
+  onClick?: () => void;
+  className?: string;
+}) {
+  return (
+    <button
+      type="button"
+      className={className}
+      onClick={() => {
+        track("cta_declined", { location });
+        onClick?.();
+      }}
+    >
+      {ctaFor(pick).decline}
+    </button>
   );
 }

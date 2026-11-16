@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ctas } from "@/lib/ctas";
 import { reviews, type IconName } from "@/lib/site";
 import { EstimateButton } from "./Cta";
 import { Hotspots, type Hotspot } from "./Hotspots";
@@ -11,10 +12,10 @@ import { Timeline } from "./Timeline";
 /** Hero form option that books a replacement visit */
 const REPLACE = "New system / replacement estimate";
 
-function AssessButton({ className = "btn btn-red" }: { className?: string }) {
+function AssessButton({ className = "btn btn-red", children }: { className?: string; children?: React.ReactNode }) {
   return (
     <EstimateButton pick={REPLACE} className={className}>
-      Schedule My Assessment
+      {children}
     </EstimateButton>
   );
 }
@@ -53,11 +54,11 @@ export function StraightAnswers() {
           <SecHead
             variant="side"
             kicker="Got a quote that made you sit down?"
-            title="No Upsell. No Guesswork. Just Straight Answers."
+            title="No upsell, no guesswork, just straight answers"
             lead="A lot of Las Vegas homeowners call us after a quote that didn't add up. Here's how we work, so you know exactly what you're getting."
           />
           <div data-reveal>
-            <AssessButton />
+            <AssessButton>Get an honest quote</AssessButton>
           </div>
         </div>
         <div>
@@ -105,7 +106,7 @@ export function RepairOrReplace() {
       <div className="wrap">
         <SecHead
           kicker="Repair or replace?"
-          title="Repair or Replace? We'll Tell You Honestly"
+          title="Repair or replace? We'll tell you honestly"
           lead="Las Vegas summers push an AC harder than almost anywhere, so systems here wear out sooner. Here are the 5 signs yours is done."
         />
         <div data-reveal>
@@ -144,7 +145,7 @@ export function RepairOrReplace() {
 /** Pins sit on the matching spot of the home cutaway illustration (% of the image) */
 const protect: Hotspot[] = [
   { icon: "boot", t: "Booties on at the door", d: "Shoe covers go on before anyone on our crew steps inside your home.", x: 11, y: 58 },
-  { icon: "ladder", t: "Padding under every ladder", d: "Floor padding goes down before a ladder touches your tile, wood or carpet.", x: 33, y: 82 },
+  { icon: "ladder", t: "Protective tarp down", d: "We cover your floors from the home entrance all the way to the indoor unit, so tile, wood and carpet stay protected.", x: 33, y: 82 },
   { icon: "sheet", t: "Plastic over walls, closets & beds", d: "Anything near the work gets covered, so attic dust stays in the attic.", x: 62, y: 58 },
   { icon: "broom", t: "Swept and vacuumed", d: "We clean every room we worked in before we pack up the truck.", x: 91, y: 72 },
 ];
@@ -157,7 +158,7 @@ export function HomeProtection() {
         <SecHead
           variant="split"
           kicker="How we protect your home"
-          title="We Treat Your Home Like It's Ours"
+          title="We treat your home like it's ours"
           lead="A new system shouldn't cost you a clean house. Our crew does this on every single install."
         />
         <div data-reveal>
@@ -192,19 +193,12 @@ export function HomeProtection() {
 /* ═════════════════════════ REPLACEMENT DAY ═════════════════════════ */
 const day = [
   { t: "Arrive & plan", d: "We greet you, walk you through the plan and answer your questions before any tools come out." },
-  { t: "Protect", d: "Booties on, floor padding down, and plastic up over walls, closets and beds." },
+  { t: "Protect", d: "Booties on, protective tarp down, and plastic up over walls, closets and beds." },
   { t: "Replace", d: "Old system out. New matched indoor and outdoor system in." },
   { t: "Inspect", d: "Full safety inspection and testing on everything we touched." },
   { t: "Clean & walkthrough", d: "We sweep and vacuum, then show you how to use your new system and thermostat." },
 ];
 const dayParts = ["Morning", "Late morning", "Midday", "Afternoon", "End of day"];
-
-const talk = [
-  "We greet you and go over the plan before we start.",
-  "We show you what we find, with photos if it's up in the attic.",
-  "We explain your options in plain words, and you decide.",
-  "At the end, we show you how to run your new system.",
-];
 
 export function ReplacementDay() {
   return (
@@ -213,29 +207,20 @@ export function ReplacementDay() {
         <SecHead
           variant="split"
           kicker="Replacement day"
-          title="What Replacement Day Looks Like"
-          lead="Most replacements take about a full day. Here's how it goes, start to finish, so nothing catches you off guard."
+          title="What replacement day looks like"
+          lead="Most replacements take about a full day. Here's how it goes, start to finish. Surprises can show up on any install, and when they do, we take our time to do things right instead of rushing."
         />
         <Timeline steps={day} labels={dayParts} arc />
 
-        <div className="talk2" data-reveal>
+        <div className="talk2 talk2-solo" data-reveal>
+          <span className="ic-box tone-cool">
+            <Icon name="chat" size={22} />
+          </span>
           <div className="talk2-copy">
-            <span className="ic-box tone-cool">
-              <Icon name="chat" size={22} />
-            </span>
             <h3>We actually talk to you</h3>
             <p>You&apos;ll always know what&apos;s happening in your home and why.</p>
-            <AssessButton />
           </div>
-          <div className="thread" aria-label="How we keep you in the loop">
-            <ul>
-              {talk.map((t, i) => (
-                <li key={t} className={`bubble ${i % 2 ? "them" : "us"}`} style={{ transitionDelay: `${i * 120}ms` }}>
-                  {t}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <AssessButton>{ctas.replace.action}</AssessButton>
         </div>
       </div>
     </section>
@@ -457,7 +442,7 @@ export function CompareQuotes() {
 
 /* ═════════════════════════ HAVE THESE READY ═════════════════════════ */
 const ready = [
-  { t: "System age", d: "It's on the sticker on your outside unit." },
+  { t: "System age", d: "Do you know the approximate age of the unit? It's usually on the data plate on the unit." },
   { t: "What's going wrong", d: "Or why you're thinking about replacing." },
   { t: "Rough square footage", d: "A ballpark is fine." },
   { t: "Your timeline", d: "This week, this month, or before next summer." },
@@ -473,7 +458,7 @@ export function BeReady() {
           <div className="prep-head">
             <div>
               <span className="kicker">Before you call</span>
-              <h2 id="be-ready-h">Have These 4 Things Ready</h2>
+              <h2 id="be-ready-h">Have these 4 things ready</h2>
             </div>
             <span className="prep-badge">
               <Icon name="clock" size={15} /> ~10 min call

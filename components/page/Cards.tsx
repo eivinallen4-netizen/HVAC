@@ -7,7 +7,6 @@ import { CallLink, EstimateButton } from "../Cta";
 import { Icon } from "../Icon";
 import { SecHead } from "../Sections";
 import { SignsCheck } from "../SignsCheck";
-import { Embers, Frost, HeatShimmer } from "../Art";
 
 /**
  * Related services. `photo` (hub pages): image cards. `list` (service pages): compact
@@ -280,20 +279,18 @@ export function CtaBand({
   title = "Ready for Honest, Fast Service?",
   text = "Book online in about a minute — pick a time that works for you. Or call us.",
   pick,
-  cta = "Book Now",
+  cta,
   tone = "warm",
 }: {
   title?: string;
   text?: string;
   pick?: string;
   cta?: string;
-  /** warm: red band with embers · cool: blue band with frost */
+  /** warm: red band · cool: blue band */
   tone?: "warm" | "cool";
 }) {
   return (
     <section className={`cta-band${tone === "cool" ? " cool" : ""}`}>
-      <HeatShimmer tone="white" className="emerg-shimmer" />
-      {tone === "cool" ? <Frost count={10} className="card-embers" seed={22} /> : <Embers count={10} className="card-embers" seed={21} />}
       <div className="wrap cta-band-row" data-reveal>
         <div>
           <h2>{title}</h2>

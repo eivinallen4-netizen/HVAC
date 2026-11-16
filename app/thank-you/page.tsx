@@ -22,7 +22,7 @@ export default function ThankYouPage() {
             <div className="success-ic">
               <Icon name="tick" size={34} />
             </div>
-            <h1>You&apos;re all set!</h1>
+            <h1>You&apos;re all set</h1>
             <p>
               Thanks — we got your request. A Wave team member will call you shortly to confirm the details and find a time that
               works for you.

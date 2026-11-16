@@ -12,7 +12,7 @@ export function HeroLeadForm(_props: { title?: string; formName?: string }) {
 
 /* ───────────────────── CONTACT: booking card ───────────────────── */
 export function ContactForm({
-  title = "Book Service Online",
+  title = "Book service online",
   hint = "Choose a time that works for you — we'll confirm your appointment. Zero high-pressure sales.",
 }: {
   title?: string;

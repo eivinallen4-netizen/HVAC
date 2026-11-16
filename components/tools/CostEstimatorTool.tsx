@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { questions, resultText, type Option } from "@/lib/estimate/config";
+import { questions, type Option } from "@/lib/estimate/config";
 import { replacementEstimate, type Answers } from "@/lib/estimate/logic";
 import { track } from "@/lib/track";
+import { NoThanks } from "../Cta";
 import { ReplaceBlock } from "../EstimateForm";
 import { Icon } from "../Icon";
 import { ChoiceStep, ResultCtas, ToolCard } from "./ToolUI";
@@ -61,17 +62,15 @@ export function CostEstimatorTool() {
       {r && (
         <div className="step result">
           <ReplaceBlock n={r} />
-          <ResultCtas service="New system / replacement estimate" primary="Book a Visit" />
-          <button
-            type="button"
-            className="tool-back"
+          <ResultCtas service="New system / replacement estimate" />
+          <NoThanks
+            pick="New system / replacement estimate"
+            location="cost-estimator"
             onClick={() => {
               setA(START);
               setHistory([]);
             }}
-          >
-            <Icon name="chev" size={14} className="flip" /> {resultText.startOver}
-          </button>
+          />
         </div>
       )}
     </ToolCard>

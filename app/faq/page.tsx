@@ -23,7 +23,7 @@ const groups = [
   { title: "AC Repair & Emergencies", items: [...pick("hvac-repairs-in-las-vegas"), ...pick("emergency-ac-repair-las-vegas").slice(0, 2)] },
   { title: "New Systems & Replacement", items: [...replacementFaqs, ...pick("ac-replacement-in-las-vegas"), ...pick("ac-installations-in-las-vegas").slice(0, 2)] },
   { title: "Heating", items: [...pick("hvac-heating-repair-in-las-vegas"), ...pick("heat-pump-services-las-vegas").slice(0, 1)] },
-  { title: "Maintenance & Wave Club", items: [...pick("hvac-maintenance-las-vegas"), ...pick("ac-maintenance-in-las-vegas").slice(0, 2)] },
+  { title: "Maintenance", items: [...pick("hvac-maintenance-las-vegas"), ...pick("ac-maintenance-in-las-vegas").slice(0, 2)] },
 ];
 
 export default function FaqPage() {

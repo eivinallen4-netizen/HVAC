@@ -31,9 +31,10 @@ import {
   type ReplacementResult,
   type StepId,
 } from "@/lib/estimate/logic";
+import { ctaFor } from "@/lib/ctas";
 import { PICK_EVENT, track } from "@/lib/track";
 import { BookingEmbed } from "./Booking";
-import { CallLink } from "./Cta";
+import { CallLink, NoThanks } from "./Cta";
 import { Icon } from "./Icon";
 import { ChoiceStep, ToolCard } from "./tools/ToolUI";
 
@@ -318,9 +319,7 @@ function Result({ a, onCompare, onRestart }: { a: Answers; onCompare: () => void
       </p>
       <BookVisit a={a} />
 
-      <button type="button" className="tool-back" onClick={onRestart}>
-        {resultText.startOver}
-      </button>
+      <NoThanks pick={serviceLabel(a)} location="estimate-result" onClick={onRestart} />
     </div>
   );
 }
@@ -398,7 +397,7 @@ export function ReplaceBlock({ n }: { n: ReplacementResult }) {
 function BookVisit({ a }: { a: Answers }) {
   return (
     <div className="est-book">
-      <h3>{bookingText.title}</h3>
+      <h3>{ctaFor(serviceLabel(a)).cta}</h3>
       <p className="form-hint">{bookingText.hint}</p>
       <BookingEmbed location="estimate-result" service={serviceLabel(a)} />
       <div className="est-book-acts">

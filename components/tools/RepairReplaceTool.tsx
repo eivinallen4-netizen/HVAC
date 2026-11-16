@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { scoreRepairReplace, type RRInput, type RRResult } from "@/lib/tools/repairReplace";
+import { NoThanks } from "../Cta";
 import { Icon } from "../Icon";
 import { ChoiceStep, Gate, NumberStep, ResultCtas, ToolCard } from "./ToolUI";
 
@@ -144,13 +145,12 @@ export function RepairReplaceTool() {
               <p className="result-next">
                 <strong>Next step:</strong> {result.nextStep}
               </p>
-              <ResultCtas
-                service={result.verdict === "repair" ? "AC not cooling" : "New system / replacement estimate"}
-                primary={result.verdict === "repair" ? "Book a Repair" : "Book a Replacement Estimate"}
+              <ResultCtas service={result.verdict === "repair" ? "AC not cooling" : "New system / replacement estimate"} />
+              <NoThanks
+                pick={result.verdict === "repair" ? "AC not cooling" : "New system / replacement estimate"}
+                location="repair-or-replace"
+                onClick={() => setStep(1)}
               />
-              <button type="button" className="tool-back" onClick={() => setStep(1)}>
-                Start over
-              </button>
             </>
           ) : (
             <Gate

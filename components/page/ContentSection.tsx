@@ -2,7 +2,7 @@ import type { Section } from "@/lib/content/types";
 import type { IconName } from "@/lib/site";
 import { Icon } from "../Icon";
 import { SizeFit } from "../SystemTabs";
-import { IndexCard, Illo, MemberCard, MonthStrip, RailSteps, WorkOrder } from "./Objects";
+import { IndexCard, Illo, MonthStrip, RailSteps, WorkOrder } from "./Objects";
 import { Rich } from "./Rich";
 
 /** Split the first sentence off a paragraph for the pull-out, unless that would cut a link or bold run in half */
@@ -268,50 +268,6 @@ export function ContentSection({ section, alt = false }: { section: Section; alt
               <Body body={body} />
             </div>
           )}
-        </div>
-      </section>
-    );
-  }
-
-  /* ── club: membership card + perks ── */
-  if (kind === "club") {
-    return (
-      <section className={cls("cs-club")}>
-        <div className="wrap club">
-          <div className="club-card" data-reveal>
-            <MemberCard />
-          </div>
-          <div className="club-copy" data-reveal>
-            <h2>{h2}</h2>
-            <Body body={body} />
-            {cards && (
-              <ul className="perk-rows">
-                {cards.map((c) => (
-                  <li key={c.t}>
-                    <Icon name="check" size={18} />
-                    <div>
-                      <h3>{c.t}</h3>
-                      <p>
-                        <Rich text={c.d} />
-                      </p>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
-            {list && (
-              <ul className="perk-list">
-                {list.map((li) => (
-                  <li key={li}>
-                    <Icon name="check" size={16} />
-                    <span>
-                      <Rich text={li} />
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
         </div>
       </section>
     );

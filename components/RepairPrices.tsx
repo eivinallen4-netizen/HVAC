@@ -15,7 +15,7 @@ const terms: { icon: IconName; b: string; t: string }[] = [
     t: `(Mon–Fri, 7am–6pm) and the $${fees.diagnostic} is waived. You pay for the repair only.`,
   },
   { icon: "tag", b: "Say no", t: `and the $${fees.diagnostic} diagnostic is all you pay.` },
-  { icon: "clock", b: "Same-day visits", t: "in most of the valley, with no after-hours, weekend or holiday surcharge." },
+  { icon: "clock", b: "Same-day visits", t: "most of the time, with no after-hours, weekend or holiday surcharge." },
   { icon: "wrench", b: "Parts on the van", t: "Most repairs are done on the first visit." },
 ];
 
@@ -27,7 +27,7 @@ export function RepairPrices() {
         <SecHead
           variant="split"
           kicker="Repair prices, up front"
-          title="Know the Price Before We Touch Anything"
+          title="Know the price before we touch anything"
           lead="These are Wave's real prices, parts and labor included, no sales tax added. Your tech confirms the exact number before any work starts."
         />
         <div className="cmp2 rp-grid">
@@ -41,6 +41,10 @@ export function RepairPrices() {
                 </li>
               ))}
             </ul>
+            <p className="rp-disclaimer">
+              Prices may vary depending on your system, the part and how easy it is to reach. Your tech confirms the
+              exact price before any work starts.
+            </p>
             <p className="rcpt-foot">
               <Icon name="question" size={18} />
               <span>
@@ -65,9 +69,7 @@ export function RepairPrices() {
               ))}
             </ul>
             <div className="rp-acts">
-              <EstimateButton pick="Repair" icon="arrow">
-                See My Repair Price
-              </EstimateButton>
+              <EstimateButton pick="Repair" icon="arrow" />
               <CallLink className="btn btn-ghost" location="repair-prices" />
             </div>
           </div>

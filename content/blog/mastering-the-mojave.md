@@ -84,7 +84,7 @@ Even the best systems can falter under strain. Prepare your family with a coolin
 – Store water and avoid heat-generating appliances  
 – If anyone in the home is medically vulnerable, have a contact plan with neighbors or caregivers  
   
-Wave also offers emergency repair scheduling priority for regular maintenance plan customers—a lifesaver during system outages in 110°F+ weather.
+A spring tune-up is the best way to avoid an emergency call in the first place—worn capacitors and clogged coils show up long before they fail in 110°F+ weather.
 
  Final Thoughts: The Best Time to Prepare Is \*Before\* the Heat Hits  
   

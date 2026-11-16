@@ -38,7 +38,7 @@ export default function TermsPage() {
 
           <h2>Offers and pricing</h2>
           <p>
-            Specials, memberships and offers are subject to the terms stated with each offer, may change or end at any time, and
+            Specials and offers are subject to the terms stated with each offer, may change or end at any time, and
             can&apos;t be combined unless stated. Financing is subject to credit approval by the lender.
           </p>
 

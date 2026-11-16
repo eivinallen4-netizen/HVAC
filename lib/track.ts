@@ -8,10 +8,19 @@ declare global {
   }
 }
 
+/** Set once the visitor books, calls or texts this visit — the exit popup stays away after that */
+export const ENGAGED_KEY = "wave:engaged";
+const ENGAGED_EVENTS = ["book_click", "phone_click", "sms_click"];
+
 export function track(event: string, data: Record<string, unknown> = {}) {
   if (typeof window === "undefined") return;
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event, ...data });
+  if (ENGAGED_EVENTS.includes(event)) {
+    try {
+      sessionStorage.setItem(ENGAGED_KEY, "1");
+    } catch {}
+  }
   if (event === "generate_lead") window.fbq?.("track", "Lead");
 }
 

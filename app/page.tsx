@@ -9,14 +9,18 @@ import {
 } from "@/components/Replacement";
 import {
   Areas,
+  Difference,
   Emergency,
-  EstimateBand,
   Faq,
   FinalCta,
   Guides,
   Hero,
+  Process,
+  Programs,
   Reviews,
   Services,
+  Stats,
+  TrustSeals,
   WhyWave,
 } from "@/components/Sections";
 import { buildMetadata, faqLd } from "@/lib/seo";
@@ -36,29 +40,34 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <TrustSeals />
       {/* Repair is the way in: price, proof, then what we fix */}
       <RepairPrices />
-      <Reviews title="What Las Vegas Homeowners Say About Wave" />
+      <Reviews title="What Las Vegas homeowners say about Wave" />
       <Services
         kicker="Repairs, every day"
-        title="What We Fix Across Las Vegas"
-        lead="AC, heating, ductless and ductwork. Same team, same upfront pricing, same-day in most of the valley."
+        title="What we fix across Las Vegas"
+        lead="AC, heating, ductless and ductwork. Same team, same upfront pricing, same-day most of the time."
         alt
       />
+      <Process alt={false} />
       <Emergency />
       {/* When it's time to replace (full detail lives on the replacement pages) */}
       <StraightAnswers />
       <RepairOrReplace />
       <HomeProtection />
+      {/* Before/after sliders of real Wave jobs */}
+      <Difference />
       <ReplacementDay />
-      <EstimateBand />
+      <Programs />
       <WhyWave />
+      <Stats />
       <Areas />
       <Guides />
-      <Faq items={homeFaqs} title="HVAC Repair & Replacement Questions, Answered" alt />
+      <Faq items={homeFaqs} title="HVAC repair & replacement questions, answered" alt />
       <BeReady />
       <FinalCta
-        title="Book a Repair Visit"
+        title="Book a repair visit"
         lead="Pick a time online. $89 diagnostic, waived when you approve the repair on a weekday visit. Thinking about a new system? Book a replacement assessment the same way."
       />
       <JsonLd data={faqLd(homeFaqs)} />

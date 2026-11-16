@@ -31,7 +31,7 @@ export const areaPages: AreaPage[] = [
     full: "North Las Vegas, NV",
     title: t("North Las Vegas"),
     description:
-      "AC repair, furnace and heating repair, and HVAC installation in North Las Vegas, NV. Family-owned, NATE-certified, same-day service. Call (702) 881-4713.",
+      "AC repair, furnace and heating repair, and HVAC installation in North Las Vegas, NV. Family-owned, NATE-certified techs on staff, same-day service. Call (702) 881-4713.",
     h1: "AC Repair & HVAC Services in North Las Vegas, NV",
     intro:
       "From established neighborhoods near Craig Road to newer master-planned communities like Aliante, Valley Vista and Tule Springs, North Las Vegas homeowners count on Wave Heating & Cooling for fast AC repair, reliable heating and honest advice on new systems.",
@@ -63,7 +63,7 @@ export const areaPages: AreaPage[] = [
     full: "Henderson, NV",
     title: t("Henderson"),
     description:
-      "AC repair and service, furnace repair, ductwork and new HVAC systems in Henderson, NV. Family-owned, NATE-certified, same-day service. (702) 881-4713.",
+      "AC repair and service, furnace repair, ductwork and new HVAC systems in Henderson, NV. Family-owned, NATE-certified techs on staff, same-day service. (702) 881-4713.",
     h1: "AC Repair & HVAC Services in Henderson, NV",
     intro:
       "Wave Heating & Cooling serves homeowners all across Henderson — from long-established Green Valley streets to hillside homes in Anthem and Seven Hills and newer builds in Inspirada and Cadence — with same-day AC repair, heating service and expert installations.",
@@ -140,8 +140,8 @@ export const areaPages: AreaPage[] = [
         a: "Yes. Loss of cooling is dangerous for older adults in Las Vegas heat, and we prioritize no-cooling calls for seniors and other vulnerable residents.",
       },
       {
-        q: "Is the Wave Club plan worth it for a single-story Sun City home?",
-        a: "For most homeowners, yes. Two tune-ups a year, priority service and 15% off repairs usually pay for the membership — and peace of mind matters too.",
+        q: "How often should a single-story Sun City home get HVAC maintenance?",
+        a: "Twice a year — the AC in spring and the heating in fall. Regular tune-ups catch weak parts before they leave you without cooling on a 110° day.",
       },
     ],
   },
@@ -207,7 +207,7 @@ export const areaPages: AreaPage[] = [
     full: "Aliante, North Las Vegas, NV",
     title: t("Aliante"),
     description:
-      "HVAC and AC repair in Aliante, North Las Vegas. Repairs, tune-ups and replacement estimates for Aliante homes from a local, NATE-certified team. (702) 881-4713.",
+      "HVAC and AC repair in Aliante, North Las Vegas. Repairs, tune-ups and replacement estimates for Aliante homes from a local team with NATE-certified techs. (702) 881-4713.",
     h1: "AC Repair & HVAC Services in Aliante",
     intro:
       "Aliante's master-planned neighborhoods in North Las Vegas are now old enough that many homes are on their original heating and cooling systems. Wave Heating & Cooling helps Aliante homeowners keep those systems running — and plan smart replacements when the time comes.",
@@ -268,7 +268,7 @@ export const areaPages: AreaPage[] = [
     intro:
       "Seven Hills' larger, multi-story hillside homes often have two or more HVAC systems — and more ways for comfort to go wrong. Wave Heating & Cooling services, repairs and upgrades multi-system and zoned homes throughout Seven Hills.",
     local: [
-      "Built largely in the late 1990s and 2000s, many Seven Hills homes are now on aging original equipment, often with a separate system for each floor. When one fails, the other gets overloaded. Regular maintenance on every system — and Wave Club's discounted rate for additional units — keeps them working together.",
+      "Built largely in the late 1990s and 2000s, many Seven Hills homes are now on aging original equipment, often with a separate system for each floor. When one fails, the other gets overloaded. Regular maintenance on every system keeps them working together.",
       "Big windows and valley views are a Seven Hills highlight, but they add a lot of solar heat. Proper sizing, zoning and smart thermostats help keep sun-facing rooms comfortable without overcooling the rest of the house.",
     ],
     zips: ["89052"],
@@ -276,8 +276,8 @@ export const areaPages: AreaPage[] = [
     popular: ["hvac-maintenance-las-vegas", "ac-replacement-in-las-vegas", "indoor-air-quality-las-vegas"],
     faqs: [
       {
-        q: "My home has two AC systems. Do you discount maintenance?",
-        a: "Yes. Wave Club is $150/year for the first system and $140/year for each additional system at the same property.",
+        q: "My home has two AC systems. Can you service both in one visit?",
+        a: "Yes. We tune up every system at the same appointment and give you one written report covering all of them.",
       },
       {
         q: "Should I replace both systems at once?",
@@ -297,7 +297,7 @@ export const areaPages: AreaPage[] = [
       "Spring Valley stretches across the southwest-central valley with a mix of single-family homes, townhomes and rental properties. Wave Heating & Cooling provides fast AC repair, heating service and replacements for homeowners, landlords and property managers throughout the area.",
     local: [
       "Much of Spring Valley was built between the 1980s and 2000s, so we see a wide range of system ages — from units well past their prime to newer replacements. Package units on rooftops and split systems in tight side yards are both common, and each comes with its own access and maintenance needs.",
-      "For rental owners and property managers, reliable equipment and quick response times protect tenants and investments alike. We offer straightforward repairs, honest replacement recommendations and maintenance plans that cover multiple systems.",
+      "For rental owners and property managers, reliable equipment and quick response times protect tenants and investments alike. We offer straightforward repairs, honest replacement recommendations and maintenance that covers every system on the property.",
     ],
     zips: ["89103", "89117", "89146", "89147", "89148"],
     neighborhoods: ["Spring Valley", "Rancho Bel Air area", "Desert Inn area", "Chinatown area", "Spanish Trail area"],

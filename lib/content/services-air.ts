@@ -213,43 +213,34 @@ export const airServices: ServicePage[] = [
     related: ["hvac-ductwork-las-vegas", "ductless-mini-split-systems-in-las-vegas", "hvac-maintenance-las-vegas"],
   },
 
-  /* ─────────────────────────── MAINTENANCE PLAN ─────────────────────────── */
+  /* ─────────────────────────── HVAC MAINTENANCE ─────────────────────────── */
   {
     slug: "hvac-maintenance-las-vegas",
     category: "air",
-    name: "Wave Club Maintenance Plan",
-    title: "HVAC Maintenance Plan Las Vegas | Wave Club",
+    name: "HVAC Maintenance",
+    title: "HVAC Maintenance Las Vegas | Wave Heating & Cooling",
     description:
-      "Join Wave Club: 2 HVAC tune-ups a year, 15% off repairs, priority same-day service and extended warranty. From $150/yr. (702) 881-4713.",
-    h1: "HVAC Maintenance in Las Vegas — Join Wave Club",
-    kicker: "Maintenance membership",
+      "Las Vegas HVAC maintenance: a spring AC tune-up and a fall heating tune-up to cut breakdowns and energy bills. NATE-certified techs on staff. (702) 881-4713.",
+    h1: "HVAC Maintenance in Las Vegas",
+    kicker: "Year-round maintenance",
     intro:
-      "Regular maintenance is the key to long-lasting comfort and lower energy bills. Wave Club makes it automatic: two tune-ups a year — AC before summer and heating before winter — plus priority service, member discounts and extended warranty coverage.",
-    summary: "Two tune-ups a year, 15% off repairs, priority service and extended warranty coverage.",
+      "Regular maintenance is the key to long-lasting comfort and lower energy bills. In Las Vegas that means two visits a year — the AC before summer and the heating before winter — so small problems get caught before they turn into breakdowns.",
+    summary: "Spring AC and fall heating tune-ups that catch problems early and help your system last longer.",
     img: "/images/svc-maintenance.jpg",
     icon: "gauge",
     pick: "Maintenance / tune-up",
-    highlights: ["$150/yr first system", "$140/yr each additional", "Cancel anytime", "Transferable with your home"],
+    highlights: ["Spring AC tune-up", "Fall heating tune-up", "Every system in the home", "Written report of findings"],
     sections: [
       {
-        h2: "Wave Club Member Benefits",
-        kind: "club",
-        list: [
-          "2 maintenance visits per year: before summer (Mar–Apr) and before winter (Oct–Nov)",
-          "Priority scheduling: first in line for same-day visits",
-          "1-year parts and labor warranty extension while the plan is active*",
-          "1-year workmanship warranty while the plan is active",
-          "Diagnostic fee waived when the repair is done at the time of service",
-          "15% off all repairs",
-          "15% off upgrades like smart Wi-Fi thermostats, air quality products and humidifiers",
-          "Help with manufacturer and energy-efficiency rebates on new system installations (when available)",
-          "OEM or manufacturer-recommended parts",
-          "Discounted rate for additional systems at the same property",
-          "Transferable to a new owner if you sell your home — or take it with you",
-          "No-hassle guarantee: cancel at any time",
+        h2: "Two Visits a Year, Timed for the Desert",
+        kind: "season",
+        season: [
+          { m: [2, 3], label: "AC tune-up", tone: "cool" },
+          { m: [9, 10], label: "Heating tune-up", tone: "warm" },
         ],
         body: [
-          "**Wave Club cost:** $150 per year for the first system and $140 per year for each additional system.",
+          "Book the cooling check in **March or April**, before the first 100° day, and the heating check in **October or November**, before the first cold night. Those are the months before every HVAC company in town gets busy, so getting on the schedule is easier.",
+          "Home with more than one system? We can service every unit at the same visit.",
         ],
       },
       {
@@ -284,31 +275,19 @@ export const airServices: ServicePage[] = [
           note: "*Industry estimates. With proper installation and regular maintenance, many systems exceed these numbers.",
         },
       },
-      {
-        h2: "Plan Details",
-        kind: "fine",
-        body: [
-          "Benefits apply when members complete their seasonal check-ups. It's the member's responsibility to contact us to schedule each visit. Seasonal check-ups are performed during regular business hours (8:00 a.m.–5:00 p.m., Monday–Friday), preferably in March–April and October–November.",
-          "*Refrigerant, line sets and ductwork are not covered under the warranty extension unless they were part of the repair scope. If two consecutive check-up appointments are cancelled by the customer on the appointment date, additional fees may apply. Offers may be modified at any time.",
-        ],
-      },
     ],
     faqs: [
       {
-        q: "How much is Wave Club?",
-        a: "$150 per year for the first system and $140 per year for each additional system at the same property.",
+        q: "How often should my HVAC system be serviced in Las Vegas?",
+        a: "Twice a year: the AC in spring before the summer heat, and the heating in fall before winter. Las Vegas systems work harder than most, so regular checks matter more here.",
       },
       {
-        q: "Can I cancel?",
-        a: "Yes. Wave Club has a no-hassle guarantee — you can cancel your membership at any time.",
+        q: "Can you service more than one system in the same visit?",
+        a: "Yes. Many Las Vegas and Henderson homes have a system for each floor — we can tune up all of them in one appointment.",
       },
       {
-        q: "What if I sell my home?",
-        a: "Your membership can be transferred to the new owner, or you can take it with you to your new home.",
-      },
-      {
-        q: "Do members pay extra for nights and weekends?",
-        a: "No. Nobody does. Wave has no after-hours, weekend or holiday surcharge for any customer.",
+        q: "Do you charge extra for nights and weekends?",
+        a: "No. Wave has no after-hours, weekend or holiday surcharge for any customer.",
       },
     ],
     related: ["ac-maintenance-in-las-vegas", "hvac-heating-maintenance-in-las-vegas", "indoor-air-quality-las-vegas"],
