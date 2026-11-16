@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { CtaBand, ToolCards } from "@/components/page/Cards";
 import { PageHero } from "@/components/page/PageHero";
+import { RecentWork } from "@/components/RecentWork";
 import { Areas, FinalCta, Process, Reviews, TrustBar, WhyWave } from "@/components/Sections";
 import { Icon } from "@/components/Icon";
 import { paymentMethods } from "@/lib/content/company";
@@ -11,7 +12,7 @@ import { site } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "About Wave Heating & Cooling | Family-Owned Las Vegas HVAC",
   description:
-    "Wave Heating & Cooling is a family-owned and operated Las Vegas HVAC company with NATE-certified techs on staff, honest pricing and same-day service. Meet the team.",
+    "Wave Heating & Cooling is a family-owned and operated Las Vegas HVAC company where most techs are NATE-certified, with honest pricing and same-day service. Meet the team.",
   path: "/about-us/",
 });
 
@@ -25,7 +26,7 @@ export default function AboutPage() {
         intro="Wave Heating & Cooling is a family-owned and operated HVAC company serving homes across the Las Vegas valley. We treat you like family and your home like our own."
         highlights={["Family owned & operated", `NV License ${site.license}`, "Licensed, bonded & insured"]}
         form={false}
-        img="/images/crew.jpg"
+        img="/images/work/team-expo.jpg"
         variant="split"
       />
       <TrustBar />
@@ -40,7 +41,7 @@ export default function AboutPage() {
             </p>
             <p>
               As a family-owned business, we don&apos;t carry corporate overhead or franchise fees — so we can offer competitive,
-              honest pricing while paying for the best-trained technicians in the valley. We have NATE-certified techs on staff, our employee
+              honest pricing while paying for the best-trained technicians in the valley. Most of our techs are NATE-certified, our employee
               turnover is low, and many of our customers have been with us since day one.
             </p>
             <p>
@@ -68,6 +69,7 @@ export default function AboutPage() {
       </section>
 
       <WhyWave variant="ledger" />
+      <RecentWork alt />
       <Process variant="route" />
       <CtaBand title="Experience the Wave Difference" tone="cool" />
       <Reviews variant="ticker" />

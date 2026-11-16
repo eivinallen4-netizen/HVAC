@@ -84,7 +84,8 @@ export function ExitOffer({ picks }: { picks: Record<string, string> }) {
       const max = document.documentElement.scrollHeight - window.innerHeight;
       if (max > 0) deepest = Math.max(deepest, y / max);
       const speed = (lastY - y) / Math.max(t - lastT, 1);
-      if (deepest >= MIN_DEPTH && speed > FLICK_SPEED) open();
+      // Never over the hero: a jump back to the top (e.g. "back to top") isn't someone leaving
+      if (deepest >= MIN_DEPTH && speed > FLICK_SPEED && y > window.innerHeight) open();
       lastY = y;
       lastT = t;
     };
@@ -125,8 +126,8 @@ export function ExitOffer({ picks }: { picks: Record<string, string> }) {
         </p>
         <div className="exit-acts" onClickCapture={() => track("exit_offer_click", { offer: pick })}>
           <BookNowLink className="btn btn-red btn-lg" location="exit-offer" pick={pick}>
-            {/* Headings name the problem, so the button names the relief */}
-            {ctas[pick].relief}
+            {/* Say exactly what tapping does */}
+            {ctas[pick].cta}
           </BookNowLink>
           <CallLink className="btn btn-ghost btn-lg" location="exit-offer" />
         </div>

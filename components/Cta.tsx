@@ -74,9 +74,8 @@ export function TextLink({
   );
 }
 
-/** Opt-out link under a main CTA. Names the outcome the visitor is turning down (lib/ctas.ts). */
+/** Plain "No thanks" opt-out link under a main CTA. `pick` is accepted for older call sites but no longer changes the wording. */
 export function NoThanks({
-  pick,
   location,
   onClick,
   className = "no-thanks",
@@ -95,7 +94,7 @@ export function NoThanks({
         onClick?.();
       }}
     >
-      {ctaFor(pick).decline}
+      No thanks
     </button>
   );
 }

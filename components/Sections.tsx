@@ -4,7 +4,7 @@ import { areaHref } from "@/lib/content/areas";
 import { servicesIn } from "@/lib/content/services";
 import { tools } from "@/lib/tools";
 import { fees, financing } from "@/lib/estimate/config";
-import { beforeAfter, faqs as defaultFaqs, guides, pages, reviews, serviceAreas, services, site, type IconName } from "@/lib/site";
+import { beforeAfter, faqs as defaultFaqs, guides, pages, ratingLabel, reviews, serviceAreas, services, site, type IconName } from "@/lib/site";
 import { SplitEmblem } from "./Art";
 import { BeforeAfterGallery } from "./BeforeAfter";
 import { BookNowLink } from "./Booking";
@@ -71,16 +71,22 @@ const stamps: { icon: IconName; t: string }[] = [
 export function Hero() {
   return (
     <section className="hero">
-      <Image src="/images/van-strip.jpg" alt="" fill priority sizes="100vw" className="hero-bg" />
+      <Image src="/images/work/fleet-hero.jpg" alt="" fill priority sizes="100vw" className="hero-bg" />
       <div className="hero-shade" aria-hidden="true" />
       <div className="wrap hero-grid">
         <div className="hero-copy">
           <span className="kicker">Repair first. Replace only when it makes sense.</span>
           <h1>Las Vegas AC &amp; heating repair, priced before we start</h1>
           <p className="hero-sub">
-            Same-day visits most of the time, with no after-hours or weekend surcharge. ${fees.diagnostic} diagnostic, waived
-            when you approve the repair on a weekday visit.
+            Same-day visits most of the time. ${fees.diagnostic} diagnostic, waived when you approve the repair on a weekday
+            visit.
           </p>
+          {site.guarantee && (
+            <p className="hero-guarantee">
+              <Icon name="award" size={18} />
+              <span>{site.guarantee}</span>
+            </p>
+          )}
         </div>
 
         <div className="hero-form">
@@ -124,7 +130,7 @@ export function RatingsRow({ nate = false }: { nate?: boolean }) {
               <b>
                 {r.score} <Stars size={13} />
               </b>
-              <span>{r.platform}</span>
+              <span>{ratingLabel(r)}</span>
             </div>
           </a>
         </li>
@@ -134,7 +140,7 @@ export function RatingsRow({ nate = false }: { nate?: boolean }) {
           <Image src="/images/nate.png" alt="NATE" width={34} height={32} />
           <div>
             <b>Certified</b>
-            <span>NATE techs on staff</span>
+            <span>Most techs NATE-certified</span>
           </div>
         </li>
       )}
@@ -161,7 +167,7 @@ export function TrustBar() {
         ))}
         <li className="trust-item trust-nate">
           <Image src="/images/nate.png" alt="NATE" width={46} height={43} />
-          <span>NATE-certified techs on staff</span>
+          <span>Most techs NATE-certified</span>
         </li>
       </ul>
     </section>
@@ -215,8 +221,11 @@ export function Services({
         <ul className="dir">
           {services.map((s, i) => (
             <li className={`dir-row${s.hot ? " hot" : ""}`} key={s.title} data-reveal style={{ transitionDelay: `${(i % 2) * 60}ms` }}>
-              <span className={`ic-box ${s.hot ? "tone-warm" : "tone-cool"}`}>
-                <Icon name={s.icon} size={20} />
+              <span className="dir-photo">
+                <Image src={s.img} alt="" fill sizes="(max-width: 760px) 88px, 128px" />
+                <span className={`ic-box dir-badge ${s.hot ? "tone-warm" : "tone-cool"}`}>
+                  <Icon name={s.icon} size={16} />
+                </span>
               </span>
               <div className="dir-copy">
                 <h3>
@@ -282,7 +291,7 @@ export function Difference() {
 /* ═════════════════════════ WHY WAVE ═════════════════════════ */
 const why = [
   { icon: "home", t: "Family owned and operated", d: "We treat you like family and your home like ours." },
-  { icon: "award", t: "NATE-certified techs on staff", d: "Experienced pros who know HVAC inside and out, with NATE-certified techs on the team." },
+  { icon: "award", t: "Most techs NATE-certified", d: "Experienced pros who know HVAC inside and out, and most of them are NATE-certified." },
   { icon: "tag", t: "Honest advice", d: "If it's a simple fix, we'll tell you. If it's time to replace, we'll show you why." },
   { icon: "clock", t: "Here when it breaks", d: "Heat waves don't wait, so most of the time we get a tech out the same day." },
   { icon: "shield", t: "Licensed, bonded & insured", d: `Nevada license ${site.license} for total peace of mind.` },
@@ -308,7 +317,7 @@ export function WhyWave({ variant = "bento" }: { variant?: "bento" | "ledger" } 
             <Image src="/images/crew.jpg" alt="The Wave Heating & Cooling team" fill sizes="(max-width: 1040px) 100vw, 600px" />
           </figure>
           <figure className="bt bt-fam" data-reveal>
-            <Image src="/images/family.jpg" alt="The family behind Wave Heating & Cooling" fill sizes="(max-width: 760px) 100vw, 300px" />
+            <Image src="/images/work/team-expo.jpg" alt="The Wave Heating & Cooling team at a community event" fill sizes="(max-width: 760px) 100vw, 300px" />
           </figure>
           <div className="bt bt-stat warm" data-reveal>
             <b aria-hidden="true">Same day</b>
@@ -326,12 +335,12 @@ export function WhyWave({ variant = "bento" }: { variant?: "bento" | "ledger" } 
             </span>
             <h3>Trained for Nevada&apos;s harshest conditions</h3>
             <p>
-              Wave has NATE-certified techs on staff, and every technician works on homes built for triple-digit summers and cold desert
+              Most Wave techs are NATE-certified, and every technician works on homes built for triple-digit summers and cold desert
               nights. Our owner is still in the field on install days and service calls, making sure every job runs smoothly from
               start to finish.
             </p>
             <ul className="inline-checks">
-              <li><Icon name="check" size={16} /> NATE-Certified Techs on Staff</li>
+              <li><Icon name="check" size={16} /> Most Techs NATE-Certified</li>
               <li><Icon name="check" size={16} /> Licensed &amp; Bonded</li>
               <li><Icon name="check" size={16} /> Fully Insured</li>
             </ul>
@@ -368,7 +377,7 @@ function WhyLedger() {
               <Image src="/images/crew.jpg" alt="The Wave Heating & Cooling team" fill sizes="(max-width: 1040px) 100vw, 480px" />
             </figure>
             <figure className="lp-fam">
-              <Image src="/images/family.jpg" alt="The family behind Wave Heating & Cooling" fill sizes="220px" />
+              <Image src="/images/work/team-expo.jpg" alt="The Wave Heating & Cooling team at a community event" fill sizes="220px" />
             </figure>
           </div>
         </div>
@@ -394,12 +403,12 @@ function WhyLedger() {
             </span>
             <h3>Trained for Nevada&apos;s harshest conditions</h3>
             <p>
-              Wave has NATE-certified techs on staff, and every technician works on homes built for triple-digit summers and cold desert
+              Most Wave techs are NATE-certified, and every technician works on homes built for triple-digit summers and cold desert
               nights. Our owner is still in the field on install days and service calls, making sure every job runs smoothly from
               start to finish.
             </p>
             <ul className="inline-checks">
-              <li><Icon name="check" size={16} /> NATE-Certified Techs on Staff</li>
+              <li><Icon name="check" size={16} /> Most Techs NATE-Certified</li>
               <li><Icon name="check" size={16} /> Licensed &amp; Bonded</li>
               <li><Icon name="check" size={16} /> Fully Insured</li>
             </ul>
@@ -509,7 +518,7 @@ export function Reviews({
                 <b>{r.score}</b>
                 <Stars size={14} />
                 <a className="rv-plat-link" href={r.href} target="_blank" rel="noopener noreferrer">
-                  <PlatformLogo platform={r.platform} size={18} /> {r.platform}
+                  <PlatformLogo platform={r.platform} size={18} /> {ratingLabel(r)}
                 </a>
               </li>
             ))}
@@ -578,7 +587,7 @@ function ReviewTicker({ title, alt }: { title: string; alt: boolean }) {
               <span>
                 <Stars size={12} />
                 <a className="rv-plat rv-plat-link" href={r.href} target="_blank" rel="noopener noreferrer">
-                  <PlatformLogo platform={r.platform} size={16} /> {r.platform}
+                  <PlatformLogo platform={r.platform} size={16} /> {ratingLabel(r)}
                 </a>
               </span>
             </li>
@@ -617,7 +626,7 @@ function ReviewWall({ title, alt }: { title: string; alt: boolean }) {
                 <b>{r.score}</b>
                 <Stars size={14} />
                 <a className="rv-plat-link" href={r.href} target="_blank" rel="noopener noreferrer">
-                  <PlatformLogo platform={r.platform} size={18} /> {r.platform}
+                  <PlatformLogo platform={r.platform} size={18} /> {ratingLabel(r)}
                 </a>
               </li>
             ))}
@@ -923,7 +932,7 @@ export function Footer() {
           <Link href="/" aria-label={`${site.name} home`}>
             <Image src="/images/logo-light.png" alt={site.name} width={190} height={57} className="foot-logo" />
           </Link>
-          <p>{site.tagline}. Family-owned, NATE-certified techs on staff, same-day service.</p>
+          <p>{site.tagline}. Family-owned, most techs NATE-certified, same-day service.</p>
           <span className="chip">
             <Icon name="shield" size={14} /> NV License {site.license}
           </span>
@@ -970,7 +979,6 @@ export function Footer() {
             <li><Link href={pages.about}>About Us</Link></li>
             <li><Link href={pages.team}>Our Team</Link></li>
             <li><Link href={pages.reviews}>Reviews</Link></li>
-            <li><Link href={pages.specials}>Specials</Link></li>
             <li><Link href={pages.financing}>Financing</Link></li>
             <li><Link href={pages.referral}>Referral Program</Link></li>
             <li><Link href={pages.areas}>Service Areas</Link></li>
@@ -1019,7 +1027,7 @@ export function StickyBar() {
       <CallLink className="btn btn-red" location="sticky-mobile">
         Call now
       </CallLink>
-      <TextLink className="btn btn-blue" location="sticky-mobile">
+      <TextLink className="btn btn-ghost" location="sticky-mobile">
         Text us
       </TextLink>
       <BookNowLink className="btn btn-ghost" location="sticky-mobile" icon={false} />
@@ -1037,7 +1045,7 @@ export function TrustSeals() {
       key: "nate",
       mark: <Image src="/images/nate.png" alt="" width={30} height={28} />,
       t: "NATE-certified",
-      s: "Techs on staff",
+      s: "Most of our techs",
     },
     ...(google
       ? [

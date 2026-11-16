@@ -80,7 +80,7 @@ export const airServices: ServicePage[] = [
     intro:
       "Your ductwork carries every bit of air your system heats or cools — and in many Las Vegas homes, it runs through attics that hit 140°+ in summer. Leaks, crushed runs and poor insulation waste the air you pay for. Wave Heating & Cooling repairs, seals and replaces ductwork so your rooms get the comfort your system is producing.",
     summary: "Leaky or crushed ducts repaired, sealed and replaced for lower bills and even temperatures.",
-    img: "/images/svc-ducts.jpg",
+    img: "/images/work/attic-ducts-wide.jpg",
     icon: "duct",
     pick: "Ductwork / indoor air quality",
     highlights: ["Leak detection & sealing", "Repair & replacement", "Better airflow & comfort", "Lower energy waste"],
@@ -220,7 +220,7 @@ export const airServices: ServicePage[] = [
     name: "HVAC Maintenance",
     title: "HVAC Maintenance Las Vegas | Wave Heating & Cooling",
     description:
-      "Las Vegas HVAC maintenance: a spring AC tune-up and a fall heating tune-up to cut breakdowns and energy bills. NATE-certified techs on staff. (702) 881-4713.",
+      "Las Vegas HVAC maintenance: a spring AC tune-up and a fall heating tune-up to cut breakdowns and energy bills. Most techs NATE-certified. (702) 881-4713.",
     h1: "HVAC Maintenance in Las Vegas",
     kicker: "Year-round maintenance",
     intro:

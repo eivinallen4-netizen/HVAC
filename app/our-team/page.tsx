@@ -1,4 +1,5 @@
 import { PageHero } from "@/components/page/PageHero";
+import { RecentWork } from "@/components/RecentWork";
 import { CtaBand } from "@/components/page/Cards";
 import { BadgeCard } from "@/components/page/Objects";
 import { Rich } from "@/components/page/Rich";
@@ -9,7 +10,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Our Team | Las Vegas HVAC Technicians | Wave Heating & Cooling",
   description:
-    "Meet the family-owned team behind Wave Heating & Cooling: Las Vegas HVAC technicians, with NATE-certified techs on staff, who treat your home like their own.",
+    "Meet the family-owned team behind Wave Heating & Cooling: Las Vegas HVAC technicians, most of them NATE-certified, who treat your home like their own.",
   path: "/our-team/",
 });
 
@@ -25,7 +26,7 @@ export default function TeamPage() {
         h1="Meet the Wave Team"
         intro="Family-owned means the owners stand behind every job — and our technicians are trained and committed to doing it right."
         form={false}
-        img="/images/crew.jpg"
+        img="/images/work/van-tech.jpg"
         variant="split"
       />
       <TrustBar />
@@ -51,6 +52,7 @@ export default function TeamPage() {
           />
         </div>
       </section>
+      <RecentWork kicker="Our techs at work" title="The Wave team on the job" />
       <Reviews variant="ticker" />
       <CtaBand title="Work With a Team You Can Trust" />
       <FinalCta />

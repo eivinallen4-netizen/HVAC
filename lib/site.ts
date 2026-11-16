@@ -36,8 +36,15 @@ export const site = {
    * TODO: client to confirm real numbers before setting any of these.
    */
   stats: {} as { years?: number; homesServed?: number; reviewCount?: number },
+  /**
+   * One-line workmanship guarantee shown in the hero and on the $89 card, e.g.
+   * "Fixed right, or we come back free for 30 days." Hidden until set.
+   * TODO: client to confirm the exact terms before setting this.
+   */
+  guarantee: undefined as string | undefined,
   /** BBB rating, e.g. "A+". TODO: set only if Wave is BBB accredited. */
   bbb: undefined as string | undefined,
+  /** `count` (number of reviews) shows next to the score once set. TODO: client to confirm each count. */
   ratings: [
     {
       platform: "Google",
@@ -50,8 +57,12 @@ export const site = {
       score: "4.8",
       href: "https://www.yelp.com/search?find_desc=Wave+Heating+%26+Cooling&find_loc=Las+Vegas%2C+NV",
     },
-  ],
+  ] as { platform: string; score: string; href: string; count?: number }[],
 };
+
+/** "Google" or, once a review count is set, "Google · 120 reviews" */
+export const ratingLabel = (r: { platform: string; count?: number }) =>
+  r.count ? `${r.platform} · ${r.count.toLocaleString()} reviews` : r.platform;
 
 /** Internal routes (trailing slash matches next.config `trailingSlash: true`) */
 const page = (path: string) => `/${path}/`;
@@ -62,7 +73,6 @@ export const pages = {
   reviews: page("reviews"),
   referral: page("referral-program"),
   financing: page("financing"),
-  specials: page("specials"),
   faq: page("faq"),
   team: page("our-team"),
   services: page("services"),
@@ -126,7 +136,7 @@ export const services: {
   {
     title: "AC Repair",
     text: "Warm air, strange noises, or an AC that won't kick on? We find the real problem and fix it right the first time.",
-    img: "/images/svc-ac-repair.jpg",
+    img: "/images/work/condenser-service.jpg",
     icon: "wrench",
     pick: "AC not cooling",
     href: page("hvac-repairs-in-las-vegas"),
@@ -134,7 +144,7 @@ export const services: {
   {
     title: "AC Installation & Replacement",
     text: "Full matched systems, sized to your home, permitted and safety-inspected, with your home protected and cleaned up after.",
-    img: "/images/svc-ac-install.jpg",
+    img: "/images/work/new-condensers.jpg",
     icon: "unitPlus",
     pick: "New system / replacement estimate",
     href: page("ac-replacement-in-las-vegas"),
@@ -142,7 +152,7 @@ export const services: {
   {
     title: "Heating Repair & Installation",
     text: "Furnace and heat pump repair, replacement and installation so cold desert nights stay comfortable.",
-    img: "/images/svc-heating.jpg",
+    img: "/images/work/furnace-garage.jpg",
     icon: "flame",
     pick: "Heat not working",
     href: page("heating-services"),
@@ -151,7 +161,7 @@ export const services: {
   {
     title: "Maintenance & Tune-Ups",
     text: "Seasonal tune-ups that catch problems early, lower your energy bill and help your system last longer.",
-    img: "/images/svc-maintenance.jpg",
+    img: "/images/work/condenser-inside.jpg",
     icon: "gauge",
     pick: "Maintenance / tune-up",
     href: page("hvac-maintenance-las-vegas"),
@@ -167,7 +177,7 @@ export const services: {
   {
     title: "Ductwork & Indoor Air Quality",
     text: "Leaky or crushed ducts repaired and sealed, plus air quality solutions for cleaner air in a dusty climate.",
-    img: "/images/svc-ducts.jpg",
+    img: "/images/work/attic-ducts.jpg",
     icon: "duct",
     pick: "Ductwork / indoor air quality",
     href: page("indoor-air-quality-las-vegas"),
@@ -199,7 +209,7 @@ export const faqs = [
   },
   {
     q: "Are you licensed and insured?",
-    a: `Absolutely. Wave Heating & Cooling is licensed, bonded and insured in Nevada (license ${site.license}), and we have NATE-certified techs on staff.`,
+    a: `Absolutely. Wave Heating & Cooling is licensed, bonded and insured in Nevada (license ${site.license}), and most of our techs are NATE-certified.`,
   },
   {
     q: "Should I repair or replace my AC?",

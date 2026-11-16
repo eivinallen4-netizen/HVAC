@@ -1,28 +1,7 @@
 import { JsonLd } from "@/components/JsonLd";
+import { RecentWork } from "@/components/RecentWork";
 import { RepairPrices } from "@/components/RepairPrices";
-import {
-  BeReady,
-  HomeProtection,
-  RepairOrReplace,
-  ReplacementDay,
-  StraightAnswers,
-} from "@/components/Replacement";
-import {
-  Areas,
-  Difference,
-  Emergency,
-  Faq,
-  FinalCta,
-  Guides,
-  Hero,
-  Process,
-  Programs,
-  Reviews,
-  Services,
-  Stats,
-  TrustSeals,
-  WhyWave,
-} from "@/components/Sections";
+import { Areas, Faq, FinalCta, Hero, Reviews, Services, TrustSeals } from "@/components/Sections";
 import { buildMetadata, faqLd } from "@/lib/seo";
 import { faqs, replacementFaqs } from "@/lib/site";
 
@@ -36,12 +15,16 @@ export const metadata = buildMetadata({
   path: "/",
 });
 
+/**
+ * One job: get a repair call or booking. Every section answers price, trust or timing.
+ * Replacement detail, tools, guides, referrals and financing live on their own pages
+ * (linked from the nav and the Services list), not here.
+ */
 export default function Home() {
   return (
     <>
       <Hero />
       <TrustSeals />
-      {/* Repair is the way in: price, proof, then what we fix */}
       <RepairPrices />
       <Reviews title="What Las Vegas homeowners say about Wave" />
       <Services
@@ -50,22 +33,10 @@ export default function Home() {
         lead="AC, heating, ductless and ductwork. Same team, same upfront pricing, same-day most of the time."
         alt
       />
-      <Process alt={false} />
-      <Emergency />
-      {/* When it's time to replace (full detail lives on the replacement pages) */}
-      <StraightAnswers />
-      <RepairOrReplace />
-      <HomeProtection />
-      {/* Before/after sliders of real Wave jobs */}
-      <Difference />
-      <ReplacementDay />
-      <Programs />
-      <WhyWave />
-      <Stats />
+      <RecentWork />
+      {/* Kept for the links to each city page */}
       <Areas />
-      <Guides />
       <Faq items={homeFaqs} title="HVAC repair & replacement questions, answered" alt />
-      <BeReady />
       <FinalCta
         title="Book a repair visit"
         lead="Pick a time online. $89 diagnostic, waived when you approve the repair on a weekday visit. Thinking about a new system? Book a replacement assessment the same way."

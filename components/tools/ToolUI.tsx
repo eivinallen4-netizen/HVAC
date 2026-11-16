@@ -18,6 +18,7 @@ export function ToolCard({
   children,
   id,
   className = "",
+  firstPill,
 }: {
   step: number;
   total: number;
@@ -26,13 +27,16 @@ export function ToolCard({
   children: React.ReactNode;
   id?: string;
   className?: string;
+  /** Replaces "Step 1 of N" on the first step, so a long flow doesn't scare people off before they start */
+  firstPill?: string;
 }) {
   const pct = Math.min(100, Math.round((step / total) * 100));
+  const pill = step > total ? "Your results" : step === 1 && firstPill ? firstPill : `Step ${step} of ${total}`;
   return (
     <div className={`form-card tool-ui ${className}`.trim()} id={id}>
       <div className="form-top">
         <span className="kicker">{label}</span>
-        <span className="step-pill">{step <= total ? `Step ${step} of ${total}` : "Your results"}</span>
+        <span className="step-pill">{pill}</span>
       </div>
       <div className="progress" aria-hidden="true">
         <i style={{ width: `${pct}%` }} />

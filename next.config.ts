@@ -18,7 +18,9 @@ const legacy: [string, string][] = [
   ["/hvac-ductowork-las-vegas", "/hvac-ductwork-las-vegas/"],
   ["/indoor-air-quality", "/indoor-air-quality-las-vegas/"],
   ["/maintenance-services", "/hvac-maintenance-las-vegas/"],
-  ["/summer-savings", "/specials/"],
+  ["/summer-savings", "/referral-program/"],
+  // the Specials page only ever held the referral program
+  ["/specials", "/referral-program/"],
   ["/tips-articles", "/blog/"],
   ["/blog-2", "/blog/"],
   ["/team", "/our-team/"],
@@ -47,7 +49,8 @@ const nextConfig: NextConfig = {
   distDir: process.env.NEXT_DIST_DIR || ".next",
   trailingSlash: true,
   poweredByHeader: false,
-  images: { formats: ["image/avif", "image/webp"] },
+  // quality 85 (Next defaults to 75): job photos stay sharp on 3x iPhone screens
+  images: { formats: ["image/avif", "image/webp"], qualities: [85] },
 
   async redirects() {
     return [

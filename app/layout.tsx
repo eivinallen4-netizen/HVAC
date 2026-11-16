@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     template: "%s | Wave Heating & Cooling",
   },
   description:
-    "Family-owned Las Vegas HVAC company. AC & heating repair, installs and tune-ups by a team with NATE-certified techs. Same-day service, book online. (702) 881-4713.",
+    "Family-owned Las Vegas HVAC company. AC & heating repair, installs and tune-ups by a team where most techs are NATE-certified. Same-day service, book online. (702) 881-4713.",
   applicationName: site.name,
   icons: { icon: "/images/favicon.png", apple: "/images/favicon.png" },
   openGraph: { siteName: site.name, locale: "en_US", type: "website" },
@@ -54,6 +54,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  // fill the whole screen on notch / Dynamic Island iPhones; globals.css pads around the cut-outs
+  viewportFit: "cover",
   themeColor: [
     { media: "(prefers-color-scheme: dark)", color: "#061820" },
     { media: "(prefers-color-scheme: light)", color: "#f4f8fa" },

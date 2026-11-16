@@ -25,7 +25,7 @@ export const hubPages: HubPage[] = [
     h1: "Heating & Cooling Services in Las Vegas",
     kicker: "Everything HVAC",
     intro:
-      "From a same-day AC repair to a whole-home system upgrade, Wave Heating & Cooling handles every part of your home's comfort. Family-owned, with NATE-certified techs on staff and same-day service most of the time.",
+      "From a same-day AC repair to a whole-home system upgrade, Wave Heating & Cooling handles every part of your home's comfort. Family-owned, with most techs NATE-certified and same-day service most of the time.",
     img: "/images/hero.jpg",
     sections: [
       {
@@ -43,7 +43,7 @@ export const hubPages: HubPage[] = [
       },
       {
         q: "Are you licensed and insured?",
-        a: "Yes. Wave Heating & Cooling is licensed, bonded and insured in Nevada (license #0086052), and we have NATE-certified techs on staff.",
+        a: "Yes. Wave Heating & Cooling is licensed, bonded and insured in Nevada (license #0086052), and most of our techs are NATE-certified.",
       },
     ],
   },
@@ -53,12 +53,12 @@ export const hubPages: HubPage[] = [
     name: "Cooling Services",
     title: "AC Services Las Vegas | Repair, Install & Tune-Ups | Wave",
     description:
-      "Las Vegas air conditioning services: same-day AC repair, new installations, replacements and tune-ups from a family-owned team with NATE-certified techs.",
+      "Las Vegas air conditioning services: same-day AC repair, new installations, replacements and tune-ups from a family-owned team where most techs are NATE-certified.",
     h1: "Air Conditioning Services in Las Vegas",
     kicker: "Cooling services",
     intro:
       "In the Mojave desert your air conditioner isn't a luxury — it's essential. Wave Heating & Cooling keeps Las Vegas homes cool with fast repairs, expert installations and preventative maintenance built for triple-digit summers.",
-    img: "/images/svc-ac-repair.jpg",
+    img: "/images/work/condenser-service-wide.jpg",
     sections: [
       {
         h2: "Cooling Built for the Desert",
@@ -89,8 +89,8 @@ export const hubPages: HubPage[] = [
     h1: "Heating Services in Las Vegas",
     kicker: "Heating services",
     intro:
-      "Desert winter nights can drop near freezing. Wave Heating & Cooling keeps your furnace or heat pump safe, efficient and ready — with repairs, installations, replacements and fall tune-ups from a team with NATE-certified techs.",
-    img: "/images/svc-heating.jpg",
+      "Desert winter nights can drop near freezing. Wave Heating & Cooling keeps your furnace or heat pump safe, efficient and ready — with repairs, installations, replacements and fall tune-ups from a team where most techs are NATE-certified.",
+    img: "/images/work/furnace-garage-wide.jpg",
     sections: [
       {
         h2: "Safe, Efficient Heat for Las Vegas Homes",

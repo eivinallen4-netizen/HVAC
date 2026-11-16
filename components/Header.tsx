@@ -22,7 +22,7 @@ const menus: NavMenu[] = [
   },
   { label: "Service Areas", href: pages.areas },
   { label: "Reviews", href: pages.reviews },
-  { label: "Specials", href: pages.specials },
+  { label: "Referrals", href: pages.referral },
   {
     label: "About",
     href: pages.about,

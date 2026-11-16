@@ -84,7 +84,7 @@ export default async function PostPage({ params }: Props) {
             )}
             <div className="side-cta rail-cta">
               <strong>Need help now?</strong>
-              <p>Wave offers same-day service most of the time, with NATE-certified techs on the team.</p>
+              <p>Wave offers same-day service most of the time, and most of our techs are NATE-certified.</p>
               <CallLink className="btn btn-red btn-block" location="blog-side" />
               <BookNowLink className="btn btn-ghost btn-block" location="blog-side" />
             </div>

@@ -8,16 +8,16 @@ export const coolingServices: ServicePage[] = [
     name: "AC Repair",
     title: "AC Repair & Service Las Vegas | Same-Day | Wave",
     description:
-      "Fast, honest AC repair and service in Las Vegas from a team with NATE-certified techs. Warm air, noises, leaks or no power: all brands, often same day. (702) 881-4713.",
+      "Fast, honest AC repair and service in Las Vegas from a team where most techs are NATE-certified. Warm air, noises, leaks or no power: all brands, often same day. (702) 881-4713.",
     h1: "AC Repair & Service in Las Vegas — Fast, Honest & Done Right the First Time",
     kicker: "Air conditioning repair",
     intro:
-      "When it's 110° outside, a broken AC isn't an inconvenience — it's an emergency. Wave Heating & Cooling diagnoses and repairs every make and model of central air conditioner and heat pump across the Las Vegas valley, with experienced technicians (including NATE-certified techs on staff) out the same day most of the time and straight answers about what your system actually needs.",
+      "When it's 110° outside, a broken AC isn't an inconvenience — it's an emergency. Wave Heating & Cooling diagnoses and repairs every make and model of central air conditioner and heat pump across the Las Vegas valley, with experienced technicians (most of them NATE-certified) out the same day most of the time and straight answers about what your system actually needs.",
     summary: "Warm air, strange noises, or an AC that won't kick on? We find the real problem and fix it right the first time.",
-    img: "/images/svc-ac-repair.jpg",
+    img: "/images/work/condenser-service-wide.jpg",
     icon: "wrench",
     pick: "AC not cooling",
-    highlights: ["NATE-certified techs on staff", "All brands repaired", "No corporate or franchise fees", "Same-day service"],
+    highlights: ["Most techs NATE-certified", "All brands repaired", "No corporate or franchise fees", "Same-day service"],
     signs: {
       title: "Common AC Problems We Fix Every Day",
       items: [
@@ -66,7 +66,7 @@ export const coolingServices: ServicePage[] = [
         cards: [
           { t: "Honest diagnosis", d: "You see what we see. No scare tactics, no pressure to replace a system that just needs a part." },
           { t: "Fair, local pricing", d: "No corporate overhead or franchise fees — just competitive pricing from a family-owned company." },
-          { t: "Experienced techs", d: "NATE-certified techs on staff and low employee turnover mean consistent, high-quality work." },
+          { t: "Experienced techs", d: "Most techs NATE-certified and low employee turnover mean consistent, high-quality work." },
           { t: "Here when it breaks", d: "Heat waves don't wait. Most of the time we can get a tech out the same day." },
         ],
       },
@@ -125,13 +125,13 @@ export const coolingServices: ServicePage[] = [
     name: "Emergency AC Repair",
     title: "Same-Day Emergency AC Repair Las Vegas | Wave Heating & Cooling",
     description:
-      "AC out in the Las Vegas heat? Same-day emergency AC repair most of the time, with no after-hours surcharge. NATE-certified techs on staff. Call (702) 881-4713.",
+      "AC out in the Las Vegas heat? Same-day emergency AC repair most of the time, with no after-hours surcharge. Most techs NATE-certified. Call (702) 881-4713.",
     h1: "Same-Day Emergency AC Repair in Las Vegas",
     kicker: "Emergency service",
     intro:
       "An air conditioner that dies on a July afternoon can turn a Las Vegas home dangerously hot within hours. Wave Heating & Cooling puts no-cooling calls first and can get a technician out the same day most of the time, ready to diagnose and fix most failures on the spot.",
     summary: "AC out in the heat? Call and we'll work to get a tech to you the same day.",
-    img: "/images/svc-ac-repair.jpg",
+    img: "/images/work/attic-tech-wide.jpg",
     icon: "clock",
     pick: "AC not cooling",
     highlights: ["Same-day most of the time", "No-cooling calls go first", "Trucks stocked for common failures", "No after-hours surcharge"],
@@ -216,7 +216,7 @@ export const coolingServices: ServicePage[] = [
     intro:
       "A new air conditioner is only as good as its installation. Wave Heating & Cooling designs and installs central air, heat pump and ductless systems for Las Vegas homes — properly sized for desert heat, installed clean and on schedule, and backed by a team that will still be here to service it.",
     summary: "Properly sized, energy-efficient systems installed clean and on schedule — with a no-pressure estimate.",
-    img: "/images/svc-ac-install.jpg",
+    img: "/images/work/new-condensers-wide.jpg",
     icon: "unitPlus",
     pick: "New system / replacement estimate",
     highlights: ["Load calculation on every job", "Permits pulled", "Full safety inspection", "Home protected & cleaned up"],
@@ -308,7 +308,7 @@ export const coolingServices: ServicePage[] = [
     intro:
       "If your air conditioner is more than 15 years old, needs a major repair or is driving your power bill through the roof, it may be time. Wave Heating & Cooling diagnoses first and gives you honest, no-pressure advice, and if a repair is enough, we'll tell you. If replacement is the right call, we replace the whole matched system, pull the permit, run a full safety inspection, and protect your home from the front door to the final vacuum.",
     summary: "Old, loud or costing a fortune to run? Get a right-sized, high-efficiency replacement with an estimate.",
-    img: "/images/svc-ac-install.jpg",
+    img: "/images/work/new-condenser-wide.jpg",
     icon: "unitPlus",
     pick: "New system / replacement estimate",
     highlights: ["Permits on every job", "Full matched system", "Safety inspection before we leave", "Home protected & cleaned up"],
@@ -433,13 +433,13 @@ export const coolingServices: ServicePage[] = [
     name: "AC Maintenance & Tune-Ups",
     title: "AC Tune-Up & Maintenance Las Vegas | Wave Heating & Cooling",
     description:
-      "Las Vegas AC tune-ups that prevent summer breakdowns, cut energy bills and extend system life. NATE-certified techs on staff. Call (702) 881-4713.",
+      "Las Vegas AC tune-ups that prevent summer breakdowns, cut energy bills and extend system life. Most techs NATE-certified. Call (702) 881-4713.",
     h1: "AC Tune-Ups & Maintenance in Las Vegas",
     kicker: "Preventative maintenance",
     intro:
       "Most mid-summer breakdowns we see could have been caught weeks earlier. A professional AC tune-up from Wave Heating & Cooling cleans, tests and adjusts your system before the heat arrives — so it runs efficiently, costs less to operate and keeps going when you need it most.",
     summary: "Seasonal tune-ups that catch problems early, lower your energy bill and help your system last longer.",
-    img: "/images/svc-maintenance.jpg",
+    img: "/images/work/condenser-inside-wide.jpg",
     icon: "gauge",
     pick: "Maintenance / tune-up",
     highlights: ["Multi-point inspection", "Coil cleaning for desert dust", "Electrical & refrigerant checks", "Written report of findings"],

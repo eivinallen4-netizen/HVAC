@@ -8,13 +8,13 @@ export const heatingServices: ServicePage[] = [
     name: "Heating Repair",
     title: "Heating & Furnace Repair Las Vegas | Wave Heating & Cooling",
     description:
-      "Furnace and heat pump repair in Las Vegas. No heat, cold air, odd noises or a short-cycling heater — NATE-certified techs on staff, same-day service. Call (702) 881-4713.",
+      "Furnace and heat pump repair in Las Vegas. No heat, cold air, odd noises or a short-cycling heater — most techs NATE-certified, same-day service. Call (702) 881-4713.",
     h1: "Furnace & Heating Repair in Las Vegas — Gas, Electric & Heat Pumps",
     kicker: "Furnace & heat pump repair",
     intro:
-      "Las Vegas winters are mild by day, but desert nights regularly drop near freezing — and that's when a failed furnace or heat pump becomes a real problem. Wave Heating & Cooling repairs gas furnaces, electric furnaces and heat pumps of every brand, with experienced technicians (including NATE-certified techs on staff) out the same day most of the time.",
+      "Las Vegas winters are mild by day, but desert nights regularly drop near freezing — and that's when a failed furnace or heat pump becomes a real problem. Wave Heating & Cooling repairs gas furnaces, electric furnaces and heat pumps of every brand, with experienced technicians (most of them NATE-certified) out the same day most of the time.",
     summary: "Furnace and heat pump repair so cold desert nights stay comfortable.",
-    img: "/images/svc-heating.jpg",
+    img: "/images/work/attic-furnace-wide.jpg",
     icon: "flame",
     pick: "Heat not working",
     highlights: ["Gas, electric & heat pump", "Carbon monoxide safety checks", "All brands repaired", "Same-day service"],
@@ -110,7 +110,7 @@ export const heatingServices: ServicePage[] = [
     intro:
       "Whether you're building, adding on or upgrading, Wave Heating & Cooling installs gas furnaces, heat pumps and ductless heating systems sized correctly for Las Vegas homes. You'll get an estimate, clear options and a clean, professional installation.",
     summary: "Gas furnaces, heat pumps and ductless heating — sized and installed correctly with an estimate.",
-    img: "/images/svc-heating.jpg",
+    img: "/images/work/furnace-garage-wide.jpg",
     icon: "flame",
     pick: "New system / replacement estimate",
     highlights: ["In-home estimates", "Gas furnaces & heat pumps", "Sized to your home", "Financing available (OAC)"],
@@ -188,7 +188,7 @@ export const heatingServices: ServicePage[] = [
     intro:
       "An aging furnace or heat pump costs more to run, breaks down more often and — in the case of gas furnaces — can become a safety concern. Wave Heating & Cooling will tell you honestly whether a repair still makes sense, and if it's time to replace, we'll install a safe, efficient system sized for your home.",
     summary: "Replace an aging, unsafe or inefficient furnace or heat pump with honest advice and an estimate.",
-    img: "/images/svc-heating.jpg",
+    img: "/images/work/furnace-closet-wide.jpg",
     icon: "flame",
     pick: "New system / replacement estimate",
     highlights: ["Honest repair-vs-replace advice", "Clear written estimates", "CO & combustion safety testing", "Financing available (OAC)"],
@@ -260,7 +260,7 @@ export const heatingServices: ServicePage[] = [
     name: "Heating Maintenance",
     title: "Furnace Tune-Up & Heating Maintenance Las Vegas | Wave",
     description:
-      "Fall furnace and heat pump tune-ups in Las Vegas: safety checks, CO testing and efficiency cleaning by a team with NATE-certified techs. Call (702) 881-4713.",
+      "Fall furnace and heat pump tune-ups in Las Vegas: safety checks, CO testing and efficiency cleaning by a team where most techs are NATE-certified. Call (702) 881-4713.",
     h1: "Heating Maintenance & Furnace Tune-Ups in Las Vegas",
     kicker: "Fall tune-ups",
     intro:
@@ -325,7 +325,7 @@ export const heatingServices: ServicePage[] = [
     name: "Heat Pump Services",
     title: "Heat Pump Repair & Installation Las Vegas | Wave",
     description:
-      "Heat pump repair, replacement and installation in Las Vegas. Efficient year-round heating and cooling from a team with NATE-certified techs. Call (702) 881-4713.",
+      "Heat pump repair, replacement and installation in Las Vegas. Efficient year-round heating and cooling from a team where most techs are NATE-certified. Call (702) 881-4713.",
     h1: "Heat Pump Repair & Installation in Las Vegas",
     kicker: "Year-round comfort",
     intro:

@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...tools.map((t) => entry(`/tools/${t.slug}/`, 0.8)),
     entry("/blog/", 0.6, "weekly"),
     ...getAllPosts().map((p) => ({ url: u(`/blog/${p.slug}/`), lastModified: new Date(p.modified), changeFrequency: "yearly" as const, priority: 0.5 })),
-    ...["/about-us/", "/our-team/", "/reviews/", "/contact/", "/financing/", "/specials/", "/referral-program/", "/faq/"].map((p) => entry(p, 0.6)),
+    ...["/about-us/", "/our-team/", "/reviews/", "/contact/", "/financing/", "/referral-program/", "/faq/"].map((p) => entry(p, 0.6)),
     ...["/privacy-policy/", "/terms/"].map((p) => entry(p, 0.2, "yearly")),
   ];
 }

@@ -160,6 +160,7 @@ export function EstimateForm() {
       step={idx}
       total={steps.length}
       label={resultText.kicker}
+      firstPill="About 1 minute"
       onBack={undo.length ? back : undefined}
     >
       {step === "zip" ? (

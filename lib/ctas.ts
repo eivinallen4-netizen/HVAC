@@ -1,6 +1,6 @@
 /**
- * Outcome-first button copy. Main CTAs name what the visitor gets;
- * opt-out links name the outcome they're turning down.
+ * Outcome-first button copy. Main CTAs name what the visitor gets.
+ * Opt-out links are a plain "No thanks" (no guilt-trip wording).
  * The button should answer its heading, not repeat it:
  * - heading names a problem ("AC out in the heat?")  → `relief` (the feeling they get back)
  * - heading names the result ("Restore your comfort") → `action` (the service that gets them there)
@@ -8,20 +8,19 @@
  */
 export type CtaKey = "repair" | "heat" | "replace" | "tuneup" | "ductless" | "air";
 
-type Copy = { cta: string; action: string; relief: string; decline: string };
+type Copy = { cta: string; action: string; relief: string };
 
 export const ctas: Record<CtaKey, Copy> = {
-  repair: { cta: "Repair my AC", action: "Get AC repair", relief: "Get more comfort", decline: "No, I don't want my AC fixed" },
-  heat: { cta: "Fix my heat", action: "Get heating repair", relief: "Get warm again", decline: "No, I don't want my heat fixed" },
-  replace: { cta: "Get more comfort", action: "Get a new AC", relief: "Get more comfort", decline: "No, I don't want more comfort" },
+  repair: { cta: "Repair my AC", action: "Get AC repair", relief: "Get more comfort" },
+  heat: { cta: "Fix my heat", action: "Get heating repair", relief: "Get warm again" },
+  replace: { cta: "Get more comfort", action: "Get a new AC", relief: "Get more comfort" },
   tuneup: {
     cta: "Keep my system running",
     action: "Get a tune-up",
     relief: "Keep my system running",
-    decline: "No, I don't want my system kept running",
   },
-  ductless: { cta: "Get more comfort", action: "Get a mini-split", relief: "Get more comfort", decline: "No, I don't want more comfort" },
-  air: { cta: "Breathe cleaner air", action: "Get cleaner air", relief: "Breathe cleaner air", decline: "No, I don't want cleaner air" },
+  ductless: { cta: "Get more comfort", action: "Get a mini-split", relief: "Get more comfort" },
+  air: { cta: "Breathe cleaner air", action: "Get cleaner air", relief: "Breathe cleaner air" },
 };
 
 /** Maps an estimate/service `pick` string (or a CtaKey) to its outcome copy. Unknown → repair. */

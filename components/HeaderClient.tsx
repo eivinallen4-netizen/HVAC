@@ -98,7 +98,8 @@ export function HeaderClient({ menus }: { menus: NavMenu[] }) {
         <div className="hdr-cta">
           <BookNowLink className="btn btn-ghost btn-hdr btn-book" location="header">
             <span>
-              Repair<span className="hide-xs"> my AC</span>
+              <span className="hide-xs">Repair my AC</span>
+              <span className="only-xs">Book</span>
             </span>
           </BookNowLink>
           <CallLink className="btn btn-red btn-hdr" location="header">

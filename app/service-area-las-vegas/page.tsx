@@ -92,7 +92,7 @@ export default function ServiceAreaHub() {
               nights drop toward freezing, and the heating system that sat idle for eight months has to start on the first try.
             </p>
             <p>
-              Our technicians, including NATE-certified techs on staff, work on Las Vegas homes every day — from 1970s ranch homes near downtown to brand-new
+              Our technicians, most of them NATE-certified, work on Las Vegas homes every day — from 1970s ranch homes near downtown to brand-new
               two-story builds in the southwest. We know which parts fail first in the heat, how to size systems for 115° days and
               how to fix hot upstairs rooms without replacing everything.
             </p>

@@ -1,7 +1,7 @@
 import { fees, priceList, type PriceKey } from "@/lib/estimate/config";
 import { priceText } from "@/lib/estimate/logic";
 import { CallLink, EstimateButton } from "./Cta";
-import { type IconName } from "@/lib/site";
+import { site, type IconName } from "@/lib/site";
 import { Icon } from "./Icon";
 import { SecHead } from "./Sections";
 
@@ -17,6 +17,8 @@ const terms: { icon: IconName; b: string; t: string }[] = [
   { icon: "tag", b: "Say no", t: `and the $${fees.diagnostic} diagnostic is all you pay.` },
   { icon: "clock", b: "Same-day visits", t: "most of the time, with no after-hours, weekend or holiday surcharge." },
   { icon: "wrench", b: "Parts on the van", t: "Most repairs are done on the first visit." },
+  // Shown only once the client confirms the guarantee terms in lib/site.ts
+  ...(site.guarantee ? [{ icon: "award" as IconName, b: "Guaranteed:", t: site.guarantee }] : []),
 ];
 
 /** Homepage, right under the hero: real repair prices so price is answered before anyone has to call. */

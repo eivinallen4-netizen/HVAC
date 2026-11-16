@@ -31,7 +31,7 @@ export const areaPages: AreaPage[] = [
     full: "North Las Vegas, NV",
     title: t("North Las Vegas"),
     description:
-      "AC repair, furnace and heating repair, and HVAC installation in North Las Vegas, NV. Family-owned, NATE-certified techs on staff, same-day service. Call (702) 881-4713.",
+      "AC repair, furnace and heating repair, and HVAC installation in North Las Vegas, NV. Family-owned, most techs NATE-certified, same-day service. Call (702) 881-4713.",
     h1: "AC Repair & HVAC Services in North Las Vegas, NV",
     intro:
       "From established neighborhoods near Craig Road to newer master-planned communities like Aliante, Valley Vista and Tule Springs, North Las Vegas homeowners count on Wave Heating & Cooling for fast AC repair, reliable heating and honest advice on new systems.",
@@ -63,7 +63,7 @@ export const areaPages: AreaPage[] = [
     full: "Henderson, NV",
     title: t("Henderson"),
     description:
-      "AC repair and service, furnace repair, ductwork and new HVAC systems in Henderson, NV. Family-owned, NATE-certified techs on staff, same-day service. (702) 881-4713.",
+      "AC repair and service, furnace repair, ductwork and new HVAC systems in Henderson, NV. Family-owned, most techs NATE-certified, same-day service. (702) 881-4713.",
     h1: "AC Repair & HVAC Services in Henderson, NV",
     intro:
       "Wave Heating & Cooling serves homeowners all across Henderson — from long-established Green Valley streets to hillside homes in Anthem and Seven Hills and newer builds in Inspirada and Cadence — with same-day AC repair, heating service and expert installations.",
@@ -207,7 +207,7 @@ export const areaPages: AreaPage[] = [
     full: "Aliante, North Las Vegas, NV",
     title: t("Aliante"),
     description:
-      "HVAC and AC repair in Aliante, North Las Vegas. Repairs, tune-ups and replacement estimates for Aliante homes from a local team with NATE-certified techs. (702) 881-4713.",
+      "HVAC and AC repair in Aliante, North Las Vegas. Repairs, tune-ups and replacement estimates for Aliante homes from a local team where most techs are NATE-certified. (702) 881-4713.",
     h1: "AC Repair & HVAC Services in Aliante",
     intro:
       "Aliante's master-planned neighborhoods in North Las Vegas are now old enough that many homes are on their original heating and cooling systems. Wave Heating & Cooling helps Aliante homeowners keep those systems running — and plan smart replacements when the time comes.",

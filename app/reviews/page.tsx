@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Reviews | Wave Heating & Cooling Las Vegas | 5.0 on Google",
   description:
-    "See why Las Vegas homeowners rate Wave Heating & Cooling 5.0 on Google and Facebook. Honest, family-owned HVAC service with NATE-certified techs on staff.",
+    "See why Las Vegas homeowners rate Wave Heating & Cooling 5.0 on Google and Facebook. Honest, family-owned HVAC service, and most of our techs are NATE-certified.",
   path: "/reviews/",
 });
 
