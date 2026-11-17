@@ -1147,9 +1147,32 @@ h5 {
   inset: 0;
   width: 100%;
   height: 100%;
+  margin: 0;
   opacity: 0;
-  cursor: ew-resize;
   z-index: 4;
+  /* Keyboard only: pointer and touch go to .ba itself. A native range on top
+     swallowed touches on iPhone (it only moves when you grab its invisible thumb). */
+  pointer-events: none;
+}
+.ba {
+  cursor: ew-resize;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.ba img {
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+.ba:has(.ba-range:focus-visible) .ba-handle span {
+  outline: 2px solid var(--ground);
+  outline-offset: 2px;
+}
+@media (max-width: 640px) {
+  .ba-handle span {
+    width: 46px;
+    height: 46px;
+    margin: -23px 0 0 -23px;
+  }
 }
 .ba-caption {
   display: flex;
@@ -8599,6 +8622,13 @@ a.rating-link:hover span {
 }
 
 /* Before/after gallery: arrows and a tab per job */
+/* Grid items default to min-width:auto, so the nowrap job tabs pushed the slider column
+   wider than a phone screen and shoved the whole section left. Let them scroll instead. */
+.diff-grid > *,
+.ba-gallery,
+.ba-tabs {
+  min-width: 0;
+}
 .ba-nav {
   display: flex;
   align-items: center;

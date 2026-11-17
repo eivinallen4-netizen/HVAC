@@ -31,7 +31,8 @@ export function BeforeAfter({
 }) {
   const [pos, setPos] = useState(50);
   const box = useRef<HTMLDivElement>(null);
-  const dragging = useRef(false);
+  // Pointer being tracked, where it started, and whether it has moved enough to count as a drag
+  const drag = useRef<{ id: number; x: number; y: number; moved: boolean } | null>(null);
 
   const move = useCallback((clientX: number) => {
     const r = box.current?.getBoundingClientRect();
@@ -39,18 +40,40 @@ export function BeforeAfter({
     setPos(Math.min(96, Math.max(4, ((clientX - r.left) / r.width) * 100)));
   }, []);
 
+  const end = () => (drag.current = null);
+
   return (
     <div
       className={`ba${className ? ` ${className}` : ""}`}
       ref={box}
+      // touch-action: pan-y (CSS) lets a vertical swipe scroll the page; the browser then
+      // fires pointercancel. Horizontal swipes come to us and move the handle.
       onPointerDown={(e) => {
-        dragging.current = true;
-        (e.target as HTMLElement).setPointerCapture?.(e.pointerId);
+        if (e.pointerType === "mouse" && e.button !== 0) return;
+        drag.current = { id: e.pointerId, x: e.clientX, y: e.clientY, moved: false };
+        try {
+          e.currentTarget.setPointerCapture(e.pointerId);
+        } catch {
+          // pointer already gone; the move/up handlers still work without capture
+        }
+        // Mouse/pen jump straight to the click; touch waits so a scroll that starts here doesn't move it
+        if (e.pointerType !== "touch") move(e.clientX);
+      }}
+      onPointerMove={(e) => {
+        const d = drag.current;
+        if (!d || d.id !== e.pointerId) return;
+        if (!d.moved && Math.abs(e.clientX - d.x) < 4) return;
+        d.moved = true;
         move(e.clientX);
       }}
-      onPointerMove={(e) => dragging.current && move(e.clientX)}
-      onPointerUp={() => (dragging.current = false)}
-      onPointerCancel={() => (dragging.current = false)}
+      onPointerUp={(e) => {
+        const d = drag.current;
+        // A tap on a phone jumps the handle to that spot
+        if (d && d.id === e.pointerId && !d.moved && e.pointerType === "touch") move(e.clientX);
+        end();
+      }}
+      onPointerCancel={end}
+      onLostPointerCapture={end}
     >
       <Image src={after} alt={afterAlt} fill sizes={sizes} />
       <div className="ba-before" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
