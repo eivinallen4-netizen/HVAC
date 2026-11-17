@@ -293,6 +293,13 @@ export const beforeAfter = [
     beforeAlt: "Condenser before maintenance — debris built up",
     afterAlt: "Condenser after a Wave tune-up — clean and clear",
   },
+  {
+    label: "Attic coil plenum",
+    before: "/images/work/coil-plenum-before.jpg",
+    after: "/images/work/coil-plenum-after.jpg",
+    beforeAlt: "Attic coil plenum before Wave's repair, with torn, taped-over openings and loose insulation",
+    afterAlt: "The same attic coil plenum rebuilt by Wave with new foil-faced duct board and clean, sealed openings",
+  },
 ];
 
 /** Featured posts from the client's blog ("Best Practices") */
