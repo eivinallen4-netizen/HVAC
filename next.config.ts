@@ -51,6 +51,8 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   // quality 85 (Next defaults to 75): job photos stay sharp on 3x iPhone screens
   images: { formats: ["image/avif", "image/webp"], qualities: [85] },
+  // NEXT_BUILD_CPUS=1 builds pages in one worker, for low-memory machines
+  ...(process.env.NEXT_BUILD_CPUS ? { experimental: { cpus: Number(process.env.NEXT_BUILD_CPUS) } } : {}),
 
   async redirects() {
     return [

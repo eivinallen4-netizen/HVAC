@@ -5,7 +5,7 @@ import { servicesIn } from "@/lib/content/services";
 import { tools } from "@/lib/tools";
 import { fees, financing } from "@/lib/estimate/config";
 import { beforeAfter, faqs as defaultFaqs, guides, pages, ratingLabel, reviews, serviceAreas, services, site, type IconName } from "@/lib/site";
-import { SplitEmblem } from "./Art";
+import { Embers, Frost, SplitEmblem } from "./Art";
 import { BeforeAfterGallery } from "./BeforeAfter";
 import { BookNowLink } from "./Booking";
 import { ctaFor, ctas } from "@/lib/ctas";
@@ -73,10 +73,16 @@ export function Hero() {
     <section className="hero">
       <Image src="/images/work/fleet-hero.jpg" alt="" fill priority sizes="100vw" className="hero-bg" />
       <div className="hero-shade" aria-hidden="true" />
+      <Embers count={28} className="hero-embers" seed={3} />
+      <Frost count={16} className="hero-frost" seed={4} />
       <div className="wrap hero-grid">
         <div className="hero-copy">
-          <span className="kicker">Repair first. Replace only when it makes sense.</span>
-          <h1>Las Vegas AC &amp; heating repair, priced before we start</h1>
+          <span className="chip chip-warm">
+            <Icon name="wrench" size={15} /> Repair first. Replace only when it makes sense.
+          </span>
+          <h1>
+            Las Vegas AC &amp; heating repair, <span className="cool">priced before we start</span>
+          </h1>
           <p className="hero-sub">
             Same-day visits most of the time. ${fees.diagnostic} diagnostic, waived when you approve the repair on a weekday
             visit.
@@ -87,27 +93,26 @@ export function Hero() {
               <span>{site.guarantee}</span>
             </p>
           )}
-        </div>
 
-        <div className="hero-form">
-          <HeroLeadForm />
-        </div>
-      </div>
-
-      {/* Proof rail: ratings on the left, guarantees on the right, one band across the hero */}
-      <div className="wrap">
-        <div className="hero-proof">
           <RatingsRow nate />
+
           <ul className="proof-stamps">
-            {stamps.map((s) => (
-              <li key={s.t}>
+            {stamps.map((s, i) => (
+              <li key={s.t} className={i % 2 ? "cool" : "warm"}>
                 <span className="stamp" aria-hidden="true">
-                  <Icon name={s.icon} size={18} />
+                  <Icon name={s.icon} size={24} />
                 </span>
                 <span>{s.t}</span>
               </li>
             ))}
           </ul>
+        </div>
+
+        <div className="hero-form">
+          <div className="hero-orb" aria-hidden="true">
+            <Image src="/images/art/logo-ball.png" alt="" fill sizes="(max-width: 760px) 380px, 600px" priority />
+          </div>
+          <HeroLeadForm />
         </div>
       </div>
       <a className="hero-next" href="#repair-prices">

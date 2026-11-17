@@ -18,11 +18,16 @@ export function BeforeAfter({
   after,
   beforeAlt = "Condenser before maintenance — debris built up",
   afterAlt = "Condenser after a Wave tune-up — clean and clear",
+  className = "",
+  sizes = "(max-width: 900px) 100vw, 560px",
 }: {
   before: string;
   after: string;
   beforeAlt?: string;
   afterAlt?: string;
+  className?: string;
+  /** next/image sizes for both photos */
+  sizes?: string;
 }) {
   const [pos, setPos] = useState(50);
   const box = useRef<HTMLDivElement>(null);
@@ -36,7 +41,7 @@ export function BeforeAfter({
 
   return (
     <div
-      className="ba"
+      className={`ba${className ? ` ${className}` : ""}`}
       ref={box}
       onPointerDown={(e) => {
         dragging.current = true;
@@ -47,9 +52,9 @@ export function BeforeAfter({
       onPointerUp={() => (dragging.current = false)}
       onPointerCancel={() => (dragging.current = false)}
     >
-      <Image src={after} alt={afterAlt} fill sizes="(max-width: 900px) 100vw, 560px" />
+      <Image src={after} alt={afterAlt} fill sizes={sizes} />
       <div className="ba-before" style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}>
-        <Image src={before} alt={beforeAlt} fill sizes="(max-width: 900px) 100vw, 560px" />
+        <Image src={before} alt={beforeAlt} fill sizes={sizes} />
       </div>
       <span className="ba-tag ba-tag-l">Before</span>
       <span className="ba-tag ba-tag-r">After</span>

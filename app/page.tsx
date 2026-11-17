@@ -1,7 +1,9 @@
 import { JsonLd } from "@/components/JsonLd";
+import { ToolCards } from "@/components/page/Cards";
 import { RecentWork } from "@/components/RecentWork";
 import { RepairPrices } from "@/components/RepairPrices";
-import { Areas, Faq, FinalCta, Hero, Reviews, Services, TrustSeals } from "@/components/Sections";
+import { HomeProtection, RepairOrReplace } from "@/components/Replacement";
+import { Areas, Difference, Faq, FinalCta, Hero, Reviews, Services, TrustSeals } from "@/components/Sections";
 import { buildMetadata, faqLd } from "@/lib/seo";
 import { faqs, replacementFaqs } from "@/lib/site";
 
@@ -17,8 +19,9 @@ export const metadata = buildMetadata({
 
 /**
  * One job: get a repair call or booking. Every section answers price, trust or timing.
- * Replacement detail, tools, guides, referrals and financing live on their own pages
- * (linked from the nav and the Services list), not here.
+ * The before/after sliders, repair-or-replace checklist, home-protection walkthrough
+ * and the homeowner tools stay here too; replacement detail,
+ * guides, referrals and financing live on their own pages (linked from the nav).
  */
 export default function Home() {
   return (
@@ -33,7 +36,14 @@ export default function Home() {
         lead="AC, heating, ductless and ductwork. Same team, same upfront pricing, same-day most of the time."
         alt
       />
-      <RecentWork />
+      {/* Before/after sliders of real Wave jobs */}
+      <Difference />
+      {/* Checklist self-check: 5 signs + the 15-year switch */}
+      <RepairOrReplace />
+      {/* Booties-to-vacuum walkthrough on the house cutaway */}
+      <HomeProtection />
+      <RecentWork alt />
+      <ToolCards alt={false} />
       {/* Kept for the links to each city page */}
       <Areas />
       <Faq items={homeFaqs} title="HVAC repair & replacement questions, answered" alt />

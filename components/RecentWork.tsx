@@ -1,15 +1,32 @@
 import Image from "next/image";
+import { BeforeAfter } from "./BeforeAfter";
 import { SecHead } from "./Sections";
 
 /**
  * Real Wave job photos (shot by the Wave team). Mosaic of field photos with
  * short captions; `size` controls how many grid cells each one spans.
  */
-const shots: { src: string; alt: string; cap: string; size?: "tall" | "wide" | "big" }[] = [
+type Shot = {
+  src: string;
+  alt: string;
+  cap: string;
+  size?: "tall" | "wide" | "big";
+  /** Before/after pair: `src`/`alt` are the before photo, these are the after photo. Renders as a drag slider. */
+  after?: string;
+  afterAlt?: string;
+};
+
+const shots: Shot[] = [
   { src: "/images/work/condenser-service.jpg", alt: "Wave technician servicing an outdoor AC condenser beside a Las Vegas home", cap: "AC service, side yard", size: "big" },
   { src: "/images/work/attic-tech.jpg", alt: "Wave technician working on an air handler in a Las Vegas attic", cap: "Attic air handler", size: "wide" },
-  { src: "/images/work/plenum-before.jpg", alt: "Damaged, taped-over coil plenum in an attic before Wave's repair", cap: "Before: worn coil plenum", size: "tall" },
-  { src: "/images/work/plenum-after.jpg", alt: "New sealed coil plenum and condensate lines after Wave's repair", cap: "After: rebuilt and sealed", size: "tall" },
+  {
+    src: "/images/work/plenum-attic-before.jpg",
+    alt: "Torn, taped-over coil plenum in a Las Vegas attic before Wave's repair",
+    after: "/images/work/plenum-attic-after.jpg",
+    afterAlt: "The same attic coil plenum rebuilt by Wave with new foil-faced duct board and sealed openings",
+    cap: "Attic plenum: patched and torn, then rebuilt and sealed",
+    size: "big",
+  },
   { src: "/images/work/new-condensers.jpg", alt: "Two new AC condensers installed on pads in a side yard", cap: "New condensers set", size: "tall" },
   { src: "/images/work/furnace-garage.jpg", alt: "New furnace and coil installed in a Las Vegas garage", cap: "Furnace install, garage", size: "tall" },
   { src: "/images/work/condenser-inside.jpg", alt: "Wave technician working inside an opened AC condenser", cap: "Inside the condenser", size: "wide" },
@@ -34,21 +51,29 @@ export function RecentWork({
       <div className="wrap">
         <SecHead kicker={kicker} title={title} lead={lead} variant="split" />
         <ul className="work-grid" data-reveal>
-          {shots.map((s) => (
-            <li key={s.src} className={`work-shot${s.size ? ` work-${s.size}` : ""}`}>
-              <Image
-                src={s.src}
-                alt={s.alt}
-                fill
-                sizes={
-                  s.size === "big" || s.size === "wide"
-                    ? "(max-width: 760px) 100vw, (max-width: 1040px) 66vw, 600px"
-                    : "(max-width: 760px) 50vw, (max-width: 1040px) 33vw, 300px"
-                }
-              />
-              <span className="work-cap">{s.cap}</span>
-            </li>
-          ))}
+          {shots.map((s) => {
+            const sizes =
+              s.size === "big" || s.size === "wide"
+                ? "(max-width: 760px) 100vw, (max-width: 1040px) 66vw, 600px"
+                : "(max-width: 760px) 50vw, (max-width: 1040px) 33vw, 300px";
+            return (
+              <li key={s.src} className={`work-shot${s.size ? ` work-${s.size}` : ""}${s.after ? " work-ba" : ""}`}>
+                {s.after ? (
+                  <BeforeAfter
+                    before={s.src}
+                    after={s.after}
+                    beforeAlt={s.alt}
+                    afterAlt={s.afterAlt}
+                    sizes={sizes}
+                    className="work-ba-slider"
+                  />
+                ) : (
+                  <Image src={s.src} alt={s.alt} fill sizes={sizes} />
+                )}
+                <span className="work-cap">{s.cap}</span>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

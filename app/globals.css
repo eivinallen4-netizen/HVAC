@@ -34,9 +34,10 @@
   --line-2: rgba(158, 192, 205, 0.2);
   --line-3: rgba(158, 192, 205, 0.35);
 
-  --r: 8px;
-  --r-lg: 14px;
+  --r: 4px;
+  --r-lg: 8px;
   --shadow: 0 16px 32px -8px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  --glow-red: 0 12px 36px -4px rgba(226, 55, 43, 0.35);
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   --display: var(--font-display, Montserrat), system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
@@ -258,7 +259,7 @@ h5 {
 .btn-red {
   background: var(--red);
   color: #fff;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 -2px 0 rgba(0, 0, 0, 0.3), var(--glow-red);
 }
 .btn-red:hover {
   background: var(--red-hi);
@@ -443,11 +444,14 @@ h5 {
   align-items: center;
 }
 .hero h1 {
-  font-size: clamp(2.25rem, 4.4vw, 3.5rem);
-  font-weight: 600;
+  font-size: clamp(2.3rem, 4.6vw, 3.6rem);
+  font-weight: 800;
   line-height: 1.08;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.02em;
   margin: 22px 0 20px;
+}
+.hero h1 .cool {
+  color: var(--blue);
 }
 .hero-sub {
   font-size: 1.12rem;
@@ -1728,7 +1732,7 @@ h5 {
 .hero-form {
   position: relative;
 }
-.hero-form > * {
+.hero-form > :not(.hero-orb) {
   position: relative;
   z-index: 1;
 }
@@ -8533,23 +8537,6 @@ h5 {
 
 /* ─── Client updates (Nov 2026) ─── */
 
-/* Hero copy centered */
-.hero-copy {
-  text-align: center;
-}
-.hero-sub {
-  margin-inline: auto;
-}
-.hero .ratings {
-  justify-content: center;
-}
-.hero .proof-stamps {
-  margin-inline: auto;
-}
-.hero .proof-stamps li {
-  align-items: center;
-}
-
 /* Rating logos link to each platform's reviews */
 a.rating-link {
   color: inherit;
@@ -9141,126 +9128,6 @@ h2 {
   }
 }
 
-/* ─── Hero layout v2: copy + estimate side by side, proof in one band below ─── */
-.hero-copy {
-  max-width: 600px;
-  margin-inline: auto;
-}
-.hero h1 {
-  font-size: clamp(2.4rem, 4.8vw, 3.9rem);
-}
-.hero-proof {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px 40px;
-  margin-top: 48px;
-  padding: 18px 28px;
-  border: 1px solid var(--line-2);
-  border-radius: var(--r-lg, 16px);
-  background: rgba(var(--ground-rgb), 0.72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-.hero .hero-proof .ratings {
-  margin: 0;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
-  gap: 28px;
-}
-.hero .hero-proof .proof-stamps {
-  margin: 0;
-  max-width: none;
-  border-top: 0;
-  padding: 0 0 0 32px;
-  border-left: 1px solid var(--line-2);
-  grid-template-columns: repeat(3, auto);
-  gap: 0;
-}
-.hero .hero-proof .proof-stamps li {
-  flex-direction: row;
-  align-items: center;
-  padding: 0 18px;
-  white-space: nowrap;
-}
-.hero .hero-proof .proof-stamps li + li {
-  border-left: 0;
-}
-.hero-grid:has(.est-form.is-result) ~ .wrap .hero-proof {
-  display: none;
-}
-@media (max-width: 1180px) {
-  .hero-proof {
-    flex-direction: column;
-    align-items: center;
-  }
-  .hero .hero-proof .proof-stamps {
-    border-left: 0;
-    border-top: 1px solid var(--line-2);
-    padding: 16px 0 0;
-  }
-}
-@media (max-width: 760px) {
-  .hero-proof {
-    margin-top: 28px;
-    padding: 14px 16px;
-  }
-  .hero .hero-proof .ratings {
-    gap: 16px;
-  }
-}
-/* Fit the rail: ratings stay on one line, stamps share the rest and may wrap */
-.hero .hero-proof .ratings {
-  flex: none;
-  gap: 22px;
-}
-.hero .hero-proof .ratings > li,
-.hero .hero-proof .rating span {
-  white-space: nowrap;
-}
-.hero .hero-proof .proof-stamps {
-  flex: 1 1 0;
-  min-width: 0;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  padding-left: 20px;
-}
-.hero .hero-proof .proof-stamps li {
-  white-space: normal;
-  padding: 0 10px;
-  font-size: 0.8rem;
-}
-@media (max-width: 1280px) {
-  .hero-proof {
-    flex-direction: column;
-    align-items: center;
-  }
-  .hero .hero-proof .proof-stamps {
-    width: 100%;
-    max-width: 640px;
-    flex: none;
-    border-left: 0;
-    border-top: 1px solid var(--line-2);
-    padding: 16px 0 0;
-  }
-}
-/* Stacked rail at every width: ratings row on top, guarantees row underneath */
-.hero-proof {
-  flex-direction: column;
-  align-items: center;
-}
-.hero .hero-proof .proof-stamps {
-  width: 100%;
-  max-width: 680px;
-  flex: none;
-  border-left: 0;
-  border-top: 1px solid var(--line-2);
-  padding: 16px 0 0;
-}
-.hero .hero-proof .proof-stamps li {
-  justify-content: center;
-  font-size: 0.85rem;
-}
-
 /* ═════════════════════════ RECENT WORK (real job photos) ═════════════════════════ */
 .work-grid {
   list-style: none;
@@ -9303,6 +9170,20 @@ h2 {
   letter-spacing: 0.01em;
   line-height: 1.3;
   backdrop-filter: blur(4px);
+}
+/* Before/after pair as a drag slider filling its grid tile */
+.work-ba .work-ba-slider {
+  position: absolute;
+  inset: 0;
+  aspect-ratio: auto;
+  border-radius: inherit;
+}
+.work-shot.work-ba:hover img {
+  transform: none;
+}
+.work-ba .work-cap {
+  z-index: 3;
+  pointer-events: none;
 }
 @media (max-width: 1040px) {
   .work-grid { grid-template-columns: repeat(3, 1fr); grid-auto-rows: 170px; }
