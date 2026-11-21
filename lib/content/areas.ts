@@ -31,10 +31,10 @@ export const areaPages: AreaPage[] = [
     full: "North Las Vegas, NV",
     title: t("North Las Vegas"),
     description:
-      "AC repair, furnace and heating repair, and HVAC installation in North Las Vegas, NV. Family-owned, most techs NATE-certified, same-day service. Call (702) 881-4713.",
-    h1: "AC Repair & HVAC Services in North Las Vegas, NV",
+      "AC repair, furnace and heating repair, and HVAC installation in North Las Vegas, NV. Family-owned, NATE-certified, same-day service. Call (702) 881-4713.",
+    h1: "Air Conditioning Repair & HVAC Services in North Las Vegas, NV",
     intro:
-      "From established neighborhoods near Craig Road to newer master-planned communities like Aliante, Valley Vista and Tule Springs, North Las Vegas homeowners count on Wave Heating & Cooling for fast AC repair, reliable heating and honest advice on new systems.",
+      "From established neighborhoods near Craig Road to newer master-planned communities like Aliante, Valley Vista and Tule Springs, North Las Vegas homeowners count on Wave Heating & Cooling for fast air conditioning repair, reliable heating and honest advice on new systems.",
     local: [
       "North Las Vegas grew quickly through the 2000s, which means thousands of homes now have original HVAC systems that are 15–20 years old. Many of those systems are reaching the point where a repair-or-replace decision makes sense — especially units still running on R-22 refrigerant.",
       "The northern valley sits in open desert with fewer mature trees, so rooftop and side-yard condensers take the full force of the afternoon sun. Keeping condenser coils clean and capacitors healthy is the best way to avoid a mid-summer breakdown here.",
@@ -63,13 +63,13 @@ export const areaPages: AreaPage[] = [
     full: "Henderson, NV",
     title: t("Henderson"),
     description:
-      "AC repair and service, furnace repair, ductwork and new HVAC systems in Henderson, NV. Family-owned, most techs NATE-certified, same-day service. (702) 881-4713.",
-    h1: "AC Repair & HVAC Services in Henderson, NV",
+      "AC repair and service, furnace repair, ductwork and new HVAC systems in Henderson, NV. Family-owned, NATE-certified, same-day service. (702) 881-4713.",
+    h1: "Air Conditioning Repair & HVAC Services in Henderson, NV",
     intro:
-      "Wave Heating & Cooling serves homeowners all across Henderson — from long-established Green Valley streets to hillside homes in Anthem and Seven Hills and newer builds in Inspirada and Cadence — with same-day AC repair, heating service and expert installations.",
+      "Wave Heating & Cooling serves homeowners all across Henderson — from long-established Green Valley streets to hillside homes in Anthem and Seven Hills and newer builds in Inspirada and Cadence — with same-day air conditioning repair, heating service and expert installations.",
     local: [
       "Henderson has one of the widest ranges of home ages in the valley. Older neighborhoods in Green Valley and around Whitney Ranch often have systems and ductwork from the 1980s and '90s, while Inspirada and Cadence homes are only a few years old. That means the right advice really depends on the house — and we tailor it to yours.",
-      "Many Henderson homes are two stories with long duct runs to upstairs bedrooms. If your upstairs never cools down, the cause is often airflow or duct leakage rather than the AC itself — and duct sealing or a ductless mini-split can fix it without replacing your whole system.",
+      "Many Henderson homes are two stories with long duct runs to upstairs bedrooms. If your upstairs never cools down, the cause is often airflow or duct leakage rather than the air conditioner itself — and duct sealing or a ductless mini-split can fix it without replacing your whole system.",
     ],
     zips: ["89002", "89011", "89012", "89014", "89015", "89044", "89052", "89074"],
     neighborhoods: ["Green Valley", "Anthem", "Seven Hills", "Inspirada", "Cadence", "MacDonald Ranch", "Lake Las Vegas", "Whitney Ranch"],
@@ -81,7 +81,7 @@ export const areaPages: AreaPage[] = [
       },
       {
         q: "Do you offer AC tune-ups and furnace repair in Henderson?",
-        a: "Yes. We do AC tune-ups before summer, heating repair and furnace tune-ups before winter, and repairs on every brand in between, across all of Henderson.",
+        a: "Yes. We do air conditioning tune-ups before summer, heating repair and furnace tune-ups before winter, and repairs on every brand in between, across all of Henderson.",
       },
       {
         q: "Why is my upstairs so much hotter than downstairs?",
@@ -96,9 +96,9 @@ export const areaPages: AreaPage[] = [
     title: t("Summerlin"),
     description:
       "HVAC and AC repair in Summerlin, Las Vegas. High-efficiency installs, heat pumps, zoning and same-day repair from a local, family-owned team. (702) 881-4713.",
-    h1: "AC Repair & HVAC Services in Summerlin",
+    h1: "Air Conditioning Repair & HVAC Services in Summerlin",
     intro:
-      "Summerlin homeowners expect quality — and so do we. Wave Heating & Cooling provides same-day AC repair, heating service, high-efficiency system upgrades and indoor air quality solutions across Summerlin's villages, just minutes from our northwest Las Vegas headquarters.",
+      "Summerlin homeowners expect quality — and so do we. Wave Heating & Cooling provides same-day air conditioning repair, heating service, high-efficiency system upgrades and indoor air quality solutions across Summerlin's villages, just minutes from our northwest Las Vegas headquarters.",
     local: [
       "Summerlin sits higher on the west side of the valley, so evenings run a few degrees cooler than central Las Vegas — but summer afternoons are just as brutal on equipment. Many Summerlin homes are larger, two-story floor plans where zoning, variable-speed systems and smart thermostats make a real difference in comfort and efficiency.",
       "With homes built from the early 1990s to today, Summerlin has a mix of systems nearing replacement and newer high-efficiency equipment that needs proper maintenance to keep its warranty and efficiency. Either way, we'll give you a straight answer.",
@@ -141,7 +141,7 @@ export const areaPages: AreaPage[] = [
       },
       {
         q: "How often should a single-story Sun City home get HVAC maintenance?",
-        a: "Twice a year — the AC in spring and the heating in fall. Regular tune-ups catch weak parts before they leave you without cooling on a 110° day.",
+        a: "Twice a year — the air conditioner in spring and the heating in fall. Regular tune-ups catch weak parts before they leave you without cooling on a 110° day.",
       },
     ],
   },
@@ -152,9 +152,9 @@ export const areaPages: AreaPage[] = [
     title: t("Centennial Hills"),
     description:
       "Your neighborhood HVAC company in Centennial Hills, Las Vegas. Fast AC repair, heating, installs and tune-ups — based right here in 89129. (702) 881-4713.",
-    h1: "AC Repair & HVAC Services in Centennial Hills",
+    h1: "Air Conditioning Repair & HVAC Services in Centennial Hills",
     intro:
-      "Wave Heating & Cooling is based in northwest Las Vegas, so Centennial Hills is home turf. We provide fast AC repair, heating service, new system installations and tune-ups for homes throughout Centennial Hills, Providence, Skye Canyon and the surrounding northwest valley.",
+      "Wave Heating & Cooling is based in northwest Las Vegas, so Centennial Hills is home turf. We provide fast air conditioning repair, heating service, new system installations and tune-ups for homes throughout Centennial Hills, Providence, Skye Canyon and the surrounding northwest valley.",
     local: [
       "Most Centennial Hills homes were built in the late 1990s and 2000s, which puts a lot of original HVAC equipment at 15–25 years old. We see plenty of tired capacitors, worn condenser fan motors and leaky refrigerant coils each summer — and plenty of homeowners weighing repair against a more efficient replacement.",
       "Newer communities like Providence and Skye Canyon have younger, higher-efficiency systems that benefit most from regular maintenance and clean coils. The northwest valley's open desert and spring winds also push a lot of dust into outdoor units and homes, so filtration and coil cleaning matter here.",
@@ -180,11 +180,11 @@ export const areaPages: AreaPage[] = [
     title: t("The Lakes"),
     description:
       "AC repair and HVAC service for The Lakes and Desert Shores in Las Vegas. Older home specialists: ductwork, replacements and same-day repair. (702) 881-4713.",
-    h1: "AC Repair & HVAC Services in The Lakes & Desert Shores",
+    h1: "Air Conditioning Repair & HVAC Services in The Lakes & Desert Shores",
     intro:
       "The Lakes and Desert Shores are some of west Las Vegas' most established communities — and their homes deserve HVAC service that understands older systems. Wave Heating & Cooling provides same-day repair, ductwork upgrades and right-sized replacements in the area.",
     local: [
-      "Many homes around Lake Sahara and Desert Shores were built in the 1980s and early '90s. Even if the AC has been replaced, the ductwork, attic insulation and return air design are often original — and they're frequently the real reason rooms stay hot or bills stay high.",
+      "Many homes around Lake Sahara and Desert Shores were built in the 1980s and early '90s. Even if the air conditioner has been replaced, the ductwork, attic insulation and return air design are often original — and they're frequently the real reason rooms stay hot or bills stay high.",
       "When we replace a system in an older home, we inspect the ductwork and recommend sealing or upgrades where they'll make a measurable difference. A new high-efficiency system connected to leaky 35-year-old ducts can't deliver the comfort you're paying for.",
     ],
     zips: ["89117", "89128"],
@@ -207,12 +207,12 @@ export const areaPages: AreaPage[] = [
     full: "Aliante, North Las Vegas, NV",
     title: t("Aliante"),
     description:
-      "HVAC and AC repair in Aliante, North Las Vegas. Repairs, tune-ups and replacement estimates for Aliante homes from a local team where most techs are NATE-certified. (702) 881-4713.",
-    h1: "AC Repair & HVAC Services in Aliante",
+      "HVAC and AC repair in Aliante, North Las Vegas. Repairs, tune-ups and replacement estimates for Aliante homes from a local, NATE-certified team. (702) 881-4713.",
+    h1: "Air Conditioning Repair & HVAC Services in Aliante",
     intro:
       "Aliante's master-planned neighborhoods in North Las Vegas are now old enough that many homes are on their original heating and cooling systems. Wave Heating & Cooling helps Aliante homeowners keep those systems running — and plan smart replacements when the time comes.",
     local: [
-      "Most of Aliante was built in the early-to-mid 2000s. Builder-grade AC systems from that era were typically 10–13 SEER and are now near the end of their expected life in Las Vegas heat. If yours is struggling, our Repair or Replace Calculator can help you decide whether one more repair makes sense.",
+      "Most of Aliante was built in the early-to-mid 2000s. Builder-grade air conditioning systems from that era were typically 10–13 SEER and are now near the end of their expected life in Las Vegas heat. If yours is struggling, our Repair or Replace Calculator can help you decide whether one more repair makes sense.",
       "Upgrading from a builder-grade system to a modern, properly sized high-efficiency unit can noticeably cut summer power bills. Our Energy Savings Calculator gives you an estimate in about a minute.",
     ],
     zips: ["89084", "89031"],
@@ -236,7 +236,7 @@ export const areaPages: AreaPage[] = [
     title: t("Green Valley"),
     description:
       "HVAC and AC repair in Green Valley, Henderson. Older-home specialists for replacements, ductwork and air quality, plus same-day repair. (702) 881-4713.",
-    h1: "AC Repair & HVAC Services in Green Valley, Henderson",
+    h1: "Air Conditioning Repair & HVAC Services in Green Valley, Henderson",
     intro:
       "Green Valley was one of Henderson's first master-planned communities, and its mature, well-loved homes often need HVAC expertise that goes beyond the basics. Wave Heating & Cooling provides repair, replacement, ductwork and air quality service throughout Green Valley and Green Valley Ranch.",
     local: [
@@ -264,7 +264,7 @@ export const areaPages: AreaPage[] = [
     title: t("Seven Hills"),
     description:
       "HVAC service for Seven Hills, Henderson: zoning, multi-system homes, high-efficiency upgrades and same-day AC repair. Call (702) 881-4713.",
-    h1: "AC Repair & HVAC Services in Seven Hills, Henderson",
+    h1: "Air Conditioning Repair & HVAC Services in Seven Hills, Henderson",
     intro:
       "Seven Hills' larger, multi-story hillside homes often have two or more HVAC systems — and more ways for comfort to go wrong. Wave Heating & Cooling services, repairs and upgrades multi-system and zoned homes throughout Seven Hills.",
     local: [
@@ -292,9 +292,9 @@ export const areaPages: AreaPage[] = [
     title: t("Spring Valley"),
     description:
       "AC repair, heating and HVAC installation in Spring Valley, NV. Homes, townhomes and rentals. Same-day service, book online. (702) 881-4713.",
-    h1: "AC Repair & HVAC Services in Spring Valley, NV",
+    h1: "Air Conditioning Repair & HVAC Services in Spring Valley, NV",
     intro:
-      "Spring Valley stretches across the southwest-central valley with a mix of single-family homes, townhomes and rental properties. Wave Heating & Cooling provides fast AC repair, heating service and replacements for homeowners, landlords and property managers throughout the area.",
+      "Spring Valley stretches across the southwest-central valley with a mix of single-family homes, townhomes and rental properties. Wave Heating & Cooling provides fast air conditioning repair, heating service and replacements for homeowners, landlords and property managers throughout the area.",
     local: [
       "Much of Spring Valley was built between the 1980s and 2000s, so we see a wide range of system ages — from units well past their prime to newer replacements. Package units on rooftops and split systems in tight side yards are both common, and each comes with its own access and maintenance needs.",
       "For rental owners and property managers, reliable equipment and quick response times protect tenants and investments alike. We offer straightforward repairs, honest replacement recommendations and maintenance that covers every system on the property.",
@@ -320,7 +320,7 @@ export const areaPages: AreaPage[] = [
     title: t("Inspirada"),
     description:
       "HVAC service for Inspirada, Henderson: maintenance for newer systems, upstairs comfort fixes, mini-splits and same-day AC repair. (702) 881-4713.",
-    h1: "AC Repair & HVAC Services in Inspirada, Henderson",
+    h1: "Air Conditioning Repair & HVAC Services in Inspirada, Henderson",
     intro:
       "Inspirada's newer homes come with modern, efficient HVAC systems — and they need the right care to stay that way. Wave Heating & Cooling helps Inspirada homeowners protect their equipment, fix comfort problems and get fast repairs when something goes wrong.",
     local: [

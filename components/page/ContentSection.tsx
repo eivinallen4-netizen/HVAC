@@ -41,7 +41,7 @@ function optionIcon(t: string): IconName {
     [/garage|casita|guest|addition|conversion/i, "home"],
     [/hot or cold|sun/i, "sun"],
     [/zoning|thermostat/i, "gauge"],
-    [/cooling|\bac\b/i, "snow"],
+    [/cooling|\bac\b|air condition/i, "snow"],
     [/heating/i, "flame"],
     [/air quality|filtration|purification|ventilation/i, "leaf"],
     [/uv/i, "sparkle"],

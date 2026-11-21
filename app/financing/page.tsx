@@ -36,7 +36,7 @@ export default function FinancingPage() {
         crumbs={[{ name: "Financing", path: "/financing/" }]}
         kicker="Flexible payment options"
         h1="HVAC Financing in Las Vegas"
-        intro="A broken AC in July shouldn't have to wait for payday. Financing is available with approved credit on new air conditioners, heat pumps and furnaces, so you can get comfortable now and pay over time."
+        intro="A broken air conditioner in July shouldn't have to wait for payday. Financing is available with approved credit on new air conditioners, heat pumps and furnaces, so you can get comfortable now and pay over time."
         highlights={["From about $114/mo per $10,000", "Jobs from $1,500 (OAC)", "Clear, written pricing"]}
         formTitle="Get an estimate"
       />

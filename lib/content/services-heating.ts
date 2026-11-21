@@ -8,11 +8,11 @@ export const heatingServices: ServicePage[] = [
     name: "Heating Repair",
     title: "Heating & Furnace Repair Las Vegas | Wave Heating & Cooling",
     description:
-      "Furnace and heat pump repair in Las Vegas. No heat, cold air, odd noises or a short-cycling heater — most techs NATE-certified, same-day service. Call (702) 881-4713.",
+      "Furnace and heat pump repair in Las Vegas. No heat, cold air, odd noises or a short-cycling heater — NATE-certified techs, same-day service. Call (702) 881-4713.",
     h1: "Furnace & Heating Repair in Las Vegas — Gas, Electric & Heat Pumps",
     kicker: "Furnace & heat pump repair",
     intro:
-      "Las Vegas winters are mild by day, but desert nights regularly drop near freezing — and that's when a failed furnace or heat pump becomes a real problem. Wave Heating & Cooling repairs gas furnaces, electric furnaces and heat pumps of every brand, with experienced technicians (most of them NATE-certified) out the same day most of the time.",
+      "Las Vegas winters are mild by day, but desert nights regularly drop near freezing — and that's when a failed furnace or heat pump becomes a real problem. Wave Heating & Cooling repairs gas furnaces, electric furnaces and heat pumps of every brand, with experienced, NATE-certified technicians out the same day, subject to availability.",
     summary: "Furnace and heat pump repair so cold desert nights stay comfortable.",
     img: "/images/work/attic-furnace-wide.jpg",
     icon: "flame",
@@ -207,7 +207,7 @@ export const heatingServices: ServicePage[] = [
       {
         h2: "Should You Replace Your Heating and Cooling Together?",
         body: [
-          "In many Las Vegas homes the furnace or air handler and the outdoor AC unit were installed at the same time — and they wear out together. Replacing both at once ensures matched, rated efficiency, often qualifies for better rebates and warranties, and usually costs less than two separate projects.",
+          "In many Las Vegas homes the furnace or air handler and the outdoor air conditioning unit were installed at the same time — and they wear out together. Replacing both at once ensures matched, rated efficiency, often qualifies for better rebates and warranties, and usually costs less than two separate projects.",
           "We'll always tell you if your existing equipment can be safely reused. Use the [Repair or Replace Calculator](/tools/repair-or-replace-calculator/) or the [Cost Estimator](/tools/ac-replacement-cost-estimator/) to plan ahead.",
         ],
       },
@@ -260,7 +260,7 @@ export const heatingServices: ServicePage[] = [
     name: "Heating Maintenance",
     title: "Furnace Tune-Up & Heating Maintenance Las Vegas | Wave",
     description:
-      "Fall furnace and heat pump tune-ups in Las Vegas: safety checks, CO testing and efficiency cleaning by a team where most techs are NATE-certified. Call (702) 881-4713.",
+      "Fall furnace and heat pump tune-ups in Las Vegas: safety checks, CO testing and efficiency cleaning by a NATE-certified team. Call (702) 881-4713.",
     h1: "Heating Maintenance & Furnace Tune-Ups in Las Vegas",
     kicker: "Fall tune-ups",
     intro:
@@ -297,7 +297,7 @@ export const heatingServices: ServicePage[] = [
       {
         h2: "Pair It With a Spring AC Tune-Up",
         body: [
-          "A fall heating check and a spring [AC tune-up](/ac-maintenance-in-las-vegas/) cover your system for the whole year. See how the two visits fit together on our [HVAC maintenance](/hvac-maintenance-las-vegas/) page.",
+          "A fall heating check and a spring [air conditioning tune-up](/ac-maintenance-in-las-vegas/) cover your system for the whole year. See how the two visits fit together on our [HVAC maintenance](/hvac-maintenance-las-vegas/) page.",
         ],
       },
     ],
@@ -325,7 +325,7 @@ export const heatingServices: ServicePage[] = [
     name: "Heat Pump Services",
     title: "Heat Pump Repair & Installation Las Vegas | Wave",
     description:
-      "Heat pump repair, replacement and installation in Las Vegas. Efficient year-round heating and cooling from a team where most techs are NATE-certified. Call (702) 881-4713.",
+      "Heat pump repair, replacement and installation in Las Vegas. Efficient year-round heating and cooling from a NATE-certified team. Call (702) 881-4713.",
     h1: "Heat Pump Repair & Installation in Las Vegas",
     kicker: "Year-round comfort",
     intro:
@@ -360,7 +360,7 @@ export const heatingServices: ServicePage[] = [
           { t: "Repair", d: "Reversing valves, defrost controls, capacitors, motors, refrigerant leaks and auxiliary heat." },
           { t: "Maintenance", d: "Two visits a year — before summer and before winter — since your heat pump works year-round." },
           { t: "Replacement", d: "Right-sized, high-efficiency heat pumps with honest advice on repair vs. replace." },
-          { t: "Conversions", d: "Switching from gas or from an older AC + furnace? We'll design the right system." },
+          { t: "Conversions", d: "Switching from gas or from an older air conditioner + furnace? We'll design the right system." },
         ],
       },
     ],

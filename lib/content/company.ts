@@ -25,4 +25,4 @@ export const referral = {
   ],
 };
 
-export const paymentMethods = ["Cash", "Visa", "Mastercard", "Discover", "American Express", "Financing (with approved credit)"];
+export const paymentMethods = ["Cash", "Visa", "Mastercard", "Discover", "American Express", "Zelle", "Financing (with approved credit)"];

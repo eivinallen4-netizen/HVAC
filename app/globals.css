@@ -327,21 +327,12 @@ h5 {
 }
 .logo {
   display: flex;
-  flex-direction: column;
-  gap: 2px;
+  align-items: center;
   flex: none;
 }
 .logo img {
-  width: 150px;
+  width: 178px;
   height: auto;
-}
-.logo-lic {
-  font-family: var(--display);
-  font-size: 0.6rem;
-  font-weight: 600;
-  letter-spacing: 0;
-  color: var(--blue);
-  text-align: center;
 }
 .main-nav {
   display: flex;
@@ -503,6 +494,13 @@ h5 {
   color: var(--text-2);
   letter-spacing: 0;
   font-weight: 600;
+}
+/* NATE badge: one line, sized like the rating scores beside it */
+.rating .rating-nate-txt {
+  font-family: var(--display);
+  font-size: 0.98rem;
+  line-height: 1.15;
+  color: var(--text);
 }
 .hero-checks {
   display: flex;
@@ -925,7 +923,7 @@ h5 {
 .sec h2,
 .est h2 {
   font-size: clamp(1.9rem, 3.3vw, 2.6rem);
-  font-weight: 600;
+  font-weight: 700;
   margin: 12px 0 14px;
 }
 .lead {
@@ -1384,6 +1382,10 @@ h5 {
   padding: 0 22px 20px;
   font-size: 0.95rem;
 }
+/* Multi-paragraph answers: tighter gap between paragraphs, full padding after the last */
+.faq-a p:not(:last-child) {
+  padding-bottom: 12px;
+}
 
 /* ─── Final CTA ─── */
 .final {
@@ -1477,6 +1479,27 @@ h5 {
 }
 .footer ul a:hover {
   color: var(--text);
+}
+/* Social icon links (only the profiles set in lib/site.ts) */
+.footer .foot-social {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.foot-social a {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line-2);
+  color: var(--text-2);
+}
+.foot-social a:hover,
+.foot-social a:focus-visible {
+  color: var(--text);
+  border-color: var(--line-3);
 }
 .foot-phone a {
   display: inline-flex;
@@ -2053,7 +2076,7 @@ h5 {
     gap: 12px;
   }
   .logo img {
-    width: 124px;
+    width: 140px;
   }
   .mobile-nav a {
     padding: 14px 1.25rem;
@@ -3430,7 +3453,7 @@ h5 {
     gap: 8px;
   }
   .logo img {
-    width: 118px;
+    width: 128px;
   }
   .btn-hdr {
     padding: 0.7rem 0.75rem;
@@ -3454,10 +3477,7 @@ h5 {
     gap: 6px;
   }
   .logo img {
-    width: 100px;
-  }
-  .logo-lic {
-    font-size: 0.5rem;
+    width: 108px;
   }
 }
 
@@ -4612,6 +4632,14 @@ h5 {
 }
 .rv-foot {
   margin-top: 26px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+@media (max-width: 560px) {
+  .rv-foot .btn {
+    flex: 1 1 100%;
+  }
 }
 
 /* ─── Estimate band: split with diagonal photo edge ─── */
@@ -5744,6 +5772,17 @@ h5 {
 }
 .est-form .opt {
   min-height: 58px;
+}
+/* Odd count (e.g. Repair / Replace / Maintenance): the last option gets its own row, centered under the pair */
+.est-form .opt:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  justify-self: center;
+  width: calc(50% - 5px);
+}
+@media (max-width: 380px) {
+  .est-form .opt:last-child:nth-child(odd) {
+    width: 100%;
+  }
 }
 .est-form .opt .chev {
   display: none;
@@ -7235,7 +7274,47 @@ h5 {
   font-size: 1.04rem;
   line-height: 1.8;
 }
-.story-copy h2 + p::first-letter {
+/* Subhead under "Our Story" */
+.story-copy .story-lead {
+  margin: -4px 0 22px;
+  font-family: var(--display);
+  font-size: 1.18rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--text);
+}
+/* Founders' sign-off */
+.story-sign {
+  margin: 26px 0 8px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-2);
+}
+.story-copy .story-sign p {
+  margin: 0;
+  line-height: 1.5;
+}
+.story-copy .story-sign .story-names {
+  font-family: var(--display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.story-copy .story-sign .story-role {
+  font-size: 0.9rem;
+  color: var(--text-3);
+}
+/* The story is long: keep the framed photo in view beside it on wide screens */
+@media (min-width: 1041px) {
+  .story-sec .story {
+    align-items: start;
+  }
+  .story-sec .story-print {
+    position: sticky;
+    top: 120px;
+  }
+}
+.story-copy h2 + p:not(.story-lead)::first-letter,
+.story-copy .story-lead + p::first-letter {
   float: left;
   padding: 6px 12px 0 0;
   font-family: var(--display);
@@ -8676,6 +8755,22 @@ a.rating-link:hover span {
   border-color: var(--blue);
   color: var(--ground);
 }
+/* Inactive job tab: looks like a button you can press, not a label */
+.ba-tabs button[aria-pressed="false"] {
+  background: var(--surface);
+  border-color: var(--blue);
+  color: var(--text);
+  box-shadow: 0 2px 0 var(--line-2);
+}
+.ba-tabs button[aria-pressed="false"]::after {
+  content: " \203A";
+  color: var(--blue);
+}
+.ba-tabs button[aria-pressed="false"]:hover,
+.ba-tabs button[aria-pressed="false"]:focus-visible {
+  background: var(--recess);
+  color: var(--blue-hi);
+}
 
 /* Long tool-result buttons ("Show Me Why", "Book a Replacement Estimate") wrap instead of running off a phone screen */
 .result-ctas .btn,
@@ -8756,7 +8851,7 @@ h2 {
   }
 }
 
-/* ─── Open-now status (top bar + hours panel) ─── */
+/* ─── Open-now status (top bar) ─── */
 .open-now {
   display: inline-flex;
   align-items: center;
@@ -8776,12 +8871,6 @@ h2 {
 }
 .open-now.is-open {
   color: var(--green);
-}
-.open-now.is-closed .open-dot {
-  background: var(--amber);
-}
-.open-now.is-closed {
-  color: var(--amber);
 }
 
 /* ─── Trust seals ─── */
@@ -9002,61 +9091,6 @@ h2 {
     grid-template-columns: 1fr;
     max-width: 560px;
   }
-}
-
-/* ─── Hours panel (final CTA) ─── */
-.hours-panel {
-  margin-top: 18px;
-  padding: 18px 20px;
-  border-radius: var(--r-lg);
-  background: var(--surface);
-  border: 1px solid var(--line-2);
-}
-.hours-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-  font-size: 0.86rem;
-}
-.hours-head b {
-  font-family: var(--display);
-  font-size: 0.95rem;
-}
-.hours-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-.hours-list li {
-  display: flex;
-  justify-content: space-between;
-  padding: 6px 10px;
-  border-radius: 6px;
-  font-size: 0.86rem;
-  color: var(--text-2);
-}
-.hours-list li.is-today {
-  background: var(--recess);
-  color: var(--text);
-  font-weight: 600;
-}
-.hours-list em {
-  margin-left: 8px;
-  font-style: normal;
-  font-size: 0.72rem;
-  color: var(--blue);
-}
-.hours-time {
-  font-family: var(--mono);
-  font-size: 0.8rem;
-}
-.hours-note {
-  margin: 10px 0 0;
-  font-size: 0.78rem;
-  color: var(--text-3);
 }
 
 /* ─── Outcome opt-out link ("No, I don't want my AC fixed") ─── */
@@ -9311,5 +9345,64 @@ body {
   .sticky {
     padding-left: max(12px, env(safe-area-inset-left));
     padding-right: max(12px, env(safe-area-inset-right));
+  }
+}
+
+/* ─── Client edits (Nov 20, 2026) ─── */
+
+/* Bold headings: the h1 and every section h2 (Montserrat 700 is loaded in app/layout.tsx) */
+h1,
+h2 {
+  font-weight: 700;
+}
+.hero h1 {
+  font-weight: 700;
+}
+
+/* Homepage hero: h1 centered, with the chip, sub, ratings and stamps centered under it */
+.hero-copy {
+  text-align: center;
+}
+.hero-copy .hero-sub {
+  margin-inline: auto;
+}
+.hero .ratings {
+  justify-content: center;
+}
+.hero .proof-stamps {
+  margin-inline: auto;
+}
+.hero .proof-stamps li {
+  align-items: center;
+  text-align: center;
+}
+
+/* Phones: the hero read as faded. Solid shade behind the copy, full-strength text, no washes over it. */
+@media (max-width: 760px) {
+  .hero-shade {
+    background: linear-gradient(
+      180deg,
+      rgba(var(--ground-rgb), 0.9) 0%,
+      rgba(var(--ground-rgb), 0.92) 45%,
+      rgba(var(--ground-rgb), 0.96) 70%,
+      var(--ground) 100%
+    );
+  }
+  .hero-copy .hero-sub,
+  .hero .rating b {
+    color: var(--text);
+  }
+  .hero .chip {
+    background: var(--surface);
+    color: var(--text);
+  }
+  .hero .chip-warm svg {
+    color: var(--amber);
+  }
+  .hero .ratings {
+    justify-content: center;
+  }
+  .hero-embers {
+    display: none;
   }
 }

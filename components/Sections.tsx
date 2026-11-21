@@ -4,15 +4,14 @@ import { areaHref } from "@/lib/content/areas";
 import { servicesIn } from "@/lib/content/services";
 import { tools } from "@/lib/tools";
 import { fees, financing } from "@/lib/estimate/config";
-import { beforeAfter, faqs as defaultFaqs, guides, pages, ratingLabel, reviews, serviceAreas, services, site, type IconName } from "@/lib/site";
+import { beforeAfter, faqs as defaultFaqs, guides, pages, ratingLabel, reviews, serviceAreas, services, site, social, type IconName } from "@/lib/site";
 import { Embers, Frost, SplitEmblem } from "./Art";
 import { BeforeAfterGallery } from "./BeforeAfter";
 import { BookNowLink } from "./Booking";
 import { ctaFor, ctas } from "@/lib/ctas";
 import { CallLink, EstimateButton, TextLink } from "./Cta";
 import { FaqList } from "./Faq";
-import { HoursPanel } from "./Hours";
-import { GoogleG, Icon, PlatformLogo, Stars } from "./Icon";
+import { GoogleG, Icon, PlatformLogo, SocialIcon, Stars, type SocialNetwork } from "./Icon";
 import { ContactForm, HeroLeadForm } from "./LeadForm";
 import { StatsRow, type Stat } from "./Stats";
 import { Timeline } from "./Timeline";
@@ -84,8 +83,7 @@ export function Hero() {
             Las Vegas AC &amp; heating repair, <span className="cool">priced before we start</span>
           </h1>
           <p className="hero-sub">
-            Same-day visits most of the time. ${fees.diagnostic} diagnostic, waived when you approve the repair on a weekday
-            visit.
+            Same-day visits. ${fees.diagnostic} diagnostic, waived when you approve the repair on a weekday visit.
           </p>
           {site.guarantee && (
             <p className="hero-guarantee">
@@ -144,8 +142,7 @@ export function RatingsRow({ nate = false }: { nate?: boolean }) {
         <li className="rating rating-nate">
           <Image src="/images/nate.png" alt="NATE" width={34} height={32} />
           <div>
-            <b>Certified</b>
-            <span>Most techs NATE-certified</span>
+            <span className="rating-nate-txt">NATE certified</span>
           </div>
         </li>
       )}
@@ -156,7 +153,7 @@ export function RatingsRow({ nate = false }: { nate?: boolean }) {
 /* ═════════════════════════ TRUST BAR ═════════════════════════ */
 export function TrustBar() {
   const items = [
-    { v: "Same-day", s: "Visits most of the time" },
+    { v: "Same-day", s: "Visits, open 24/7" },
     { v: "Upfront", s: "Written pricing before work starts" },
     { v: "Local", s: "Family-owned Las Vegas team" },
     { v: site.license, s: "NV licensed, bonded & insured" },
@@ -172,7 +169,7 @@ export function TrustBar() {
         ))}
         <li className="trust-item trust-nate">
           <Image src="/images/nate.png" alt="NATE" width={46} height={43} />
-          <span>Most techs NATE-certified</span>
+          <span>NATE-certified</span>
         </li>
       </ul>
     </section>
@@ -189,7 +186,7 @@ export function Emergency() {
         </span>
         <div className="emerg-copy">
           <h3>
-            AC out in the desert heat? Same-day service most of the time. <span className="tag-urgent">Urgent service</span>
+            Air conditioning out in the desert heat? Same-day service, 24/7. <span className="tag-urgent">Urgent service</span>
           </h3>
           <p>Call {site.phone} or text now and a Wave tech will get your home cool again.</p>
         </div>
@@ -227,7 +224,7 @@ export function Services({
           {services.map((s, i) => (
             <li className={`dir-row${s.hot ? " hot" : ""}`} key={s.title} data-reveal style={{ transitionDelay: `${(i % 2) * 60}ms` }}>
               <span className="dir-photo">
-                <Image src={s.img} alt="" fill sizes="(max-width: 760px) 88px, 128px" />
+                <Image src={s.img} alt={s.alt ?? ""} fill sizes="(max-width: 760px) 88px, 128px" />
                 <span className={`ic-box dir-badge ${s.hot ? "tone-warm" : "tone-cool"}`}>
                   <Icon name={s.icon} size={16} />
                 </span>
@@ -296,9 +293,9 @@ export function Difference() {
 /* ═════════════════════════ WHY WAVE ═════════════════════════ */
 const why = [
   { icon: "home", t: "Family owned and operated", d: "We treat you like family and your home like ours." },
-  { icon: "award", t: "Most techs NATE-certified", d: "Experienced pros who know HVAC inside and out, and most of them are NATE-certified." },
+  { icon: "award", t: "NATE-certified techs", d: "Experienced, NATE-certified pros who know heating and air conditioning inside and out." },
   { icon: "tag", t: "Honest advice", d: "If it's a simple fix, we'll tell you. If it's time to replace, we'll show you why." },
-  { icon: "clock", t: "Here when it breaks", d: "Heat waves don't wait, so most of the time we get a tech out the same day." },
+  { icon: "clock", t: "Here when it breaks", d: "Heat waves don't wait. We're open 24/7 and get a tech out the same day, subject to availability." },
   { icon: "shield", t: "Licensed, bonded & insured", d: `Nevada license ${site.license} for total peace of mind.` },
   { icon: "sparkle", t: "Your home protected", d: "Booties at the door, protective tarp from the entrance to the indoor unit, plastic on walls and beds, and a full clean-up." },
 ] as const;
@@ -340,12 +337,12 @@ export function WhyWave({ variant = "bento" }: { variant?: "bento" | "ledger" } 
             </span>
             <h3>Trained for Nevada&apos;s harshest conditions</h3>
             <p>
-              Most Wave techs are NATE-certified, and every technician works on homes built for triple-digit summers and cold desert
+              Wave is a NATE-certified team, and every technician works on homes built for triple-digit summers and cold desert
               nights. Our owner is still in the field on install days and service calls, making sure every job runs smoothly from
               start to finish.
             </p>
             <ul className="inline-checks">
-              <li><Icon name="check" size={16} /> Most Techs NATE-Certified</li>
+              <li><Icon name="check" size={16} /> NATE-Certified Techs</li>
               <li><Icon name="check" size={16} /> Licensed &amp; Bonded</li>
               <li><Icon name="check" size={16} /> Fully Insured</li>
             </ul>
@@ -408,12 +405,12 @@ function WhyLedger() {
             </span>
             <h3>Trained for Nevada&apos;s harshest conditions</h3>
             <p>
-              Most Wave techs are NATE-certified, and every technician works on homes built for triple-digit summers and cold desert
+              Wave is a NATE-certified team, and every technician works on homes built for triple-digit summers and cold desert
               nights. Our owner is still in the field on install days and service calls, making sure every job runs smoothly from
               start to finish.
             </p>
             <ul className="inline-checks">
-              <li><Icon name="check" size={16} /> Most Techs NATE-Certified</li>
+              <li><Icon name="check" size={16} /> NATE-Certified Techs</li>
               <li><Icon name="check" size={16} /> Licensed &amp; Bonded</li>
               <li><Icon name="check" size={16} /> Fully Insured</li>
             </ul>
@@ -553,6 +550,9 @@ export function Reviews({
           <a className="btn btn-ghost" href={site.googleReviewsUrl} target="_blank" rel="noopener noreferrer">
             <GoogleG size={18} /> Read all reviews on Google
           </a>
+          <a className="btn btn-ghost" href={site.yelpUrl} target="_blank" rel="noopener noreferrer">
+            <PlatformLogo platform="Yelp" size={18} /> Read our reviews on Yelp
+          </a>
         </div>
       </div>
     </section>
@@ -660,6 +660,9 @@ function ReviewWall({ title, alt }: { title: string; alt: boolean }) {
         <div className="rv-foot" data-reveal>
           <a className="btn btn-ghost" href={site.googleReviewsUrl} target="_blank" rel="noopener noreferrer">
             <GoogleG size={18} /> Read all reviews on Google
+          </a>
+          <a className="btn btn-ghost" href={site.yelpUrl} target="_blank" rel="noopener noreferrer">
+            <PlatformLogo platform="Yelp" size={18} /> Read our reviews on Yelp
           </a>
         </div>
       </div>
@@ -877,7 +880,7 @@ export function Faq({
 /* ═════════════════════════ FINAL CTA ═════════════════════════ */
 export function FinalCta({
   title = "Book your service today",
-  lead = "Pick a time online and we'll confirm your appointment. Or call — same-day visits most of the time.",
+  lead = "Pick a time online and we'll confirm your appointment. Or call — same-day visits, 24/7.",
 }: {
   title?: string;
   lead?: string;
@@ -920,7 +923,6 @@ export function FinalCta({
         </div>
         <div data-reveal>
           <ContactForm />
-          <HoursPanel />
         </div>
       </div>
     </section>
@@ -928,6 +930,12 @@ export function FinalCta({
 }
 
 /* ═════════════════════════ FOOTER ═════════════════════════ */
+const socialNames: Record<SocialNetwork, string> = { facebook: "Facebook", instagram: "Instagram", tiktok: "TikTok", youtube: "YouTube" };
+/** Only the profiles set in lib/site.ts `social` */
+const socialLinks = (Object.keys(socialNames) as SocialNetwork[])
+  .map((n) => [n, social[n]] as const)
+  .filter((e): e is readonly [SocialNetwork, string] => Boolean(e[1]));
+
 export function Footer() {
   return (
     <footer className="footer">
@@ -937,10 +945,24 @@ export function Footer() {
           <Link href="/" aria-label={`${site.name} home`}>
             <Image src="/images/logo-light.png" alt={site.name} width={190} height={57} className="foot-logo" />
           </Link>
-          <p>{site.tagline}. Family-owned, most techs NATE-certified, same-day service.</p>
+          <p>
+            Las Vegas family owned and operated. We promise reliable solutions for all your cooling and heating needs. We will
+            treat you like family and your home as ours!
+          </p>
           <span className="chip">
             <Icon name="shield" size={14} /> NV License {site.license}
           </span>
+          {socialLinks.length > 0 && (
+            <ul className="foot-social" aria-label="Wave on social media">
+              {socialLinks.map(([network, href]) => (
+                <li key={network}>
+                  <a href={href} target="_blank" rel="noopener noreferrer" aria-label={`${site.name} on ${socialNames[network]}`}>
+                    <SocialIcon network={network} size={18} />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
         <div>
           <h5>Cooling</h5>
@@ -987,6 +1009,7 @@ export function Footer() {
             <li><Link href={pages.financing}>Financing</Link></li>
             <li><Link href={pages.referral}>Referral Program</Link></li>
             <li><Link href={pages.areas}>Service Areas</Link></li>
+            <li><Link href={pages.brands}>Brands We Service</Link></li>
             <li><Link href={pages.blog}>HVAC Tips &amp; Guides</Link></li>
             <li><Link href={pages.faq}>FAQ</Link></li>
             <li><Link href={pages.contact}>Contact</Link></li>
@@ -1004,9 +1027,6 @@ export function Footer() {
             <li className="hq-live"><i className="dot" /> Same-day service</li>
             <li>
               <a href={site.googleMapsUrl} target="_blank" rel="noopener noreferrer">Find us on Google</a>
-            </li>
-            <li>
-              <a href={pages.facebook} target="_blank" rel="noopener noreferrer">Facebook</a>
             </li>
           </ul>
         </div>
@@ -1044,13 +1064,13 @@ export function StickyBar() {
 /** Badge strip under the hero. Every seal is a claim Wave already makes elsewhere; optional ones show only once set in lib/site.ts. */
 export function TrustSeals() {
   const google = site.ratings.find((r) => r.platform === "Google");
-  const seals: { key: string; mark: React.ReactNode; t: string; s: string; href?: string }[] = [
+  /** `s` is the optional small line under the title; seals without one center their single line */
+  const seals: { key: string; mark: React.ReactNode; t: string; s?: string; href?: string }[] = [
     { key: "lic", mark: <Icon name="award" size={22} />, t: `NV License ${site.license}`, s: "Licensed, bonded & insured" },
     {
       key: "nate",
       mark: <Image src="/images/nate.png" alt="" width={30} height={28} />,
       t: "NATE-certified",
-      s: "Most of our techs",
     },
     ...(google
       ? [
@@ -1068,7 +1088,7 @@ export function TrustSeals() {
       ? [{ key: "yrs", mark: <Icon name="home" size={22} />, t: `${site.stats.years}+ years`, s: "Serving Las Vegas" }]
       : []),
     { key: "price", mark: <Icon name="tag" size={22} />, t: "Upfront pricing", s: "Written before work starts" },
-    { key: "days", mark: <Icon name="clock" size={22} />, t: "Open 7 days", s: "6 AM – 11 PM" },
+    { key: "days", mark: <Icon name="clock" size={22} />, t: "Open 24/7!" },
   ];
   return (
     <section className="seals" aria-label="Credentials and ratings">
@@ -1079,7 +1099,7 @@ export function TrustSeals() {
               <span className="seal-mark">{s.mark}</span>
               <span className="seal-txt">
                 <b>{s.t}</b>
-                <small>{s.s}</small>
+                {s.s && <small>{s.s}</small>}
               </span>
             </>
           );
@@ -1111,7 +1131,7 @@ export function Stats() {
     ...(google ? [{ value: Number(google.score), decimals: 1, label: "Google rating" }] : []),
     ...(reviewCount ? [{ value: reviewCount, label: "Google reviews" }] : []),
     { value: serviceAreas.length, label: "Valley communities served" },
-    { value: site.openingHours.days.length, label: "Days a week, 6 AM – 11 PM" },
+    { value: site.openingHours.days.length, label: "Days a week, open 24/7" },
   ].slice(0, 4);
   if (stats.length < 3) return null;
   return (

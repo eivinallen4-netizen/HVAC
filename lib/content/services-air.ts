@@ -220,22 +220,22 @@ export const airServices: ServicePage[] = [
     name: "HVAC Maintenance",
     title: "HVAC Maintenance Las Vegas | Wave Heating & Cooling",
     description:
-      "Las Vegas HVAC maintenance: a spring AC tune-up and a fall heating tune-up to cut breakdowns and energy bills. Most techs NATE-certified. (702) 881-4713.",
+      "Las Vegas HVAC maintenance: a spring AC tune-up and a fall heating tune-up to cut breakdowns and energy bills. NATE-certified techs. (702) 881-4713.",
     h1: "HVAC Maintenance in Las Vegas",
     kicker: "Year-round maintenance",
     intro:
-      "Regular maintenance is the key to long-lasting comfort and lower energy bills. In Las Vegas that means two visits a year — the AC before summer and the heating before winter — so small problems get caught before they turn into breakdowns.",
+      "Regular maintenance is the key to long-lasting comfort and lower energy bills. In Las Vegas that means two visits a year — the air conditioner before summer and the heating before winter — so small problems get caught before they turn into breakdowns.",
     summary: "Spring AC and fall heating tune-ups that catch problems early and help your system last longer.",
     img: "/images/svc-maintenance.jpg",
     icon: "gauge",
     pick: "Maintenance / tune-up",
-    highlights: ["Spring AC tune-up", "Fall heating tune-up", "Every system in the home", "Written report of findings"],
+    highlights: ["Spring air conditioning tune-up", "Fall heating tune-up", "Every system in the home", "Written report of findings"],
     sections: [
       {
         h2: "Two Visits a Year, Timed for the Desert",
         kind: "season",
         season: [
-          { m: [2, 3], label: "AC tune-up", tone: "cool" },
+          { m: [2, 3], label: "air conditioning tune-up", tone: "cool" },
           { m: [9, 10], label: "Heating tune-up", tone: "warm" },
         ],
         body: [
@@ -279,7 +279,7 @@ export const airServices: ServicePage[] = [
     faqs: [
       {
         q: "How often should my HVAC system be serviced in Las Vegas?",
-        a: "Twice a year: the AC in spring before the summer heat, and the heating in fall before winter. Las Vegas systems work harder than most, so regular checks matter more here.",
+        a: "Twice a year: the air conditioner in spring before the summer heat, and the heating in fall before winter. Las Vegas systems work harder than most, so regular checks matter more here.",
       },
       {
         q: "Can you service more than one system in the same visit?",

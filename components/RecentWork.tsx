@@ -17,7 +17,7 @@ type Shot = {
 };
 
 const shots: Shot[] = [
-  { src: "/images/work/condenser-service.jpg", alt: "Wave technician servicing an outdoor AC condenser beside a Las Vegas home", cap: "AC service, side yard", size: "big" },
+  { src: "/images/work/condenser-service.jpg", alt: "Wave technician servicing an outdoor AC condenser beside a Las Vegas home", cap: "Air conditioning service, side yard", size: "big" },
   { src: "/images/work/attic-tech.jpg", alt: "Wave technician working on an air handler in a Las Vegas attic", cap: "Attic air handler", size: "wide" },
   {
     src: "/images/work/plenum-attic-before.jpg",
@@ -27,7 +27,7 @@ const shots: Shot[] = [
     cap: "Attic plenum: patched and torn, then rebuilt and sealed",
     size: "big",
   },
-  { src: "/images/work/new-condensers.jpg", alt: "Two new AC condensers installed on pads in a side yard", cap: "New condensers set", size: "tall" },
+  { src: "/images/work/new-condensers.jpg", alt: "Two new air conditioner condensers installed on pads in a side yard", cap: "New condensers set", size: "tall" },
   { src: "/images/work/furnace-garage.jpg", alt: "New furnace and coil installed in a Las Vegas garage", cap: "Furnace install, garage", size: "tall" },
   { src: "/images/work/condenser-inside.jpg", alt: "Wave technician working inside an opened AC condenser", cap: "Inside the condenser", size: "wide" },
   { src: "/images/work/attic-furnace.jpg", alt: "Attic furnace with new flex duct and condensate piping", cap: "Attic furnace & ducts" },

@@ -14,9 +14,14 @@ const terms: { icon: IconName; b: string; t: string }[] = [
     b: "Say yes during a weekday visit",
     t: `(Mon–Fri, 7am–6pm) and the $${fees.diagnostic} is waived. You pay for the repair only.`,
   },
+  {
+    icon: "shield",
+    b: "Wave Club members:",
+    t: "the diagnostic fee is always waived when the repair is performed.",
+  },
   { icon: "tag", b: "Say no", t: `and the $${fees.diagnostic} diagnostic is all you pay.` },
-  { icon: "clock", b: "Same-day visits", t: "most of the time, with no after-hours, weekend or holiday surcharge." },
-  { icon: "wrench", b: "Parts on the van", t: "Most repairs are done on the first visit." },
+  { icon: "clock", b: "Same-day visits", t: "24/7, with no after-hours, weekend or holiday surcharge." },
+  { icon: "wrench", b: "Parts in the van", t: "Most repairs are done on the first visit." },
   // Shown only once the client confirms the guarantee terms in lib/site.ts
   ...(site.guarantee ? [{ icon: "award" as IconName, b: "Guaranteed:", t: site.guarantee }] : []),
 ];
@@ -44,8 +49,8 @@ export function RepairPrices() {
               ))}
             </ul>
             <p className="rp-disclaimer">
-              Prices may vary depending on your system, the part and how easy it is to reach. Your tech confirms the
-              exact price before any work starts.
+              Prices may vary depending on your system. Prices are based on entry level systems, most common in valley.
+              Your tech confirms the exact price before any work starts.
             </p>
             <p className="rcpt-foot">
               <Icon name="question" size={18} />

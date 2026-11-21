@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Icon } from "./Icon";
 
 export type BeforeAfterPair = {
@@ -99,15 +99,44 @@ export function BeforeAfter({
   );
 }
 
+/** How long each job shows before the gallery moves on to the next */
+const AUTO_SWITCH_MS = 6000;
+
 /** Several before/after sliders: one shows at a time, with prev/next arrows and job tabs when there's more than one */
 export function BeforeAfterGallery({ pairs }: { pairs: BeforeAfterPair[] }) {
   const [i, setI] = useState(0);
   const n = pairs.length;
+  const root = useRef<HTMLDivElement>(null);
+  // Once the visitor touches the slider, tabs or arrows, auto-switching stops for good
+  const [touched, setTouched] = useState(false);
+  const stop = () => setTouched(true);
+
+  // Show visitors there's more than one job: switch jobs every few seconds while the section is on screen
+  useEffect(() => {
+    const el = root.current;
+    if (n < 2 || touched || !el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let timer: number | undefined;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        window.clearInterval(timer);
+        timer = undefined;
+        if (entry.isIntersecting) timer = window.setInterval(() => setI((v) => (v + 1) % n), AUTO_SWITCH_MS);
+      },
+      { threshold: 0.5 }
+    );
+    io.observe(el);
+    return () => {
+      io.disconnect();
+      window.clearInterval(timer);
+    };
+  }, [n, touched]);
+
   const cur = pairs[i];
   if (!cur) return null;
   const go = (d: number) => setI((v) => (v + d + n) % n);
   return (
-    <div className="ba-gallery">
+    <div className="ba-gallery" ref={root} onPointerDownCapture={stop} onKeyDownCapture={stop}>
       {/* key resets the handle to the middle for each job */}
       <BeforeAfter key={cur.before} before={cur.before} after={cur.after} beforeAlt={cur.beforeAlt} afterAlt={cur.afterAlt} />
       {n > 1 && (

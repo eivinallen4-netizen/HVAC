@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { serviceAreas, site } from "./site";
+import { faqParagraphs, serviceAreas, site, social } from "./site";
 
 /** Per-page metadata with canonical, Open Graph and Twitter tags */
 export function buildMetadata({
@@ -61,15 +61,15 @@ export function localBusinessLd() {
     geo: { "@type": "GeoCoordinates", latitude: site.geo.lat, longitude: site.geo.lng },
     hasMap: site.googleMapsUrl,
     areaServed: serviceAreas.map((name) => ({ "@type": "City", name: `${name}, NV` })),
-    // Matches the Google Business Profile hours
+    // Open 24/7: all seven days, 00:00–23:59
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: site.openingHours.days,
       opens: site.openingHours.opens,
       closes: site.openingHours.closes,
     },
-    paymentAccepted: "Cash, Credit Card, Financing",
-    sameAs: ["https://www.facebook.com/waveheatingandcooling", site.googleMapsUrl],
+    paymentAccepted: "Cash, Credit Card, Zelle, Financing",
+    sameAs: [...Object.values(social).filter((u): u is string => Boolean(u)), site.googleMapsUrl],
   };
 }
 
@@ -93,7 +93,8 @@ export function faqLd(faqs: { q: string; a: string }[]) {
     mainEntity: faqs.map((f) => ({
       "@type": "Question",
       name: f.q,
-      acceptedAnswer: { "@type": "Answer", text: f.a },
+      // Multi-paragraph answers become one plain-text answer
+      acceptedAnswer: { "@type": "Answer", text: faqParagraphs(f.a).join(" ") },
     })),
   };
 }

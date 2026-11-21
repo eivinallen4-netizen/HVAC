@@ -20,6 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...hubPages.map((h) => entry(`/${h.slug}/`, 0.9)),
     ...servicePages.map((s) => entry(`/${s.slug}/`, 0.9)),
     entry("/service-area-las-vegas/", 0.8),
+    entry("/brands-we-service/", 0.8),
     ...areaPages.map((a) => entry(`/service-areas/${a.slug}/`, 0.8)),
     entry("/tools/", 0.7),
     ...tools.map((t) => entry(`/tools/${t.slug}/`, 0.8)),

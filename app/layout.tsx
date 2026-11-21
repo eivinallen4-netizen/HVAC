@@ -16,7 +16,8 @@ import "./globals.css";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  // 700 for bold headings (h1, section h2s)
+  weight: ["400", "500", "600", "700"],
   display: "swap",
   variable: "--font-display",
 });
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     template: "%s | Wave Heating & Cooling",
   },
   description:
-    "Family-owned Las Vegas HVAC company. AC & heating repair, installs and tune-ups by a team where most techs are NATE-certified. Same-day service, book online. (702) 881-4713.",
+    "Family-owned Las Vegas HVAC company. AC & heating repair, installs and tune-ups by a NATE-certified team. Same-day service, book online. (702) 881-4713.",
   applicationName: site.name,
   icons: { icon: "/images/favicon.png", apple: "/images/favicon.png" },
   openGraph: { siteName: site.name, locale: "en_US", type: "website" },

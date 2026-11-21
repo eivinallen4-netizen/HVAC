@@ -5,26 +5,26 @@ export const coolingServices: ServicePage[] = [
   {
     slug: "hvac-repairs-in-las-vegas",
     category: "cooling",
-    name: "AC Repair",
+    name: "Air Conditioning Repair",
     title: "AC Repair & Service Las Vegas | Same-Day | Wave",
     description:
-      "Fast, honest AC repair and service in Las Vegas from a team where most techs are NATE-certified. Warm air, noises, leaks or no power: all brands, often same day. (702) 881-4713.",
-    h1: "AC Repair & Service in Las Vegas — Fast, Honest & Done Right the First Time",
+      "Fast, honest AC repair and service in Las Vegas from a NATE-certified team. Warm air, noises, leaks or no power: all brands, same-day service. (702) 881-4713.",
+    h1: "Air Conditioning Repair & Service in Las Vegas — Fast, Honest & Done Right the First Time",
     kicker: "Air conditioning repair",
     intro:
-      "When it's 110° outside, a broken AC isn't an inconvenience — it's an emergency. Wave Heating & Cooling diagnoses and repairs every make and model of central air conditioner and heat pump across the Las Vegas valley, with experienced technicians (most of them NATE-certified) out the same day most of the time and straight answers about what your system actually needs.",
-    summary: "Warm air, strange noises, or an AC that won't kick on? We find the real problem and fix it right the first time.",
+      "When it's 110° outside, a broken air conditioner isn't an inconvenience — it's an emergency. Wave Heating & Cooling diagnoses and repairs every make and model of central air conditioner and heat pump across the Las Vegas valley, with experienced, NATE-certified technicians out the same day and straight answers about what your system actually needs.",
+    summary: "Warm air, strange noises, or an air conditioner that won't kick on? We find the real problem and fix it right the first time.",
     img: "/images/work/condenser-service-wide.jpg",
     icon: "wrench",
     pick: "AC not cooling",
-    highlights: ["Most techs NATE-certified", "All brands repaired", "No corporate or franchise fees", "Same-day service"],
+    highlights: ["NATE-certified techs", "All brands repaired", "No corporate or franchise fees", "Same-day service"],
     signs: {
       title: "Common AC Problems We Fix Every Day",
       items: [
         { t: "Blowing warm air", d: "Often a failed capacitor, a refrigerant leak, a dirty condenser coil or a tripped safety switch." },
         { t: "Won't turn on", d: "Thermostat, breaker, contactor, float switch or control board — we test each one instead of guessing." },
         { t: "Strange noises", d: "Grinding, squealing, banging or buzzing usually points to a motor, fan blade or electrical part on its way out." },
-        { t: "Short cycling", d: "An AC that turns on and off every few minutes is wasting power and wearing out its compressor." },
+        { t: "Short cycling", d: "An air conditioner that turns on and off every few minutes is wasting power and wearing out its compressor." },
         { t: "Water around the unit", d: "A clogged condensate drain or frozen coil — catch it before it damages drywall or ceilings." },
         { t: "Ice on the lines", d: "Frozen refrigerant lines mean low airflow or low charge. Turn the system off and call us." },
         { t: "Sky-high power bills", d: "A sudden jump in your NV Energy bill is often the first sign the system is struggling." },
@@ -33,7 +33,7 @@ export const coolingServices: ServicePage[] = [
     },
     sections: [
       {
-        h2: "What to Expect From a Wave AC Repair Visit",
+        h2: "What to Expect From a Wave Air Conditioning Repair Visit",
         body: [
           "Every repair starts with a real diagnosis. Your technician checks electrical components, refrigerant pressures and temperatures, airflow, the condensate drain and the thermostat so we fix the cause — not just the symptom that showed up today.",
           "Before any work begins you'll get a clear explanation of what failed, why it failed and your options. If it's a simple fix, we'll tell you. If your system is old enough that a repair doesn't make financial sense, we'll tell you that too — and you can check our reasoning with the free [Repair or Replace Calculator](/tools/repair-or-replace-calculator/).",
@@ -45,7 +45,7 @@ export const coolingServices: ServicePage[] = [
         body: [
           "Southern Nevada is one of the hardest places in the country to be an air conditioner. Systems here run for months straight, often against outdoor temperatures above 105°, and condenser units sit on rooftops or in side yards that bake in direct sun.",
           "That heat is hard on electrical parts. Capacitors and contactors are the most common failures we see each summer, followed by condenser fan motors and refrigerant leaks. Desert dust packs into condenser coils, which makes the whole system run hotter and longer.",
-          "The good news: most of these failures are predictable. A seasonal [AC tune-up](/ac-maintenance-in-las-vegas/) catches weak capacitors, dirty coils and clogged drains before they leave you without cooling on the hottest day of the year.",
+          "The good news: most of these failures are predictable. A seasonal [air conditioning tune-up](/ac-maintenance-in-las-vegas/) catches weak capacitors, dirty coils and clogged drains before they leave you without cooling on the hottest day of the year.",
         ],
       },
       {
@@ -62,12 +62,12 @@ export const coolingServices: ServicePage[] = [
         },
       },
       {
-        h2: "Why Homeowners Trust Wave for AC Repair",
+        h2: "Why Homeowners Trust Wave for Air Conditioning Repair",
         cards: [
           { t: "Honest diagnosis", d: "You see what we see. No scare tactics, no pressure to replace a system that just needs a part." },
           { t: "Fair, local pricing", d: "No corporate overhead or franchise fees — just competitive pricing from a family-owned company." },
-          { t: "Experienced techs", d: "Most techs NATE-certified and low employee turnover mean consistent, high-quality work." },
-          { t: "Here when it breaks", d: "Heat waves don't wait. Most of the time we can get a tech out the same day." },
+          { t: "Experienced techs", d: "NATE-certified techs and low employee turnover mean consistent, high-quality work." },
+          { t: "Here when it breaks", d: "Heat waves don't wait. We can get a tech out the same day, subject to availability." },
         ],
       },
       {
@@ -75,7 +75,7 @@ export const coolingServices: ServicePage[] = [
         kind: "season",
         season: [{ m: [5, 6, 7], label: "Summer (peak season)", tone: "warm" }, { m: [2, 3, 4, 8, 9, 10], label: "Spring and fall (off season)", tone: "cool" }],
         body: [
-          "**Summer (peak season):** your AC is working its hardest and repair demand is highest. If something sounds or feels off, call early — small problems turn into compressor failures fast in 110° heat.",
+          "**Summer (peak season):** your air conditioner is working its hardest and repair demand is highest. If something sounds or feels off, call early — small problems turn into compressor failures fast in 110° heat.",
           "**Spring and fall (off season):** the best time for tune-ups, small repairs and replacement planning. You'll get more scheduling flexibility and avoid a mid-July breakdown.",
         ],
       },
@@ -83,7 +83,7 @@ export const coolingServices: ServicePage[] = [
     faqs: [
       {
         q: "How fast can you get to me for an AC repair?",
-        a: "We prioritize no-cooling calls, especially for homes with seniors, infants or pets. Most of the time we can get a technician out the same day, depending on demand during heat waves.",
+        a: "We prioritize no-cooling calls, especially for homes with seniors, infants or pets. We offer same-day visits, subject to availability during heat waves.",
       },
       {
         q: "Do you repair all AC brands?",
@@ -125,16 +125,16 @@ export const coolingServices: ServicePage[] = [
     name: "Emergency AC Repair",
     title: "Same-Day Emergency AC Repair Las Vegas | Wave Heating & Cooling",
     description:
-      "AC out in the Las Vegas heat? Same-day emergency AC repair most of the time, with no after-hours surcharge. Most techs NATE-certified. Call (702) 881-4713.",
-    h1: "Same-Day Emergency AC Repair in Las Vegas",
+      "AC out in the Las Vegas heat? Same-day emergency AC repair, 24/7, with no after-hours surcharge. NATE-certified techs. Call (702) 881-4713.",
+    h1: "Same-Day Emergency Air Conditioning Repair in Las Vegas",
     kicker: "Emergency service",
     intro:
-      "An air conditioner that dies on a July afternoon can turn a Las Vegas home dangerously hot within hours. Wave Heating & Cooling puts no-cooling calls first and can get a technician out the same day most of the time, ready to diagnose and fix most failures on the spot.",
+      "An air conditioner that dies on a July afternoon can turn a Las Vegas home dangerously hot within hours. Wave Heating & Cooling puts no-cooling calls first and can get a technician out the same day, ready to diagnose and fix most failures on the spot.",
     summary: "AC out in the heat? Call and we'll work to get a tech to you the same day.",
     img: "/images/work/attic-tech-wide.jpg",
     icon: "clock",
     pick: "AC not cooling",
-    highlights: ["Same-day most of the time", "No-cooling calls go first", "Trucks stocked for common failures", "No after-hours surcharge"],
+    highlights: ["Same-day service, 24/7", "No-cooling calls go first", "Trucks stocked for common failures", "No after-hours surcharge"],
     emergency: true,
     signs: {
       title: "When to Call for Emergency AC Service",
@@ -167,14 +167,14 @@ export const coolingServices: ServicePage[] = [
         h2: "Why Emergency AC Failures Spike in Las Vegas",
         body: [
           "Most emergency calls come during the first long stretch of 105°+ days, when systems that limped through spring finally fail. Weak capacitors, worn contactors, dirty condenser coils and low refrigerant all show up under peak load.",
-          "Heat waves also mean high demand. A spring [AC tune-up](/ac-maintenance-in-las-vegas/) catches weak parts before they fail — the best way to stay out of the summer rush.",
+          "Heat waves also mean high demand. A spring [air conditioning tune-up](/ac-maintenance-in-las-vegas/) catches weak parts before they fail — the best way to stay out of the summer rush.",
         ],
       },
       {
         h2: "How Our Emergency Service Works",
         kind: "steps",
         cards: [
-          { t: "1. You call or text", d: `Tell us what's happening and we'll get a tech headed your way, same day most of the time.` },
+          { t: "1. You call or text", d: `Tell us what's happening and we'll get a tech headed your way, same day.` },
           { t: "2. Fast diagnosis", d: "Your technician finds the root cause — electrical, refrigerant, airflow or controls." },
           { t: "3. Clear options", d: "You'll get the cost and your options before any work begins. No surprises." },
           { t: "4. Cool again", d: "Most common failures are fixed on the first visit with parts from our truck." },
@@ -184,7 +184,7 @@ export const coolingServices: ServicePage[] = [
     faqs: [
       {
         q: "Can you come out the same day?",
-        a: "Most of the time, yes, depending on demand during heat waves. Call (702) 881-4713 and we'll get a technician scheduled. We put no-cooling calls first, especially for homes with seniors, infants or pets.",
+        a: "Yes, subject to availability during heat waves. Call (702) 881-4713 and we'll get a technician scheduled. We put no-cooling calls first, especially for homes with seniors, infants or pets.",
       },
       {
         q: "Is emergency AC service more expensive?",
@@ -207,11 +207,11 @@ export const coolingServices: ServicePage[] = [
   {
     slug: "ac-installations-in-las-vegas",
     category: "cooling",
-    name: "AC Installation",
+    name: "Air Conditioning Installation",
     title: "AC Installation Las Vegas | Book Online | Wave",
     description:
       "New AC installation in Las Vegas, sized and installed right for desert heat. In-home estimates, high-efficiency options and financing. Call (702) 881-4713.",
-    h1: "AC Installation in Las Vegas — Sized Right, Installed Right",
+    h1: "Air Conditioning Installation in Las Vegas — Sized Right, Installed Right",
     kicker: "New air conditioning systems",
     intro:
       "A new air conditioner is only as good as its installation. Wave Heating & Cooling designs and installs central air, heat pump and ductless systems for Las Vegas homes — properly sized for desert heat, installed clean and on schedule, and backed by a team that will still be here to service it.",
@@ -222,7 +222,7 @@ export const coolingServices: ServicePage[] = [
     highlights: ["Load calculation on every job", "Permits pulled", "Full safety inspection", "Home protected & cleaned up"],
     sections: [
       {
-        h2: "New AC Installation vs. AC Replacement",
+        h2: "New Air Conditioning Installation vs. Air Conditioning Replacement",
         kind: "options",
         cards: [
           {
@@ -231,7 +231,7 @@ export const coolingServices: ServicePage[] = [
           },
           {
             t: "Replacement",
-            d: "For systems more than 10–15 years old, systems that keep breaking down, or R-22 systems that are expensive to recharge. See our [AC replacement](/ac-replacement-in-las-vegas/) page for details.",
+            d: "For systems more than 10–15 years old, systems that keep breaking down, or R-22 systems that are expensive to recharge. See our [air conditioning replacement](/ac-replacement-in-las-vegas/) page for details.",
           },
         ],
       },
@@ -262,7 +262,7 @@ export const coolingServices: ServicePage[] = [
       {
         h2: "Choosing the Right Efficiency Level",
         body: [
-          "Higher-efficiency systems (higher SEER2) cost more up front but use less electricity — and in Las Vegas, where an AC can run for six months a year, that difference adds up. Variable-speed and two-stage systems also deliver more even temperatures and quieter operation.",
+          "Higher-efficiency systems (higher SEER2) cost more up front but use less electricity — and in Las Vegas, where an air conditioner can run for six months a year, that difference adds up. Variable-speed and two-stage systems also deliver more even temperatures and quieter operation.",
           "Want a ballpark before we visit? Try the [AC Replacement Cost Estimator](/tools/ac-replacement-cost-estimator/) or see how much an upgrade could save with the [Energy Savings Calculator](/tools/energy-savings-calculator/).",
         ],
       },
@@ -299,11 +299,11 @@ export const coolingServices: ServicePage[] = [
   {
     slug: "ac-replacement-in-las-vegas",
     category: "cooling",
-    name: "AC Replacement",
+    name: "Air Conditioning Replacement",
     title: "AC Replacement Las Vegas | Book Online | Wave Heating & Cooling",
     description:
       "Is it time to replace your AC? Honest advice, in-home estimates and high-efficiency systems built for Las Vegas heat. Financing available. (702) 881-4713.",
-    h1: "AC Replacement in Las Vegas — Permitted, Inspected, Done Right",
+    h1: "Air Conditioning Replacement in Las Vegas — Permitted, Inspected, Done Right",
     kicker: "Upgrade your system",
     intro:
       "If your air conditioner is more than 15 years old, needs a major repair or is driving your power bill through the roof, it may be time. Wave Heating & Cooling diagnoses first and gives you honest, no-pressure advice, and if a repair is enough, we'll tell you. If replacement is the right call, we replace the whole matched system, pull the permit, run a full safety inspection, and protect your home from the front door to the final vacuum.",
@@ -379,11 +379,11 @@ export const coolingServices: ServicePage[] = [
         ],
       },
       {
-        h2: "Comparing AC Replacement Quotes in Las Vegas",
+        h2: "Comparing Air Conditioning Replacement Quotes in Las Vegas",
         body: [
           "Quotes can vary a lot, and the lowest number often leaves things out. Before you compare, ask each company: **Is a permit included? Is it a full matched system or just the outside unit? Is a safety inspection included? Do they protect your home and clean up after?**",
           "Every one of those is standard with Wave. Labor done right takes a full day, not two hours.",
-          "**Read online that a new AC unit only costs a few thousand dollars?** That's the equipment alone. An installed price also covers the matched indoor unit, line set, pad, electrical, permit, a full day of labor, the safety inspection and haul-away. Ask any company to break it out for you.",
+          "**Read online that a new air conditioning unit only costs a few thousand dollars?** That's the equipment alone. An installed price also covers the matched indoor unit, line set, pad, electrical, permit, a full day of labor, the safety inspection and haul-away. Ask any company to break it out for you.",
           "Already have a quote? Bring it to your assessment and we'll go through it with you line by line, including what's included, what's missing and what your home actually needs.",
         ],
       },
@@ -430,14 +430,14 @@ export const coolingServices: ServicePage[] = [
   {
     slug: "ac-maintenance-in-las-vegas",
     category: "cooling",
-    name: "AC Maintenance & Tune-Ups",
+    name: "Air Conditioning Tune-Ups",
     title: "AC Tune-Up & Maintenance Las Vegas | Wave Heating & Cooling",
     description:
-      "Las Vegas AC tune-ups that prevent summer breakdowns, cut energy bills and extend system life. Most techs NATE-certified. Call (702) 881-4713.",
+      "Las Vegas AC tune-ups that prevent summer breakdowns, cut energy bills and extend system life. NATE-certified techs. Call (702) 881-4713.",
     h1: "AC Tune-Ups & Maintenance in Las Vegas",
     kicker: "Preventative maintenance",
     intro:
-      "Most mid-summer breakdowns we see could have been caught weeks earlier. A professional AC tune-up from Wave Heating & Cooling cleans, tests and adjusts your system before the heat arrives — so it runs efficiently, costs less to operate and keeps going when you need it most.",
+      "Most mid-summer breakdowns we see could have been caught weeks earlier. A professional air conditioning tune-up from Wave Heating & Cooling cleans, tests and adjusts your system before the heat arrives — so it runs efficiently, costs less to operate and keeps going when you need it most.",
     summary: "Seasonal tune-ups that catch problems early, lower your energy bill and help your system last longer.",
     img: "/images/work/condenser-inside-wide.jpg",
     icon: "gauge",
@@ -445,7 +445,7 @@ export const coolingServices: ServicePage[] = [
     highlights: ["Multi-point inspection", "Coil cleaning for desert dust", "Electrical & refrigerant checks", "Written report of findings"],
     sections: [
       {
-        h2: "What's Included in an AC Tune-Up",
+        h2: "What's Included in an Air Conditioning Tune-Up",
         kind: "included",
         list: [
           "Inspect and clean the condenser coil (desert dust is the #1 efficiency killer)",

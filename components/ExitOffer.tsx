@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ctaKey, ctas, type CtaKey } from "@/lib/ctas";
-import { closesLabel, opensLabel } from "@/lib/hours";
 import { ENGAGED_KEY, track } from "@/lib/track";
 import { BookNowLink } from "./Booking";
 import { CallLink, NoThanks } from "./Cta";
@@ -121,8 +120,7 @@ export function ExitOffer({ picks }: { picks: Record<string, string> }) {
         <span className="kicker">Before you go</span>
         <h2 id="exit-offer-title">{headings[pick]}</h2>
         <p>
-          Same-day service most of the time, {opensLabel}–{closesLabel} every day. Book online in about a minute, or
-          call us.
+          Same-day service, open 24/7 every day. Book online in about a minute, or call us.
         </p>
         <div className="exit-acts" onClickCapture={() => track("exit_offer_click", { offer: pick })}>
           <BookNowLink className="btn btn-red btn-lg" location="exit-offer" pick={pick}>

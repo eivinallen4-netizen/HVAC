@@ -22,10 +22,10 @@ export const site = {
   /** Google Business Profile listing */
   googleMapsUrl:
     "https://www.google.com/maps/place/Wave+Heating+%26+Cooling+LLC/@36.2379494,-115.2827569,17z/data=!4m6!3m5!1s0x80c8c120faee6b8d:0xc04b392b77dc6c59!8m2!3d36.2379451!4d-115.280182!16s%2Fg%2F11fph2r492",
-  /** Business hours, matching the Google Business Profile (6 AM–11 PM, 7 days). Not 24/7. */
-  hours: "Open 7 days a week, 6 AM – 11 PM",
-  /** Same hours for LocalBusiness schema (24-hour clock) */
-  openingHours: { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "06:00", closes: "23:00" },
+  /** Business hours: open 24/7, every day (owner-approved Nov 2026; keep the Google Business Profile in step). */
+  hours: "Open 7 days a week, 24/7",
+  /** Same hours for LocalBusiness schema (24-hour clock; 00:00–23:59 every day = open around the clock) */
+  openingHours: { days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "00:00", closes: "23:59" },
   googleReviewsUrl:
     "https://www.google.com/search?q=Wave+Heating+%26+Cooling+Las+Vegas+reviews",
   /** Yelp listing. Search link until Wave sends the exact listing URL. */
@@ -82,7 +82,19 @@ export const pages = {
   privacy: page("privacy-policy"),
   terms: page("terms"),
   thankYou: page("thank-you"),
+  brands: page("brands-we-service"),
   facebook: "https://www.facebook.com/waveheatingandcooling",
+};
+
+/**
+ * Social profiles. The footer shows an icon link only for the ones that are set.
+ * TODO: Wave to send the TikTok, YouTube and Instagram URLs once those accounts are posting.
+ */
+export const social: { facebook?: string; instagram?: string; tiktok?: string; youtube?: string } = {
+  facebook: pages.facebook,
+  instagram: undefined,
+  tiktok: undefined,
+  youtube: undefined,
 };
 
 export const serviceAreas = [
@@ -127,6 +139,8 @@ export const services: {
   title: string;
   text: string;
   img: string;
+  /** Describes the photo; leave out for decorative stock images */
+  alt?: string;
   icon: IconName;
   pick: string;
   /** Full service page */
@@ -134,9 +148,10 @@ export const services: {
   hot?: boolean;
 }[] = [
   {
-    title: "AC Repair",
-    text: "Warm air, strange noises, or an AC that won't kick on? We find the real problem and fix it right the first time.",
-    img: "/images/work/condenser-service.jpg",
+    title: "Air Conditioning Repair",
+    text: "Warm air, strange noises, or an air conditioner that won't kick on? We find the real problem and fix it right the first time.",
+    img: "/images/work/rooftop-ac-repair.jpg",
+    alt: "Wave technician testing a rooftop packaged air conditioning unit with refrigerant gauges, its service panel open",
     icon: "wrench",
     pick: "AC not cooling",
     href: page("hvac-repairs-in-las-vegas"),
@@ -177,7 +192,8 @@ export const services: {
   {
     title: "Ductwork & Indoor Air Quality",
     text: "Leaky or crushed ducts repaired and sealed, plus air quality solutions for cleaner air in a dusty climate.",
-    img: "/images/work/attic-ducts.jpg",
+    img: "/images/work/attic-air-handler-ductwork.jpg",
+    alt: "Attic air handler with a foil-lined supply plenum and new insulated flex ductwork",
     icon: "duct",
     pick: "Ductwork / indoor air quality",
     href: page("indoor-air-quality-las-vegas"),
@@ -187,6 +203,7 @@ export const services: {
 /** Real Google review excerpts from the client's current site */
 export const reviews = [
   { name: "Anthony Woo", text: "Very pleasant and professional, my guy got onto my 2 story roof in 100-degree weather.", color: "#2fa9cf" },
+  { name: "Tommy Sang Lee", text: "Oscar, our technician, came out to perform our AC’s annual maintenance. He’s honest and thorough in his inspection, providing excellent service. I’m glad he didn’t upsell or offer unnecessary services.", color: "#0f3946" },
   { name: "Daniel Galbraith", text: "Bogdan was very professional and was able to diagnose the issue make the necessary part replacement right away.", color: "#e2372b" },
   { name: "Kirsten Meador", text: "Family owned — very professional — very honest.", color: "#0f3946" },
   { name: "trygg", text: "Their pricing was competitive, and the installation was timely and professional.", color: "#d9541e" },
@@ -194,34 +211,67 @@ export const reviews = [
   { name: "Marco Lecumberri", text: "Being honest, it was a simple fix in the interior fan.", color: "#0f3946" },
 ];
 
+/** FAQ answers can hold several paragraphs: separate them with a blank line ("\n\n") */
+export const faqParagraphs = (a: string) =>
+  a
+    .split(/\n\s*\n/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+
+/** Brands Wave services and repairs (homepage FAQ answer and the /brands-we-service/ page) */
+export const brands = [
+  "Carrier",
+  "Trane",
+  "Lennox",
+  "Goodman",
+  "Amana",
+  "Daikin",
+  "Rheem",
+  "Ruud",
+  "York",
+  "American Standard",
+  "Bryant",
+  "Coleman",
+  "AC Pro",
+];
+
 export const faqs = [
+  {
+    q: "What types and brands of HVAC equipment do you service and repair?",
+    a: "We service and repair central air conditioners, gas furnaces, heat pumps, ductless mini-splits, and packaged rooftop units. We work with most major HVAC brands, including Carrier, Trane, Lennox, Goodman, Amana, Daikin, Rheem, Ruud, York, American Standard, Bryant, Coleman, and AC Pro. We provide professional diagnostics and reliable repairs throughout the Las Vegas Valley.",
+  },
   {
     q: "How do I book service or an estimate?",
     a: "Book online in about a minute — pick what's going on and choose a time that works for you. Or call us and we'll set it up.",
   },
   {
-    q: "Do you offer same-day service?",
-    a: `Most of the time, yes, depending on demand during heat waves. We put no-cooling calls first, and there's no after-hours, weekend or holiday surcharge. Call ${site.phone}.`,
+    q: "Do you offer same day and emergency HVAC service?",
+    a: `Yes! We offer same-day HVAC service, subject to availability, and prioritize homes without heating or cooling. No additional charges for after-hours, weekends, or holidays. Call ${site.phone} to schedule your service.`,
   },
   {
     q: "How much is a repair visit?",
-    a: "Repair visits start with an $89 diagnostic. On weekdays (Mon–Fri, 7am–6pm), if you approve the repair during the visit, the $89 is waived. Nights, weekends and holidays cost the same as weekdays. Our vans carry the most common parts, so many repairs are done on the first visit, and you get the price before any work starts.",
+    a: "Our diagnostic fee is $89 and is waived when you approve the repair during your visit, Monday–Friday, 7 AM–6 PM. We never charge extra for evenings, weekends, or holidays. Our fully stocked service vehicles allow us to complete many repairs on the first visit, with transparent, upfront pricing and no surprises.",
   },
   {
     q: "Are you licensed and insured?",
-    a: `Absolutely. Wave Heating & Cooling is licensed, bonded and insured in Nevada (license ${site.license}), and most of our techs are NATE-certified.`,
+    a: `Absolutely. Wave Heating & Cooling is licensed, bonded and insured in Nevada (license ${site.license}), and we are NATE certified.`,
   },
   {
     q: "Should I repair or replace my AC?",
-    a: "Most of the time, repair. If your system is under 15 years old and the repair is a common one like a capacitor, contactor or fan motor, fixing it is the better value. On a system over 15 years old, once a repair reaches about $2,000, or the compressor has burned out, replacing usually makes more sense. We'll give you honest advice either way.",
+    a: [
+      "Not every AC problem requires a new system. In many cases, a properly diagnosed repair is the most practical and cost-effective solution.",
+      "When recommending repair or replacement, we consider the age of your equipment, its overall condition, repair history, energy efficiency, and long-term reliability. In the demanding Las Vegas climate, we also understand how important it is to have a system you can depend on during extreme summer temperatures.",
+      "At Wave Heating & Cooling, we explain your options, provide transparent pricing, and help you understand the short-term and long-term value of each solution.",
+      "Our goal is not to sell you a new system. It's to help you make the right decision for your home, comfort, and budget.",
+    ].join("\n\n"),
   },
   {
     q: "How often should my HVAC system be serviced?",
-    a: "We recommend a tune-up twice a year — your AC in spring before the heat arrives and your heating in fall. In the Las Vegas climate, regular maintenance is the best way to prevent mid-summer breakdowns.",
+    a: "We recommend professional maintenance twice a year — cooling in the spring and heating in the fall. Regular maintenance helps improve energy efficiency, extend equipment lifespan, and reduce unexpected breakdowns. Our Wave Club maintenance plan makes it easy to keep your system running reliably year-round.",
   },
   {
     q: "What areas do you serve?",
-    a: `The whole Las Vegas valley, including ${serviceAreas.slice(0, 9).join(", ")} and more.`,
+    a: `The whole Las Vegas valley, including ${serviceAreas.slice(0, 9).join(", ")} and more. We provide professional heating and air conditioning repair, maintenance, and installation services.`,
   },
 ];
 
@@ -229,27 +279,27 @@ export const faqs = [
 export const replacementFaqs = [
   {
     q: "Will you try to sell me a new system I don't need?",
-    a: "No. We diagnose first and show you what we find. If a repair will get you more good years, we'll tell you and fix it. If replacement makes more sense, we'll show you the numbers, and the decision is always yours.",
+    a: "Absolutely not. We diagnose first, explain our findings, and recommend what's best for your home and budget. If a repair is a reliable solution, we'll recommend it. If replacement offers better long-term value, we'll explain why. No unnecessary upselling, no sales pressure. The decision is always yours.",
   },
   {
     q: "I already have a quote. Can you look at it?",
-    a: "Yes. Bring it to your assessment and we'll go through it with you line by line: what's included, what's missing, and how it compares with what your home actually needs.",
+    a: "Absolutely! We'll help you compare estimates apples to apples, including equipment specifications, installation scope, warranties, and overall value. Our goal is to help you make an informed decision with confidence, without any sales pressure.",
   },
   {
     q: "Why do AC replacement quotes in Las Vegas vary so much?",
-    a: "Because they don't always include the same things. The equipment is only part of the price. A full installed price also covers the matched indoor unit, pad, electrical, permit, a full day of labor, the safety inspection and haul-away. Some quotes leave pieces out, so always ask for everything in writing.",
+    a: "Not all AC replacement quotes include the same equipment, materials, installation standards, permits, or warranty coverage. A quality installation is just as important as the equipment itself. At Wave Heating & Cooling, we provide detailed, transparent estimates so you know exactly what you're paying for and can compare true long-term value, not just the initial price.",
   },
   {
     q: "Do you pull permits?",
-    a: "Yes, on every replacement. The county inspects the install, not just us, and we handle all the paperwork.",
+    a: "Yes! We obtain all required permits, handle the paperwork, and coordinate inspections with the local building department to ensure your HVAC installation meets applicable building codes and safety standards.",
   },
   {
     q: "Do you replace the whole system or just one unit?",
-    a: "Usually the whole system, indoor and outdoor, so every part is matched. We can replace just one unit when the new part matches your system's refrigerant and the equipment is available. Refrigerants have changed (R-22, then R-410A, now R-32 and R-454B), so we check that at your visit before we quote it.",
+    a: "We offer both options, depending on your equipment's age, condition, compatibility, and refrigerant type. While a properly matched complete system often provides better efficiency, reliability, and long-term value, a partial replacement may be a practical solution. We'll evaluate your existing equipment and recommend what's best for your home and budget.",
   },
   {
     q: "How does the warranty work?",
-    a: "Wave Heating & Cooling registers your new equipment with the manufacturer on your behalf, and we handle all the paperwork, so your warranty is in place without you filling out a single form.",
+    a: "Warranty coverage varies depending on the equipment and installation package selected. We clearly explain your manufacturer's parts warranty and labor warranty, handle equipment registration on your behalf, and assist you with warranty-related service when needed. Our commitment to your comfort continues long after installation.",
   },
   {
     q: "Can you give me a price over the phone?",

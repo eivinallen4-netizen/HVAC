@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { CtaBand, ToolCards } from "@/components/page/Cards";
 import { PageHero } from "@/components/page/PageHero";
 import { RecentWork } from "@/components/RecentWork";
@@ -12,9 +11,21 @@ import { site } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "About Wave Heating & Cooling | Family-Owned Las Vegas HVAC",
   description:
-    "Wave Heating & Cooling is a family-owned and operated Las Vegas HVAC company where most techs are NATE-certified, with honest pricing and same-day service. Meet the team.",
+    "Family-owned Las Vegas heating and air conditioning company, founded in 2019 by Bogdan & Raluca. NATE-certified, honest pricing, same-day service 24/7.",
   path: "/about-us/",
 });
+
+/** "Our Story", in the owners' own words */
+const story = [
+  "Wave Heating & Cooling was founded in 2019, after ten years of experience in the HVAC industry. I started this company because I believed there was a better way to serve homeowners — one where technical expertise, honest recommendations, and quality workmanship come before sales targets.",
+  "I understand that sales are necessary for any business to grow and succeed. But I also believe that success should come from earning customers' trust, not from selling them something they don't need. I wanted to build a company where I could take pride in my profession, support my family, and do what I genuinely enjoy: solving problems and helping people.",
+  "Two years into our journey, my wife, Raluca, joined the business to manage our office operations and customer communications. Together, we have built Wave Heating & Cooling around the values we live by — honesty, attention to detail, hard work, and personal accountability.",
+  "What makes us most proud isn't how many systems we've installed or how many service calls we've completed. It's the customers who have stayed with us throughout the years. Whether we performed a simple repair or replaced their entire HVAC system, they continue to trust us with their homes. To us, that is the true measure of success.",
+  "Our vision is not to become the biggest HVAC company in Las Vegas, but to build a company that never loses its personal touch. A company where our employees are valued, fairly rewarded, and proud of their work. A company where the owner remains involved in the field and every customer receives the attention they deserve.",
+  "Today, we proudly provide heating and air conditioning repair, maintenance, and installation services throughout Las Vegas, Henderson, North Las Vegas, and the surrounding communities.",
+  "At Wave Heating & Cooling, we treat your home as if it were our own. We are meticulous in our work, honest in our recommendations, and determined to find the right solution.",
+  "We believe that when you take care of your people and your customers, you build a business worth believing in.",
+];
 
 export default function AboutPage() {
   return (
@@ -35,21 +46,14 @@ export default function AboutPage() {
         <div className="wrap story">
           <div className="story-copy" data-reveal>
             <h2>Our Story</h2>
-            <p>
-              Wave Heating &amp; Cooling was built on a simple idea: Las Vegas homeowners deserve an HVAC company that tells them the
-              truth. No scare tactics, no pushing a new system when a repair will do, and no disappearing after the install.
-            </p>
-            <p>
-              As a family-owned business, we don&apos;t carry corporate overhead or franchise fees — so we can offer competitive,
-              honest pricing while paying for the best-trained technicians in the valley. Most of our techs are NATE-certified, our employee
-              turnover is low, and many of our customers have been with us since day one.
-            </p>
-            <p>
-              We provide heating and cooling services in Las Vegas, Henderson, North Las Vegas and the surrounding communities:{" "}
-              <Link href="/hvac-repairs-in-las-vegas/">repairs</Link>, <Link href="/hvac-maintenance-las-vegas/">maintenance</Link>{" "}
-              and <Link href="/ac-installations-in-las-vegas/">new system installations</Link> for any size home. And because the
-              desert heat doesn&apos;t wait, we offer same-day service most of the time.
-            </p>
+            <p className="story-lead">Built with purpose. Driven by integrity. Committed to doing things right.</p>
+            {story.map((para) => (
+              <p key={para.slice(0, 24)}>{para}</p>
+            ))}
+            <div className="story-sign">
+              <p className="story-names">Bogdan &amp; Raluca</p>
+              <p className="story-role">Founders &amp; Owners | Wave Heating &amp; Cooling</p>
+            </div>
             <h3>Payment options</h3>
             <ul className="pay-badges">
               {paymentMethods.map((m) => (

@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 export const metadata = buildMetadata({
   title: "Contact Wave Heating & Cooling | Las Vegas HVAC | (702) 881-4713",
   description:
-    "Contact Wave Heating & Cooling for AC repair, heating, installs or an estimate. Call or text (702) 881-4713 or book online. Same-day visits most of the time.",
+    "Contact Wave Heating & Cooling for AC repair, heating, installs or an estimate. Call or text (702) 881-4713 or book online. Same-day visits, open 24/7.",
   path: "/contact/",
 });
 
@@ -42,7 +42,7 @@ export default function ContactPage() {
                 </span>
                 <div>
                   <h3>Call or text</h3>
-                  <p>Same-day visits most of the time</p>
+                  <p>Same-day visits, 24/7</p>
                 </div>
                 <CallLink className="cl-phone" location="contact-page" icon={false} />
               </li>

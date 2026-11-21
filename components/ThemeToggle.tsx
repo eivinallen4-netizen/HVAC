@@ -1,28 +1,47 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { THEME_KEY } from "@/lib/theme";
 import { Icon } from "./Icon";
 
 type Theme = "light" | "dark";
 
 const systemTheme = (): Theme => (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
 
-/** Light/dark switch. Follows the device setting until the visitor picks one, then remembers it. */
+const readChoice = (): Theme | null => {
+  try {
+    const t = localStorage.getItem(THEME_KEY);
+    return t === "light" || t === "dark" ? t : null;
+  } catch {
+    return null;
+  }
+};
+const saveChoice = (t: Theme | null) => {
+  try {
+    if (t) localStorage.setItem(THEME_KEY, t);
+    else localStorage.removeItem(THEME_KEY);
+  } catch {}
+};
+
+/**
+ * Light/dark switch. By default the site follows the device setting (prefers-color-scheme).
+ * Tapping the switch overrides it and the choice is remembered; when the device setting itself
+ * changes (e.g. auto dark at sunset) the site follows the device again.
+ */
 export function ThemeToggle() {
   const [theme, setTheme] = useState<Theme | null>(null);
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
     const apply = (t: Theme) => {
       document.documentElement.dataset.theme = t;
       setTheme(t);
     };
-    apply(saved === "light" || saved === "dark" ? saved : systemTheme());
+    apply(readChoice() ?? systemTheme());
 
-    // keep following the phone's setting (e.g. auto dark at sunset) unless the visitor chose
     const mq = window.matchMedia("(prefers-color-scheme: light)");
     const onChange = () => {
-      if (!localStorage.getItem("theme")) apply(systemTheme());
+      saveChoice(null);
+      apply(systemTheme());
     };
     mq.addEventListener("change", onChange);
     return () => mq.removeEventListener("change", onChange);
@@ -30,9 +49,8 @@ export function ThemeToggle() {
 
   const toggle = () => {
     const next: Theme = (theme ?? systemTheme()) === "dark" ? "light" : "dark";
-    // picking the same thing the phone uses goes back to "follow the phone"
-    if (next === systemTheme()) localStorage.removeItem("theme");
-    else localStorage.setItem("theme", next);
+    // picking the same thing the device uses goes back to "follow the device"
+    saveChoice(next === systemTheme() ? null : next);
     document.documentElement.dataset.theme = next;
     setTheme(next);
   };

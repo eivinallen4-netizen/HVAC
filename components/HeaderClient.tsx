@@ -44,9 +44,7 @@ export function HeaderClient({ menus }: { menus: NavMenu[] }) {
       <div className="wrap hdr">
         <Link className="logo" href="/" aria-label={`${site.name} home`}>
           <Image src="/images/logo-light.png" alt={site.name} width={190} height={57} priority className="logo-on-dark" />
-          <Image src="/images/logo-dark.png" alt="" width={190} height={57} priority className="logo-on-light" />
-          <span className="logo-lic">NV license {site.license}</span>
-        </Link>
+          <Image src="/images/logo-dark.png" alt="" width={190} height={57} priority className="logo-on-light" />        </Link>
 
         <nav className="main-nav" aria-label="Main">
           {menus.map((m) =>

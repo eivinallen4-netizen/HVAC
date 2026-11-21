@@ -43,7 +43,7 @@ export default async function AreaPage({ params }: Props) {
         kicker={`Serving ${a.full}`}
         h1={a.h1}
         intro={a.intro}
-        highlights={["Family-owned & local", "Most techs NATE-certified", "Same-day service", "Upfront, written pricing"]}
+        highlights={["Family-owned & local", "NATE-certified techs", "Same-day service", "Upfront, written pricing"]}
       />
       <TrustBar />
 

@@ -107,7 +107,7 @@ export function RepairOrReplace() {
         <SecHead
           kicker="Repair or replace?"
           title="Repair or replace? We'll tell you honestly"
-          lead="Las Vegas summers push an AC harder than almost anywhere, so systems here wear out sooner. Here are the 5 signs yours is done."
+          lead="Las Vegas summers push an air conditioner harder than almost anywhere, so systems here wear out sooner. Here are the 5 signs yours is done."
         />
         <div data-reveal>
           <SignsCheck
@@ -369,8 +369,8 @@ export function CompareQuotes() {
         <SecHead
           variant="split"
           kicker="Comparing quotes?"
-          title="What Goes Into the Price of a New AC System"
-          lead="Quotes for a new AC in Las Vegas can vary a lot. Here's what changes the price, and what to check before you compare."
+          title="What Goes Into the Price of a New Air Conditioning System"
+          lead="Quotes for a new air conditioner in Las Vegas can vary a lot. Here's what changes the price, and what to check before you compare."
         />
         <div className="cmp2">
           <div className="receipt paper" data-reveal>
@@ -388,7 +388,7 @@ export function CompareQuotes() {
             <p className="rcpt-foot">
               <Icon name="question" size={18} />
               <span>
-                <b>Read online that a new AC unit only costs a few thousand dollars?</b> That&apos;s the equipment alone. An
+                <b>Read online that a new air conditioning unit only costs a few thousand dollars?</b> That&apos;s the equipment alone. An
                 installed price also covers the matched indoor unit, line set, pad, electrical, permit, a full day of
                 labor, the safety inspection and haul-away. Ask any company to break it out for you.
               </span>

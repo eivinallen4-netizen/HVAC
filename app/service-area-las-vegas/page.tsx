@@ -44,7 +44,7 @@ export default function ServiceAreaHub() {
         crumbs={[{ name: "Service Areas", path }]}
         kicker="Valley-wide coverage"
         h1="HVAC Service Across the Las Vegas Valley"
-        intro="From Centennial Hills to Inspirada, Wave Heating & Cooling provides same-day AC repair, heating service, new system installations and maintenance to homes throughout Southern Nevada."
+        intro="From Centennial Hills to Inspirada, Wave Heating & Cooling provides same-day air conditioning repair, heating service, new system installations and maintenance to homes throughout Southern Nevada."
         highlights={["Las Vegas, Henderson & North Las Vegas", "Headquartered in northwest Las Vegas", "Same-day service", "No extra trip charge across the valley"]}
         img="/images/valley-night.jpg"
       />
@@ -92,12 +92,12 @@ export default function ServiceAreaHub() {
               nights drop toward freezing, and the heating system that sat idle for eight months has to start on the first try.
             </p>
             <p>
-              Our technicians, most of them NATE-certified, work on Las Vegas homes every day — from 1970s ranch homes near downtown to brand-new
+              Our NATE-certified technicians work on Las Vegas homes every day — from 1970s ranch homes near downtown to brand-new
               two-story builds in the southwest. We know which parts fail first in the heat, how to size systems for 115° days and
               how to fix hot upstairs rooms without replacing everything.
             </p>
             <p>
-              Need help now? Our <Link href="/emergency-ac-repair-las-vegas/">emergency AC repair</Link> team can usually get
+              Need help now? Our <Link href="/emergency-ac-repair-las-vegas/">emergency air conditioning repair</Link> team can usually get
               a tech out the same day. Planning ahead? Get a <Link href="/ac-replacement-in-las-vegas/">replacement estimate</Link> or book{" "}
               <Link href="/hvac-maintenance-las-vegas/">HVAC maintenance</Link> — a tune-up in spring and another in fall.
             </p>

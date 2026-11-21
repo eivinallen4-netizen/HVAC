@@ -33,7 +33,7 @@ export default function Home() {
       <Services
         kicker="Repairs, every day"
         title="What we fix across Las Vegas"
-        lead="AC, heating, ductless and ductwork. Same team, same upfront pricing, same-day most of the time."
+        lead="Air conditioning, heating, ductless and ductwork. Same team, same upfront pricing, same-day."
         alt
       />
       {/* Before/after sliders of real Wave jobs */}

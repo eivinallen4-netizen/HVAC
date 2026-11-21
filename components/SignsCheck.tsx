@@ -6,6 +6,9 @@ import { Icon } from "./Icon";
 
 type Sign = { icon?: IconName; t: string; d: string };
 
+/** The "over 15 years" switch counts as this share of the threshold: 1.15 puts the needle just past the middle */
+const AGE_WEIGHT = 1.15;
+
 /** Row content shared by the interactive and list modes */
 function Row({ s, i }: { s: Sign; i: number }) {
   return (
@@ -67,8 +70,9 @@ export function SignsCheck({
 
   const count = checked.filter(Boolean).length;
   const ready = count >= threshold || old;
-  // gauge: each sign is one notch, the age switch counts as two; full at threshold * 2
-  const level = Math.min(1, (count + (old ? threshold : 0)) / (threshold * 2));
+  // gauge: each sign is one notch; the age switch alone puts the needle a little past halfway
+  // (AGE_WEIGHT of the threshold), so it reads as "leaning replace". Full at threshold * 2.
+  const level = Math.min(1, (count + (old ? threshold * AGE_WEIGHT : 0)) / (threshold * 2));
   const angle = -90 + level * 180;
 
   return (

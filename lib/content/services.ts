@@ -25,7 +25,7 @@ export const hubPages: HubPage[] = [
     h1: "Heating & Cooling Services in Las Vegas",
     kicker: "Everything HVAC",
     intro:
-      "From a same-day AC repair to a whole-home system upgrade, Wave Heating & Cooling handles every part of your home's comfort. Family-owned, with most techs NATE-certified and same-day service most of the time.",
+      "From a same-day air conditioning repair to a whole-home system upgrade, Wave Heating & Cooling handles every part of your home's comfort. Family-owned, with NATE-certified techs and same-day service.",
     img: "/images/hero.jpg",
     sections: [
       {
@@ -43,7 +43,7 @@ export const hubPages: HubPage[] = [
       },
       {
         q: "Are you licensed and insured?",
-        a: "Yes. Wave Heating & Cooling is licensed, bonded and insured in Nevada (license #0086052), and most of our techs are NATE-certified.",
+        a: "Yes. Wave Heating & Cooling is licensed, bonded and insured in Nevada (license #0086052), and we are NATE certified.",
       },
     ],
   },
@@ -53,7 +53,7 @@ export const hubPages: HubPage[] = [
     name: "Cooling Services",
     title: "AC Services Las Vegas | Repair, Install & Tune-Ups | Wave",
     description:
-      "Las Vegas air conditioning services: same-day AC repair, new installations, replacements and tune-ups from a family-owned team where most techs are NATE-certified.",
+      "Las Vegas air conditioning services: same-day AC repair, new installations, replacements and tune-ups from a family-owned, NATE-certified team.",
     h1: "Air Conditioning Services in Las Vegas",
     kicker: "Cooling services",
     intro:
@@ -89,7 +89,7 @@ export const hubPages: HubPage[] = [
     h1: "Heating Services in Las Vegas",
     kicker: "Heating services",
     intro:
-      "Desert winter nights can drop near freezing. Wave Heating & Cooling keeps your furnace or heat pump safe, efficient and ready — with repairs, installations, replacements and fall tune-ups from a team where most techs are NATE-certified.",
+      "Desert winter nights can drop near freezing. Wave Heating & Cooling keeps your furnace or heat pump safe, efficient and ready — with repairs, installations, replacements and fall tune-ups from a NATE-certified team.",
     img: "/images/work/furnace-garage-wide.jpg",
     sections: [
       {

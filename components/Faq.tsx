@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { faqs } from "@/lib/site";
+import { faqParagraphs, faqs } from "@/lib/site";
 import { Icon } from "./Icon";
 
 export function FaqList({ items = faqs }: { items?: { q: string; a: string }[] }) {
@@ -20,7 +20,9 @@ export function FaqList({ items = faqs }: { items?: { q: string; a: string }[] }
             </button>
             <div className="faq-a">
               <div>
-                <p>{f.a}</p>
+                {faqParagraphs(f.a).map((p) => (
+                  <p key={p}>{p}</p>
+                ))}
               </div>
             </div>
           </div>

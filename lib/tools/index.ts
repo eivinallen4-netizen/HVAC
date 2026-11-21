@@ -19,7 +19,7 @@ export const tools: ToolMeta[] = [
   {
     slug: "repair-or-replace-calculator",
     name: "Repair or Replace Calculator",
-    short: "Should you fix your AC or replace it? Get an honest recommendation in 60 seconds.",
+    short: "Should you fix your air conditioner or replace it? Get an honest recommendation in 60 seconds.",
     title: "AC Repair or Replace Calculator | Wave Heating & Cooling",
     description:
       "Should you repair or replace your AC? Answer 6 quick questions and get an honest recommendation based on age, repair cost and refrigerant, using the same rule our technicians use.",
